@@ -1,0 +1,1135 @@
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: owned
+Function name: sendToWinner_unchk44()
+PC address: 1081
+Estimated Gas Usage: 7685 - 62956
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:152
+
+winner_unchk44.send(winAmount_unchk44)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x69405628630f6ff6, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: onlyOwnerTransferOwnership(address), txdata: 0xc5d9a28fd9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9, value: 0x0
+Caller: [CREATOR], function: sendToWinner_unchk44(), txdata: 0x294e1b8e, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: owned
+Function name: bug_unchk3(address)
+PC address: 1693
+Estimated Gas Usage: 1038 - 35319
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:174
+
+addr.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x47300bc02a2092504, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: onlyOwnerTransferOwnership(address), txdata: 0xc5d9a28fd9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9, value: 0x0
+Caller: [SOMEGUY], function: bug_unchk3(address), txdata: 0xacd2552dd2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: owned
+Function name: bug_unchk3(address)
+PC address: 1693
+Estimated Gas Usage: 1038 - 35319
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:174
+
+addr.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42100040500000683, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x26003020061010004, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk3(address), txdata: 0xacd2552defefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: owned
+Function name: my_func_unchk11(address)
+PC address: 1913
+Estimated Gas Usage: 1012 - 35293
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:137
+
+dst.send(msg.value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: onlyOwnerTransferOwnership(address), txdata: 0xc5d9a28fd9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9d9, value: 0x0
+Caller: [ATTACKER], function: my_func_unchk11(address), txdata: 0xc7b3ccc8b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: owned
+Function name: my_func_unchk11(address)
+PC address: 1913
+Estimated Gas Usage: 1012 - 35293
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:137
+
+dst.send(msg.value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1010800000e001e, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4bf212604015a2800, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_unchk3(address), txdata: 0xacd2552ddededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+Caller: [ATTACKER], function: my_func_unchk11(address), txdata: 0xc7b3ccc8efefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: bug_unchk42()
+PC address: 8672
+Estimated Gas Usage: 1063 - 35344
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:209
+
+addr_unchk42.send(42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: bug_unchk42(), txdata: 0x0e9a7a38, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: UncheckedExternalCall_unchk40()
+PC address: 8796
+Estimated Gas Usage: 1088 - 35369
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:237
+
+addr_unchk40.send (2 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: UncheckedExternalCall_unchk40(), txdata: 0x216ea3a2, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: withdrawBal_unchk41()
+PC address: 8877
+Estimated Gas Usage: 1100 - 35381
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:204
+
+msg.sender.send(Balances_unchk41)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: withdrawBal_unchk41(), txdata: 0x240987ad, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: unhandledsend_unchk14(address)
+PC address: 8942
+Estimated Gas Usage: 1084 - 35365
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:417
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: unhandledsend_unchk14(address), txdata: 0x24ebdd34ebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebeb, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: BitpayerDEX
+Function name: unhandledsend_unchk14(address)
+PC address: 8942
+Estimated Gas Usage: 1084 - 35365
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:417
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c0502080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x120001408620bfef8, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: unhandledsend_unchk14(address), txdata: 0x24ebdd34efefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: sendToWinner_unchk20()
+PC address: 10131
+Estimated Gas Usage: 7797 - 63068
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:327
+
+winner_unchk20.send(winAmount_unchk20)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: sendToWinner_unchk20(), txdata: 0x279265d2, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: sendToWinner_unchk44()
+PC address: 10276
+Estimated Gas Usage: 7819 - 63090
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:152
+
+winner_unchk44.send(winAmount_unchk44)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: sendToWinner_unchk44(), txdata: 0x294e1b8e, value: 0x0
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Medium
+Contract: BitpayerDEX
+Function name: depositToken(address,uint256)
+PC address: 11805
+Estimated Gas Usage: 9535 - 66439
+A call to a user-supplied address is executed.
+The callee address of an external message call can be set by the caller. Note that the callee can contain arbitrary code and may re-enter any function in this contract. Review the business logic carefully to prevent averse effects on the contract state.
+--------------------
+In file: buggy_35.sol:400
+
+ERC20Essential(token).transferFrom(msg.sender, address(this), amount)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: depositToken(address,uint256), txdata: 0x338b5dea000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef8020010102010000000002000000000000000000000000000030806000008000, value: 0x0
+
+==== State change after external call ====
+SWC ID: 107
+Severity: Medium
+Contract: BitpayerDEX
+Function name: depositToken(address,uint256)
+PC address: 12140
+Estimated Gas Usage: 9535 - 66439
+Persistent state write after call
+The contract account state is changed after an external call to a user defined address. Consider that the called contract could re-enter the function before this state change takes place
+--------------------
+In file: buggy_35.sol:401
+
+tokens[token][msg.sender] = tokens[token][msg.sender].add(amount)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2000000100040401, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: depositToken(address,uint256), txdata: 0x338b5dea000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef80000000000000000000000000000000304162010a8000f05d00030032038095, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: my_func_unchk23(address)
+PC address: 12495
+Estimated Gas Usage: 1059 - 35340
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:405
+
+dst.send(msg.value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x42000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: my_func_unchk23(address), txdata: 0x3e153b711515151515151515151515151515151515151515151515151515151515151515, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: cash_unchk46(uint256,uint256,address)
+PC address: 12613
+Estimated Gas Usage: 1213 - 35494
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:366
+
+winner_unchk46.send(subpot_unchk46)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x80002001010, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x20000000102000082, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: cash_unchk46(uint256,uint256,address), txdata: 0x434fa4aa4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f4f, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: BitpayerDEX
+Function name: cash_unchk46(uint256,uint256,address)
+PC address: 12613
+Estimated Gas Usage: 1213 - 35494
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:366
+
+winner_unchk46.send(subpot_unchk46)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x400410805420a8001, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x423c7522d630effff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: cash_unchk46(uint256,uint256,address), txdata: 0x434fa4aabebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebebedeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Medium
+Contract: BitpayerDEX
+Function name: my_func_uncheck36(address)
+PC address: 12916
+Estimated Gas Usage: 1156 - 35437
+A call to a user-supplied address is executed.
+The callee address of an external message call can be set by the caller. Note that the callee can contain arbitrary code and may re-enter any function in this contract. Review the business logic carefully to prevent averse effects on the contract state.
+--------------------
+In file: buggy_35.sol:483
+
+dst.call.value(msg.value)("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x56bc75e2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: my_func_uncheck36(address), txdata: 0x550c16d4efefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: my_func_uncheck36(address)
+PC address: 12916
+Estimated Gas Usage: 1229 - 35793
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:483
+
+dst.call.value(msg.value)("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x44000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: my_func_uncheck36(address), txdata: 0x550c16d40c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c, value: 0x0
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Medium
+Contract: BitpayerDEX
+Function name: my_func_uncheck48(address)
+PC address: 13021
+Estimated Gas Usage: 1178 - 35459
+A call to a user-supplied address is executed.
+The callee address of an external message call can be set by the caller. Note that the callee can contain arbitrary code and may re-enter any function in this contract. Review the business logic carefully to prevent averse effects on the contract state.
+--------------------
+In file: buggy_35.sol:227
+
+dst.call.value(msg.value)("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x56bc75e2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: my_func_uncheck48(address), txdata: 0x55390eb3efefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: my_func_uncheck48(address)
+PC address: 13021
+Estimated Gas Usage: 1251 - 35815
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:227
+
+dst.call.value(msg.value)("")
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: my_func_uncheck48(address), txdata: 0x55390eb33939393939393939393939393939393939393939393939393939393939393939, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: bug_unchk39(address)
+PC address: 13145
+Estimated Gas Usage: 1127 - 35408
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:472
+
+addr.send (4 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000040010002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x40000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_unchk39(address), txdata: 0x58dbb19cdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdbdb, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: BitpayerDEX
+Function name: bug_unchk39(address)
+PC address: 13145
+Estimated Gas Usage: 1127 - 35408
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:472
+
+addr.send (4 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x40001040142000000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x69005e0141030000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk39(address), txdata: 0x58dbb19cefefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: bug_unchk27(address)
+PC address: 14118
+Estimated Gas Usage: 1106 - 35387
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:253
+
+addr.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x40000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_unchk27(address), txdata: 0x7bf98cbff9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9f9, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: BitpayerDEX
+Function name: bug_unchk27(address)
+PC address: 14118
+Estimated Gas Usage: 1106 - 35387
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:253
+
+addr.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42100000402000000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x248c000000102b820, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk27(address), txdata: 0x7bf98cbfefefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: withdrawBal_unchk17()
+PC address: 14193
+Estimated Gas Usage: 1078 - 35359
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:232
+
+msg.sender.send(Balances_unchk17)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: withdrawBal_unchk17(), txdata: 0x86d0a009, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: my_func_unchk35(address)
+PC address: 14250
+Estimated Gas Usage: 1058 - 35339
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:505
+
+dst.send(msg.value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x143b802d214000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: my_func_unchk35(address), txdata: 0x8bd3d0d7d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3d3, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: sendToWinner_unchk8()
+PC address: 14510
+Estimated Gas Usage: 7818 - 63089
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:443
+
+winner_unchk8.send(winAmount_unchk8)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: sendToWinner_unchk8(), txdata: 0x994c3bfd, value: 0x0
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Medium
+Contract: BitpayerDEX
+Function name: withdrawToken(address,uint256)
+PC address: 15368
+Estimated Gas Usage: 10487 - 68006
+A call to a user-supplied address is executed.
+The callee address of an external message call can be set by the caller. Note that the callee can contain arbitrary code and may re-enter any function in this contract. Review the business logic carefully to prevent averse effects on the contract state.
+--------------------
+In file: buggy_35.sol:413
+
+ERC20Essential(token).transfer(msg.sender, amount)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdrawToken(address,uint256), txdata: 0x9e281a98000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef0000000000000000000000000000000000000000000000000000000000000000, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: bug_unchk30()
+PC address: 15788
+Estimated Gas Usage: 1062 - 35343
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:426
+
+addr_unchk30.send(42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: bug_unchk30(), txdata: 0x9e5d7729, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: bug_unchk3(address)
+PC address: 15899
+Estimated Gas Usage: 1082 - 35363
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:174
+
+addr.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x40001000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_unchk3(address), txdata: 0xacd2552dd2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: BitpayerDEX
+Function name: bug_unchk3(address)
+PC address: 15899
+Estimated Gas Usage: 1082 - 35363
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:174
+
+addr.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42100040402000000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x40000000122001100, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk3(address), txdata: 0xacd2552defefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: unhandledsend_unchk26(address)
+PC address: 16055
+Estimated Gas Usage: 1170 - 35451
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:308
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x49c3920461040001, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: unhandledsend_unchk26(address), txdata: 0xbe11fe6b1111111111111111111111111111111111111111111111111111111111111111, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: BitpayerDEX
+Function name: unhandledsend_unchk26(address)
+PC address: 16055
+Estimated Gas Usage: 1170 - 35451
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:308
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420800c0502080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x169c35e29630ff37f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: unhandledsend_unchk26(address), txdata: 0xbe11fe6bbebebebebebebebebebebebedeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: my_func_unchk11(address)
+PC address: 16288
+Estimated Gas Usage: 1102 - 35383
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:137
+
+dst.send(msg.value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x41800, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: my_func_unchk11(address), txdata: 0xc7b3ccc8b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: unhandledsend_unchk38(address)
+PC address: 16519
+Estimated Gas Usage: 1082 - 35363
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:350
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x14000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: unhandledsend_unchk38(address), txdata: 0xcf43199b4343434343434343434343434343434343434343434343434343434343434343, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: BitpayerDEX
+Function name: unhandledsend_unchk38(address)
+PC address: 16519
+Estimated Gas Usage: 1082 - 35363
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:350
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420800c0502088000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x16bc75e25630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: unhandledsend_unchk38(address), txdata: 0xcf43199befefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: UncheckedExternalCall_unchk4()
+PC address: 17393
+Estimated Gas Usage: 1042 - 35323
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:376
+
+addr_unchk4.send (42 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: UncheckedExternalCall_unchk4(), txdata: 0xeb46deb8, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: unhandledsend_unchk2(address)
+PC address: 17574
+Estimated Gas Usage: 1170 - 35451
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:216
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1000000001020, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x40004060000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: unhandledsend_unchk2(address), txdata: 0xf0808d1e8080808080808080808080808080808080808080808080808080808080808080, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: BitpayerDEX
+Function name: unhandledsend_unchk2(address)
+PC address: 17574
+Estimated Gas Usage: 1170 - 35451
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_35.sol:216
+
+callee.send(5 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420800c0542082000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x16bc7562d4303ddfd, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: unhandledsend_unchk2(address), txdata: 0xf0808d1eefefefefefefefefefefefefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef, value: 0x0
+
+==== Unchecked Call Return Value ====
+SWC ID: 104
+Severity: Low
+Contract: BitpayerDEX
+Function name: sendToWinner_unchk32()
+PC address: 17693
+Estimated Gas Usage: 7750 - 63021
+The return value of a message call is not checked.
+External calls return a boolean value. If the callee contract halts with an exception, 'false' is returned and execution continues in the caller. It is usually recommended to wrap external calls into a require statement to prevent unexpected states.
+--------------------
+In file: buggy_35.sol:341
+
+winner_unchk32.send(winAmount_unchk32)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: sendToWinner_unchk32(), txdata: 0xf5fbd77c, value: 0x0
+
+==== Exception State ====
+SWC ID: 110
+Severity: Low
+Contract: BitpayerDEX
+Function name: availableVolume(address,uint256,address,uint256,uint256,uint256,address,uint8,bytes32,bytes32)
+PC address: 19193
+Estimated Gas Usage: 6491 - 44504
+A reachable exception has been detected.
+It is possible to trigger an exception (opcode 0xfe). Exceptions can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. Note that explicit `assert()` should only be used to check invariants. Use `require()` for regular input checking.
+--------------------
+In file: buggy_35.sol:493
+
+tokens[tokenGive][user].mul(amountGet) / amountGive
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: availableVolume(address,uint256,address,uint256,uint256,uint256,address,uint8,bytes32,bytes32), txdata: 0xfb6e155f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002004020402000000000000000200000000000204010000000000000000000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, value: 0x0
+
+==== Jump to an arbitrary instruction ====
+SWC ID: 127
+Severity: Medium
+Contract: BitpayerDEX
+Function name: testTrade(address,uint256,address,uint256,uint256,uint256,address,uint8,bytes32,bytes32,uint256,address)
+PC address: 19430
+Estimated Gas Usage: 7880 - 46653
+The caller can jump to any point in the code.
+This can lead to unintended consequences.Please avoid using low level code as much as possible
+--------------------
+In file: buggy_35.sol:486
+
+function availableVolume(address tokenGet, uint amountGet, address tokenGive, uint amountGive, uint expires, uint nonce, address user, uint8 v, bytes32 r, bytes32 s) public view returns(uint) {
+    bytes32 hash = keccak256(abi.encodePacked(this, tokenGet, amountGet, tokenGive, amountGive, expires, nonce));
+    uint available1;
+    if (!(
+      (orders[user][hash] || ecrecover(keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", hash)),v,r,s) == user) &&
+      block.number <= expires
+    )) return 0;
+    available1 = tokens[tokenGive][user].mul(amountGet) / amountGive;
+    
+    if (amountGet.sub(orderFills[user][hash])<available1) return amountGet.sub(orderFills[user][hash]);
+    return available1;
+    
+  }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0xc0100083812, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x10, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4000000000000000c, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: testTrade(address,uint256,address,uint256,uint256,uint256,address,uint8,bytes32,bytes32,uint256,address), txdata: 0x6c86888b000000000000000000000000000000000000000000000000010200800004000101100000400820002001000001000002000000000000000100000401010480080000000000000000000000000080000000000000000000000000000000000000000000001040000000020040000000000000000000000000000000000000000000020000000200004000000000020001000000010000002000000000201040000400000000010000040000000000000202000004000000000200000000000000000000000000000000000000000801010101010101010102010108010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001401001021002804001000104000000, value: 0x0
+
+

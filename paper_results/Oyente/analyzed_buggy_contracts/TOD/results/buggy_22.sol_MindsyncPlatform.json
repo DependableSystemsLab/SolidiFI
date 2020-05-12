@@ -1,0 +1,28 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_22.sol:910:28: Warning: Callstack Depth Attack Vulnerability.\n            bool success = p.recipient.call.value(p.amount)(transactionBytecode)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_22.sol:105:5: Warning: Integer Overflow.\n    function receiveApproval(address _from, uint256 _value, address _token, bytes memory _extraData) public {\n    ^\nSpanning multiple lines.", 
+   "/tmp/SCs/buggy_22.sol:877:5: Warning: Integer Overflow.\n    function executeProposal(uint proposalNumber, bytes memory transactionBytecode) public {\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    transactionBytecode = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_22.sol:396:3: Warning: Integer Overflow.\n  Proposal[] public proposals"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_22.sol:396:3: Warning: Integer Underflow.\n  Proposal[] public proposals"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_22.sol:691:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD4)"
+   ], 
+   [
+    "/tmp/SCs/buggy_22.sol:426:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD10)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "41.0"
+}

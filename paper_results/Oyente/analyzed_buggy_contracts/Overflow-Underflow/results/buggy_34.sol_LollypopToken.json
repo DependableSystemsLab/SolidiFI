@@ -1,0 +1,32 @@
+{
+ "vulnerabilities": {
+  "callstack": [], 
+  "time_dependency": [
+   "/tmp/SCs/buggy_34.sol:310:9: Warning: Timestamp Dependency.\n        require(now > lockTime_intou9[msg.sender])"
+  ], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_34.sol:480:3: Warning: Integer Overflow.\n  function multiTransfer(address[] memory receivers, uint256[] memory amounts) public {\n  ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    receivers = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_34.sol:672:9: Warning: Integer Overflow.\n        lockTime_intou33[msg.sender] += _secondsToIncrease\nInteger Overflow occurs if:\n    lockTime_intou33[msg.sender] = 1\n    _secondsToIncrease = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_34.sol:29:5: Warning: Integer Overflow.\n    balances_intou2[_to] += _value\nInteger Overflow occurs if:\n    balances_intou2[_to] = 1", 
+   "/tmp/SCs/buggy_34.sol:227:9: Warning: Integer Overflow.\n        lockTime_intou1[msg.sender] += _secondsToIncrease\nInteger Overflow occurs if:\n    lockTime_intou1[msg.sender] = 1\n    _secondsToIncrease = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_34.sol:178:5: Warning: Integer Overflow.\n    balances_intou34[_to] += _value\nInteger Overflow occurs if:\n    balances_intou34[_to] = 1\n    _value = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_34.sol:307:9: Warning: Integer Overflow.\n        lockTime_intou9[msg.sender] += _secondsToIncrease\nInteger Overflow occurs if:\n    lockTime_intou9[msg.sender] = 1\n    _secondsToIncrease = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_34.sol:450:5: Warning: Integer Overflow.\n    balances_intou38[_to] += _value\nInteger Overflow occurs if:\n    balances_intou38[_to] = 1\n    _value = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_34.sol:365:5: Warning: Integer Overflow.\n    balances_intou26[_to] += _value\nInteger Overflow occurs if:\n    balances_intou26[_to] = 1\n    _value = 115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_34.sol:280:37: Warning: Integer Underflow.\n        uint256 senderTimeElasped = now - (_balances[sender].time)\nInteger Underflow occurs if:\n    _balances[sender].time = 1\n    recipient = 1461501637330902918203684832716283019655932542975\n    sender = 1461501637330902918203684832716283019655932542975", 
+   "/tmp/SCs/buggy_34.sol:364:5: Warning: Integer Underflow.\n    balances_intou26[msg.sender] -= _value\nInteger Underflow occurs if:\n    balances_intou26[msg.sender] = 0\n    _value = 1", 
+   "/tmp/SCs/buggy_34.sol:449:5: Warning: Integer Underflow.\n    balances_intou38[msg.sender] -= _value\nInteger Underflow occurs if:\n    balances_intou38[msg.sender] = 0\n    _value = 1", 
+   "/tmp/SCs/buggy_34.sol:281:40: Warning: Integer Underflow.\n        uint256 recipientTimeElasped = now - (_balances[recipient].time)\nInteger Underflow occurs if:\n    _balances[recipient].time = 1\n    recipient = 1461501637330902918203684832716283019655932542975\n    sender = 1461501637330902918203684832716283019655932542975", 
+   "/tmp/SCs/buggy_34.sol:320:9: Warning: Integer Underflow.\n        return _name\nInteger Underflow occurs if:\n    return _name = 1", 
+   "/tmp/SCs/buggy_34.sol:177:5: Warning: Integer Underflow.\n    balances_intou34[msg.sender] -= _value\nInteger Underflow occurs if:\n    balances_intou34[msg.sender] = 0\n    _value = 1", 
+   "/tmp/SCs/buggy_34.sol:28:5: Warning: Integer Underflow.\n    balances_intou2[msg.sender] -= _value\nInteger Underflow occurs if:\n    balances_intou2[msg.sender] = 0"
+  ], 
+  "money_concurrency": [], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "55.6"
+}

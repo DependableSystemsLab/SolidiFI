@@ -1,0 +1,1326 @@
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: owned
+Function name: play_tmstmp3(uint256)
+PC address: 375
+Estimated Gas Usage: 5738 - 26163
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:20
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp3(uint256), txdata: 0x621563ebfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: owned
+Function name: play_tmstmp3(uint256)
+PC address: 381
+Estimated Gas Usage: 5738 - 26163
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:20
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp3 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2285100000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp3(uint256), txdata: 0x621563eb7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: tokenRecipient
+Function name: play_tmstmp27(uint256)
+PC address: 708
+Estimated Gas Usage: 5738 - 26163
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:41
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp27(uint256), txdata: 0x8d356d07fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: tokenRecipient
+Function name: play_tmstmp27(uint256)
+PC address: 714
+Estimated Gas Usage: 5738 - 26163
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:41
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp27 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x40000400422408c80, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp27(uint256), txdata: 0x8d356d077ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Medium
+Contract: tokenRecipient
+Function name: receiveApproval(address,uint256,address,bytes)
+PC address: 978
+Estimated Gas Usage: 3469 - 42101
+A call to a user-supplied address is executed.
+The callee address of an external message call can be set by the caller. Note that the callee can contain arbitrary code and may re-enter any function in this contract. Review the business logic carefully to prevent averse effects on the contract state.
+--------------------
+In file: buggy_22.sol:53
+
+t.transferFrom(_from, address(this), _value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420fffff, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: receiveApproval(address,uint256,address,bytes), txdata: 0x8f4ffcb10000000000000000000000000000000000000000000000000000000000000000000000410000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000004, value: 0x0
+Caller: [ATTACKER], function: receiveApproval(address,uint256,address,bytes), txdata: 0x8f4ffcb100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef0000000000000000000000000000000000000000000000000000000000000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: tokenRecipient
+Function name: play_tmstmp31(uint256)
+PC address: 1330
+Estimated Gas Usage: 5782 - 26207
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:47
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp31(uint256), txdata: 0x99d8cc4dfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: tokenRecipient
+Function name: play_tmstmp31(uint256)
+PC address: 1336
+Estimated Gas Usage: 5782 - 26207
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:47
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp31 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x11, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp31(uint256), txdata: 0x99d8cc4d7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: tokenRecipient
+Function name: play_tmstmp19(uint256)
+PC address: 1418
+Estimated Gas Usage: 5804 - 26229
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:66
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp19(uint256), txdata: 0xa0c95111fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: tokenRecipient
+Function name: play_tmstmp19(uint256)
+PC address: 1424
+Estimated Gas Usage: 5804 - 26229
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:66
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp19 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x61f9c00, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp19(uint256), txdata: 0xa0c951117ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Exception State ====
+SWC ID: 110
+Severity: Low
+Contract: MindsyncPlatform
+Function name: proposals(uint256)
+PC address: 4239
+Estimated Gas Usage: 714 - 809
+A reachable exception has been detected.
+It is possible to trigger an exception (opcode 0xfe). Exceptions can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. Note that explicit `assert()` should only be used to check invariants. Use `require()` for regular input checking.
+--------------------
+In file: buggy_22.sol:223
+
+Proposal[] public proposals
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x40, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x34801220080092180, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: proposals(uint256), txdata: 0x013cf08b3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: bug_tmstmp40()
+PC address: 4590
+Estimated Gas Usage: 1550 - 35831
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:489
+
+require(now != pastBlockTime_tmstmp40)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40002000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1fa0180000008084, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_tmstmp40(), txdata: 0x17c6abfa, value: 0x8ac7230489e80000
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: bug_tmstmp40()
+PC address: 4617
+Estimated Gas Usage: 1550 - 35831
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:491
+
+if(now % 15 == 0) { // winner    //bug
+            msg.sender.transfer(address(this).balance);
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40002000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1fa0180000008084, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_tmstmp40(), txdata: 0x17c6abfa, value: 0x8ac7230489e80000
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: MindsyncPlatform
+Function name: bug_tmstmp40()
+PC address: 4688
+Estimated Gas Usage: 1550 - 35831
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_22.sol:492
+
+msg.sender.transfer(address(this).balance)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x100400c04400863f8, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x441c15a0003009807, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_tmstmp40(), txdata: 0x17c6abfa, value: 0x8ac7230489e80000
+
+==== Exception State ====
+SWC ID: 110
+Severity: Low
+Contract: MindsyncPlatform
+Function name: executeProposal(uint256,bytes)
+PC address: 4729
+Estimated Gas Usage: 1161 - 3938
+A reachable exception has been detected.
+It is possible to trigger an exception (opcode 0xfe). Exceptions can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. Note that explicit `assert()` should only be used to check invariants. Use `require()` for regular input checking.
+--------------------
+In file: buggy_22.sol:505
+
+proposals[proposalNumber]
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x2, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x8000100630000050, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: executeProposal(uint256,bytes), txdata: 0x237e949200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp30(uint256)
+PC address: 6115
+Estimated Gas Usage: 5793 - 26218
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:319
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x12, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp30(uint256), txdata: 0x38861bd8fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp30(uint256)
+PC address: 6121
+Estimated Gas Usage: 5793 - 26218
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:319
+
+if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp30 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp30(uint256), txdata: 0x38861bd87ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: bug_tmstmp36()
+PC address: 6226
+Estimated Gas Usage: 1549 - 35830
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:422
+
+require(now != pastBlockTime_tmstmp36)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x142014084, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x400c81004a0080040, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xa5820, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_tmstmp36(), txdata: 0x529ec451, value: 0x8ac7230489e80000
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: bug_tmstmp36()
+PC address: 6253
+Estimated Gas Usage: 1549 - 35830
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:424
+
+if(now % 15 == 0) { // winner    //bug
+            msg.sender.transfer(address(this).balance);
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x142014084, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x400c81004a0080040, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xa5820, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_tmstmp36(), txdata: 0x529ec451, value: 0x8ac7230489e80000
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: MindsyncPlatform
+Function name: bug_tmstmp36()
+PC address: 6324
+Estimated Gas Usage: 1549 - 35830
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_22.sol:425
+
+msg.sender.transfer(address(this).balance)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4228000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x5620f037c761f7fe4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2a2f039567337fe3, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_tmstmp36(), txdata: 0x529ec451, value: 0x8ac7230489e80000
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp10(uint256)
+PC address: 6982
+Estimated Gas Usage: 5815 - 26240
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:200
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp10(uint256), txdata: 0x5d2cadbffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp10(uint256)
+PC address: 6988
+Estimated Gas Usage: 5815 - 26240
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:200
+
+if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp10 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp10(uint256), txdata: 0x5d2cadbf7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp3(uint256)
+PC address: 7069
+Estimated Gas Usage: 5850 - 26275
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:20
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x12, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp3(uint256), txdata: 0x621563ebfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp3(uint256)
+PC address: 7075
+Estimated Gas Usage: 5850 - 26275
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:20
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp3 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x31880000201000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp3(uint256), txdata: 0x621563eb7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp35(uint256)
+PC address: 7184
+Estimated Gas Usage: 5827 - 26252
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:457
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp35(uint256), txdata: 0x88d5cb7cfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp35(uint256)
+PC address: 7190
+Estimated Gas Usage: 5827 - 26252
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:457
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp35 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x18bc14f0403000002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xe7dffa2520001284, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp35(uint256), txdata: 0x88d5cb7c7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp27(uint256)
+PC address: 7287
+Estimated Gas Usage: 5871 - 26296
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:41
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp27(uint256), txdata: 0x8d356d07fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp27(uint256)
+PC address: 7293
+Estimated Gas Usage: 5871 - 26296
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:41
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp27 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2210000004004ca02, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4b2418910894be00, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp27(uint256), txdata: 0x8d356d0707fffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== External Call To User-Supplied Address ====
+SWC ID: 107
+Severity: Medium
+Contract: MindsyncPlatform
+Function name: receiveApproval(address,uint256,address,bytes)
+PC address: 7595
+Estimated Gas Usage: 3515 - 42147
+A call to a user-supplied address is executed.
+The callee address of an external message call can be set by the caller. Note that the callee can contain arbitrary code and may re-enter any function in this contract. Review the business logic carefully to prevent averse effects on the contract state.
+--------------------
+In file: buggy_22.sol:53
+
+t.transferFrom(_from, address(this), _value)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: receiveApproval(address,uint256,address,bytes), txdata: 0x8f4ffcb100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef000000000000000000000000000000000000000000000000000000000000001e, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp31(uint256)
+PC address: 7947
+Estimated Gas Usage: 5828 - 26253
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:47
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp31(uint256), txdata: 0x99d8cc4dfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp31(uint256)
+PC address: 7953
+Estimated Gas Usage: 5828 - 26253
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:47
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp31 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp31(uint256), txdata: 0x99d8cc4d7ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp2(uint256)
+PC address: 8030
+Estimated Gas Usage: 5837 - 26262
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:230
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp2(uint256), txdata: 0x9d595776fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp2(uint256)
+PC address: 8036
+Estimated Gas Usage: 5837 - 26262
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:230
+
+if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp2 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2800440002814080, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x880, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x3628260012dbf7c80, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: play_tmstmp2(uint256), txdata: 0x9d5957767ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp19(uint256)
+PC address: 8155
+Estimated Gas Usage: 5783 - 26208
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:66
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp19(uint256), txdata: 0xa0c95111fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp19(uint256)
+PC address: 8161
+Estimated Gas Usage: 5783 - 26208
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:66
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp19 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8008000000000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x19a000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp19(uint256), txdata: 0xa0c951117ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: bug_tmstmp12()
+PC address: 8276
+Estimated Gas Usage: 1526 - 35807
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:211
+
+require(now != pastBlockTime_tmstmp12)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x140026004, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x21c4000400030000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_tmstmp12(), txdata: 0xac8e4261, value: 0x8ac7230489e80000
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: bug_tmstmp12()
+PC address: 8303
+Estimated Gas Usage: 1526 - 35807
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:213
+
+if(now % 15 == 0) { // winner    //bug
+            msg.sender.transfer(address(this).balance);
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x140026004, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x21c4000400030000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_tmstmp12(), txdata: 0xac8e4261, value: 0x8ac7230489e80000
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: MindsyncPlatform
+Function name: bug_tmstmp12()
+PC address: 8374
+Estimated Gas Usage: 1526 - 35807
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_22.sol:214
+
+msg.sender.transfer(address(this).balance)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x322501517f8000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x4d9800050f9ffd000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x502a6033d7fffb802, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_tmstmp12(), txdata: 0xac8e4261, value: 0x8ac7230489e80000
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp11(uint256)
+PC address: 9359
+Estimated Gas Usage: 5783 - 26208
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:221
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp11(uint256), txdata: 0xc99d77a1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp11(uint256)
+PC address: 9365
+Estimated Gas Usage: 5783 - 26208
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:221
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp11 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x41810000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2013fbdffefffffd, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: play_tmstmp11(uint256), txdata: 0xc99d77a17ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Exception State ====
+SWC ID: 110
+Severity: Low
+Contract: MindsyncPlatform
+Function name: vote(uint256,bool)
+PC address: 9682
+Estimated Gas Usage: 3264 - 38251
+A reachable exception has been detected.
+It is possible to trigger an exception (opcode 0xfe). Exceptions can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. Note that explicit `assert()` should only be used to check invariants. Use `require()` for regular input checking.
+--------------------
+In file: buggy_22.sol:476
+
+proposals[proposalNumber]
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x7106620000090, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: vote(uint256,bool), txdata: 0xc9d27afed2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp22(uint256)
+PC address: 10233
+Estimated Gas Usage: 5814 - 26239
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:205
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp22(uint256), txdata: 0xcf206f53fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp22(uint256)
+PC address: 10239
+Estimated Gas Usage: 5814 - 26239
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:205
+
+if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp22 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x20441000000080000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x12300000000000080, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x3010036898d1bdc02, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: play_tmstmp22(uint256), txdata: 0xcf206f530000000000000000000000000000000000000000000000000000000000006880, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: bug_tmstmp8()
+PC address: 10338
+Estimated Gas Usage: 1548 - 35829
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:349
+
+require(now != pastBlockTime_tmstmp8)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4005668c, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x440002000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_tmstmp8(), txdata: 0xd8495c6d, value: 0x8ac7230489e80000
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: bug_tmstmp8()
+PC address: 10365
+Estimated Gas Usage: 1548 - 35829
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:351
+
+if(now % 15 == 0) { // winner    //bug
+            msg.sender.transfer(address(this).balance);
+        }
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4005668c, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x440002000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: bug_tmstmp8(), txdata: 0xd8495c6d, value: 0x8ac7230489e80000
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: MindsyncPlatform
+Function name: bug_tmstmp8()
+PC address: 10436
+Estimated Gas Usage: 1548 - 35829
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_22.sol:352
+
+msg.sender.transfer(address(this).balance)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x101c10c05420efffe, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x42186562d61094001, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_tmstmp8(), txdata: 0xd8495c6d, value: 0x8ac7230489e80000
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp39(uint256)
+PC address: 11028
+Estimated Gas Usage: 5782 - 26207
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:395
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x802, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp39(uint256), txdata: 0xec91c7e1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp39(uint256)
+PC address: 11034
+Estimated Gas Usage: 5782 - 26207
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:395
+
+if (startTime + (5 * 1 days) == _vtime){
+		winner_tmstmp39 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp39(uint256), txdata: 0xec91c7e17ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: MindsyncPlatform
+Function name: play_tmstmp14(uint256)
+PC address: 11111
+Estimated Gas Usage: 5791 - 26216
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_22.sol:299
+
+startTime + (5 * 1 days)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: play_tmstmp14(uint256), txdata: 0xecd97e16fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffc0000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: MindsyncPlatform
+Function name: play_tmstmp14(uint256)
+PC address: 11117
+Estimated Gas Usage: 5791 - 26216
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_22.sol:299
+
+if (startTime + (5 * 1 days) == block.timestamp){
+		winner_tmstmp14 = msg.sender;}
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x10000000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000010000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: play_tmstmp14(uint256), txdata: 0xecd97e1607fffffffffffffffffffffffffffffffffffffffffffffffffffffffff96880, value: 0x0
+
+==== Exception State ====
+SWC ID: 110
+Severity: Low
+Contract: MindsyncPlatform
+Function name: checkProposalCode(uint256,address,uint256,bytes)
+PC address: 11201
+Estimated Gas Usage: 1177 - 3954
+A reachable exception has been detected.
+It is possible to trigger an exception (opcode 0xfe). Exceptions can be caused by type errors, division by zero, out-of-bounds array access, or assert violations. Note that explicit `assert()` should only be used to check invariants. Use `require()` for regular input checking.
+--------------------
+In file: buggy_22.sol:416
+
+proposals[proposalNumber]
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x40c00420405000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: checkProposalCode(uint256,address,uint256,bytes), txdata: 0xeceb29450000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, value: 0x0
+
+

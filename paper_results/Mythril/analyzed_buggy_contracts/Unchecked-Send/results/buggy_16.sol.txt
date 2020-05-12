@@ -1,0 +1,937 @@
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Owned
+Function name: bug_unchk_send5()
+PC address: 333
+Estimated Gas Usage: 901 - 35182
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:91
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42101080440080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e284306727b, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send5(), txdata: 0x68589847, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Owned
+Function name: bug_unchk_send8()
+PC address: 451
+Estimated Gas Usage: 945 - 35226
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:80
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420810804420fe001, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e2d630fffbc, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send8(), txdata: 0xa66fb0b4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Owned
+Function name: bug_unchk_send15()
+PC address: 532
+Estimated Gas Usage: 967 - 35248
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:111
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010805420c0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e25630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send15(), txdata: 0xb3f5a0dd, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send17()
+PC address: 4343
+Estimated Gas Usage: 993 - 35274
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:220
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010804420c0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send17(), txdata: 0x0198f4ea, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send1()
+PC address: 5278
+Estimated Gas Usage: 1036 - 35317
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:197
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x4215f5404400bfffc, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2200000000002200, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send1(), txdata: 0x149caf56, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send23()
+PC address: 6677
+Estimated Gas Usage: 992 - 35273
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:308
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x4210108054008000e, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x23c75a2040020207, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send23(), txdata: 0x4f0af4fc, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send32()
+PC address: 6758
+Estimated Gas Usage: 1014 - 35295
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:281
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080440080400, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e0d630ff9ff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send32(), txdata: 0x58d9161f, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send20()
+PC address: 6839
+Estimated Gas Usage: 1036 - 35317
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:274
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c0440080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e2c230fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send20(), txdata: 0x58ffa620, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send27()
+PC address: 6920
+Estimated Gas Usage: 991 - 35272
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:311
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421010c04400ff000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e2d630faffe, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send27(), txdata: 0x635b9773, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send24()
+PC address: 7001
+Estimated Gas Usage: 1013 - 35294
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:66
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421410c0440084000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x108435809620fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send24(), txdata: 0x6449e74e, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send5()
+PC address: 7082
+Estimated Gas Usage: 1035 - 35316
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:91
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080540081000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send5(), txdata: 0x68589847, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send7()
+PC address: 7163
+Estimated Gas Usage: 1057 - 35338
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:300
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c05420a0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2b475e0d410ffff8, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send7(), txdata: 0x6aa6caa4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send9()
+PC address: 7244
+Estimated Gas Usage: 991 - 35272
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:233
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x10, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010804400a0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e05630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send9(), txdata: 0x6faec000, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send2()
+PC address: 7398
+Estimated Gas Usage: 1035 - 35316
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:204
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010804420c0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e2d630ff9ff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send2(), txdata: 0x74de0959, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send22()
+PC address: 7479
+Estimated Gas Usage: 990 - 35271
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:163
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080440080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000020000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send22(), txdata: 0x788913ab, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send3()
+PC address: 7693
+Estimated Gas Usage: 1034 - 35315
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:226
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010804420c0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000000000002, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send3(), txdata: 0x7cce880c, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send4()
+PC address: 7774
+Estimated Gas Usage: 1056 - 35337
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:291
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010804400d0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc10a2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send4(), txdata: 0x82caa706, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send12()
+PC address: 7892
+Estimated Gas Usage: 1014 - 35295
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:180
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421010800400c0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x40bc45e286105a2a9, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send12(), txdata: 0x908025b4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send11()
+PC address: 7973
+Estimated Gas Usage: 1036 - 35317
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:191
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x10, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080540080080, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send11(), txdata: 0x92307e38, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send13()
+PC address: 8054
+Estimated Gas Usage: 991 - 35272
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:317
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42141080540080400, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000000000002, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send13(), txdata: 0x944f70e2, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send8()
+PC address: 8293
+Estimated Gas Usage: 1035 - 35316
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:80
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080440080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x23815e202004000f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send8(), txdata: 0xa66fb0b4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send26()
+PC address: 8417
+Estimated Gas Usage: 991 - 35272
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:266
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c000001a000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x83c65e2d630ffffb, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send26(), txdata: 0xaba35f7b, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send6()
+PC address: 8498
+Estimated Gas Usage: 1013 - 35294
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:60
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c0442080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e0d6101bfff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send6(), txdata: 0xac3b7a7e, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send21()
+PC address: 8579
+Estimated Gas Usage: 1035 - 35316
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:150
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c04000c0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2080000140000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send21(), txdata: 0xad6216b0, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send31()
+PC address: 8660
+Estimated Gas Usage: 990 - 35271
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:314
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x20010804400a0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send31(), txdata: 0xafcccbb4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send28()
+PC address: 8741
+Estimated Gas Usage: 1012 - 35293
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:144
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010805400c0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x20000000000004cc, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send28(), txdata: 0xb0fb6dd2, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send15()
+PC address: 8841
+Estimated Gas Usage: 1056 - 35337
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:111
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080442080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send15(), txdata: 0xb3f5a0dd, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send29()
+PC address: 8922
+Estimated Gas Usage: 991 - 35272
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:57
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c0442080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4bc75e2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send29(), txdata: 0xbc699b1f, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send16()
+PC address: 9003
+Estimated Gas Usage: 1013 - 35294
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:63
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010804400c0080, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc45e2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send16(), txdata: 0xbfc0c430, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send25()
+PC address: 9084
+Estimated Gas Usage: 1035 - 35316
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:242
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x10, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080440080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000000000c00, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send25(), txdata: 0xc3ea9ec5, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send10()
+PC address: 9165
+Estimated Gas Usage: 990 - 35271
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:157
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421010805420be000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send10(), txdata: 0xd26493d7, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send18()
+PC address: 9246
+Estimated Gas Usage: 1012 - 35293
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:54
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c05400c1000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2bc75e2d630fffff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send18(), txdata: 0xd7e8c76e, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send30()
+PC address: 9327
+Estimated Gas Usage: 1034 - 35315
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:72
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x420010c04400d0000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2300000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send30(), txdata: 0xdc52a049, value: 0x0
+
+==== Multiple Calls in a Single Transaction ====
+SWC ID: 113
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdrawForeignTokens(address)
+PC address: 10166
+Estimated Gas Usage: 4659 - 74914
+Multiple calls are executed in the same transaction.
+This call is executed after a previous call in the same transaction. Try to isolate each call, transfer or send into its own transaction.
+--------------------
+In file: buggy_16.sol:305
+
+token.transfer(owner, amount)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x400048232000010, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: withdrawForeignTokens(address), txdata: 0xe58fc54c8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send19()
+PC address: 10850
+Estimated Gas Usage: 1033 - 35314
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:260
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42001080540080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000100000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send19(), txdata: 0xf5bfa0b2, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: bug_unchk_send14()
+PC address: 10931
+Estimated Gas Usage: 1055 - 35336
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:69
+
+msg.sender.transfer(1 ether)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x42101080440080000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000022400000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: bug_unchk_send14(), txdata: 0xf8be4d4e, value: 0x0
+
+

@@ -1,0 +1,24 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_22.sol:48:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk44.send(winAmount_unchk44)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_22.sol:53:5: Warning: Integer Overflow.\n    function receiveApproval(address _from, uint256 _value, address _token, bytes memory _extraData) public {\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    _extraData = 115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_22.sol:48:9: Warning: Transaction-Ordering Dependency.\n        winner_unchk44.send(winAmount_unchk44)"
+   ], 
+   [
+    "/tmp/SCs/buggy_22.sol:39:9: Warning: Transaction-Ordering Dependency.\n        dst.send(msg.value)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "69.4"
+}

@@ -1,0 +1,1459 @@
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: increaseLockTime_intou1(uint256)
+PC address: 686
+Estimated Gas Usage: 5773 - 26058
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:159
+
+lockTime_intou1[msg.sender] += _secondsToIncrease
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000020010, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: increaseLockTime_intou1(uint256), txdata: 0x1d3fb2a78000000202000004000000000040080040000012100000000000224100122202, value: 0x0
+Caller: [SOMEGUY], function: increaseLockTime_intou1(uint256), txdata: 0x1d3fb2a78400000000000000000000000000000000000000000000000000000000000000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: Owned
+Function name: withdraw_ovrflow1()
+PC address: 804
+Estimated Gas Usage: 1471 - 35942
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:162
+
+require(now > lockTime_intou1[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x10000a211, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x10, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_ovrflow1(), txdata: 0x76be3cd1, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Owned
+Function name: withdraw_ovrflow1()
+PC address: 863
+Estimated Gas Usage: 1471 - 35942
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:164
+
+msg.sender.transfer(transferValue_intou1)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_ovrflow1(), txdata: 0x76be3cd1, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: Owned
+Function name: increaseLockTime_intou33(uint256)
+PC address: 959
+Estimated Gas Usage: 5772 - 26057
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:118
+
+lockTime_intou33[msg.sender] += _secondsToIncrease
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1045420290926202, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2f61308219012, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: increaseLockTime_intou33(uint256), txdata: 0x7d7569718000000000000000000000000000000000000000000000000000000000000000, value: 0x0
+Caller: [SOMEGUY], function: increaseLockTime_intou33(uint256), txdata: 0x7d75697188022a48200131c022321032022d600a680111120204232100c4a24062530620, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: Owned
+Function name: withdraw_intou33()
+PC address: 1076
+Estimated Gas Usage: 1537 - 36008
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:121
+
+require(now > lockTime_intou33[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xb, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdraw_intou33(), txdata: 0xb1f09e89, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Owned
+Function name: withdraw_intou33()
+PC address: 1135
+Estimated Gas Usage: 1537 - 36008
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:123
+
+msg.sender.transfer(transferValue_intou33)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou33(), txdata: 0xb1f09e89, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou62(address,uint256)
+PC address: 9165
+Estimated Gas Usage: 12048 - 52994
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:198
+
+balances_intou6[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: transfer_intou62(address,uint256), txdata: 0x19ad713980808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou62(address,uint256)
+PC address: 9246
+Estimated Gas Usage: 12048 - 52994
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:199
+
+balances_intou6[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: transfer_intou62(address,uint256), txdata: 0x19ad713980808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou62(address,uint256)
+PC address: 9323
+Estimated Gas Usage: 12048 - 52994
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:200
+
+balances_intou6[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x7221, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: transfer_intou62(address,uint256), txdata: 0x19ad7139aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa186c33ae7c79100300928b41081160400d00707110a0d01814c1d00000000000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou9()
+PC address: 9434
+Estimated Gas Usage: 1540 - 36011
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:311
+
+require(now > lockTime_intou9[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x200000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xb, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou9(), txdata: 0x1cbdc87d, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou9()
+PC address: 9493
+Estimated Gas Usage: 1540 - 36011
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:313
+
+msg.sender.transfer(transferValue_intou9)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou9(), txdata: 0x1cbdc87d, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou18(address,uint256)
+PC address: 9692
+Estimated Gas Usage: 12048 - 52994
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:177
+
+balances_intou18[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x80040100000004, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou18(address,uint256), txdata: 0x1fa78c9980808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001208080808080208080808080800080000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou18(address,uint256)
+PC address: 9773
+Estimated Gas Usage: 12048 - 52994
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:178
+
+balances_intou18[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x80040100000004, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou18(address,uint256), txdata: 0x1fa78c9980808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001208080808080208080808080800080000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou18(address,uint256)
+PC address: 9850
+Estimated Gas Usage: 12048 - 52994
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:179
+
+balances_intou18[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000400000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: transfer_intou18(address,uint256), txdata: 0x1fa78c99000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef1000000000801040014000000000000000000000000000000000000000000000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou17()
+PC address: 10413
+Estimated Gas Usage: 1561 - 36032
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:263
+
+require(now > lockTime_intou17[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xb, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: withdraw_intou17(), txdata: 0x24243846, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou17()
+PC address: 10472
+Estimated Gas Usage: 1561 - 36032
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:265
+
+msg.sender.transfer(transferValue_intou17)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou17(), txdata: 0x24243846, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_undrflow2(address,uint256)
+PC address: 10820
+Estimated Gas Usage: 12004 - 52950
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:248
+
+balances_intou2[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_undrflow2(address,uint256), txdata: 0x37ae6b7300000000000000000000000000000000000000000000000000000000000000008080808080808080808080808001202020202020022020202020200000000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_undrflow2(address,uint256)
+PC address: 10901
+Estimated Gas Usage: 12004 - 52950
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:249
+
+balances_intou2[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_undrflow2(address,uint256), txdata: 0x37ae6b7300000000000000000000000000000000000000000000000000000000000000008080808080808080808080808001202020202020022020202020200000000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_undrflow2(address,uint256)
+PC address: 10978
+Estimated Gas Usage: 12004 - 52950
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:250
+
+balances_intou2[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x44, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_undrflow2(address,uint256), txdata: 0x37ae6b73000000000000000000000000affeaffeaffeaffeaffeaffeaffeaffeaffeaffe0000010080000000000000000000000000000000000000000000009513e40004, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou34(address,uint256)
+PC address: 11646
+Estimated Gas Usage: 12003 - 52949
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:60
+
+balances_intou34[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: transfer_intou34(address,uint256), txdata: 0x46852dfc80808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou34(address,uint256)
+PC address: 11726
+Estimated Gas Usage: 12003 - 52949
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:61
+
+balances_intou34[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: transfer_intou34(address,uint256), txdata: 0x46852dfc80808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou34(address,uint256)
+PC address: 11802
+Estimated Gas Usage: 12003 - 52949
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:62
+
+balances_intou34[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou34(address,uint256), txdata: 0x46852dfc000000000000000000000000affeaffeaffeaffeaffeaffeaffeaffeaffeaffe0420a10000000000000000000000000000000000000000000000000000000000, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou26(address,uint256)
+PC address: 11888
+Estimated Gas Usage: 12025 - 52971
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:350
+
+balances_intou26[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0xc0000100000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou26(address,uint256), txdata: 0x46aa924380808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001208080808080208080808080800080000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou26(address,uint256)
+PC address: 11969
+Estimated Gas Usage: 12025 - 52971
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:351
+
+balances_intou26[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0xc0000100000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou26(address,uint256), txdata: 0x46aa924380808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001208080808080208080808080800080000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou26(address,uint256)
+PC address: 12046
+Estimated Gas Usage: 12025 - 52971
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:352
+
+balances_intou26[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x22, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou26(address,uint256), txdata: 0x46aa9243000000000000000000000000affeaffeaffeaffeaffeaffeaffeaffeaffeaffe150033c4a04080000000000000000000000000000000000000000000d8801000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou13()
+PC address: 12269
+Estimated Gas Usage: 1605 - 36076
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:510
+
+require(now > lockTime_intou13[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x2000003, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdraw_intou13(), txdata: 0x5c03b626, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou13()
+PC address: 12328
+Estimated Gas Usage: 1605 - 36076
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:512
+
+msg.sender.transfer(transferValue_intou13)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou13(), txdata: 0x5c03b626, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_ovrflow1()
+PC address: 12663
+Estimated Gas Usage: 1648 - 36119
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:162
+
+require(now > lockTime_intou1[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2000000100081022, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x18, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x18, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_ovrflow1(), txdata: 0x76be3cd1, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_ovrflow1()
+PC address: 12722
+Estimated Gas Usage: 1648 - 36119
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:164
+
+msg.sender.transfer(transferValue_intou1)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_ovrflow1(), txdata: 0x76be3cd1, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou38(address,uint256)
+PC address: 13031
+Estimated Gas Usage: 12026 - 52972
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:389
+
+balances_intou38[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x820000208000a40, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: transfer_intou38(address,uint256), txdata: 0x7daba89100000000000000000000000008008040040800044001020102008000804040400410010010000001020100001002004040100440200200020820800280102002, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou38(address,uint256)
+PC address: 13112
+Estimated Gas Usage: 12026 - 52972
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:390
+
+balances_intou38[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x820000208000a40, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: transfer_intou38(address,uint256), txdata: 0x7daba89100000000000000000000000008008040040800044001020102008000804040400410010010000001020100001002004040100440200200020820800280102002, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou38(address,uint256)
+PC address: 13189
+Estimated Gas Usage: 12026 - 52972
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:391
+
+balances_intou38[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x41, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: transfer_intou38(address,uint256), txdata: 0x7daba891000000000000000000000000aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa8000000000000000000000000000000000000000000000000000000000000000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou21()
+PC address: 13304
+Estimated Gas Usage: 1539 - 36010
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:72
+
+require(now > lockTime_intou21[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x22, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: withdraw_intou21(), txdata: 0x81bb4758, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou21()
+PC address: 13363
+Estimated Gas Usage: 1539 - 36010
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:74
+
+msg.sender.transfer(transferValue_intou21)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou21(), txdata: 0x81bb4758, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou25()
+PC address: 13459
+Estimated Gas Usage: 1561 - 36032
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:330
+
+require(now > lockTime_intou25[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4300000108, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x200, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x200, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou25(), txdata: 0x835185a4, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou25()
+PC address: 13518
+Estimated Gas Usage: 1561 - 36032
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:332
+
+msg.sender.transfer(transferValue_intou25)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff3, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou25(), txdata: 0x835185a4, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou29()
+PC address: 13852
+Estimated Gas Usage: 1583 - 36054
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:190
+
+require(now > lockTime_intou29[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000000004ef0, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0xc, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xc, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou29(), txdata: 0x9f868ee0, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou29()
+PC address: 13911
+Estimated Gas Usage: 1583 - 36054
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:192
+
+msg.sender.transfer(transferValue_intou29)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou29(), txdata: 0x9f868ee0, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou14(address,uint256)
+PC address: 14157
+Estimated Gas Usage: 12024 - 52970
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:442
+
+balances_intou14[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x100000000000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: transfer_intou14(address,uint256), txdata: 0xaefa551980808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou14(address,uint256)
+PC address: 14238
+Estimated Gas Usage: 12024 - 52970
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:443
+
+balances_intou14[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x100000000000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: transfer_intou14(address,uint256), txdata: 0xaefa551980808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou14(address,uint256)
+PC address: 14315
+Estimated Gas Usage: 12024 - 52970
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:444
+
+balances_intou14[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x480000008001420, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1000000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10001000800010400, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: transfer_intou14(address,uint256), txdata: 0xaefa5519000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef3c3efee5cfe7f7fffffffff7c000110985600000000000000000000000000000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou33()
+PC address: 14482
+Estimated Gas Usage: 1626 - 36097
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:121
+
+require(now > lockTime_intou33[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x421c0000002003c3e, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xb, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdraw_intou33(), txdata: 0xb1f09e89, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou33()
+PC address: 14541
+Estimated Gas Usage: 1626 - 36097
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:123
+
+msg.sender.transfer(transferValue_intou33)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff4, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou33(), txdata: 0xb1f09e89, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou5()
+PC address: 14816
+Estimated Gas Usage: 1583 - 36054
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:221
+
+require(now > lockTime_intou5[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000000000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xb, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdraw_intou5(), txdata: 0xc017a750, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou5()
+PC address: 14875
+Estimated Gas Usage: 1583 - 36054
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:223
+
+msg.sender.transfer(transferValue_intou5)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffffc, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou5(), txdata: 0xc017a750, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou30(address,uint256)
+PC address: 14970
+Estimated Gas Usage: 12047 - 52993
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:455
+
+balances_intou30[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou30(address,uint256), txdata: 0xc036563e80808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou30(address,uint256)
+PC address: 15051
+Estimated Gas Usage: 12047 - 52993
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:456
+
+balances_intou30[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou30(address,uint256), txdata: 0xc036563e80808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou30(address,uint256)
+PC address: 15128
+Estimated Gas Usage: 12047 - 52993
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:457
+
+balances_intou30[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1a3, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x50000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou30(address,uint256), txdata: 0xc036563e000000000000000000000000affeaffeaffeaffeaffeaffeaffeaffeaffeaffe07ffffd7ffff8000000000000000000000000000000000000000008000000000, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou10(address,uint256)
+PC address: 15214
+Estimated Gas Usage: 12069 - 53015
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:80
+
+balances_intou10[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1000c0000000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou10(address,uint256), txdata: 0xc176237300000000000000000000000000000000000000000000000000000000000000008080808080808080808080808001208080808080088080808080800000000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou10(address,uint256)
+PC address: 15295
+Estimated Gas Usage: 12069 - 53015
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:81
+
+balances_intou10[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1000c0000000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou10(address,uint256), txdata: 0xc176237300000000000000000000000000000000000000000000000000000000000000008080808080808080808080808001208080808080088080808080800000000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou10(address,uint256)
+PC address: 15372
+Estimated Gas Usage: 12069 - 53015
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:82
+
+balances_intou10[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000000000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou10(address,uint256), txdata: 0xc1762373000000000000000000000000affeaffeaffeaffeaffeaffeaffeaffeaffeaffeffefffffbfc00000000000000000000000000000000000000000000000000000, value: 0x0
+
+==== Dependence on predictable environment variable ====
+SWC ID: 116
+Severity: Low
+Contract: ExclusivePlatform
+Function name: withdraw_intou37()
+PC address: 15459
+Estimated Gas Usage: 1538 - 36009
+A control flow decision is made based on a predictable variable.
+The block.timestamp environment variable is used in to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables for random number generation or to make critical control flow decisions.
+--------------------
+In file: buggy_16.sol:278
+
+require(now > lockTime_intou37[msg.sender])
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x20000002, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0xb, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdraw_intou37(), txdata: 0xc2bc6798, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: ExclusivePlatform
+Function name: withdraw_intou37()
+PC address: 15518
+Estimated Gas Usage: 1538 - 36009
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_16.sol:280
+
+msg.sender.transfer(transferValue_intou37)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x4, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x421c10c05420ffff0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1f, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdraw_intou37(), txdata: 0xc2bc6798, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou22(address,uint256)
+PC address: 15651
+Estimated Gas Usage: 12046 - 52992
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:89
+
+balances_intou22[msg.sender] - _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x441040542000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x100000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou22(address,uint256), txdata: 0xd7f8581a80808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Underflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou22(address,uint256)
+PC address: 15732
+Estimated Gas Usage: 12046 - 52992
+The binary subtraction can underflow.
+The operands of the subtraction operation are not sufficiently constrained. The subtraction could therefore result in an integer underflow. Prevent the underflow by checking inputs or ensure sure that the underflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:90
+
+balances_intou22[msg.sender] -= _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x441040542000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x100000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou22(address,uint256), txdata: 0xd7f8581a80808080808080808080808000000000000000000000000000000000000000008080808080808080808080808001808080808080808080808080800000000001, value: 0x0
+
+==== Integer Overflow ====
+SWC ID: 101
+Severity: High
+Contract: ExclusivePlatform
+Function name: transfer_intou22(address,uint256)
+PC address: 15809
+Estimated Gas Usage: 12046 - 52992
+The binary addition can overflow.
+The operands of the addition operation are not sufficiently constrained. The addition could therefore result in an integer overflow. Prevent the overflow by checking inputs or ensure sure that the overflow is caught by an assertion.
+--------------------
+In file: buggy_16.sol:91
+
+balances_intou22[_to] += _value
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x881, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x10800000002020000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transfer_intou22(address,uint256), txdata: 0xd7f8581a000000000000000000000000affeaffeaffeaffeaffeaffeaffeaffeaffeaffe180000ef7fcfffffffc000000000000000000000000000000000000000000000, value: 0x0
+
+

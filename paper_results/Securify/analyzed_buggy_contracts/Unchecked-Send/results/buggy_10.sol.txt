@@ -1,0 +1,76 @@
+Processing contract: buggy_10.sol:DocumentSigner
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'DocumentSigner':
+    |contract DocumentSigner {
+    |  function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping(bytes32=>string) public docs;
+    |  function bug_unchk_send23() payable public{
+  at buggy_10.sol(9)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'DocumentSigner':
+    |  mapping(bytes32=>string) public docs;
+    |  function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping(bytes32=>address[]) public signers;
+    |    
+  at buggy_10.sol(12)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'DocumentSigner':
+    |
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Sign(bytes32 indexed _doc, address indexed _signer);
+    |  function bug_unchk_send13() payable public{
+  at buggy_10.sol(21)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'DocumentSigner':
+    |  event Sign(bytes32 indexed _doc, address indexed _signer);
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event NewDocument(bytes32 _docHash);
+    |
+  at buggy_10.sol(24)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'DocumentSigner':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function signDocument(bytes32 _docHash) public validDoc(_docHash){
+  at buggy_10.sol(35)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'DocumentSigner':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function getDetail(bytes32 _docHash) public validDoc(_docHash) view returns(string memory _doc, address[] memory _signers) {
+  at buggy_10.sol(45)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'DocumentSigner':
+    |    }
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function getHash(string memory _doc) public pure returns(bytes32) {
+  at buggy_10.sol(52)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'DocumentSigner':
+    |    }
+    |function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+  at buggy_10.sol(58)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'DocumentSigner':
+    |pragma solidity >=0.4.21 < 0.6.0;
+    |
+  > |contract DocumentSigner {
+    |  function bug_unchk_send7() payable public{
+    |      msg.sender.transfer(1 ether);}
+  at buggy_10.sol(7)
+

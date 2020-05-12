@@ -1,0 +1,1272 @@
+Processing contract: buggy_16.sol:ERC20Interface
+Processing contract: buggy_16.sol:ExclusivePlatform
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_16.sol:Owned
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_16.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_16.sol(71)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_16.sol(97)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(115)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(139)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_16.sol(293)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |        require(balances_re_ent3[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |	(bool success,)= msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent3[msg.sender] -= _weiToWithdraw;
+  at buggy_16.sol(318)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_16.sol(340)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(385)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_16.sol(525)
+
+[31mViolation[0m for DAO in contract 'ExclusivePlatform':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(576)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function callme_re_ent21() public{
+    |        require(counter_re_ent21<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(55)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(balances_re_ent10[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent10[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_16.sol(65)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(80)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(91)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(105)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent18[msg.sender] > 0);
+    |        uint transferValue_re_ent18 = redeemableEther_re_ent18[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent18);   //bug
+    |        redeemableEther_re_ent18[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(131)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(157)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(183)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |  mapping(address => uint) balances_re_ent29;
+    |    function withdraw_balances_re_ent29 () public {
+  > |       if (msg.sender.send(balances_re_ent29[msg.sender ]))
+    |          balances_re_ent29[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(197)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function bug_re_ent6() public{
+    |        require(not_called_re_ent6);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(204)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent16;
+    |	  function buyTicket_re_ent16() public{
+  > |	    if (!(lastPlayer_re_ent16.send(jackpot_re_ent16)))
+    |        revert();
+    |      lastPlayer_re_ent16 = msg.sender;
+  at buggy_16.sol(214)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(balances_re_ent24[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent24[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_16.sol(224)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent5[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(232)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(240)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function callme_re_ent28() public{
+    |        require(counter_re_ent28<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(248)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function bug_re_ent34() public{
+    |        require(not_called_re_ent34);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(258)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_16.sol(280)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_16.sol(305)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(360)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(371)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(408)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(422)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_16.sol(434)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(449)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(471)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_16.sol(483)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(497)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_16.sol(510)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(541)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(552)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(559)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_16.sol(569)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent16;
+    |	  function buyTicket_re_ent16() public{
+  > |	    if (!(lastPlayer_re_ent16.send(jackpot_re_ent16)))
+    |        revert();
+    |      lastPlayer_re_ent16 = msg.sender;
+  at buggy_16.sol(214)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_16.sol(280)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_16.sol(305)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_16.sol(340)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_16.sol(483)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |    function withdrawFund() onlyOwner public {
+    |        uint256 balance = address(this).balance;
+  > |        owner.transfer(balance);
+    |    }
+    |address payable lastPlayer_re_ent30;
+  at buggy_16.sol(505)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_16.sol(510)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_16.sol(71)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(80)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(91)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_16.sol(97)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(115)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent18[msg.sender] > 0);
+    |        uint transferValue_re_ent18 = redeemableEther_re_ent18[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent18);   //bug
+    |        redeemableEther_re_ent18[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(131)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(139)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |  mapping(address => uint) balances_re_ent29;
+    |    function withdraw_balances_re_ent29 () public {
+  > |       if (msg.sender.send(balances_re_ent29[msg.sender ]))
+    |          balances_re_ent29[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(197)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent5[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(232)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(240)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(360)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(371)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(385)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(422)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(449)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_16.sol(525)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(541)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(552)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent16;
+    |	  function buyTicket_re_ent16() public{
+  > |	    if (!(lastPlayer_re_ent16.send(jackpot_re_ent16)))
+    |        revert();
+    |      lastPlayer_re_ent16 = msg.sender;
+  at buggy_16.sol(214)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_16.sol(280)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_16.sol(305)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_16.sol(340)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_16.sol(483)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |    function withdrawFund() onlyOwner public {
+    |        uint256 balance = address(this).balance;
+  > |        owner.transfer(balance);
+    |    }
+    |address payable lastPlayer_re_ent30;
+  at buggy_16.sol(505)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_16.sol(510)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(balances_re_ent10[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent10[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_16.sol(65)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(157)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_re_ent6() public{
+    |        require(not_called_re_ent6);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(204)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(balances_re_ent24[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent24[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_16.sol(224)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_re_ent34() public{
+    |        require(not_called_re_ent34);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(258)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_16.sol(293)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(balances_re_ent3[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |	(bool success,)= msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent3[msg.sender] -= _weiToWithdraw;
+  at buggy_16.sol(318)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(408)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_16.sol(434)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(559)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_16.sol(569)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(576)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function callme_re_ent21() public{
+    |        require(counter_re_ent21<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(55)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_16.sol(71)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(80)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(91)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_16.sol(97)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(105)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(115)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent18[msg.sender] > 0);
+    |        uint transferValue_re_ent18 = redeemableEther_re_ent18[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent18);   //bug
+    |        redeemableEther_re_ent18[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(131)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(139)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(183)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  mapping(address => uint) balances_re_ent29;
+    |    function withdraw_balances_re_ent29 () public {
+  > |       if (msg.sender.send(balances_re_ent29[msg.sender ]))
+    |          balances_re_ent29[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(197)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent16;
+    |	  function buyTicket_re_ent16() public{
+  > |	    if (!(lastPlayer_re_ent16.send(jackpot_re_ent16)))
+    |        revert();
+    |      lastPlayer_re_ent16 = msg.sender;
+  at buggy_16.sol(214)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent5[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(232)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(240)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function callme_re_ent28() public{
+    |        require(counter_re_ent28<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(248)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_16.sol(280)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_16.sol(305)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_16.sol(340)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(360)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(371)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(385)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(422)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(449)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(471)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_16.sol(483)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(497)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_16.sol(510)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_16.sol(525)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(541)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_16.sol(552)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(_amount <= address(this).balance);
+    |        emit TransferEther(address(this), _receiver, _amount);
+  > |        _receiver.transfer(_amount);
+    |    }
+    |uint256 counter_re_ent14 =0;
+  at buggy_16.sol(492)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent21 += 1;
+    |    }
+    |    function balanceOf(address tokenOwner) public view returns (uint256 balance);
+  at buggy_16.sol(58)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent35 += 1;
+    |    }
+    |  event Transfer(address indexed from, address indexed to, uint256 tokens);
+  at buggy_16.sol(108)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent41 = false;
+    |    }
+    |
+  at buggy_16.sol(160)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent42 += 1;
+    |    }
+    |
+  at buggy_16.sol(186)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent6 = false;
+    |    }
+    |  mapping (address => mapping (address => uint256)) allowed;
+  at buggy_16.sol(207)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |	    if (!(lastPlayer_re_ent16.send(jackpot_re_ent16)))
+    |        revert();
+  > |      lastPlayer_re_ent16 = msg.sender;
+    |      jackpot_re_ent16    = address(this).balance;
+    |    }
+  at buggy_16.sol(216)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        revert();
+    |      lastPlayer_re_ent16 = msg.sender;
+  > |      jackpot_re_ent16    = address(this).balance;
+    |    }
+    |  string public name = "Exclusive Platform";
+  at buggy_16.sol(217)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent28 += 1;
+    |    }
+    |  uint256 public XPLPerEther = 8000000e8;
+  at buggy_16.sol(251)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent34 = false;
+    |    }
+    |  bool public crowdsaleIsOn = true;
+  at buggy_16.sol(261)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+  > |      lastPlayer_re_ent2 = msg.sender;
+    |      jackpot_re_ent2    = address(this).balance;
+    |    }
+  at buggy_16.sol(282)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  > |      jackpot_re_ent2    = address(this).balance;
+    |    }
+    |  
+  at buggy_16.sol(283)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+  > |      lastPlayer_re_ent37 = msg.sender;
+    |      jackpot_re_ent37    = address(this).balance;
+    |    }
+  at buggy_16.sol(307)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  > |      jackpot_re_ent37    = address(this).balance;
+    |    }
+    |
+  at buggy_16.sol(308)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |	    if (!success)
+    |	        revert();
+  > |      lastPlayer_re_ent9 = msg.sender;
+    |      jackpot_re_ent9    = address(this).balance;
+    |    }
+  at buggy_16.sol(343)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |	        revert();
+    |      lastPlayer_re_ent9 = msg.sender;
+  > |      jackpot_re_ent9    = address(this).balance;
+    |    }
+    |  
+  at buggy_16.sol(344)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent20 = false;
+    |    }
+    |    
+  at buggy_16.sol(411)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent7 += 1;
+    |    }
+    |    
+  at buggy_16.sol(474)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+  > |      lastPlayer_re_ent23 = msg.sender;
+    |      jackpot_re_ent23    = address(this).balance;
+    |    }
+  at buggy_16.sol(485)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  > |      jackpot_re_ent23    = address(this).balance;
+    |    }
+    |    
+  at buggy_16.sol(486)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent14 += 1;
+    |    }
+    |    
+  at buggy_16.sol(500)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+  > |      lastPlayer_re_ent30 = msg.sender;
+    |      jackpot_re_ent30    = address(this).balance;
+    |    }
+  at buggy_16.sol(512)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  > |      jackpot_re_ent30    = address(this).balance;
+    |    }
+    |    
+  at buggy_16.sol(513)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent27 = false;
+    |    }
+    |  event TransferEther(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_16.sol(562)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |  event Burn(address indexed _burner, uint256 value);
+  at buggy_16.sol(580)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        require(newOwner != address(0));
+    |        emit OwnershipTransferred(owner, newOwner);
+  > |        owner = newOwner;
+    |    }
+    |uint256 counter_re_ent42 =0;
+  at buggy_16.sol(178)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |    function updateXPLPerEther(uint _XPLPerEther) public onlyOwner {        
+    |        emit NewPrice(owner, XPLPerEther, _XPLPerEther);
+  > |        XPLPerEther = _XPLPerEther;
+    |    }
+    |address payable lastPlayer_re_ent37;
+  at buggy_16.sol(300)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |
+    |    function switchCrowdsale() public onlyOwner {
+  > |        crowdsaleIsOn = !(crowdsaleIsOn);
+    |    }
+    |mapping(address => uint) balances_re_ent3;
+  at buggy_16.sol(312)
+
+[31mViolation[0m for DAO in contract 'Owned':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(139)
+
+[31mViolation[0m for DAOConstantGas in contract 'Owned':
+    |        require(redeemableEther_re_ent18[msg.sender] > 0);
+    |        uint transferValue_re_ent18 = redeemableEther_re_ent18[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent18);   //bug
+    |        redeemableEther_re_ent18[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(131)
+
+[31mViolation[0m for DAOConstantGas in contract 'Owned':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(157)
+
+[31mViolation[0m for DAOConstantGas in contract 'Owned':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(183)
+
+[33mWarning[0m for TODAmount in contract 'Owned':
+    |        require(redeemableEther_re_ent18[msg.sender] > 0);
+    |        uint transferValue_re_ent18 = redeemableEther_re_ent18[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent18);   //bug
+    |        redeemableEther_re_ent18[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(131)
+
+[33mWarning[0m for TODAmount in contract 'Owned':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(139)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(157)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |        require(redeemableEther_re_ent18[msg.sender] > 0);
+    |        uint transferValue_re_ent18 = redeemableEther_re_ent18[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent18);   //bug
+    |        redeemableEther_re_ent18[msg.sender] = 0;
+    |    }
+  at buggy_16.sol(131)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_16.sol(139)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_16.sol(183)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'Owned':
+    |            revert();
+    |        }
+  > |        not_called_re_ent41 = false;
+    |    }
+    |
+  at buggy_16.sol(160)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'Owned':
+    |            revert();
+    |        }
+  > |        counter_re_ent42 += 1;
+    |    }
+    |
+  at buggy_16.sol(186)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |        require(newOwner != address(0));
+    |        emit OwnershipTransferred(owner, newOwner);
+  > |        owner = newOwner;
+    |    }
+    |uint256 counter_re_ent42 =0;
+  at buggy_16.sol(178)
+

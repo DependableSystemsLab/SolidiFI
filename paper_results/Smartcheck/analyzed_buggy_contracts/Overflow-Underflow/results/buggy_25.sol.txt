@@ -1,0 +1,114 @@
+buggy_25.sol
+jar:file:/usr/local/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 235
+column: 4
+content: for(uinti=0;i<betList[_fixtureId].length;i++){uint16selectedTeam=betList[_fixtureId][i].selectedTeam;uint256returnEth=(betList[_fixtureId][i].stake*betList[_fixtureId][i].odd)/1000;if((selectedTeam==1&&_homeDrawAway==1)||(selectedTeam==2&&_homeDrawAway==2)||(selectedTeam==3&&_homeDrawAway==3)||(selectedTeam==4&&_overUnder==1)||(selectedTeam==5&&_overUnder==2)||(selectedTeam==6&&(_homeDrawAway==1||_homeDrawAway==2))||(selectedTeam==7&&(_homeDrawAway==1||_homeDrawAway==3))||(selectedTeam==8&&(_homeDrawAway==3||_homeDrawAway==2))){betList[_fixtureId][i].player.transfer(returnEth);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 235
+column: 4
+content: for(uinti=0;i<betList[_fixtureId].length;i++){uint16selectedTeam=betList[_fixtureId][i].selectedTeam;uint256returnEth=(betList[_fixtureId][i].stake*betList[_fixtureId][i].odd)/1000;if((selectedTeam==1&&_homeDrawAway==1)||(selectedTeam==2&&_homeDrawAway==2)||(selectedTeam==3&&_homeDrawAway==3)||(selectedTeam==4&&_overUnder==1)||(selectedTeam==5&&_overUnder==2)||(selectedTeam==6&&(_homeDrawAway==1||_homeDrawAway==2))||(selectedTeam==7&&(_homeDrawAway==1||_homeDrawAway==3))||(selectedTeam==8&&(_homeDrawAway==3||_homeDrawAway==2))){betList[_fixtureId][i].player.transfer(returnEth);}}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 132
+column: 2
+content: functionsetOpenStatus(uint64_fixtureId,uint8_open_status)externalonlyOwner{gameList[_fixtureId].open_status=_open_status;}
+
+ruleId: SOLIDITY_OVERPOWERED_ROLE
+patternId: j83hf7
+severity: 2
+line: 158
+column: 2
+content: functionsetGameInfo(uint64_fixtureId,uint256_timestamp,uint32_odd_homeTeam,uint32_odd_drawTeam,uint32_odd_awayTeam,uint32_odd_over,uint32_odd_under,uint32_odd_homeTeamAndDraw,uint32_odd_homeAndAwayTeam,uint32_odd_awayTeamAndDraw,uint8_open_status)externalonlyOwner{gameList[_fixtureId].timestamp=_timestamp;gameList[_fixtureId].odd_homeTeam=_odd_homeTeam;gameList[_fixtureId].odd_drawTeam=_odd_drawTeam;gameList[_fixtureId].odd_awayTeam=_odd_awayTeam;gameList[_fixtureId].odd_over=_odd_over;gameList[_fixtureId].odd_under=_odd_under;gameList[_fixtureId].odd_homeTeamAndDraw=_odd_homeTeamAndDraw;gameList[_fixtureId].odd_homeAndAwayTeam=_odd_homeAndAwayTeam;gameList[_fixtureId].odd_awayTeamAndDraw=_odd_awayTeamAndDraw;gameList[_fixtureId].open_status=_open_status;gameList[_fixtureId].isDone=false;emitSetGame(_fixtureId,_timestamp,_odd_homeTeam,_odd_drawTeam,_odd_awayTeam,_odd_over,_odd_under,_odd_homeTeamAndDraw,_odd_homeAndAwayTeam,_odd_awayTeamAndDraw,_open_status);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 204
+column: 11
+content: if(_selectedTeam==8){require(gameList[_fixtureId].odd_awayTeamAndDraw==_odd);}else{revert();}
+
+ruleId: SOLIDITY_TRANSFER_IN_LOOP
+patternId: 8jdj43
+severity: 2
+line: 235
+column: 4
+content: for(uinti=0;i<betList[_fixtureId].length;i++){uint16selectedTeam=betList[_fixtureId][i].selectedTeam;uint256returnEth=(betList[_fixtureId][i].stake*betList[_fixtureId][i].odd)/1000;if((selectedTeam==1&&_homeDrawAway==1)||(selectedTeam==2&&_homeDrawAway==2)||(selectedTeam==3&&_homeDrawAway==3)||(selectedTeam==4&&_overUnder==1)||(selectedTeam==5&&_overUnder==2)||(selectedTeam==6&&(_homeDrawAway==1||_homeDrawAway==2))||(selectedTeam==7&&(_homeDrawAway==1||_homeDrawAway==3))||(selectedTeam==8&&(_homeDrawAway==3||_homeDrawAway==2))){betList[_fixtureId][i].player.transfer(returnEth);}}
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 125
+column: 12
+content: balances_intou26[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 175
+column: 12
+content: balances_intou38[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 285
+column: 12
+content: balances_intou14[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 292
+column: 2
+content: functionchangeOwner(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 122
+column: 0
+content: mapping(address=>uint)balances_intou26;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 172
+column: 0
+content: mapping(address=>uint)balances_intou38;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 282
+column: 0
+content: mapping(address=>uint)balances_intou14;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 293
+column: 4
+content: owner=_newOwner;
+
+SOLIDITY_VISIBILITY :5
+SOLIDITY_OVERPOWERED_ROLE :2
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_REVERT_REQUIRE :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_UINT_CANT_BE_NEGATIVE :3
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_TRANSFER_IN_LOOP :1

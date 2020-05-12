@@ -1,0 +1,49 @@
+Processing contract: buggy_27.sol:DanPanCoin
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_27.sol:ERC20Detailed
+Processing contract: buggy_27.sol:IERC20
+Processing contract: buggy_27.sol:Ownable
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_27.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |    address public owner;
+    |  function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    |
+  at buggy_27.sol(55)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |    }
+    |function bug_unchk_send18() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    | 
+  at buggy_27.sol(63)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |    }
+    |function bug_unchk_send29() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    
+  at buggy_27.sol(78)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Ownable':
+    |      require(newOwner != address(0));
+    |      emit OwnershipTransferred(owner, newOwner);
+  > |      owner = newOwner;
+    |    }
+    |function bug_unchk_send29() payable public{
+  at buggy_27.sol(75)
+

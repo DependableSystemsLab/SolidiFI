@@ -1,0 +1,325 @@
+==== Use of tx.origin ====
+SWC ID: 111
+Severity: Medium
+Contract: Stoppable
+Function name: sendto_txorigin21(address,uint256,address)
+PC address: 1140
+Estimated Gas Usage: 1137 - 35418
+Use of tx.origin is deprecated.
+The smart contract retrieves the transaction origin (tx.origin) using msg.origin. Use of msg.origin is deprecated and the instruction may be removed in the  future. Use msg.sender instead.
+See also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin
+--------------------
+In file: buggy_20.sol:33
+
+tx.origin
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x400100000001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x400100000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: sendto_txorigin21(address,uint256,address), txdata: 0x0b95065e000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000010000000000000000000000000210400208004000010420004001200002042080, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Stoppable
+Function name: sendto_txorigin21(address,uint256,address)
+PC address: 1220
+Estimated Gas Usage: 1137 - 35418
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_20.sol:34
+
+receiver.transfer(amount)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1002000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x1002000001000000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x1000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdrawAll_txorigin10(address,address), txdata: 0xfe3d3a94000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef0000000000000000000000001000000000000000000000014001011001011001, value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin21(address,uint256,address), txdata: 0x0b95065e000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef00000000000000000000000000000000000000000000000000000000000000000000000000000000000000001001010101010101010101040800080440012010, value: 0x0
+
+==== Use of tx.origin ====
+SWC ID: 111
+Severity: Medium
+Contract: Stoppable
+Function name: transferTo_txorigin3(address,uint256,address)
+PC address: 1606
+Estimated Gas Usage: 399 - 494
+Use of tx.origin is deprecated.
+The smart contract retrieves the transaction origin (tx.origin) using msg.origin. Use of msg.origin is deprecated and the instruction may be removed in the  future. Use msg.sender instead.
+See also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin
+--------------------
+In file: buggy_20.sol:96
+
+tx.origin
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: transferTo_txorigin3(address,uint256,address), txdata: 0x61f4e670010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101, value: 0x0
+
+==== Use of tx.origin ====
+SWC ID: 111
+Severity: Medium
+Contract: Stoppable
+Function name: sendto_txorigin17(address,uint256,address)
+PC address: 2116
+Estimated Gas Usage: 1158 - 35439
+Use of tx.origin is deprecated.
+The smart contract retrieves the transaction origin (tx.origin) using msg.origin. Use of msg.origin is deprecated and the instruction may be removed in the  future. Use msg.sender instead.
+See also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin
+--------------------
+In file: buggy_20.sol:47
+
+tx.origin
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2800000030040000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x147fff, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin17(address,uint256,address), txdata: 0xebb646c2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101010101010101010101010101010101010101, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Stoppable
+Function name: sendto_txorigin17(address,uint256,address)
+PC address: 2196
+Estimated Gas Usage: 1158 - 35439
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_20.sol:48
+
+receiver.transfer(amount)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x11011000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x20801114cb023099, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x44000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdrawAll_txorigin10(address,address), txdata: 0xfe3d3a940101010101010101010101010901d12ebe1b195e5aa8748e62bd7734ae19b51f0101010101010101010101010000020001010100010104010100010000000101, value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin17(address,uint256,address), txdata: 0xebb646c2000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef00000000000000000000000000000000000000000000000080000000000000000000000000000000000000000102100101010101010101010104402020021000, value: 0x0
+
+==== Use of tx.origin ====
+SWC ID: 111
+Severity: Medium
+Contract: Stoppable
+Function name: sendto_txorigin33(address,uint256,address)
+PC address: 2248
+Estimated Gas Usage: 1180 - 35461
+Use of tx.origin is deprecated.
+The smart contract retrieves the transaction origin (tx.origin) using msg.origin. Use of msg.origin is deprecated and the instruction may be removed in the  future. Use msg.sender instead.
+See also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin
+--------------------
+In file: buggy_20.sol:80
+
+tx.origin
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x20003022000020000, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4002440000002, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin33(address,uint256,address), txdata: 0xf7ae6cde000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000101010101022001010101010101010101010101, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Stoppable
+Function name: sendto_txorigin33(address,uint256,address)
+PC address: 2328
+Estimated Gas Usage: 1180 - 35461
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_20.sol:81
+
+receiver.transfer(amount)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x23e03310123b07d0e, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x4f0f541a99f0ce940, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x4101d040000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdrawAll_txorigin10(address,address), txdata: 0xfe3d3a940101010101010101010101010901d12ebe1b195e5aa8748e62bd7734ae19b51f0101010101010101010101014008004000004080000001010001010101010104, value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin33(address,uint256,address), txdata: 0xf7ae6cde000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef00000000000000000000000000000000000000000000000106d8120248d980290000000000000000000000000101010101010101010101010100080820028000, value: 0x0
+
+==== Use of tx.origin ====
+SWC ID: 111
+Severity: Medium
+Contract: Stoppable
+Function name: sendto_txorigin37(address,uint256,address)
+PC address: 2380
+Estimated Gas Usage: 1202 - 35483
+Use of tx.origin is deprecated.
+The smart contract retrieves the transaction origin (tx.origin) using msg.origin. Use of msg.origin is deprecated and the instruction may be removed in the  future. Use msg.sender instead.
+See also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin
+--------------------
+In file: buggy_20.sol:61
+
+tx.origin
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x10000000000000000, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x8ffe160d0105899b, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: sendto_txorigin37(address,uint256,address), txdata: 0xfb44fdd1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000101010101010101010101010801010101010201, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Stoppable
+Function name: sendto_txorigin37(address,uint256,address)
+PC address: 2460
+Estimated Gas Usage: 1202 - 35483
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_20.sol:62
+
+receiver.transfer(amount)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x40000000200004041, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x7fbf7e028845500, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x8000000000000000, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [SOMEGUY], function: withdrawAll_txorigin10(address,address), txdata: 0xfe3d3a940000000000000000000000000901d12ebe1b195e5aa8748e62bd7734ae19b51f0000000000000000000000002000000101010002040040081000020101400004, value: 0x0
+Caller: [ATTACKER], function: sendto_txorigin37(address,uint256,address), txdata: 0xfb44fdd1000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef00000000000000000000000000000000000000000000000050000000000000020000000000000000000000000001010108010101010001010101100001010404, value: 0x0
+
+==== Use of tx.origin ====
+SWC ID: 111
+Severity: Medium
+Contract: Stoppable
+Function name: bug_txorigin40(address)
+PC address: 2512
+Estimated Gas Usage: 356 - 451
+Use of tx.origin is deprecated.
+The smart contract retrieves the transaction origin (tx.origin) using msg.origin. Use of msg.origin is deprecated and the instruction may be removed in the  future. Use msg.sender instead.
+See also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin
+--------------------
+In file: buggy_20.sol:39
+
+tx.origin
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x2, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: bug_txorigin40(address), txdata: 0xfd5225fc0101010101010101010101010101010101010101010101010101010101010101, value: 0x0
+
+==== Use of tx.origin ====
+SWC ID: 111
+Severity: Medium
+Contract: Stoppable
+Function name: withdrawAll_txorigin10(address,address)
+PC address: 2571
+Estimated Gas Usage: 1622 - 35903
+Use of tx.origin is deprecated.
+The smart contract retrieves the transaction origin (tx.origin) using msg.origin. Use of msg.origin is deprecated and the instruction may be removed in the  future. Use msg.sender instead.
+See also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin
+--------------------
+In file: buggy_20.sol:74
+
+tx.origin
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x1, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x0, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x0, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [CREATOR], function: withdrawAll_txorigin10(address,address), txdata: 0xfe3d3a9401010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101, value: 0x0
+
+==== Unprotected Ether Withdrawal ====
+SWC ID: 105
+Severity: High
+Contract: Stoppable
+Function name: withdrawAll_txorigin10(address,address)
+PC address: 2674
+Estimated Gas Usage: 1622 - 35903
+Anyone can withdraw ETH from the contract account.
+Arbitrary senders other than the contract creator can withdraw ETH from the contract account without previously having sent an equivalent amount of ETH to it. This is likely to be a vulnerability.
+--------------------
+In file: buggy_20.sol:75
+
+_recipient.transfer(address(this).balance)
+
+--------------------
+Initial State:
+
+Account: [CREATOR], balance: 0x8722400000480001, nonce:0, storage:{}
+Account: [ATTACKER], balance: 0x40000201214, nonce:0, storage:{}
+Account: [SOMEGUY], balance: 0x8a342000000800, nonce:0, storage:{}
+
+Transaction Sequence:
+
+Caller: [CREATOR], data: [CONTRACT_CREATION], value: 0x0
+Caller: [ATTACKER], function: withdrawAll_txorigin10(address,address), txdata: 0xfe3d3a940000000000000000000000000901d12ebe1b195e5aa8748e62bd7734ae19b51f0000000000000000000000000004020800804001080102000000000008000000, value: 0x0
+Caller: [ATTACKER], function: withdrawAll_txorigin10(address,address), txdata: 0xfe3d3a94010101010101010101010101deadbeefdeadbeefdeadbeefdeadbeefdeadbeef0101010101010101010101010101011001010101080101040101010101010102, value: 0x0
+
+

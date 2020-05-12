@@ -1,0 +1,173 @@
+Processing contract: buggy_41.sol:AO
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_41.sol:tokenRecipient
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    // Public variables of the token
+    |  function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public name;
+    |  function bug_unchk_send3() payable public{
+  at buggy_41.sol(18)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |  string public name;
+    |  function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public symbol;
+    |  function bug_unchk_send9() payable public{
+  at buggy_41.sol(21)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |  string public symbol;
+    |  function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 public decimals = 18;
+    |    // 18 decimals is the strongly suggested default, avoid changing it
+  at buggy_41.sol(24)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    // 18 decimals is the strongly suggested default, avoid changing it
+    |  function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public totalSupply;
+    |
+  at buggy_41.sol(28)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    // This creates an array with all balances
+    |  function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => uint256) public balanceOf;
+    |  function bug_unchk_send26() payable public{
+  at buggy_41.sol(33)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |  mapping (address => uint256) public balanceOf;
+    |  function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => mapping (address => uint256)) public allowance;
+    |
+  at buggy_41.sol(36)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    // This generates a public event on the blockchain that will notify clients
+    |  function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Transfer(address indexed from, address indexed to, uint256 value);
+    |    
+  at buggy_41.sol(41)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    // This generates a public event on the blockchain that will notify clients
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+    |
+  at buggy_41.sol(46)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    // This notifies clients about the amount burnt
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Burn(address indexed from, uint256 value);
+    |
+  at buggy_41.sol(51)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_41.sol(70)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_41.sol(93)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_41.sol(108)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_41.sol(126)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_41.sol(143)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_41.sol(164)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_41.sol(181)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AO':
+    |    }
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+  at buggy_41.sol(201)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AO':
+    |        balanceOf[_from] -= _value;
+    |        // Add the same to the recipient
+  > |        balanceOf[_to] += _value;
+    |        emit Transfer(_from, _to, _value);
+    |        // Asserts are used to use static analysis to find bugs in your code. They should never fail
+  at buggy_41.sol(87)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AO':
+    |        require(balanceOf[msg.sender] >= _value);   // Check if the sender has enough
+    |        balanceOf[msg.sender] -= _value;            // Subtract from the sender
+  > |        totalSupply -= _value;                      // Updates totalSupply
+    |        emit Burn(msg.sender, _value);
+    |        return true;
+  at buggy_41.sol(176)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AO':
+    |        require(balanceOf[_from] >= _value);                // Check if the targeted balance is enough
+    |        require(_value <= allowance[_from][msg.sender]);    // Check allowance
+  > |        balanceOf[_from] -= _value;                         // Subtract from the targeted balance
+    |        allowance[_from][msg.sender] -= _value;             // Subtract from the sender's allowance
+    |        totalSupply -= _value;                              // Update totalSupply
+  at buggy_41.sol(194)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AO':
+    |        balanceOf[_from] -= _value;                         // Subtract from the targeted balance
+    |        allowance[_from][msg.sender] -= _value;             // Subtract from the sender's allowance
+  > |        totalSupply -= _value;                              // Update totalSupply
+    |        emit Burn(_from, _value);
+    |        return true;
+  at buggy_41.sol(196)
+

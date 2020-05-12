@@ -1,0 +1,20 @@
+- Unsigned integer overflow at ADD instruction -
+  Contract: 0xff3b763d25cba7d5b128c6358466be67166a4665  EVM Program counter: 0x230
+  Solidity snippet:
+    93  lockTime_intou1[msg.sender] += _secondsToIncrease
+
+- Warning TIMESTAMP instruction used -
+  Contract: 0xff3b763d25cba7d5b128c6358466be67166a4665  EVM Program counter: 0x2a0
+  Solidity snippet:
+    96  now
+
+- Potentially reading uninitialized storage -
+  Contract: 0xff3b763d25cba7d5b128c6358466be67166a4665  EVM Program counter: 0x24e
+  Solidity snippet:
+    90  mapping(address => uint) public lockTime_intou1
+
+- Reachable ether leak to sender -
+  Contract: 0xff3b763d25cba7d5b128c6358466be67166a4665  EVM Program counter: 0x2e0
+  Solidity snippet:
+    98  msg.sender.transfer(transferValue_intou1)
+

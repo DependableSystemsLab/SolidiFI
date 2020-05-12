@@ -1,0 +1,26 @@
+{
+ "vulnerabilities": {
+  "callstack": [], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_34.sol:711:3: Warning: Integer Overflow.\n  function multiTransfer(address[] memory receivers, uint256[] memory amounts) public {\n  ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    receivers = 115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_34.sol:414:40: Warning: Integer Underflow.\n        uint256 recipientTimeElasped = now - (_balances[recipient].time)\nInteger Underflow occurs if:\n    _balances[recipient].time = 1\n    recipient = 1461501637330902918203684832716283019655932542975\n    sender = 1461501637330902918203684832716283019655932542975", 
+   "/tmp/SCs/buggy_34.sol:413:37: Warning: Integer Underflow.\n        uint256 senderTimeElasped = now - (_balances[sender].time)\nInteger Underflow occurs if:\n    _balances[sender].time = 1\n    recipient = 1461501637330902918203684832716283019655932542975\n    sender = 1461501637330902918203684832716283019655932542975", 
+   "/tmp/SCs/buggy_34.sol:456:9: Warning: Integer Underflow.\n        return _name\nInteger Underflow occurs if:\n    return _name = 1"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_34.sol:681:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD4)"
+   ], 
+   [
+    "/tmp/SCs/buggy_34.sol:285:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD10)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "48.2"
+}

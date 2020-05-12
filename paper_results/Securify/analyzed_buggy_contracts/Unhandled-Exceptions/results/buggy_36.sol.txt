@@ -1,0 +1,821 @@
+Processing contract: buggy_36.sol:MindsyncPlatform
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_36.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_36.sol:Token
+Processing contract: buggy_36.sol:owned
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_36.sol:tokenRecipient
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |            p.executed = true;
+    |            
+  > |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+    |            require(success);
+    |
+  at buggy_36.sol(544)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_36.sol(470)
+
+[31mViolation[0m for RepeatedCall in contract 'MindsyncPlatform':
+    |        for (uint i = 0; i <  p.votes.length; ++i) {
+    |            Vote storage v = p.votes[i];
+  > |            uint voteWeight = tokenAddress.actualBalanceOf(v.voter);
+    |            quorum += voteWeight;
+    |            if (v.inSupport) {
+  at buggy_36.sol(527)
+
+[31mViolation[0m for RepeatedCall in contract 'MindsyncPlatform':
+    |
+    |        Token t = Token(tokenAddress);
+  > |        require(quorum >= t.totalSupply().mul(minimumQuorum).div(100)); // Check if a minimum quorum has been reached
+    |
+    |        if (yea > nay ) {
+  at buggy_36.sol(537)
+
+[31mViolation[0m for TODAmount in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_36.sol(68)
+
+[31mViolation[0m for TODAmount in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event ProposalAdded(uint proposalID, address recipient, uint amount, string description);
+  at buggy_36.sol(247)
+
+[31mViolation[0m for TODAmount in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event ChangeOfRules(uint newMinimumTokensToVote, uint newMinimumQuorum, uint newDebatingPeriodInMinutes, address newTokenAddress, address newChairmanAddress);
+  at buggy_36.sol(263)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |contract tokenRecipient {
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  event receivedEther(address sender, uint amount);
+  at buggy_36.sol(39)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  uint public minimumQuorum;
+  at buggy_36.sol(193)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |  uint public minimumQuorum;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint public minimumTokensToVote;
+  at buggy_36.sol(197)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |
+    |  function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  bool public initialized = false;
+  at buggy_36.sol(229)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_36.sol(366)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_36.sol(470)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |            p.executed = true;
+    |            
+  > |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+    |            require(success);
+    |
+  at buggy_36.sol(544)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |}
+  at buggy_36.sol(557)
+
+[33mWarning[0m for TODReceiver in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[33mWarning[0m for TODReceiver in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_36.sol(470)
+
+[33mWarning[0m for TODReceiver in contract 'MindsyncPlatform':
+    |            p.executed = true;
+    |            
+  > |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+    |            require(success);
+    |
+  at buggy_36.sol(544)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |  function cash_unchk22(uint roundIndex, uint subpotIndex, address payable winner_unchk22)public{
+    |        uint64 subpot_unchk22 = 10 ether;
+  > |        winner_unchk22.send(subpot_unchk22);  //bug
+    |        subpot_unchk22= 0;
+    |}
+  at buggy_36.sol(11)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |function withdrawBal_unchk17 () public{
+    |	uint64 Balances_unchk17 = 0;
+  > |	msg.sender.send(Balances_unchk17);}
+    |
+    |    modifier onlyOwner {
+  at buggy_36.sol(21)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |contract tokenRecipient {
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  event receivedEther(address sender, uint amount);
+  at buggy_36.sol(39)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function () payable external {
+  at buggy_36.sol(59)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_36.sol(68)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  uint public minimumQuorum;
+  at buggy_36.sol(193)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |  uint public minimumQuorum;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint public minimumTokensToVote;
+  at buggy_36.sol(197)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |  function withdrawBal_unchk41 () public{
+    |	uint64 Balances_unchk41 = 0;
+  > |	msg.sender.send(Balances_unchk41);}
+    |  Proposal[] public proposals;
+    |  function bug_unchk42() public{
+  at buggy_36.sol(206)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |  uint public numProposals;
+    |  function unhandledsend_unchk2(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  Token public tokenAddress;
+  at buggy_36.sol(218)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |
+    |  function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  bool public initialized = false;
+  at buggy_36.sol(229)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event ProposalAdded(uint proposalID, address recipient, uint amount, string description);
+  at buggy_36.sol(247)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |  event ProposalAdded(uint proposalID, address recipient, uint amount, string description);
+    |  function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  event Voted(uint proposalID, bool position, address voter);
+    |  function bug_unchk31() public{
+  at buggy_36.sol(251)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event ChangeOfRules(uint newMinimumTokensToVote, uint newMinimumQuorum, uint newDebatingPeriodInMinutes, address newTokenAddress, address newChairmanAddress);
+  at buggy_36.sol(263)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_36.sol(366)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_36.sol(406)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_36.sol(470)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /**
+  at buggy_36.sol(501)
+
+[31mViolation[0m for UnhandledException in contract 'MindsyncPlatform':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |}
+  at buggy_36.sol(557)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  function cash_unchk22(uint roundIndex, uint subpotIndex, address payable winner_unchk22)public{
+    |        uint64 subpot_unchk22 = 10 ether;
+  > |        winner_unchk22.send(subpot_unchk22);  //bug
+    |        subpot_unchk22= 0;
+    |}
+  at buggy_36.sol(11)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |contract tokenRecipient {
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  event receivedEther(address sender, uint amount);
+  at buggy_36.sol(39)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function () payable external {
+  at buggy_36.sol(59)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_36.sol(68)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  uint public minimumQuorum;
+  at buggy_36.sol(193)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  uint public minimumQuorum;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint public minimumTokensToVote;
+  at buggy_36.sol(197)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |uint receivers_unchk42;
+    |address payable addr_unchk42;
+  > |if (!addr_unchk42.send(42 ether))
+    |	{receivers_unchk42 +=1;}
+    |else
+  at buggy_36.sol(211)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  uint public numProposals;
+    |  function unhandledsend_unchk2(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  Token public tokenAddress;
+  at buggy_36.sol(218)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  function bug_unchk43() public{
+    |address payable addr_unchk43;
+  > |if (!addr_unchk43.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_36.sol(223)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |
+    |  function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  bool public initialized = false;
+  at buggy_36.sol(229)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_36.sol(235)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event ProposalAdded(uint proposalID, address recipient, uint amount, string description);
+  at buggy_36.sol(247)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  event ProposalAdded(uint proposalID, address recipient, uint amount, string description);
+    |  function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  event Voted(uint proposalID, bool position, address voter);
+    |  function bug_unchk31() public{
+  at buggy_36.sol(251)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_36.sol(255)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event ChangeOfRules(uint newMinimumTokensToVote, uint newMinimumQuorum, uint newDebatingPeriodInMinutes, address newTokenAddress, address newChairmanAddress);
+  at buggy_36.sol(263)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_36.sol(312)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_36.sol(337)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_36.sol(366)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_36.sol(406)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_36.sol(433)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_36.sol(470)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /**
+  at buggy_36.sol(501)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |            p.executed = true;
+    |            
+  > |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+    |            require(success);
+    |
+  at buggy_36.sol(544)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |}
+  at buggy_36.sol(557)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |  event receivedTokens(address _from, uint256 _value, address _token, bytes _extraData);
+  at buggy_36.sol(49)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    | * The Mindsync Platform contract
+    | */
+  > |contract MindsyncPlatform is owned, tokenRecipient {
+    |    using SafeMath for uint256;
+    |
+  at buggy_36.sol(189)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        proposalID = proposals.length++;
+    |        Proposal storage p = proposals[proposalID];
+  > |        p.recipient = destination;
+    |        p.signedByChairman = false;
+    |        p.amount = weiAmount;
+  at buggy_36.sol(391)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        Proposal storage p = proposals[proposalID];
+    |        p.recipient = destination;
+  > |        p.signedByChairman = false;
+    |        p.amount = weiAmount;
+    |        p.description = transactionDescription;
+  at buggy_36.sol(392)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.recipient = destination;
+    |        p.signedByChairman = false;
+  > |        p.amount = weiAmount;
+    |        p.description = transactionDescription;
+    |        p.proposalHash = keccak256(abi.encodePacked(destination, weiAmount, transactionBytecode));
+  at buggy_36.sol(393)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.amount = weiAmount;
+    |        p.description = transactionDescription;
+  > |        p.proposalHash = keccak256(abi.encodePacked(destination, weiAmount, transactionBytecode));
+    |        p.minExecutionDate = now + debatingPeriodInMinutes * 1 minutes;
+    |        p.executed = false;
+  at buggy_36.sol(395)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.description = transactionDescription;
+    |        p.proposalHash = keccak256(abi.encodePacked(destination, weiAmount, transactionBytecode));
+  > |        p.minExecutionDate = now + debatingPeriodInMinutes * 1 minutes;
+    |        p.executed = false;
+    |        p.proposalPassed = false;
+  at buggy_36.sol(396)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.proposalHash = keccak256(abi.encodePacked(destination, weiAmount, transactionBytecode));
+    |        p.minExecutionDate = now + debatingPeriodInMinutes * 1 minutes;
+  > |        p.executed = false;
+    |        p.proposalPassed = false;
+    |        p.numberOfVotes = 0;
+  at buggy_36.sol(397)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.minExecutionDate = now + debatingPeriodInMinutes * 1 minutes;
+    |        p.executed = false;
+  > |        p.proposalPassed = false;
+    |        p.numberOfVotes = 0;
+    |        emit ProposalAdded(proposalID, destination, weiAmount, transactionDescription);
+  at buggy_36.sol(398)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.executed = false;
+    |        p.proposalPassed = false;
+  > |        p.numberOfVotes = 0;
+    |        emit ProposalAdded(proposalID, destination, weiAmount, transactionDescription);
+    |        numProposals = proposalID+1;
+  at buggy_36.sol(399)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.numberOfVotes = 0;
+    |        emit ProposalAdded(proposalID, destination, weiAmount, transactionDescription);
+  > |        numProposals = proposalID+1;
+    |
+    |        return proposalID;
+  at buggy_36.sol(401)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |
+  at buggy_36.sol(471)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |
+    |        voteID = p.votes.length++;
+  > |        p.votes[voteID] = Vote({inSupport: supportsProposal, voter: msg.sender});
+    |        p.voted[msg.sender] = true;
+    |        p.numberOfVotes = voteID +1;
+  at buggy_36.sol(494)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.votes[voteID] = Vote({inSupport: supportsProposal, voter: msg.sender});
+    |        p.voted[msg.sender] = true;
+  > |        p.numberOfVotes = voteID +1;
+    |        emit Voted(proposalNumber,  supportsProposal, msg.sender);
+    |        return voteID;
+  at buggy_36.sol(496)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            // Proposal passed; execute the transaction
+    |
+  > |            p.executed = true;
+    |            
+    |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+  at buggy_36.sol(542)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            require(success);
+    |
+  > |            p.proposalPassed = true;
+    |        } else {
+    |            // Proposal failed
+  at buggy_36.sol(547)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        } else {
+    |            // Proposal failed
+  > |            p.proposalPassed = false;
+    |        }
+    |
+  at buggy_36.sol(550)
+
+[31mViolation[0m for MissingInputValidation in contract 'owned':
+    |
+    |contract owned {
+  > |  function cash_unchk22(uint roundIndex, uint subpotIndex, address payable winner_unchk22)public{
+    |        uint64 subpot_unchk22 = 10 ether;
+    |        winner_unchk22.send(subpot_unchk22);  //bug
+  at buggy_36.sol(9)
+
+[31mViolation[0m for MissingInputValidation in contract 'owned':
+    |    }
+    |
+  > |    function transferOwnership(address newOwner) onlyOwner public {
+    |        owner = newOwner;
+    |    }
+  at buggy_36.sol(28)
+
+[31mViolation[0m for UnhandledException in contract 'owned':
+    |  function cash_unchk22(uint roundIndex, uint subpotIndex, address payable winner_unchk22)public{
+    |        uint64 subpot_unchk22 = 10 ether;
+  > |        winner_unchk22.send(subpot_unchk22);  //bug
+    |        subpot_unchk22= 0;
+    |}
+  at buggy_36.sol(11)
+
+[31mViolation[0m for UnhandledException in contract 'owned':
+    |function withdrawBal_unchk17 () public{
+    |	uint64 Balances_unchk17 = 0;
+  > |	msg.sender.send(Balances_unchk17);}
+    |
+    |    modifier onlyOwner {
+  at buggy_36.sol(21)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'owned':
+    |  function cash_unchk22(uint roundIndex, uint subpotIndex, address payable winner_unchk22)public{
+    |        uint64 subpot_unchk22 = 10 ether;
+  > |        winner_unchk22.send(subpot_unchk22);  //bug
+    |        subpot_unchk22= 0;
+    |}
+  at buggy_36.sol(11)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'owned':
+    |
+    |    function transferOwnership(address newOwner) onlyOwner public {
+  > |        owner = newOwner;
+    |    }
+    |function callnotchecked_unchk37(address payable callee) public {
+  at buggy_36.sol(29)
+
+[31mViolation[0m for DAOConstantGas in contract 'tokenRecipient':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[31mViolation[0m for TODAmount in contract 'tokenRecipient':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_36.sol(68)
+
+[33mWarning[0m for TODAmount in contract 'tokenRecipient':
+    |contract tokenRecipient {
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  event receivedEther(address sender, uint amount);
+  at buggy_36.sol(39)
+
+[31mViolation[0m for TODReceiver in contract 'tokenRecipient':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[31mViolation[0m for UnhandledException in contract 'tokenRecipient':
+    |contract tokenRecipient {
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  event receivedEther(address sender, uint amount);
+  at buggy_36.sol(39)
+
+[31mViolation[0m for UnhandledException in contract 'tokenRecipient':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[31mViolation[0m for UnhandledException in contract 'tokenRecipient':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function () payable external {
+  at buggy_36.sol(59)
+
+[31mViolation[0m for UnhandledException in contract 'tokenRecipient':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_36.sol(68)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'tokenRecipient':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function () payable external {
+  at buggy_36.sol(59)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'tokenRecipient':
+    |contract tokenRecipient {
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  event receivedEther(address sender, uint amount);
+  at buggy_36.sol(39)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'tokenRecipient':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_36.sol(48)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'tokenRecipient':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_36.sol(68)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'tokenRecipient':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |  event receivedTokens(address _from, uint256 _value, address _token, bytes _extraData);
+  at buggy_36.sol(49)
+

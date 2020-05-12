@@ -1,0 +1,25 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_12.sol:246:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)", 
+   "/tmp/SCs/buggy_12.sol:210:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_12.sol:214:5: Warning: Integer Overflow.\n    function transfer(address _to, uint _value, bytes memory _data) public returns (bool) {\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    _to = 115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_12.sol:156:6: Warning: Transaction-Ordering Dependency.\nif (!addr_unchk19.send (10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_12.sol:210:9: Warning: Transaction-Ordering Dependency.\n        winner_unchk20.send(winAmount_unchk20)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "74.1"
+}

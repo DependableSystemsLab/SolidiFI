@@ -1,0 +1,253 @@
+Processing contract: buggy_39.sol:TAMCContract
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'TAMCContract':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_39.sol(14)
+
+[31mViolation[0m for DAOConstantGas in contract 'TAMCContract':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_39.sol(79)
+
+[31mViolation[0m for TODAmount in contract 'TAMCContract':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed from, address indexed to, uint256 value);
+  at buggy_39.sol(36)
+
+[31mViolation[0m for TODAmount in contract 'TAMCContract':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_39.sol(65)
+
+[33mWarning[0m for TODAmount in contract 'TAMCContract':
+    |  string public name = "TAMC";
+    |  function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  string public symbol = "TAMC";
+  at buggy_39.sol(23)
+
+[33mWarning[0m for TODAmount in contract 'TAMCContract':
+    |  string public symbol = "TAMC";
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint8 public decimals = 18;
+  at buggy_39.sol(27)
+
+[31mViolation[0m for TODReceiver in contract 'TAMCContract':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_39.sol(14)
+
+[31mViolation[0m for TODReceiver in contract 'TAMCContract':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_39.sol(79)
+
+[31mViolation[0m for UnhandledException in contract 'TAMCContract':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_39.sol(14)
+
+[31mViolation[0m for UnhandledException in contract 'TAMCContract':
+    |
+    |  function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |  string public name = "TAMC";
+    |  function my_func_uncheck36(address payable dst) public payable{
+  at buggy_39.sol(20)
+
+[31mViolation[0m for UnhandledException in contract 'TAMCContract':
+    |  string public name = "TAMC";
+    |  function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  string public symbol = "TAMC";
+  at buggy_39.sol(23)
+
+[31mViolation[0m for UnhandledException in contract 'TAMCContract':
+    |  string public symbol = "TAMC";
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint8 public decimals = 18;
+  at buggy_39.sol(27)
+
+[31mViolation[0m for UnhandledException in contract 'TAMCContract':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed from, address indexed to, uint256 value);
+  at buggy_39.sol(36)
+
+[31mViolation[0m for UnhandledException in contract 'TAMCContract':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_39.sol(65)
+
+[31mViolation[0m for UnhandledException in contract 'TAMCContract':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_39.sol(79)
+
+[31mViolation[0m for UnhandledException in contract 'TAMCContract':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function transferFrom(address from, address to, uint256 value)
+  at buggy_39.sol(93)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |
+    |  function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |  string public name = "TAMC";
+    |  function my_func_uncheck36(address payable dst) public payable{
+  at buggy_39.sol(20)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_39.sol(46)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function transferFrom(address from, address to, uint256 value)
+  at buggy_39.sol(93)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_39.sol(14)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |  string public name = "TAMC";
+    |  function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  string public symbol = "TAMC";
+  at buggy_39.sol(23)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |  string public symbol = "TAMC";
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint8 public decimals = 18;
+  at buggy_39.sol(27)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed from, address indexed to, uint256 value);
+  at buggy_39.sol(36)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_39.sol(65)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_39.sol(79)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMCContract':
+    |function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_39.sol(110)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMCContract':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |  mapping (address => uint256) public balanceOf;
+  at buggy_39.sol(15)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMCContract':
+    |        require(balanceOf[msg.sender] >= value);
+    |        balanceOf[msg.sender] -= value;
+  > |        balanceOf[to] += value;
+    |        emit Transfer(msg.sender, to, value);
+    |        return true;
+  at buggy_39.sol(57)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMCContract':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |  mapping(address => mapping(address => uint256)) public allowance;
+  at buggy_39.sol(80)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMCContract':
+    |        require(value <= allowance[from][msg.sender]);
+    |
+  > |        balanceOf[from] -= value;
+    |        balanceOf[to] += value;
+    |        allowance[from][msg.sender] -= value;
+  at buggy_39.sol(102)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMCContract':
+    |
+    |        balanceOf[from] -= value;
+  > |        balanceOf[to] += value;
+    |        allowance[from][msg.sender] -= value;
+    |        emit Transfer(from, to, value);
+  at buggy_39.sol(103)
+

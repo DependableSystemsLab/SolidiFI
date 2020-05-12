@@ -1,0 +1,318 @@
+Processing contract: buggy_31.sol:ECDSA
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_31.sol:FeeTransactionManager
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_31.sol:IERC20
+Processing contract: buggy_31.sol:Marmo
+Processing contract: buggy_31.sol:Ownable
+Processing contract: buggy_31.sol:ReentrancyGuard
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_31.sol(123)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_31.sol(179)
+
+[31mViolation[0m for RepeatedCall in contract 'FeeTransactionManager':
+    |        require(marmo.signer() == ECDSA.recover(hash, _signature), "Invalid signature");
+    |        require(token.transferFrom(msg.sender, _to, _value));
+  > |        require(token.transferFrom(msg.sender, relayer, _fee));
+    |    }
+    |function bug_unchk27(address payable addr) public
+  at buggy_31.sol(282)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+  at buggy_31.sol(106)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_31.sol(262)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_31.sol(151)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_31.sol(162)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |    // counter to allow mutex lock with only one SSTORE operation
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 private _guardCounter;
+  at buggy_31.sol(199)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_31.sol(179)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+  at buggy_31.sol(106)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_31.sol(123)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /**
+  at buggy_31.sol(134)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_31.sol(151)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_31.sol(162)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_31.sol(179)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |    // counter to allow mutex lock with only one SSTORE operation
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 private _guardCounter;
+  at buggy_31.sol(199)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |    
+    |  function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  IERC20 public token;
+  at buggy_31.sol(236)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_31.sol(262)
+
+[31mViolation[0m for UnhandledException in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |    
+    |    function setRelayer(address _newRelayer) onlyOwner external {
+  at buggy_31.sol(285)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /**
+  at buggy_31.sol(134)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_31.sol(210)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    
+    |  function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  IERC20 public token;
+  at buggy_31.sol(236)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_31.sol(242)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |    
+    |    function setRelayer(address _newRelayer) onlyOwner external {
+  at buggy_31.sol(285)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |  function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_31.sol(97)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+  at buggy_31.sol(106)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_31.sol(123)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_31.sol(151)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_31.sol(162)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_31.sol(179)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    // counter to allow mutex lock with only one SSTORE operation
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 private _guardCounter;
+  at buggy_31.sol(199)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_31.sol(262)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_31.sol(294)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |
+  at buggy_31.sol(124)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |}
+  at buggy_31.sol(180)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |     */
+    |    modifier nonReentrant() {
+  > |        _guardCounter += 1;
+    |        uint256 localCounter = _guardCounter;
+    |        _;
+  at buggy_31.sol(226)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(newOwner != address(0), "Ownable: new owner is the zero address");
+    |        emit OwnershipTransferred(_owner, newOwner);
+  > |        _owner = newOwner;
+    |    }
+    |bool public payedOut_unchk44 = false;
+  at buggy_31.sol(171)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(_newRelayer != address(0));
+    |        emit NewRelayer(relayer, _newRelayer);
+  > |        relayer = _newRelayer;
+    |    }
+    |function bug_unchk31() public{
+  at buggy_31.sol(290)
+

@@ -1,0 +1,41 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_16.sol:175:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk10.send(subpot_unchk10)", 
+   "/tmp/SCs/buggy_16.sol:296:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_16.sol:274:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)", 
+   "/tmp/SCs/buggy_16.sol:196:9: Warning: Callstack Depth Attack Vulnerability.\n        dst.send(msg.value)", 
+   "/tmp/SCs/buggy_16.sol:213:8: Warning: Callstack Depth Attack Vulnerability.\n      {addr.send (42 ether)", 
+   "/tmp/SCs/buggy_16.sol:222:9: Warning: Callstack Depth Attack Vulnerability.\n        msg.sender.send(address(this).balance)", 
+   "/tmp/SCs/buggy_16.sol:185:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk22.send(subpot_unchk22)", 
+   "/tmp/SCs/buggy_16.sol:170:9: Warning: Callstack Depth Attack Vulnerability.\n        msg.sender.send(address(this).balance)", 
+   "/tmp/SCs/buggy_16.sol:436:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk44.send(winAmount_unchk44)", 
+   "/tmp/SCs/buggy_16.sol:257:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_16.sol:70:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_16.sol:191:9: Warning: Callstack Depth Attack Vulnerability.\n        dst.call.value(msg.value)(\"\")", 
+   "/tmp/SCs/buggy_16.sol:393:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk8.send(winAmount_unchk8)", 
+   "/tmp/SCs/buggy_16.sol:287:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_16.sol:293:79: Warning: Integer Overflow.\n        for (uint i = 0; i < _addresses.length; i++) {transfer(_addresses[i], _amounts[i]\nInteger Overflow occurs if:\n    balances[_to] = 57896044618658097711785492504343597114711815761720379014131525368324400862633\n    _amounts = 115792089237316195423570985008687907853269984665640564039457584007913129639899\n    balances[_from] = 284833675995521", 
+   "/tmp/SCs/buggy_16.sol:293:64: Warning: Integer Overflow.\n        for (uint i = 0; i < _addresses.length; i++) {transfer(_addresses[i]\nInteger Overflow occurs if:\n    balances[_to] = 57896044618658097711785492504343597114711815761720379014131525368324400862633\n    _addresses = 115792089237316195423570985008687907853269984665640564039457584007913129639899\n    balances[_from] = 284833675995521"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_16.sol:172:3: Warning: Integer Underflow.\n  string public name = \"Exclusive Platform\"", 
+   "/tmp/SCs/buggy_16.sol:178:3: Warning: Integer Underflow.\n  string public symbol = \"XPL\""
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_16.sol:385:9: Warning: Transaction-Ordering Dependency.\n        _receiver.transfer(_amount)"
+   ], 
+   [
+    "/tmp/SCs/buggy_16.sol:238:6: Warning: Transaction-Ordering Dependency.\nif (!addr_unchk19.send (10 ether)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "56.9"
+}

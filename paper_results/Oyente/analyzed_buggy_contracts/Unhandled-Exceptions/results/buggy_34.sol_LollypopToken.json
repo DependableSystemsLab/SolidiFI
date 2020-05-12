@@ -1,0 +1,39 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_34.sol:532:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk44.send(winAmount_unchk44)", 
+   "/tmp/SCs/buggy_34.sol:143:9: Warning: Callstack Depth Attack Vulnerability.\n        dst.call.value(msg.value)(\"\")", 
+   "/tmp/SCs/buggy_34.sol:449:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk8.send(winAmount_unchk8)", 
+   "/tmp/SCs/buggy_34.sol:148:9: Warning: Callstack Depth Attack Vulnerability.\n        dst.send(msg.value)", 
+   "/tmp/SCs/buggy_34.sol:41:9: Warning: Callstack Depth Attack Vulnerability.\n        msg.sender.send(address(this).balance)", 
+   "/tmp/SCs/buggy_34.sol:27:8: Warning: Callstack Depth Attack Vulnerability.\n      {addr.send (42 ether)", 
+   "/tmp/SCs/buggy_34.sol:258:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_34.sol:291:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)", 
+   "/tmp/SCs/buggy_34.sol:274:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)", 
+   "/tmp/SCs/buggy_34.sol:172:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_34.sol:311:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_34.sol:421:3: Warning: Integer Overflow.\n  function multiTransfer(address[] memory receivers, uint256[] memory amounts) public {\n  ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    receivers = 115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_34.sol:283:9: Warning: Integer Underflow.\n        return _symbol\nInteger Underflow occurs if:\n    return _symbol = 1", 
+   "/tmp/SCs/buggy_34.sol:233:37: Warning: Integer Underflow.\n        uint256 senderTimeElasped = now - (_balances[sender].time)\nInteger Underflow occurs if:\n    _balances[sender].time = 1\n    recipient = 1461501637330902918203684832716283019655932542975\n    sender = 1461501637330902918203684832716283019655932542975", 
+   "/tmp/SCs/buggy_34.sol:234:40: Warning: Integer Underflow.\n        uint256 recipientTimeElasped = now - (_balances[recipient].time)\nInteger Underflow occurs if:\n    _balances[recipient].time = 1\n    recipient = 1461501637330902918203684832716283019655932542975\n    sender = 1461501637330902918203684832716283019655932542975", 
+   "/tmp/SCs/buggy_34.sol:266:9: Warning: Integer Underflow.\n        return _name\nInteger Underflow occurs if:\n    return _name = 1"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_34.sol:224:6: Warning: Transaction-Ordering Dependency.\nif (!addr_unchk19.send (10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_34.sol:606:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.send(address(this).balance)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "60.3"
+}

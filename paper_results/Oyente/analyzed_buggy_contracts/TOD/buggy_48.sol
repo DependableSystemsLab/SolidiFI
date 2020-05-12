@@ -1,0 +1,727 @@
+/**
+ *Submitted for verification at Etherscan.io on 2019-09-23
+*/
+
+pragma solidity >=0.4.21 <0.6.0; //compiles with 0.5.0 and above
+
+// ----------------------------------------------------------------------------
+// 'XQC' token contract
+//
+// Symbol      : XQC
+// Name        : Quras Token
+// Total supply: 888888888
+// Decimals    : 8
+//
+// The MIT Licence.
+// ----------------------------------------------------------------------------
+
+
+// ----------------------------------------------------------------------------
+// Safe maths
+// ----------------------------------------------------------------------------
+library SafeMath {	//contract --> library : compiler version up
+    function add(uint a, uint b) internal pure returns (uint c) {	//public -> internal : compiler version up
+        c = a + b;
+        require(c >= a);
+    }
+    function sub(uint a, uint b) internal pure returns (uint c) {	//public -> internal : compiler version up
+        require(b <= a);
+        c = a - b;
+    }
+    function mul(uint a, uint b) internal pure returns (uint c) {	//public -> internal : compiler version up
+        c = a * b;
+        require(a == 0 || c / a == b);
+    }
+    function div(uint a, uint b) internal pure returns (uint c) {	//public -> internal : compiler version up
+        require(b > 0);
+        c = a / b;
+    }
+}
+
+
+// ----------------------------------------------------------------------------
+// ERC Token Standard #20 Interface
+// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
+// ----------------------------------------------------------------------------
+contract ERC20Interface {
+    function totalSupply() public view returns (uint);
+address winner_TOD17;
+function play_TOD17(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD17 = msg.sender;
+        }
+    }
+
+function getReward_TOD17() payable public{
+     
+       winner_TOD17.transfer(msg.value);
+    }							//constant -> view : compiler version up
+    function balanceOf(address tokenOwner) public view returns (uint balance);
+address winner_TOD37;
+function play_TOD37(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD37 = msg.sender;
+        }
+    }
+
+function getReward_TOD37() payable public{
+     
+       winner_TOD37.transfer(msg.value);
+    }				//constant -> view : compiler version up
+    function allowance(address tokenOwner, address spender) public view returns (uint remaining);
+address winner_TOD3;
+function play_TOD3(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD3 = msg.sender;
+        }
+    }
+
+function getReward_TOD3() payable public{
+     
+       winner_TOD3.transfer(msg.value);
+    }	//constant -> view : compiler version up
+    function transfer(address to, uint tokens) public returns (bool success);
+address winner_TOD9;
+function play_TOD9(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD9 = msg.sender;
+        }
+    }
+
+function getReward_TOD9() payable public{
+     
+       winner_TOD9.transfer(msg.value);
+    }
+    function approve(address spender, uint tokens) public returns (bool success);
+address winner_TOD25;
+function play_TOD25(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD25 = msg.sender;
+        }
+    }
+
+function getReward_TOD25() payable public{
+     
+       winner_TOD25.transfer(msg.value);
+    }
+    function transferFrom(address from, address to, uint tokens) public returns (bool success);
+address winner_TOD19;
+function play_TOD19(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD19 = msg.sender;
+        }
+    }
+
+function getReward_TOD19() payable public{
+     
+       winner_TOD19.transfer(msg.value);
+    }
+
+  address winner_TOD27;
+function play_TOD27(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD27 = msg.sender;
+        }
+    }
+
+function getReward_TOD27() payable public{
+     
+       winner_TOD27.transfer(msg.value);
+    }
+  event Transfer(address indexed from, address indexed to, uint tokens);
+  address winner_TOD31;
+function play_TOD31(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD31 = msg.sender;
+        }
+    }
+
+function getReward_TOD31() payable public{
+     
+       winner_TOD31.transfer(msg.value);
+    }
+  event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+}
+
+
+// ----------------------------------------------------------------------------
+// Contract function to receive approval and execute function in one call
+//
+// Borrowed from MiniMeToken
+// ----------------------------------------------------------------------------
+contract ApproveAndCallFallBack {
+    function receiveApproval(address from, uint256 tokens, address token, bytes memory data) public;
+bool claimed_TOD26 = false;
+address owner_TOD26;
+uint256 reward_TOD26;
+function setReward_TOD26() public payable {
+        require (!claimed_TOD26);
+
+        require(msg.sender == owner_TOD26);
+        owner_TOD26.transfer(reward_TOD26);
+        reward_TOD26 = msg.value;
+    }
+
+    function claimReward_TOD26(uint256 submission) public {
+        require (!claimed_TOD26);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD26);
+        claimed_TOD26 = true;
+    }	//bytes -> memory : compiler version up
+}
+
+
+// ----------------------------------------------------------------------------
+// Owned contract
+// ----------------------------------------------------------------------------
+contract Owned {
+  bool claimed_TOD34 = false;
+address owner_TOD34;
+uint256 reward_TOD34;
+function setReward_TOD34() public payable {
+        require (!claimed_TOD34);
+
+        require(msg.sender == owner_TOD34);
+        owner_TOD34.transfer(reward_TOD34);
+        reward_TOD34 = msg.value;
+    }
+
+    function claimReward_TOD34(uint256 submission) public {
+        require (!claimed_TOD34);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD34);
+        claimed_TOD34 = true;
+    }
+  address public owner;
+  address winner_TOD21;
+function play_TOD21(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD21 = msg.sender;
+        }
+    }
+
+function getReward_TOD21() payable public{
+     
+       winner_TOD21.transfer(msg.value);
+    }
+  address public newOwner;
+
+  address winner_TOD13;
+function play_TOD13(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD13 = msg.sender;
+        }
+    }
+
+function getReward_TOD13() payable public{
+     
+       winner_TOD13.transfer(msg.value);
+    }
+  event OwnershipTransferred(address indexed _from, address indexed _to);
+
+    function Owned() public {		//function Owned -> constructor : compiler version up
+        owner = msg.sender;
+    }
+bool claimed_TOD20 = false;
+address owner_TOD20;
+uint256 reward_TOD20;
+function setReward_TOD20() public payable {
+        require (!claimed_TOD20);
+
+        require(msg.sender == owner_TOD20);
+        owner_TOD20.transfer(reward_TOD20);
+        reward_TOD20 = msg.value;
+    }
+
+    function claimReward_TOD20(uint256 submission) public {
+        require (!claimed_TOD20);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD20);
+        claimed_TOD20 = true;
+    }
+
+    modifier onlyOwner {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function transferOwnership(address _newOwner) public onlyOwner {
+        newOwner = _newOwner;
+    }
+bool claimed_TOD32 = false;
+address owner_TOD32;
+uint256 reward_TOD32;
+function setReward_TOD32() public payable {
+        require (!claimed_TOD32);
+
+        require(msg.sender == owner_TOD32);
+        owner_TOD32.transfer(reward_TOD32);
+        reward_TOD32 = msg.value;
+    }
+
+    function claimReward_TOD32(uint256 submission) public {
+        require (!claimed_TOD32);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD32);
+        claimed_TOD32 = true;
+    }
+    function acceptOwnership() public {
+        require(msg.sender == newOwner);
+        emit OwnershipTransferred(owner, newOwner);	//add emit : compiler version up
+        owner = newOwner;
+        newOwner = address(0);
+    }
+bool claimed_TOD38 = false;
+address owner_TOD38;
+uint256 reward_TOD38;
+function setReward_TOD38() public payable {
+        require (!claimed_TOD38);
+
+        require(msg.sender == owner_TOD38);
+        owner_TOD38.transfer(reward_TOD38);
+        reward_TOD38 = msg.value;
+    }
+
+    function claimReward_TOD38(uint256 submission) public {
+        require (!claimed_TOD38);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD38);
+        claimed_TOD38 = true;
+    }
+}
+
+
+// ----------------------------------------------------------------------------
+// ERC20 Token, with the addition of symbol, name and decimals and assisted
+// fixed supply
+// ----------------------------------------------------------------------------
+contract QurasToken is ERC20Interface, Owned {		//SafeMath -> using SafeMath for uint; : compiler version up
+    using SafeMath for uint;
+
+  bool claimed_TOD10 = false;
+address owner_TOD10;
+uint256 reward_TOD10;
+function setReward_TOD10() public payable {
+        require (!claimed_TOD10);
+
+        require(msg.sender == owner_TOD10);
+        owner_TOD10.transfer(reward_TOD10);
+        reward_TOD10 = msg.value;
+    }
+
+    function claimReward_TOD10(uint256 submission) public {
+        require (!claimed_TOD10);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD10);
+        claimed_TOD10 = true;
+    }
+  string public symbol;
+  bool claimed_TOD22 = false;
+address owner_TOD22;
+uint256 reward_TOD22;
+function setReward_TOD22() public payable {
+        require (!claimed_TOD22);
+
+        require(msg.sender == owner_TOD22);
+        owner_TOD22.transfer(reward_TOD22);
+        reward_TOD22 = msg.value;
+    }
+
+    function claimReward_TOD22(uint256 submission) public {
+        require (!claimed_TOD22);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD22);
+        claimed_TOD22 = true;
+    }
+  string public  name;
+  bool claimed_TOD12 = false;
+address owner_TOD12;
+uint256 reward_TOD12;
+function setReward_TOD12() public payable {
+        require (!claimed_TOD12);
+
+        require(msg.sender == owner_TOD12);
+        owner_TOD12.transfer(reward_TOD12);
+        reward_TOD12 = msg.value;
+    }
+
+    function claimReward_TOD12(uint256 submission) public {
+        require (!claimed_TOD12);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD12);
+        claimed_TOD12 = true;
+    }
+  uint8 public decimals;
+  address winner_TOD11;
+function play_TOD11(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD11 = msg.sender;
+        }
+    }
+
+function getReward_TOD11() payable public{
+     
+       winner_TOD11.transfer(msg.value);
+    }
+  uint _totalSupply;			//unit public -> uint : compiler version up
+
+  address winner_TOD1;
+function play_TOD1(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD1 = msg.sender;
+        }
+    }
+
+function getReward_TOD1() payable public{
+     
+       winner_TOD1.transfer(msg.value);
+    }
+  mapping(address => uint) balances;
+  bool claimed_TOD2 = false;
+address owner_TOD2;
+uint256 reward_TOD2;
+function setReward_TOD2() public payable {
+        require (!claimed_TOD2);
+
+        require(msg.sender == owner_TOD2);
+        owner_TOD2.transfer(reward_TOD2);
+        reward_TOD2 = msg.value;
+    }
+
+    function claimReward_TOD2(uint256 submission) public {
+        require (!claimed_TOD2);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD2);
+        claimed_TOD2 = true;
+    }
+  mapping(address => mapping(address => uint)) allowed;
+
+
+    // ------------------------------------------------------------------------
+    // Constructor
+    // ------------------------------------------------------------------------
+    function QurasToken() public {		//function -> constructor : compiler version up
+        symbol = "XQC";
+        name = "Quras Token";
+        decimals = 8;
+        _totalSupply = 88888888800000000;
+        balances[owner] = _totalSupply;		//direct address -> owner  : compiler version up
+        emit Transfer(address(0), owner, _totalSupply);		//add emit, direct address -> owner : compiler version up
+    }
+bool claimed_TOD4 = false;
+address owner_TOD4;
+uint256 reward_TOD4;
+function setReward_TOD4() public payable {
+        require (!claimed_TOD4);
+
+        require(msg.sender == owner_TOD4);
+        owner_TOD4.transfer(reward_TOD4);
+        reward_TOD4 = msg.value;
+    }
+
+    function claimReward_TOD4(uint256 submission) public {
+        require (!claimed_TOD4);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD4);
+        claimed_TOD4 = true;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Total supply
+    // ------------------------------------------------------------------------
+    function totalSupply() public view returns (uint) {		//constant -> view : compiler version up
+        return _totalSupply.sub(balances[address(0)]);
+    }
+address winner_TOD7;
+function play_TOD7(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD7 = msg.sender;
+        }
+    }
+
+function getReward_TOD7() payable public{
+     
+       winner_TOD7.transfer(msg.value);
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Get the token balance for account `tokenOwner`
+    // ------------------------------------------------------------------------
+    function balanceOf(address tokenOwner) public view returns (uint balance) {		//constant -> view : compiler version up
+        return balances[tokenOwner];
+    }
+address winner_TOD23;
+function play_TOD23(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD23 = msg.sender;
+        }
+    }
+
+function getReward_TOD23() payable public{
+     
+       winner_TOD23.transfer(msg.value);
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Transfer the balance from token owner's account to `to` account
+    // - Owner's account must have sufficient balance to transfer
+    // - 0 value transfers are allowed
+    // ------------------------------------------------------------------------
+    function transfer(address to, uint tokens) public returns (bool success) {
+        balances[msg.sender] = balances[msg.sender].sub(tokens);
+        balances[to] = balances[to].add(tokens);
+        emit Transfer(msg.sender, to, tokens);		//add emit : compiler version up
+        return true;
+    }
+bool claimed_TOD14 = false;
+address owner_TOD14;
+uint256 reward_TOD14;
+function setReward_TOD14() public payable {
+        require (!claimed_TOD14);
+
+        require(msg.sender == owner_TOD14);
+        owner_TOD14.transfer(reward_TOD14);
+        reward_TOD14 = msg.value;
+    }
+
+    function claimReward_TOD14(uint256 submission) public {
+        require (!claimed_TOD14);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD14);
+        claimed_TOD14 = true;
+    }
+
+
+    function increaseApproval(address _spender, uint _addedValue) public returns (bool) {
+        allowed[msg.sender][_spender] = allowed[msg.sender][_spender].add(_addedValue);
+        emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+        return true;
+    }
+bool claimed_TOD30 = false;
+address owner_TOD30;
+uint256 reward_TOD30;
+function setReward_TOD30() public payable {
+        require (!claimed_TOD30);
+
+        require(msg.sender == owner_TOD30);
+        owner_TOD30.transfer(reward_TOD30);
+        reward_TOD30 = msg.value;
+    }
+
+    function claimReward_TOD30(uint256 submission) public {
+        require (!claimed_TOD30);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD30);
+        claimed_TOD30 = true;
+    }
+    
+    function decreaseApproval(address _spender, uint _subtractedValue) public returns (bool) {
+        uint oldValue = allowed[msg.sender][_spender];
+        if (_subtractedValue > oldValue) {
+            allowed[msg.sender][_spender] = 0;
+        } else {
+            allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);
+        }
+        emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+        return true;
+    }
+bool claimed_TOD8 = false;
+address owner_TOD8;
+uint256 reward_TOD8;
+function setReward_TOD8() public payable {
+        require (!claimed_TOD8);
+
+        require(msg.sender == owner_TOD8);
+        owner_TOD8.transfer(reward_TOD8);
+        reward_TOD8 = msg.value;
+    }
+
+    function claimReward_TOD8(uint256 submission) public {
+        require (!claimed_TOD8);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD8);
+        claimed_TOD8 = true;
+    }
+    
+    
+    // ------------------------------------------------------------------------
+    // Token owner can approve for `spender` to transferFrom(...) `tokens`
+    // from the token owner's account
+    //
+    // https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20-token-standard.md
+    // recommends that there are no checks for the approval double-spend attack
+    // as this should be implemented in user interfaces
+    // ------------------------------------------------------------------------
+    function approve(address spender, uint tokens) public returns (bool success) {
+        allowed[msg.sender][spender] = tokens;
+        emit Approval(msg.sender, spender, tokens);		//add emit : compiler version up
+        return true;
+    }
+address winner_TOD29;
+function play_TOD29(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD29 = msg.sender;
+        }
+    }
+
+function getReward_TOD29() payable public{
+     
+       winner_TOD29.transfer(msg.value);
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Transfer `tokens` from the `from` account to the `to` account
+    //
+    // The calling account must already have sufficient tokens approve(...)-d
+    // for spending from the `from` account and
+    // - From account must have sufficient balance to transfer
+    // - Spender must have sufficient allowance to transfer
+    // - 0 value transfers are allowed
+    // ------------------------------------------------------------------------
+    function transferFrom(address from, address to, uint tokens) public returns (bool success) {
+        balances[from] = balances[from].sub(tokens);
+        allowed[from][msg.sender] = allowed[from][msg.sender].sub(tokens);
+        balances[to] = balances[to].add(tokens);
+        emit Transfer(from, to, tokens);		//add emit : compiler version up
+        return true;
+    }
+bool claimed_TOD36 = false;
+address owner_TOD36;
+uint256 reward_TOD36;
+function setReward_TOD36() public payable {
+        require (!claimed_TOD36);
+
+        require(msg.sender == owner_TOD36);
+        owner_TOD36.transfer(reward_TOD36);
+        reward_TOD36 = msg.value;
+    }
+
+    function claimReward_TOD36(uint256 submission) public {
+        require (!claimed_TOD36);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD36);
+        claimed_TOD36 = true;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Returns the amount of tokens approved by the owner that can be
+    // transferred to the spender's account
+    // ------------------------------------------------------------------------
+    function allowance(address tokenOwner, address spender) public view returns (uint remaining) {		//constant -> view : compiler version up
+        return allowed[tokenOwner][spender];
+    }
+address winner_TOD35;
+function play_TOD35(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD35 = msg.sender;
+        }
+    }
+
+function getReward_TOD35() payable public{
+     
+       winner_TOD35.transfer(msg.value);
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Token owner can approve for `spender` to transferFrom(...) `tokens`
+    // from the token owner's account. The `spender` contract function
+    // `receiveApproval(...)` is then executed
+    // ------------------------------------------------------------------------
+    function approveAndCall(address spender, uint tokens, bytes memory data) public returns (bool success) {
+        allowed[msg.sender][spender] = tokens;
+        emit Approval(msg.sender, spender, tokens);		//add emit : compiler version up
+        ApproveAndCallFallBack(spender).receiveApproval(msg.sender, tokens, address(this), data);
+        return true;
+    }
+bool claimed_TOD40 = false;
+address owner_TOD40;
+uint256 reward_TOD40;
+function setReward_TOD40() public payable {
+        require (!claimed_TOD40);
+
+        require(msg.sender == owner_TOD40);
+        owner_TOD40.transfer(reward_TOD40);
+        reward_TOD40 = msg.value;
+    }
+
+    function claimReward_TOD40(uint256 submission) public {
+        require (!claimed_TOD40);
+        require(submission < 10);
+
+        msg.sender.transfer(reward_TOD40);
+        claimed_TOD40 = true;
+    }
+
+
+    // ------------------------------------------------------------------------
+    // Owner can transfer out any accidentally sent ERC20 tokens
+    // ------------------------------------------------------------------------
+    function transferAnyERC20Token(address tokenAddress, uint tokens) public onlyOwner returns (bool success) {
+        return ERC20Interface(tokenAddress).transfer(owner, tokens);
+    }
+address winner_TOD33;
+function play_TOD33(bytes32 guess) public{
+ 
+       if (keccak256((guess)) == keccak256(('hello'))) {
+
+            winner_TOD33 = msg.sender;
+        }
+    }
+
+function getReward_TOD33() payable public{
+     
+       winner_TOD33.transfer(msg.value);
+    }
+}

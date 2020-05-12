@@ -1,0 +1,89 @@
+Processing contract: buggy_27.sol:DanPanCoin
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_27.sol:ERC20Detailed
+Processing contract: buggy_27.sol:IERC20
+Processing contract: buggy_27.sol:Ownable
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_27.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'Ownable':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_27.sol(58)
+
+[31mViolation[0m for DAO in contract 'Ownable':
+    |mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_27.sol(92)
+
+[31mViolation[0m for DAOConstantGas in contract 'Ownable':
+    |        require(balances_re_ent10[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent10[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_27.sol(74)
+
+[33mWarning[0m for TODAmount in contract 'Ownable':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_27.sol(58)
+
+[33mWarning[0m for TODAmount in contract 'Ownable':
+    |mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_27.sol(92)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |        require(balances_re_ent10[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent10[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_27.sol(74)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_27.sol(58)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_27.sol(92)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Ownable':
+    |      require(newOwner != address(0));
+    |      emit OwnershipTransferred(owner, newOwner);
+  > |      owner = newOwner;
+    |    }
+    |mapping(address => uint) balances_re_ent21;
+  at buggy_27.sol(88)
+

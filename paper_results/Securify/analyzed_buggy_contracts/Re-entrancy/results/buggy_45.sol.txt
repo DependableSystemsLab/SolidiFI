@@ -1,0 +1,869 @@
+Processing contract: buggy_45.sol:StockBet
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(37)
+
+[31mViolation[0m for DAO in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(48)
+
+[31mViolation[0m for DAO in contract 'StockBet':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(76)
+
+[31mViolation[0m for DAO in contract 'StockBet':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_45.sol(101)
+
+[31mViolation[0m for DAO in contract 'StockBet':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_45.sol(139)
+
+[31mViolation[0m for DAO in contract 'StockBet':
+    |        require(balances_re_ent3[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |	(bool success,)= msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent3[msg.sender] -= _weiToWithdraw;
+  at buggy_45.sol(158)
+
+[31mViolation[0m for DAO in contract 'StockBet':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_45.sol(166)
+
+[31mViolation[0m for DAO in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(231)
+
+[31mViolation[0m for DAO in contract 'StockBet':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_45.sol(379)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(14)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_45.sol(20)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(27)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(58)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_45.sol(69)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(109)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(118)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_45.sol(128)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_45.sol(148)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(179)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(187)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(246)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(263)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_45.sol(276)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(293)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(308)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_45.sol(341)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(353)
+
+[31mViolation[0m for DAOConstantGas in contract 'StockBet':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_45.sol(368)
+
+[31mViolation[0m for TODAmount in contract 'StockBet':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_45.sol(128)
+
+[31mViolation[0m for TODAmount in contract 'StockBet':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_45.sol(148)
+
+[31mViolation[0m for TODAmount in contract 'StockBet':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_45.sol(166)
+
+[31mViolation[0m for TODAmount in contract 'StockBet':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_45.sol(341)
+
+[31mViolation[0m for TODAmount in contract 'StockBet':
+    |        if(guesses[result].players[msg.sender] == PaidStatus.NOT_PAID){
+    |            guesses[result].players[msg.sender] = PaidStatus.PAID;
+  > |            msg.sender.transfer(splitJackpot);
+    |        } else revert();
+    |    }
+  at buggy_45.sol(362)
+
+[31mViolation[0m for TODAmount in contract 'StockBet':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_45.sol(368)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(14)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_45.sol(20)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(37)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(48)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_45.sol(101)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(179)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(187)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(231)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(263)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(293)
+
+[33mWarning[0m for TODAmount in contract 'StockBet':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_45.sol(379)
+
+[31mViolation[0m for TODReceiver in contract 'StockBet':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_45.sol(128)
+
+[31mViolation[0m for TODReceiver in contract 'StockBet':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_45.sol(148)
+
+[31mViolation[0m for TODReceiver in contract 'StockBet':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_45.sol(166)
+
+[31mViolation[0m for TODReceiver in contract 'StockBet':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_45.sol(341)
+
+[31mViolation[0m for TODReceiver in contract 'StockBet':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_45.sol(368)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(58)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_45.sol(69)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(76)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(109)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_45.sol(139)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        require(balances_re_ent3[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |	(bool success,)= msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent3[msg.sender] -= _weiToWithdraw;
+  at buggy_45.sol(158)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(246)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_45.sol(276)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(14)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_45.sol(20)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(27)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(37)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(48)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_45.sol(101)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(118)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_45.sol(128)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_45.sol(148)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_45.sol(166)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(179)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(187)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_45.sol(231)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(263)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_45.sol(293)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(308)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_45.sol(341)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_45.sol(353)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_45.sol(368)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'StockBet':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_45.sol(379)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |            revert();
+    |        }
+  > |        counter_re_ent35 += 1;
+    |    }
+    |  event GameClosed();
+  at buggy_45.sol(30)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |            revert();
+    |        }
+  > |        not_called_re_ent27 = false;
+    |    }
+    |  event PlayerBet(address player, uint guess);
+  at buggy_45.sol(61)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |  event OwnerWins(address owner);
+  at buggy_45.sol(80)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |            revert();
+    |        }
+  > |        not_called_re_ent41 = false;
+    |    }
+    |  address public oracle;
+  at buggy_45.sol(112)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |            revert();
+    |        }
+  > |        counter_re_ent42 += 1;
+    |    }
+    |  State public state;
+  at buggy_45.sol(121)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+  > |      lastPlayer_re_ent2 = msg.sender;
+    |      jackpot_re_ent2    = address(this).balance;
+    |    }
+  at buggy_45.sol(130)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  > |      jackpot_re_ent2    = address(this).balance;
+    |    }
+    |  mapping (uint => Guess) public guesses;
+  at buggy_45.sol(131)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+  > |      lastPlayer_re_ent37 = msg.sender;
+    |      jackpot_re_ent37    = address(this).balance;
+    |    }
+  at buggy_45.sol(150)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  > |      jackpot_re_ent37    = address(this).balance;
+    |    }
+    |  uint public result;
+  at buggy_45.sol(151)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |	    if (!success)
+    |	        revert();
+  > |      lastPlayer_re_ent9 = msg.sender;
+    |      jackpot_re_ent9    = address(this).balance;
+    |    }
+  at buggy_45.sol(169)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |	        revert();
+    |      lastPlayer_re_ent9 = msg.sender;
+  > |      jackpot_re_ent9    = address(this).balance;
+    |    }
+    |  uint256 public finalPrice;
+  at buggy_45.sol(170)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |            revert();
+    |        }
+  > |        not_called_re_ent20 = false;
+    |    }
+    |    
+  at buggy_45.sol(249)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |            revert();
+    |        }
+  > |        counter_re_ent7 += 1;
+    |    }
+    |    
+  at buggy_45.sol(311)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+  > |      lastPlayer_re_ent23 = msg.sender;
+    |      jackpot_re_ent23    = address(this).balance;
+    |    }
+  at buggy_45.sol(343)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  > |      jackpot_re_ent23    = address(this).balance;
+    |    }
+    |    
+  at buggy_45.sol(344)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |            revert();
+    |        }
+  > |        counter_re_ent14 += 1;
+    |    }
+    |    
+  at buggy_45.sol(356)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+  > |      lastPlayer_re_ent30 = msg.sender;
+    |      jackpot_re_ent30    = address(this).balance;
+    |    }
+  at buggy_45.sol(370)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'StockBet':
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  > |      jackpot_re_ent30    = address(this).balance;
+    |    }
+    |
+  at buggy_45.sol(371)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |    
+    |    function setOracle(address _oracle) public payable byOwner inState(State.SETUP) {
+  > |        oracle = _oracle;
+    |        
+    |        emit OracleSet(oracle);
+  at buggy_45.sol(239)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |    
+    |    function setInitialPrice(uint256 _value) public payable byOracle inState(State.SETUP) {
+  > |        initialPrice = _value;
+    |        state = State.OPEN;
+    |        
+  at buggy_45.sol(253)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |    function setInitialPrice(uint256 _value) public payable byOracle inState(State.SETUP) {
+    |        initialPrice = _value;
+  > |        state = State.OPEN;
+    |        
+    |        emit GameOpened(initialPrice);
+  at buggy_45.sol(254)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |
+    |    function closeGame() public byOwner inState(State.OPEN){
+  > |        state = State.CLOSED;
+    |
+    |        emit GameClosed();
+  at buggy_45.sol(268)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |        require(msg.value == (bet*0.001 ether));
+    |
+  > |        guesses[UP].guesses_number++;
+    |        guesses[UP].players[msg.sender] = PaidStatus.NOT_PAID;
+    |
+  at buggy_45.sol(283)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |        require(msg.value == (bet*0.001 ether));
+    |
+  > |        guesses[DOWN].guesses_number++;
+    |        guesses[DOWN].players[msg.sender] = PaidStatus.NOT_PAID;
+    |        
+  at buggy_45.sol(300)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |        // require(isValidNumber(_result));
+    |        
+  > |        finalPrice = _value;
+    |        
+    |        emit FinalPriceSet(finalPrice);
+  at buggy_45.sol(318)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |        
+    |        if(finalPrice > initialPrice){
+  > |            result = UP;
+    |        }else{
+    |            result = DOWN;
+  at buggy_45.sol(323)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |            result = UP;
+    |        }else{
+  > |            result = DOWN;
+    |        }
+    |        
+  at buggy_45.sol(325)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |        
+    |        if(guesses[result].guesses_number > 0){
+  > |            state = State.PLAYERS_WIN;
+    |            splitJackpot = getBalance()/guesses[result].guesses_number;
+    |            emit PlayersWin(result, splitJackpot);
+  at buggy_45.sol(330)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |        if(guesses[result].guesses_number > 0){
+    |            state = State.PLAYERS_WIN;
+  > |            splitJackpot = getBalance()/guesses[result].guesses_number;
+    |            emit PlayersWin(result, splitJackpot);
+    |        }else{
+  at buggy_45.sol(331)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'StockBet':
+    |            emit PlayersWin(result, splitJackpot);
+    |        }else{
+  > |            state = State.OWNER_WIN;
+    |            emit OwnerWins(owner);
+    |        }
+  at buggy_45.sol(334)
+

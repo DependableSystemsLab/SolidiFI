@@ -1,0 +1,1009 @@
+Processing contract: buggy_48.sol:ApproveAndCallFallBack
+Processing contract: buggy_48.sol:ERC20Interface
+Processing contract: buggy_48.sol:Owned
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_48.sol:QurasToken
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_48.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'Owned':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_48.sol(150)
+
+[31mViolation[0m for DAO in contract 'Owned':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(169)
+
+[31mViolation[0m for DAOConstantGas in contract 'Owned':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(159)
+
+[31mViolation[0m for DAOConstantGas in contract 'Owned':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(183)
+
+[31mViolation[0m for DAOConstantGas in contract 'Owned':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(202)
+
+[31mViolation[0m for DAOConstantGas in contract 'Owned':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_48.sol(215)
+
+[33mWarning[0m for TODAmount in contract 'Owned':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_48.sol(150)
+
+[33mWarning[0m for TODAmount in contract 'Owned':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(159)
+
+[33mWarning[0m for TODAmount in contract 'Owned':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(202)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(169)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(183)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_48.sol(215)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_48.sol(150)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(159)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(202)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'Owned':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |  event OwnershipTransferred(address indexed _from, address indexed _to);
+  at buggy_48.sol(173)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'Owned':
+    |            revert();
+    |        }
+  > |        not_called_re_ent20 = false;
+    |    }
+    |
+  at buggy_48.sol(186)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |
+    |    function transferOwnership(address _newOwner) public onlyOwner {
+  > |        newOwner = _newOwner;
+    |    }
+    |mapping(address => uint) redeemableEther_re_ent32;
+  at buggy_48.sol(195)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |        require(msg.sender == newOwner);
+    |        emit OwnershipTransferred(owner, newOwner);	//add emit : compiler version up
+  > |        owner = newOwner;
+    |        newOwner = address(0);
+    |    }
+  at buggy_48.sol(208)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |        emit OwnershipTransferred(owner, newOwner);	//add emit : compiler version up
+    |        owner = newOwner;
+  > |        newOwner = address(0);
+    |    }
+    |mapping(address => uint) balances_re_ent38;
+  at buggy_48.sol(209)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_48.sol(52)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |        require(balances_re_ent3[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |	(bool success,)= msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent3[msg.sender] -= _weiToWithdraw;
+  at buggy_48.sol(70)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_48.sol(78)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_48.sol(150)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(169)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_48.sol(239)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_48.sol(375)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(459)
+
+[31mViolation[0m for DAO in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(477)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_48.sol(60)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(90)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(98)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(107)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_48.sol(117)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(159)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(183)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(202)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_48.sol(215)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(233)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(247)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(256)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_48.sol(267)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(291)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(305)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_48.sol(321)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(342)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_48.sol(357)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(399)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_48.sol(422)
+
+[31mViolation[0m for DAOConstantGas in contract 'QurasToken':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(437)
+
+[31mViolation[0m for TODAmount in contract 'QurasToken':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_48.sol(60)
+
+[31mViolation[0m for TODAmount in contract 'QurasToken':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_48.sol(78)
+
+[31mViolation[0m for TODAmount in contract 'QurasToken':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_48.sol(267)
+
+[31mViolation[0m for TODAmount in contract 'QurasToken':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_48.sol(321)
+
+[31mViolation[0m for TODAmount in contract 'QurasToken':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_48.sol(357)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(90)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(98)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_48.sol(150)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(159)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(202)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(233)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_48.sol(239)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(291)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_48.sol(375)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(399)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_48.sol(422)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(459)
+
+[33mWarning[0m for TODAmount in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(477)
+
+[31mViolation[0m for TODReceiver in contract 'QurasToken':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_48.sol(60)
+
+[31mViolation[0m for TODReceiver in contract 'QurasToken':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_48.sol(78)
+
+[31mViolation[0m for TODReceiver in contract 'QurasToken':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_48.sol(267)
+
+[31mViolation[0m for TODReceiver in contract 'QurasToken':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_48.sol(321)
+
+[31mViolation[0m for TODReceiver in contract 'QurasToken':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_48.sol(357)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_48.sol(52)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |      uint jackpot_re_ent37;
+    |	  function buyTicket_re_ent37() public{
+  > |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  at buggy_48.sol(60)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(balances_re_ent3[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |	(bool success,)= msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent3[msg.sender] -= _weiToWithdraw;
+  at buggy_48.sol(70)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_48.sol(78)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(90)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(98)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(107)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_48.sol(117)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_48.sol(150)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(159)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(169)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(183)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(202)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_48.sol(215)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(233)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_48.sol(239)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(247)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(256)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_48.sol(267)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(291)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(305)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_48.sol(321)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(342)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_48.sol(357)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_48.sol(375)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_48.sol(399)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_48.sol(422)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_48.sol(437)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(459)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'QurasToken':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_48.sol(477)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |	    if (!(lastPlayer_re_ent37.send(jackpot_re_ent37)))
+    |        revert();
+  > |      lastPlayer_re_ent37 = msg.sender;
+    |      jackpot_re_ent37    = address(this).balance;
+    |    }				//constant -> view : compiler version up
+  at buggy_48.sol(62)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |        revert();
+    |      lastPlayer_re_ent37 = msg.sender;
+  > |      jackpot_re_ent37    = address(this).balance;
+    |    }				//constant -> view : compiler version up
+    |    function allowance(address tokenOwner, address spender) public view returns (uint remaining);
+  at buggy_48.sol(63)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |	    if (!success)
+    |	        revert();
+  > |      lastPlayer_re_ent9 = msg.sender;
+    |      jackpot_re_ent9    = address(this).balance;
+    |    }
+  at buggy_48.sol(81)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |	        revert();
+    |      lastPlayer_re_ent9 = msg.sender;
+  > |      jackpot_re_ent9    = address(this).balance;
+    |    }
+    |    function approve(address spender, uint tokens) public returns (bool success);
+  at buggy_48.sol(82)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |            revert();
+    |        }
+  > |        not_called_re_ent27 = false;
+    |    }
+    |  event Transfer(address indexed from, address indexed to, uint tokens);
+  at buggy_48.sol(110)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |  event OwnershipTransferred(address indexed _from, address indexed _to);
+  at buggy_48.sol(173)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |            revert();
+    |        }
+  > |        not_called_re_ent20 = false;
+    |    }
+    |
+  at buggy_48.sol(186)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |            revert();
+    |        }
+  > |        not_called_re_ent41 = false;
+    |    }
+    |  uint8 public decimals;
+  at buggy_48.sol(250)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |            revert();
+    |        }
+  > |        counter_re_ent42 += 1;
+    |    }
+    |  uint _totalSupply;			//unit public -> uint : compiler version up
+  at buggy_48.sol(259)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+  > |      lastPlayer_re_ent2 = msg.sender;
+    |      jackpot_re_ent2    = address(this).balance;
+    |    }
+  at buggy_48.sol(269)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  > |      jackpot_re_ent2    = address(this).balance;
+    |    }
+    |  mapping(address => mapping(address => uint)) allowed;
+  at buggy_48.sol(270)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |            revert();
+    |        }
+  > |        counter_re_ent7 += 1;
+    |    }
+    |
+  at buggy_48.sol(308)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+  > |      lastPlayer_re_ent23 = msg.sender;
+    |      jackpot_re_ent23    = address(this).balance;
+    |    }
+  at buggy_48.sol(323)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  > |      jackpot_re_ent23    = address(this).balance;
+    |    }
+    |
+  at buggy_48.sol(324)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |    function transfer(address to, uint tokens) public returns (bool success) {
+    |        balances[msg.sender] = balances[msg.sender].sub(tokens);
+  > |        balances[to] = balances[to].add(tokens);
+    |        emit Transfer(msg.sender, to, tokens);		//add emit : compiler version up
+    |        return true;
+  at buggy_48.sol(335)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |            revert();
+    |        }
+  > |        counter_re_ent14 += 1;
+    |    }
+    |
+  at buggy_48.sol(345)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+  > |      lastPlayer_re_ent30 = msg.sender;
+    |      jackpot_re_ent30    = address(this).balance;
+    |    }
+  at buggy_48.sol(359)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  > |      jackpot_re_ent30    = address(this).balance;
+    |    }
+    |    
+  at buggy_48.sol(360)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |    // ------------------------------------------------------------------------
+    |    function transferFrom(address from, address to, uint tokens) public returns (bool success) {
+  > |        balances[from] = balances[from].sub(tokens);
+    |        allowed[from][msg.sender] = allowed[from][msg.sender].sub(tokens);
+    |        balances[to] = balances[to].add(tokens);
+  at buggy_48.sol(414)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |        balances[from] = balances[from].sub(tokens);
+    |        allowed[from][msg.sender] = allowed[from][msg.sender].sub(tokens);
+  > |        balances[to] = balances[to].add(tokens);
+    |        emit Transfer(from, to, tokens);		//add emit : compiler version up
+    |        return true;
+  at buggy_48.sol(416)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'QurasToken':
+    |            revert();
+    |        }
+  > |        counter_re_ent35 += 1;
+    |    }
+    |
+  at buggy_48.sol(440)
+

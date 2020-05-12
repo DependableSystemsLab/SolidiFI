@@ -1,0 +1,793 @@
+Processing contract: buggy_37.sol:ApproveAndCallFallBack
+Processing contract: buggy_37.sol:AugustCoin
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_37.sol:ERC20Interface
+Processing contract: buggy_37.sol:Owned
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_37.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'AugustCoin':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_37.sol(85)
+
+[31mViolation[0m for DAOConstantGas in contract 'AugustCoin':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_37.sol(95)
+
+[31mViolation[0m for DAOConstantGas in contract 'AugustCoin':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_37.sol(273)
+
+[31mViolation[0m for DAOConstantGas in contract 'AugustCoin':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_37.sol(345)
+
+[31mViolation[0m for TODAmount in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_37.sol(54)
+
+[31mViolation[0m for TODAmount in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+  at buggy_37.sol(113)
+
+[31mViolation[0m for TODAmount in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_37.sol(382)
+
+[33mWarning[0m for TODAmount in contract 'AugustCoin':
+    |contract Owned {
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public owner;
+  at buggy_37.sol(139)
+
+[33mWarning[0m for TODAmount in contract 'AugustCoin':
+    |  address public owner;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public newOwner;
+  at buggy_37.sol(143)
+
+[33mWarning[0m for TODAmount in contract 'AugustCoin':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |}
+  at buggy_37.sol(185)
+
+[33mWarning[0m for TODAmount in contract 'AugustCoin':
+    |  mapping(address => uint) balances;
+    |  function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  mapping(address => mapping(address => uint)) allowed;
+  at buggy_37.sol(224)
+
+[33mWarning[0m for TODAmount in contract 'AugustCoin':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_37.sol(307)
+
+[33mWarning[0m for TODAmount in contract 'AugustCoin':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_37.sol(328)
+
+[31mViolation[0m for TODReceiver in contract 'AugustCoin':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_37.sol(85)
+
+[31mViolation[0m for TODReceiver in contract 'AugustCoin':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_37.sol(95)
+
+[31mViolation[0m for TODReceiver in contract 'AugustCoin':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_37.sol(273)
+
+[31mViolation[0m for TODReceiver in contract 'AugustCoin':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_37.sol(345)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |function withdrawBal_unchk17 () public{
+    |	uint64 Balances_unchk17 = 0;
+  > |	msg.sender.send(Balances_unchk17);}
+    |    function safeSub(uint a, uint b) public pure returns (uint c) {
+    |        require(b <= a);
+  at buggy_37.sol(32)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |    function safeDiv(uint a, uint b) public pure returns (uint c) {
+    |        require(b > 0);
+  at buggy_37.sol(45)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_37.sol(54)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    function allowance(address tokenOwner, address spender) public view returns (uint remaining);
+    |function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    function transfer(address to, uint tokens) public returns (bool success);
+  at buggy_37.sol(76)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_37.sol(85)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_37.sol(95)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    function transferFrom(address from, address to, uint tokens) public returns (bool success);
+    |function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_37.sol(100)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+  at buggy_37.sol(113)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |contract Owned {
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public owner;
+  at buggy_37.sol(139)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |  address public owner;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public newOwner;
+  at buggy_37.sol(143)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |}
+  at buggy_37.sol(185)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |  function withdrawBal_unchk41 () public{
+    |	uint64 Balances_unchk41 = 0;
+  > |	msg.sender.send(Balances_unchk41);}
+    |  string public  name;
+    |  function bug_unchk42() public{
+  at buggy_37.sol(201)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |  uint8 public decimals;
+    |  function unhandledsend_unchk2(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint public _totalSupply;
+  at buggy_37.sol(213)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |  mapping(address => uint) balances;
+    |  function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  mapping(address => mapping(address => uint)) allowed;
+  at buggy_37.sol(224)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_37.sol(241)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_37.sol(273)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |
+  at buggy_37.sol(290)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_37.sol(307)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_37.sol(328)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_37.sol(345)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_37.sol(382)
+
+[31mViolation[0m for UnhandledException in contract 'AugustCoin':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |}
+    |
+  at buggy_37.sol(393)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |    function safeDiv(uint a, uint b) public pure returns (uint c) {
+    |        require(b > 0);
+  at buggy_37.sol(45)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    function allowance(address tokenOwner, address spender) public view returns (uint remaining);
+    |function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    function transfer(address to, uint tokens) public returns (bool success);
+  at buggy_37.sol(76)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    function transferFrom(address from, address to, uint tokens) public returns (bool success);
+    |function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_37.sol(100)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_37.sol(157)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |uint receivers_unchk42;
+    |address payable addr_unchk42;
+  > |if (!addr_unchk42.send(42 ether))
+    |	{receivers_unchk42 +=1;}
+    |else
+  at buggy_37.sol(206)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |  uint8 public decimals;
+    |  function unhandledsend_unchk2(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint public _totalSupply;
+  at buggy_37.sol(213)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_37.sol(241)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_37.sol(254)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |
+  at buggy_37.sol(290)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_37.sol(363)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |}
+    |
+  at buggy_37.sol(393)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_37.sol(54)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function bug_unchk19() public{
+    |address payable addr_unchk19;
+  > |if (!addr_unchk19.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_37.sol(71)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_37.sol(85)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_37.sol(95)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |  function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_37.sol(105)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+  at buggy_37.sol(113)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |contract Owned {
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public owner;
+  at buggy_37.sol(139)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |  address public owner;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public newOwner;
+  at buggy_37.sol(143)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_37.sol(175)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |}
+  at buggy_37.sol(185)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |  function bug_unchk43() public{
+    |address payable addr_unchk43;
+  > |if (!addr_unchk43.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_37.sol(219)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |  mapping(address => uint) balances;
+    |  function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  mapping(address => mapping(address => uint)) allowed;
+  at buggy_37.sol(224)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_37.sol(273)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_37.sol(307)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_37.sol(328)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_37.sol(345)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AugustCoin':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_37.sol(382)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |        require(!payedOut_unchk20);
+    |        winner_unchk20.send(winAmount_unchk20);
+  > |        payedOut_unchk20 = true;
+    |    }
+    |    function approve(address spender, uint tokens) public returns (bool success);
+  at buggy_37.sol(86)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |        require(!payedOut_unchk32);
+    |        winner_unchk32.send(winAmount_unchk32);
+  > |        payedOut_unchk32 = true;
+    |    }
+    |    function transferFrom(address from, address to, uint tokens) public returns (bool success);
+  at buggy_37.sol(96)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |
+  at buggy_37.sol(274)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |    function transfer(address to, uint tokens) public returns (bool success) {
+    |        balances[msg.sender] = safeSub(balances[msg.sender], tokens);
+  > |        balances[to] = safeAdd(balances[to], tokens);
+    |        emit Transfer(msg.sender, to, tokens);
+    |        return true;
+  at buggy_37.sol(285)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |    // ------------------------------------------------------------------------
+    |    function transferFrom(address from, address to, uint tokens) public returns (bool success) {
+  > |        balances[from] = safeSub(balances[from], tokens);
+    |        allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);
+    |        balances[to] = safeAdd(balances[to], tokens);
+  at buggy_37.sol(321)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |        balances[from] = safeSub(balances[from], tokens);
+    |        allowed[from][msg.sender] = safeSub(allowed[from][msg.sender], tokens);
+  > |        balances[to] = safeAdd(balances[to], tokens);
+    |        emit Transfer(from, to, tokens);
+    |        return true;
+  at buggy_37.sol(323)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |
+  at buggy_37.sol(346)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |
+    |    function transferOwnership(address _newOwner) public onlyOwner {
+  > |        newOwner = _newOwner;
+    |    }
+    |function bug_unchk7() public{
+  at buggy_37.sol(171)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |        require(msg.sender == newOwner);
+    |        emit OwnershipTransferred(owner, newOwner);
+  > |        owner = newOwner;
+    |        newOwner = address(0);
+    |    }
+  at buggy_37.sol(181)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'AugustCoin':
+    |        emit OwnershipTransferred(owner, newOwner);
+    |        owner = newOwner;
+  > |        newOwner = address(0);
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  at buggy_37.sol(182)
+
+[33mWarning[0m for TODAmount in contract 'Owned':
+    |contract Owned {
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public owner;
+  at buggy_37.sol(139)
+
+[33mWarning[0m for TODAmount in contract 'Owned':
+    |  address public owner;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public newOwner;
+  at buggy_37.sol(143)
+
+[33mWarning[0m for TODAmount in contract 'Owned':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |}
+  at buggy_37.sol(185)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |contract Owned {
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public owner;
+  at buggy_37.sol(139)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |  address public owner;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public newOwner;
+  at buggy_37.sol(143)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |}
+  at buggy_37.sol(185)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_37.sol(157)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |contract Owned {
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public owner;
+  at buggy_37.sol(139)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |  address public owner;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public newOwner;
+  at buggy_37.sol(143)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_37.sol(175)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |}
+  at buggy_37.sol(185)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |
+    |    function transferOwnership(address _newOwner) public onlyOwner {
+  > |        newOwner = _newOwner;
+    |    }
+    |function bug_unchk7() public{
+  at buggy_37.sol(171)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |        require(msg.sender == newOwner);
+    |        emit OwnershipTransferred(owner, newOwner);
+  > |        owner = newOwner;
+    |        newOwner = address(0);
+    |    }
+  at buggy_37.sol(181)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |        emit OwnershipTransferred(owner, newOwner);
+    |        owner = newOwner;
+  > |        newOwner = address(0);
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  at buggy_37.sol(182)
+
+[31mViolation[0m for TODAmount in contract 'SafeMath':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_37.sol(54)
+
+[31mViolation[0m for UnhandledException in contract 'SafeMath':
+    |function withdrawBal_unchk17 () public{
+    |	uint64 Balances_unchk17 = 0;
+  > |	msg.sender.send(Balances_unchk17);}
+    |    function safeSub(uint a, uint b) public pure returns (uint c) {
+    |        require(b <= a);
+  at buggy_37.sol(32)
+
+[31mViolation[0m for UnhandledException in contract 'SafeMath':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |    function safeDiv(uint a, uint b) public pure returns (uint c) {
+    |        require(b > 0);
+  at buggy_37.sol(45)
+
+[31mViolation[0m for UnhandledException in contract 'SafeMath':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_37.sol(54)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SafeMath':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |    function safeDiv(uint a, uint b) public pure returns (uint c) {
+    |        require(b > 0);
+  at buggy_37.sol(45)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SafeMath':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_37.sol(54)
+

@@ -1,0 +1,200 @@
+Processing contract: buggy_35.sol:BitpayerDEX
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_35.sol:ERC20Essential
+Processing contract: buggy_35.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_35.sol:owned
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'owned':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_35.sol(204)
+
+[31mViolation[0m for DAOConstantGas in contract 'owned':
+    |function bug_re_ent34() public{
+    |        require(not_called_re_ent34);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_35.sol(139)
+
+[31mViolation[0m for DAOConstantGas in contract 'owned':
+    |function callme_re_ent21() public{
+    |        require(counter_re_ent21<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_35.sol(148)
+
+[31mViolation[0m for DAOConstantGas in contract 'owned':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_35.sol(158)
+
+[31mViolation[0m for DAOConstantGas in contract 'owned':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_35.sol(169)
+
+[31mViolation[0m for DAOConstantGas in contract 'owned':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_35.sol(187)
+
+[31mViolation[0m for TODAmount in contract 'owned':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_35.sol(187)
+
+[33mWarning[0m for TODAmount in contract 'owned':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_35.sol(158)
+
+[31mViolation[0m for TODReceiver in contract 'owned':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_35.sol(187)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'owned':
+    |function bug_re_ent34() public{
+    |        require(not_called_re_ent34);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_35.sol(139)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'owned':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_35.sol(204)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'owned':
+    |function callme_re_ent21() public{
+    |        require(counter_re_ent21<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_35.sol(148)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'owned':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_35.sol(158)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'owned':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_35.sol(169)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'owned':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_35.sol(187)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'owned':
+    |            revert();
+    |        }
+  > |        not_called_re_ent34 = false;
+    |    }
+    |  address public owner;
+  at buggy_35.sol(142)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'owned':
+    |            revert();
+    |        }
+  > |        counter_re_ent21 += 1;
+    |    }
+    |  address private newOwner;
+  at buggy_35.sol(151)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'owned':
+    |            revert();
+    |        }
+  > |        counter_re_ent42 += 1;
+    |    }
+    |
+  at buggy_35.sol(172)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'owned':
+    |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+  > |      lastPlayer_re_ent2 = msg.sender;
+    |      jackpot_re_ent2    = address(this).balance;
+    |    }
+  at buggy_35.sol(189)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'owned':
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  > |      jackpot_re_ent2    = address(this).balance;
+    |    }
+    |
+  at buggy_35.sol(190)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'owned':
+    |
+    |    function onlyOwnerTransferOwnership(address _newOwner) public onlyOwner {
+  > |        newOwner = _newOwner;
+    |    }
+    |address payable lastPlayer_re_ent2;
+  at buggy_35.sol(182)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'owned':
+    |        require(msg.sender == newOwner);
+    |        emit OwnershipTransferred(now, owner, newOwner);
+  > |        owner = newOwner;
+    |        newOwner = address(0);
+    |    }
+  at buggy_35.sol(197)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'owned':
+    |        emit OwnershipTransferred(now, owner, newOwner);
+    |        owner = newOwner;
+  > |        newOwner = address(0);
+    |    }
+    |mapping(address => uint) balances_re_ent17;
+  at buggy_35.sol(198)
+

@@ -1,0 +1,28 @@
+{
+ "vulnerabilities": {
+  "callstack": [], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_21.sol:580:6: Warning: Integer Overflow.\n     function makeOrder(uint256[9] memory tradeDetails,address[2] memory traderAddresses,string memory message,uint8  v,bytes32 r,bytes32 s) dexstatuscheck public returns(bool){\r\n     ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    message = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_21.sol:509:5: Warning: Integer Overflow.\n    function setwithdrawfee(address[] memory addr,uint256[] memory feeamount)public returns(bool)\r\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    addr = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_21.sol:106:21: Warning: Integer Overflow.\n        uint256 c = a + b\nInteger Overflow occurs if:\n    tokenAmount = 95320360308092064085158862026869462789128858612754216248428463844421952977271\n    userDetails[msg.sender][tokenaddr] = 89660649888868366171417216235708288031085258661234677303951427843448891257349\n    tokendetails[tokenaddr].status = 255\n    dexStatus = 255", 
+   "/tmp/SCs/buggy_21.sol:251:3: Warning: Integer Overflow.\n  mapping(uint256=>orders) public Order", 
+   "/tmp/SCs/buggy_21.sol:331:3: Warning: Integer Overflow.\n  mapping(address=>tokens) public tokendetails"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_21.sol:331:3: Warning: Integer Underflow.\n  mapping(address=>tokens) public tokendetails"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_21.sol:176:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD2)"
+   ], 
+   [
+    "/tmp/SCs/buggy_21.sol:379:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD14)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "40.9"
+}

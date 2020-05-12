@@ -1,0 +1,350 @@
+buggy_12.sol
+jar:file:/usr/local/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 262
+column: 16
+content: 0x800A4B210B920020bE22668d28afd7ddef5c6243
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 96
+column: 0
+content: contractERC20{functiontotalSupply()publicviewreturns(uint256);functionwithdrawAll_txorigin10(addresspayable_recipient,addressowner_txorigin10)public{require(tx.origin==owner_txorigin10);_recipient.transfer(address<missing ';'>(this).balance);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 139
+column: 0
+content: contractERC223ReceivingContract{functiontokenFallback(address_from,uint_value,bytesmemory_data)public;functionsendto_txorigin17(addresspayablereceiver,uintamount,addressowner_txorigin17)public{require(tx.origin==owner_txorigin17);receiver.transfer(amount);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 147
+column: 0
+content: contractERC223{functionbalanceOf(addresswho)publicviewreturns(uint);functionsendto_txorigin37(addresspayablereceiver,uintamount,addressowner_txorigin37)public{require(tx.origin==owner_txorigin37);receiver.transfer(amount);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 172
+column: 0
+content: contractERC223TokenisERC223{usingSafeMathforuint;functionbug_txorigin16(addressowner_txorigin16)public{require(tx.origin==owner_txorigin16);}mapping(address=>uint256)balances;functiontransfer(address_to,uint_value)publicreturns(bool){uintcodeLength;bytesmemoryempty;assembly{codeLength:=extcodesize(_to)}require(_value>0);require(balances[msg.sender]>=_value);require(balances[_to]+_value>0);require(msg.sender!=_to);balances[msg.sender]=balances[msg.sender].sub(_value);balances[_to]=balances[_to].add(_value);if(codeLength>0){ERC223ReceivingContractreceiver=ERC223ReceivingContract(_to);receiver.tokenFallback(msg.sender,_value,empty);returnfalse;}emitTransfer(msg.sender,_to,_value);returntrue;}functionsendto_txorigin25(addresspayablereceiver,uintamount,addressowner_txorigin25)public{require(tx.origin==owner_txorigin25);receiver.transfer(amount);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 276
+column: 0
+content: contractGrandisERC223Token,Owned{functionsendto_txorigin5(addresspayablereceiver,uintamount,addressowner_txorigin5)public{require(tx.origin==owner_txorigin5);receiver.transfer(amount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 25
+content: <
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 173
+column: 4
+content: usingSafeMathforuint;
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 176
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 256
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 266
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 98
+column: 0
+content: functionwithdrawAll_txorigin10(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 141
+column: 0
+content: functionsendto_txorigin17(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 149
+column: 0
+content: functionsendto_txorigin37(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 205
+column: 0
+content: functionsendto_txorigin25(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 277
+column: 2
+content: functionsendto_txorigin5(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 48
+content: _recipient,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 59
+content: addressowner_txorigin10)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 8
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 19
+content: origin==owner_txorigin10);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 8
+content: _recipient.transfer
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 27
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 35
+content: (this).balance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 141
+column: 43
+content: receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 141
+column: 53
+content: uintamount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 141
+column: 65
+content: addressowner_txorigin17)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 142
+column: 1
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 142
+column: 13
+content: origin==owner_txorigin17);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 143
+column: 1
+content: receiver.transfer(amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 149
+column: 43
+content: receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 149
+column: 53
+content: uintamount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 149
+column: 65
+content: addressowner_txorigin37)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 150
+column: 1
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 150
+column: 13
+content: origin==owner_txorigin37);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 151
+column: 1
+content: receiver.transfer(amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 178
+column: 2
+content: mapping(address=>uint256)balances;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 205
+column: 43
+content: receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 205
+column: 53
+content: uintamount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 205
+column: 65
+content: addressowner_txorigin25)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 206
+column: 1
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 206
+column: 13
+content: origin==owner_txorigin25);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 207
+column: 1
+content: receiver.transfer(amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 277
+column: 44
+content: receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 277
+column: 54
+content: uintamount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 277
+column: 66
+content: addressowner_txorigin5)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 278
+column: 1
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 278
+column: 13
+content: origin==owner_txorigin5);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 279
+column: 1
+content: receiver.transfer(amount);
+
+SOLIDITY_VISIBILITY :37
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :5
+SOLIDITY_ADDRESS_HARDCODED :1
+SOLIDITY_TX_ORIGIN :3

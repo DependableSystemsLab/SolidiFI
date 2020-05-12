@@ -1,0 +1,247 @@
+Processing contract: buggy_33.sol:Owned
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_33.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_33.sol:Staking
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_33.sol:Token
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |contract Owned {
+    |  function bug_unchk_send28() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public owner;
+    |  function bug_unchk_send21() payable public{
+  at buggy_33.sol(9)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |  address public owner;
+    |  function bug_unchk_send21() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public newOwner;
+    |
+  at buggy_33.sol(12)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |
+    |  function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnershipTransferred(address indexed _from, address indexed _to);
+    |
+  at buggy_33.sol(16)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |    }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    modifier onlyOwner {
+  at buggy_33.sol(23)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |    }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_33.sol(34)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |
+    |    function transferOwnership(address _newOwner) public onlyOwner {
+  > |        newOwner = _newOwner;
+    |    }
+    |function bug_unchk_send9() payable public{
+  at buggy_33.sol(31)
+
+[31mViolation[0m for RepeatedCall in contract 'Staking':
+    |    function startStaking(uint256 stakeTokens) public{
+    |        require(stakeTokens >= minstakeTokens);
+  > |        require(token.balanceOf(msg.sender) >= stakeTokens + findOnePercent(stakeTokens));
+    |        require(token.transferFrom(msg.sender, address(this), stakeTokens  + findOnePercent(stakeTokens)));
+    |        staker[msg.sender].time = now;
+  at buggy_33.sol(129)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |contract Owned {
+    |  function bug_unchk_send28() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public owner;
+    |  function bug_unchk_send21() payable public{
+  at buggy_33.sol(9)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  address public owner;
+    |  function bug_unchk_send21() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public newOwner;
+    |
+  at buggy_33.sol(12)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |
+    |  function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnershipTransferred(address indexed _from, address indexed _to);
+    |
+  at buggy_33.sol(16)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    modifier onlyOwner {
+  at buggy_33.sol(23)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_33.sol(34)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |contract Staking is Owned{
+    |  function bug_unchk_send10() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  Token public token;
+    |  function bug_unchk_send22() payable public{
+  at buggy_33.sol(84)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  Token public token;
+    |  function bug_unchk_send22() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  bool lock;
+    |  function bug_unchk_send12() payable public{
+  at buggy_33.sol(87)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  bool lock;
+    |  function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public minstakeTokens;
+    |  function bug_unchk_send11() payable public{
+  at buggy_33.sol(90)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  uint256 public minstakeTokens;
+    |  function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 private basePercent = 200;
+    |    using SafeMath for uint256;
+  at buggy_33.sol(93)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    using SafeMath for uint256;
+    |  function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public stakeTime = 1814400; // 3 weeks = 3*7*24*60*60  OR 1 week = 604800 secs, 3 weeks = 3*604800 = 1,814,400
+    |  function bug_unchk_send2() payable public{
+  at buggy_33.sol(97)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  uint256 public stakeTime = 1814400; // 3 weeks = 3*7*24*60*60  OR 1 week = 604800 secs, 3 weeks = 3*604800 = 1,814,400
+    |  function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint public stakePercentage = 30;
+    |  function bug_unchk_send31() payable public{
+  at buggy_33.sol(100)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  uint public stakePercentage = 30;
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event stakingstarted(address staker, uint256 tokens, uint256 time);
+    |  function bug_unchk_send13() payable public{
+  at buggy_33.sol(103)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  event stakingstarted(address staker, uint256 tokens, uint256 time);
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event tokensRedeemed(address staker, uint256 stakedTokens, uint256 reward);
+    |    
+  at buggy_33.sol(106)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |  function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping(address => stake) staker;
+    |    
+  at buggy_33.sol(115)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function startStaking(uint256 stakeTokens) public{
+  at buggy_33.sol(125)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function redeem() public{
+  at buggy_33.sol(136)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function changeStakeTokens(uint256 _NewTokensThreshold) public onlyOwner{
+  at buggy_33.sol(149)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function changeStakeTime(uint256 _newStakeTime) public onlyOwner{
+  at buggy_33.sol(155)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function changeStakingPercentage(uint _newStakePercentage) public onlyOwner{
+  at buggy_33.sol(161)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function lockWithdrawals() public onlyOwner{
+  at buggy_33.sol(168)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function findOnePercent(uint256 value) private view returns (uint256)  {
+  at buggy_33.sol(174)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+  at buggy_33.sol(182)
+

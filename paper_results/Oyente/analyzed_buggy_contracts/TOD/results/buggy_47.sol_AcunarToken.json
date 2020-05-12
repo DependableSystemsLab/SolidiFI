@@ -1,0 +1,26 @@
+{
+ "vulnerabilities": {
+  "callstack": [], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_47.sol:384:10: Warning: Integer Overflow.\n         balances[to] += tokens\nInteger Overflow occurs if:\n    balances[to] = 111771850588589477980448691424064340015804983699214872171395667984683992420155\n    tokens = 67419346655525027280071070946112097648534143608088887667851415925010121249705\n    balances[msg.sender] = 67419346655525027280071070946112097648534143608088887667851415925010121249705", 
+   "/tmp/SCs/buggy_47.sol:315:9: Warning: Integer Overflow.\n        balances[to] += tokens\nInteger Overflow occurs if:\n    balances[to] = 95515132405035013240498949941729301185179799140209929091396633094036584928231\n    tokens = 37717208912933073374861050775867160511051478474789766132129094234564326678807"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_47.sol:136:3: Warning: Integer Underflow.\n  string public symbol = \"ACN\"", 
+   "/tmp/SCs/buggy_47.sol:122:3: Warning: Integer Underflow.\n  string public name = \"Acunar\""
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_47.sol:359:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD4)"
+   ], 
+   [
+    "/tmp/SCs/buggy_47.sol:222:8: Warning: Transaction-Ordering Dependency.\n       winner_TOD15.transfer(msg.value)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "80.1"
+}

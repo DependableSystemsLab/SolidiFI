@@ -1,0 +1,72 @@
+Processing contract: buggy_35.sol:BitpayerDEX
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_35.sol:ERC20Essential
+Processing contract: buggy_35.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_35.sol:owned
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'owned':
+    |
+    |  function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnershipTransferred(uint256 curTime, address indexed _from, address indexed _to);
+    |
+  at buggy_35.sol(141)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'owned':
+    |    }
+    |function bug_unchk_send15() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    modifier onlyOwner {
+  at buggy_35.sol(148)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'owned':
+    |    }
+    |function bug_unchk_send28() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    //this flow is to prevent transferring ownership to wrong wallet by mistake
+  at buggy_35.sol(160)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'owned':
+    |    }
+    |function bug_unchk_send21() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_35.sol(170)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'owned':
+    |
+    |    function onlyOwnerTransferOwnership(address _newOwner) public onlyOwner {
+  > |        newOwner = _newOwner;
+    |    }
+    |function bug_unchk_send28() payable public{
+  at buggy_35.sol(157)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'owned':
+    |        require(msg.sender == newOwner);
+    |        emit OwnershipTransferred(now, owner, newOwner);
+  > |        owner = newOwner;
+    |        newOwner = address(0);
+    |    }
+  at buggy_35.sol(166)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'owned':
+    |        emit OwnershipTransferred(now, owner, newOwner);
+    |        owner = newOwner;
+  > |        newOwner = address(0);
+    |    }
+    |function bug_unchk_send21() payable public{
+  at buggy_35.sol(167)
+

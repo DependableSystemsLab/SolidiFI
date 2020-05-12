@@ -1,0 +1,326 @@
+Processing contract: buggy_4.sol:IERC20
+Processing contract: buggy_4.sol:PHO
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'PHO':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_4.sol(80)
+
+[31mViolation[0m for DAOConstantGas in contract 'PHO':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_4.sol(102)
+
+[31mViolation[0m for TODAmount in contract 'PHO':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_4.sol(150)
+
+[31mViolation[0m for TODAmount in contract 'PHO':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_4.sol(201)
+
+[33mWarning[0m for TODAmount in contract 'PHO':
+    |  uint256 saleAmount;
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 evtAmount;
+  at buggy_4.sol(57)
+
+[33mWarning[0m for TODAmount in contract 'PHO':
+    |  address public owner;
+    |  function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public sale;
+  at buggy_4.sol(89)
+
+[33mWarning[0m for TODAmount in contract 'PHO':
+    |  address public sale;
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public evt;
+  at buggy_4.sol(93)
+
+[31mViolation[0m for TODReceiver in contract 'PHO':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_4.sol(80)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |contract PHO is IERC20 {
+    |  function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  string public name = "PHO";
+  at buggy_4.sol(30)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_4.sol(35)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |  uint256 saleAmount;
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 evtAmount;
+  at buggy_4.sol(57)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |  uint256 evtAmount;
+    |  function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint256 teamAmount;
+  at buggy_4.sol(61)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_4.sol(80)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |
+    |  function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |  address public owner;
+    |  function my_func_uncheck36(address payable dst) public payable{
+  at buggy_4.sol(86)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |  address public owner;
+    |  function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public sale;
+  at buggy_4.sol(89)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |  address public sale;
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public evt;
+  at buggy_4.sol(93)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_4.sol(102)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_4.sol(150)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |    
+    |    function transfer(address to, uint256 value) public returns (bool success) {
+  at buggy_4.sol(157)
+
+[31mViolation[0m for UnhandledException in contract 'PHO':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_4.sol(201)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |contract PHO is IERC20 {
+    |  function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  string public name = "PHO";
+  at buggy_4.sol(30)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_4.sol(35)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |  function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_4.sol(41)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |  uint256 evtAmount;
+    |  function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint256 teamAmount;
+  at buggy_4.sol(61)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_4.sol(68)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |
+    |  function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |  address public owner;
+    |  function my_func_uncheck36(address payable dst) public payable{
+  at buggy_4.sol(86)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_4.sol(135)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |    
+    |    function transfer(address to, uint256 value) public returns (bool success) {
+  at buggy_4.sol(157)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |  function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_4.sol(52)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |  uint256 saleAmount;
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 evtAmount;
+  at buggy_4.sol(57)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_4.sol(80)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |  address public owner;
+    |  function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  address public sale;
+  at buggy_4.sol(89)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |  address public sale;
+    |  function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  address public evt;
+  at buggy_4.sol(93)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_4.sol(102)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_4.sol(150)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_4.sol(184)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'PHO':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_4.sol(201)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'PHO':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |  mapping(address => uint256) balances;
+  at buggy_4.sol(81)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'PHO':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |  address public team;
+  at buggy_4.sol(103)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'PHO':
+    |        
+    |        balances[msg.sender] -= value;
+  > |        _totalSupply -= value;
+    |
+    |        emit Transfer(msg.sender, address(0), value);
+  at buggy_4.sol(193)
+

@@ -1,0 +1,116 @@
+Processing contract: buggy_49.sol:TAMC
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |contract TAMC {
+    |  function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => uint256) public balanceOf;
+    |
+  at buggy_49.sol(9)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |
+    |  function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public name = "TAMC";
+    |  function bug_unchk_send4() payable public{
+  at buggy_49.sol(13)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |  string public name = "TAMC";
+    |  function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public symbol = "TAMC";
+    |  function bug_unchk_send7() payable public{
+  at buggy_49.sol(16)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |  string public symbol = "TAMC";
+    |  function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 public decimals = 18;
+    |    uint256 public totalSupply = 1000000000 * (uint256(10) ** decimals);
+  at buggy_49.sol(19)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Transfer(address indexed from, address indexed to, uint256 value);
+    |
+  at buggy_49.sol(24)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function transfer(address to, uint256 value) public returns (bool success) {
+  at buggy_49.sol(32)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  function bug_unchk_send13() payable public{
+  at buggy_49.sol(42)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Approval(address indexed owner, address indexed spender, uint256 value);
+    |
+  at buggy_49.sol(45)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |
+    |  function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping(address => mapping(address => uint256)) public allowance;
+    |
+  at buggy_49.sol(49)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |    }
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function transferFrom(address from, address to, uint256 value)
+  at buggy_49.sol(61)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |    }
+    |function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+  at buggy_49.sol(77)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |        require(balanceOf[msg.sender] >= value);
+    |        balanceOf[msg.sender] -= value;
+  > |        balanceOf[to] += value;
+    |        emit Transfer(msg.sender, to, value);
+    |        return true;
+  at buggy_49.sol(37)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |        require(value <= allowance[from][msg.sender]);
+    |
+  > |        balanceOf[from] -= value;
+    |        balanceOf[to] += value;
+    |        allowance[from][msg.sender] -= value;
+  at buggy_49.sol(70)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |
+    |        balanceOf[from] -= value;
+  > |        balanceOf[to] += value;
+    |        allowance[from][msg.sender] -= value;
+    |        emit Transfer(from, to, value);
+  at buggy_49.sol(71)
+

@@ -1,0 +1,33 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_42.sol:183:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk8.send(winAmount_unchk8)", 
+   "/tmp/SCs/buggy_42.sol:195:8: Warning: Callstack Depth Attack Vulnerability.\n      {addr.send (4 ether)", 
+   "/tmp/SCs/buggy_42.sol:227:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk44.send(winAmount_unchk44)", 
+   "/tmp/SCs/buggy_42.sol:128:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)", 
+   "/tmp/SCs/buggy_42.sol:139:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_42.sol:202:55: Warning: Integer Overflow.\n        require(token.transferFrom(owner, msg.sender ,staker[msg.sender].tokens\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0", 
+   "/tmp/SCs/buggy_42.sol:75:17: Warning: Integer Overflow.\n    uint256 c = a + b\nInteger Overflow occurs if:\n    stakeTokens = 1\n    basePercent = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_42.sol:204:9: Warning: Integer Overflow.\n        staker[msg.sender].redeem\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0", 
+   "/tmp/SCs/buggy_42.sol:205:9: Warning: Integer Overflow.\n        staker[msg.sender].tokens\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0", 
+   "/tmp/SCs/buggy_42.sol:203:68: Warning: Integer Overflow.\n        emit tokensRedeemed(msg.sender, staker[msg.sender].tokens, staker[msg.sender].tokens\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0", 
+   "/tmp/SCs/buggy_42.sol:203:41: Warning: Integer Overflow.\n        emit tokensRedeemed(msg.sender, staker[msg.sender].tokens\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_42.sol:114:6: Warning: Transaction-Ordering Dependency.\nif (!addr_unchk19.send (10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_42.sol:252:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.send(address(this).balance)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "81.0"
+}

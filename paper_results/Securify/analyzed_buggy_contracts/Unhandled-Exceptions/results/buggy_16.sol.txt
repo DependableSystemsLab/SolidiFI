@@ -1,0 +1,832 @@
+Processing contract: buggy_16.sol:ERC20Interface
+Processing contract: buggy_16.sol:ExclusivePlatform
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_16.sol:Owned
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_16.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_16.sol(274)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_16.sol(287)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_16.sol(393)
+
+[31mViolation[0m for DAOConstantGas in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_16.sol(436)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Approval(address indexed tokenOwner, address indexed spender, uint256 tokens);
+  at buggy_16.sol(97)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk21() public {
+    |        require(payedOut_unchk21);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  string public name = "Exclusive Platform";
+  at buggy_16.sol(170)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_16.sol(222)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |    function withdrawFund() onlyOwner public {
+    |        uint256 balance = address(this).balance;
+  > |        owner.transfer(balance);
+    |    }
+    |function bug_unchk39(address payable addr) public
+  at buggy_16.sol(399)
+
+[31mViolation[0m for TODAmount in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event NewPrice(address indexed _changer, uint256 _lastPrice, uint256 _newPrice);
+  at buggy_16.sol(450)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |    function transferFrom(address from, address to, uint256 tokens) public returns (bool success);
+    |function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_16.sol(80)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |  string public symbol = "XPL";
+    |  function my_func_unchk47(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 public decimals = 8;
+  at buggy_16.sol(180)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |    
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  uint256 public XPLPerEther = 8000000e8;
+  at buggy_16.sol(191)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |    uint256 public minimumBuy = 1 ether / 100;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  bool public crowdsaleIsOn = true;
+  at buggy_16.sol(196)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    /// @notice `msg.sender` approves `_spender` to spend `_amount` tokens on
+  at buggy_16.sol(348)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |    
+  at buggy_16.sol(412)
+
+[33mWarning[0m for TODAmount in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    
+  at buggy_16.sol(422)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_16.sol(274)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_16.sol(287)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_16.sol(393)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |    function withdrawFund() onlyOwner public {
+    |        uint256 balance = address(this).balance;
+  > |        owner.transfer(balance);
+    |    }
+    |function bug_unchk39(address payable addr) public
+  at buggy_16.sol(399)
+
+[31mViolation[0m for TODReceiver in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_16.sol(436)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function withdrawBal_unchk41 () public{
+    |	uint64 Balances_unchk41 = 0;
+  > |	msg.sender.send(Balances_unchk41);}
+    |    function allowance(address tokenOwner, address spender) public view returns (uint256 remaining);
+    |function bug_unchk42() public{
+  at buggy_16.sol(58)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    function transfer(address to, uint256 tokens) public returns (bool success);
+    |function unhandledsend_unchk2(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    function approve(address spender, uint256 tokens) public returns (bool success);
+  at buggy_16.sol(70)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    function transferFrom(address from, address to, uint256 tokens) public returns (bool success);
+    |function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_16.sol(80)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Approval(address indexed tokenOwner, address indexed spender, uint256 tokens);
+  at buggy_16.sol(97)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |contract Owned {
+    |  function bug_unchk15(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  address payable public owner;
+    |  function bug_unchk27(address payable addr) public
+  at buggy_16.sol(105)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |  address payable public owner;
+    |  function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    |
+  at buggy_16.sol(108)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function withdrawBal_unchk17 () public{
+    |	uint64 Balances_unchk17 = 0;
+  > |	msg.sender.send(Balances_unchk17);}
+    |
+    |    /**
+  at buggy_16.sol(120)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |  function cash_unchk34(uint roundIndex, uint subpotIndex, address payable winner_unchk34) public{
+    |        uint64 subpot_unchk34 = 10 ether;
+  > |        winner_unchk34.send(subpot_unchk34);  //bug
+    |        subpot_unchk34= 0;
+    |}
+  at buggy_16.sol(161)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk21() public {
+    |        require(payedOut_unchk21);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  string public name = "Exclusive Platform";
+  at buggy_16.sol(170)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |  function cash_unchk10(uint roundIndex, uint subpotIndex,address payable winner_unchk10) public{
+    |        uint64 subpot_unchk10 = 10 ether;
+  > |        winner_unchk10.send(subpot_unchk10);  //bug
+    |        subpot_unchk10= 0;
+    |}
+  at buggy_16.sol(175)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |  string public symbol = "XPL";
+    |  function my_func_unchk47(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 public decimals = 8;
+  at buggy_16.sol(180)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |  function cash_unchk22(uint roundIndex, uint subpotIndex, address payable winner_unchk22)public{
+    |        uint64 subpot_unchk22 = 10 ether;
+  > |        winner_unchk22.send(subpot_unchk22);  //bug
+    |        subpot_unchk22= 0;
+    |}
+  at buggy_16.sol(185)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  uint256 public XPLPerEther = 8000000e8;
+  at buggy_16.sol(191)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    uint256 public minimumBuy = 1 ether / 100;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  bool public crowdsaleIsOn = true;
+  at buggy_16.sol(196)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  
+    |    function totalSupply() public view returns (uint256) {
+  at buggy_16.sol(213)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_16.sol(222)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    }
+    |function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  
+  at buggy_16.sol(257)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_16.sol(274)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_16.sol(287)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    }
+    |function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    /// @dev This is the actual transfer function in the token contract, it can
+  at buggy_16.sol(296)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_16.sol(314)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    /// @notice `msg.sender` approves `_spender` to spend `_amount` tokens on
+  at buggy_16.sol(348)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    
+  at buggy_16.sol(367)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_16.sol(393)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |    
+    |    function burn(uint256 _value) onlyOwner public {
+  at buggy_16.sol(402)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |    
+  at buggy_16.sol(412)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    
+  at buggy_16.sol(422)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_16.sol(436)
+
+[31mViolation[0m for UnhandledException in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event NewPrice(address indexed _changer, uint256 _lastPrice, uint256 _newPrice);
+  at buggy_16.sol(450)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |uint receivers_unchk42;
+    |address payable addr_unchk42;
+  > |if (!addr_unchk42.send(42 ether))
+    |	{receivers_unchk42 +=1;}
+    |else
+  at buggy_16.sol(63)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    function transfer(address to, uint256 tokens) public returns (bool success);
+    |function unhandledsend_unchk2(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    function approve(address spender, uint256 tokens) public returns (bool success);
+  at buggy_16.sol(70)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_16.sol(85)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |contract Owned {
+    |  function bug_unchk15(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  address payable public owner;
+    |  function bug_unchk27(address payable addr) public
+  at buggy_16.sol(105)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  address payable public owner;
+    |  function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    |
+  at buggy_16.sol(108)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  function UncheckedExternalCall_unchk28 () public
+    |{  address payable addr_unchk28;
+  > |   if (! addr_unchk28.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_16.sol(151)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  
+    |    function totalSupply() public view returns (uint256) {
+  at buggy_16.sol(213)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    }
+    |function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  
+  at buggy_16.sol(257)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    }
+    |function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    /// @dev This is the actual transfer function in the token contract, it can
+  at buggy_16.sol(296)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_16.sol(314)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_16.sol(323)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    
+  at buggy_16.sol(367)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_16.sol(376)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |    
+    |    function burn(uint256 _value) onlyOwner public {
+  at buggy_16.sol(402)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_unchk43() public{
+    |address payable addr_unchk43;
+  > |if (!addr_unchk43.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_16.sol(75)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    function transferFrom(address from, address to, uint256 tokens) public returns (bool success);
+    |function my_func_uncheck48(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_16.sol(80)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Approval(address indexed tokenOwner, address indexed spender, uint256 tokens);
+  at buggy_16.sol(97)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  function cash_unchk34(uint roundIndex, uint subpotIndex, address payable winner_unchk34) public{
+    |        uint64 subpot_unchk34 = 10 ether;
+  > |        winner_unchk34.send(subpot_unchk34);  //bug
+    |        subpot_unchk34= 0;
+    |}
+  at buggy_16.sol(161)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk21() public {
+    |        require(payedOut_unchk21);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  string public name = "Exclusive Platform";
+  at buggy_16.sol(170)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  function cash_unchk10(uint roundIndex, uint subpotIndex,address payable winner_unchk10) public{
+    |        uint64 subpot_unchk10 = 10 ether;
+  > |        winner_unchk10.send(subpot_unchk10);  //bug
+    |        subpot_unchk10= 0;
+    |}
+  at buggy_16.sol(175)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  string public symbol = "XPL";
+    |  function my_func_unchk47(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  uint256 public decimals = 8;
+  at buggy_16.sol(180)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  function cash_unchk22(uint roundIndex, uint subpotIndex, address payable winner_unchk22)public{
+    |        uint64 subpot_unchk22 = 10 ether;
+  > |        winner_unchk22.send(subpot_unchk22);  //bug
+    |        subpot_unchk22= 0;
+    |}
+  at buggy_16.sol(185)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    
+    |  function my_func_uncheck12(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |  uint256 public XPLPerEther = 8000000e8;
+  at buggy_16.sol(191)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    uint256 public minimumBuy = 1 ether / 100;
+    |  function my_func_unchk11(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  bool public crowdsaleIsOn = true;
+  at buggy_16.sol(196)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_16.sol(222)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_unchk19() public{
+    |address payable addr_unchk19;
+  > |if (!addr_unchk19.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_16.sol(238)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_16.sol(274)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_16.sol(287)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_16.sol(337)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    /// @notice `msg.sender` approves `_spender` to spend `_amount` tokens on
+  at buggy_16.sol(348)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_16.sol(393)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |    
+  at buggy_16.sol(412)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    
+  at buggy_16.sol(422)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_16.sol(436)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |  function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_16.sol(442)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event NewPrice(address indexed _changer, uint256 _lastPrice, uint256 _newPrice);
+  at buggy_16.sol(450)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ExclusivePlatform':
+    |        require(_amount <= address(this).balance);
+    |        emit TransferEther(address(this), _receiver, _amount);
+  > |        _receiver.transfer(_amount);
+    |    }
+    |bool public payedOut_unchk8 = false;
+  at buggy_16.sol(385)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        require(!payedOut_unchk20);
+    |        winner_unchk20.send(winAmount_unchk20);
+  > |        payedOut_unchk20 = true;
+    |    }
+    |    
+  at buggy_16.sol(275)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        require(!payedOut_unchk32);
+    |        winner_unchk32.send(winAmount_unchk32);
+  > |        payedOut_unchk32 = true;
+    |    }
+    |    
+  at buggy_16.sol(288)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |    
+  at buggy_16.sol(394)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |    
+  at buggy_16.sol(437)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |        require(newOwner != address(0));
+    |        emit OwnershipTransferred(owner, newOwner);
+  > |        owner = newOwner;
+    |    }
+    |function callnotchecked_unchk37(address payable callee) public {
+  at buggy_16.sol(137)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |    function updateXPLPerEther(uint _XPLPerEther) public onlyOwner {        
+    |        emit NewPrice(owner, XPLPerEther, _XPLPerEther);
+  > |        XPLPerEther = _XPLPerEther;
+    |    }
+    |function callnotchecked_unchk25(address payable callee) public {
+  at buggy_16.sol(227)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'ExclusivePlatform':
+    |
+    |    function switchCrowdsale() public onlyOwner {
+  > |        crowdsaleIsOn = !(crowdsaleIsOn);
+    |    }
+    |function bug_unchk19() public{
+  at buggy_16.sol(234)
+
+[31mViolation[0m for MissingInputValidation in contract 'Owned':
+    |
+    |contract Owned {
+  > |  function bug_unchk15(address payable addr) public
+    |      {addr.send (42 ether); }
+    |  address payable public owner;
+  at buggy_16.sol(104)
+
+[31mViolation[0m for MissingInputValidation in contract 'Owned':
+    |      {addr.send (42 ether); }
+    |  address payable public owner;
+  > |  function bug_unchk27(address payable addr) public
+    |      {addr.send (42 ether); }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+  at buggy_16.sol(107)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |contract Owned {
+    |  function bug_unchk15(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  address payable public owner;
+    |  function bug_unchk27(address payable addr) public
+  at buggy_16.sol(105)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |  address payable public owner;
+    |  function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    |
+  at buggy_16.sol(108)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |function withdrawBal_unchk17 () public{
+    |	uint64 Balances_unchk17 = 0;
+  > |	msg.sender.send(Balances_unchk17);}
+    |
+    |    /**
+  at buggy_16.sol(120)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |contract Owned {
+    |  function bug_unchk15(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  address payable public owner;
+    |  function bug_unchk27(address payable addr) public
+  at buggy_16.sol(105)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |  address payable public owner;
+    |  function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    |
+  at buggy_16.sol(108)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |        require(newOwner != address(0));
+    |        emit OwnershipTransferred(owner, newOwner);
+  > |        owner = newOwner;
+    |    }
+    |function callnotchecked_unchk37(address payable callee) public {
+  at buggy_16.sol(137)
+

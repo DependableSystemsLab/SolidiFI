@@ -1,0 +1,145 @@
+buggy_19.sol
+jar:file:/usr/local/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 57
+column: 0
+content: contractowned{functionbug_txorigin12(addressowner_txorigin12)public{require(tx.origin==owner_txorigin12);}addresspublicowner;constructor()public{owner=msg.sender;}functiontransferTo_txorigin11(addressto,uintamount,addressowner_txorigin11)public{require(tx.origin==owner_txorigin11);to.call.value(amount);}modifieronlyOwner{require(msg.sender==owner);_;}functiontransferOwnership(addressnewOwner)onlyOwnerpublic{require(newOwner!=address(0));owner=newOwner;}functionsendto_txorigin1(addresspayablereceiver,uintamount,addressowner_txorigin1)public{require(tx.origin==owner_txorigin1);receiver.transfer(amount);}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 95
+column: 0
+content: contractethBankisowned{function()payableexternal{}functionwithdrawAll_txorigin2(addresspayable_recipient,addressowner_txorigin2)public{require(tx.origin==owner_txorigin2);_recipient.transfer(address<missing ';'>(this).balance);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: ^
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 59
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 70
+column: 10
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 0
+content: functionsendto_txorigin1(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 98
+column: 0
+content: functionwithdrawAll_txorigin2(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 42
+content: receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 52
+content: uintamount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 64
+content: addressowner_txorigin1)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 1
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 13
+content: origin==owner_txorigin1);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 91
+column: 1
+content: receiver.transfer(amount);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 47
+content: _recipient,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 98
+column: 58
+content: addressowner_txorigin2)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 8
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 99
+column: 19
+content: origin==owner_txorigin2);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 8
+content: _recipient.transfer
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 27
+content: (address<missing ';'>
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 100
+column: 35
+content: (this).balance);
+
+SOLIDITY_VISIBILITY :15
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_LOCKED_MONEY :2
+SOLIDITY_TX_ORIGIN :2

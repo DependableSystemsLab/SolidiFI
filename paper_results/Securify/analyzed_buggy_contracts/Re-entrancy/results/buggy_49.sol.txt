@@ -1,0 +1,309 @@
+Processing contract: buggy_49.sol:TAMC
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'TAMC':
+    |  mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_49.sol(29)
+
+[31mViolation[0m for DAO in contract 'TAMC':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_49.sol(78)
+
+[31mViolation[0m for DAO in contract 'TAMC':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_49.sol(88)
+
+[31mViolation[0m for DAO in contract 'TAMC':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_49.sol(115)
+
+[31mViolation[0m for DAOConstantGas in contract 'TAMC':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_49.sol(11)
+
+[31mViolation[0m for DAOConstantGas in contract 'TAMC':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_49.sol(21)
+
+[31mViolation[0m for DAOConstantGas in contract 'TAMC':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_49.sol(39)
+
+[31mViolation[0m for DAOConstantGas in contract 'TAMC':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_49.sol(49)
+
+[31mViolation[0m for DAOConstantGas in contract 'TAMC':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_49.sol(61)
+
+[31mViolation[0m for DAOConstantGas in contract 'TAMC':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_49.sol(98)
+
+[31mViolation[0m for DAOConstantGas in contract 'TAMC':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_49.sol(138)
+
+[31mViolation[0m for TODAmount in contract 'TAMC':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_49.sol(21)
+
+[33mWarning[0m for TODAmount in contract 'TAMC':
+    |  mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_49.sol(29)
+
+[33mWarning[0m for TODAmount in contract 'TAMC':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_49.sol(39)
+
+[33mWarning[0m for TODAmount in contract 'TAMC':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_49.sol(78)
+
+[33mWarning[0m for TODAmount in contract 'TAMC':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_49.sol(98)
+
+[33mWarning[0m for TODAmount in contract 'TAMC':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_49.sol(115)
+
+[31mViolation[0m for TODReceiver in contract 'TAMC':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_49.sol(21)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_49.sol(49)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_49.sol(88)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_49.sol(138)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_49.sol(11)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_49.sol(21)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |  mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_49.sol(29)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_49.sol(39)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_49.sol(61)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_49.sol(78)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_49.sol(98)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TAMC':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_49.sol(115)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |            revert();
+    |        }
+  > |        counter_re_ent14 += 1;
+    |    }
+    |  mapping (address => uint256) public balanceOf;
+  at buggy_49.sol(14)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+  > |      lastPlayer_re_ent30 = msg.sender;
+    |      jackpot_re_ent30    = address(this).balance;
+    |    }
+  at buggy_49.sol(23)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  > |      jackpot_re_ent30    = address(this).balance;
+    |    }
+    |  string public name = "TAMC";
+  at buggy_49.sol(24)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |            revert();
+    |        }
+  > |        counter_re_ent35 += 1;
+    |    }
+    |
+  at buggy_49.sol(64)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |        require(balanceOf[msg.sender] >= value);
+    |        balanceOf[msg.sender] -= value;
+  > |        balanceOf[to] += value;
+    |        emit Transfer(msg.sender, to, value);
+    |        return true;
+  at buggy_49.sol(70)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |  event Approval(address indexed owner, address indexed spender, uint256 value);
+  at buggy_49.sol(92)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |        require(value <= allowance[from][msg.sender]);
+    |
+  > |        balanceOf[from] -= value;
+    |        balanceOf[to] += value;
+    |        allowance[from][msg.sender] -= value;
+  at buggy_49.sol(129)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |
+    |        balanceOf[from] -= value;
+  > |        balanceOf[to] += value;
+    |        allowance[from][msg.sender] -= value;
+    |        emit Transfer(from, to, value);
+  at buggy_49.sol(130)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TAMC':
+    |            revert();
+    |        }
+  > |        not_called_re_ent27 = false;
+    |    }
+    |}
+  at buggy_49.sol(141)
+

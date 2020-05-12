@@ -1,0 +1,28 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_5.sol:10:22: Warning: Callstack Depth Attack Vulnerability.\n       bool success= msg.sender.call.value(balances_re_ent21[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_5.sol:20:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_5.sol:39:21: Warning: Callstack Depth Attack Vulnerability.\n\t    bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)(\"\")"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [
+   "/tmp/SCs/buggy_5.sol:10:22: Warning: Re-Entrancy Vulnerability.\n       bool success= msg.sender.call.value(balances_re_ent21[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_5.sol:20:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_5.sol:39:21: Warning: Re-Entrancy Vulnerability.\n\t    bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)(\"\")"
+  ], 
+  "integer_overflow": [], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_5.sol:20:22: Warning: Transaction-Ordering Dependency.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")"
+   ], 
+   [
+    "/tmp/SCs/buggy_5.sol:68:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(transferValue_re_ent25)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "98.4"
+}

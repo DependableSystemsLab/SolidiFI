@@ -1,0 +1,45 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_33.sol:143:16: Warning: Callstack Depth Attack Vulnerability.\n\tbool success= msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_33.sol:182:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent26[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_33.sol:21:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_33.sol:329:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_33.sol:313:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_33.sol:267:23: Warning: Callstack Depth Attack Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_33.sol:151:21: Warning: Callstack Depth Attack Vulnerability.\n\t    bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)(\"\")", 
+   "/tmp/SCs/buggy_33.sol:200:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [
+   "/tmp/SCs/buggy_33.sol:143:16: Warning: Re-Entrancy Vulnerability.\n\tbool success= msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_33.sol:182:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent26[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_33.sol:21:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_33.sol:329:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_33.sol:313:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_33.sol:267:23: Warning: Re-Entrancy Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_33.sol:151:21: Warning: Re-Entrancy Vulnerability.\n\t    bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)(\"\")", 
+   "/tmp/SCs/buggy_33.sol:200:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")"
+  ], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_33.sol:261:68: Warning: Integer Overflow.\n        emit tokensRedeemed(msg.sender, staker[msg.sender].tokens, staker[msg.sender].tokens\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0", 
+   "/tmp/SCs/buggy_33.sol:260:55: Warning: Integer Overflow.\n        require(token.transferFrom(owner, msg.sender ,staker[msg.sender].tokens\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0", 
+   "/tmp/SCs/buggy_33.sol:263:9: Warning: Integer Overflow.\n        staker[msg.sender].tokens\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0", 
+   "/tmp/SCs/buggy_33.sol:87:17: Warning: Integer Overflow.\n    uint256 c = a + b\nInteger Overflow occurs if:\n    basePercent = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    minstakeTokens = 115792089237316195423570985008687907853269984665640564039457581756113315954687", 
+   "/tmp/SCs/buggy_33.sol:261:41: Warning: Integer Overflow.\n        emit tokensRedeemed(msg.sender, staker[msg.sender].tokens\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0", 
+   "/tmp/SCs/buggy_33.sol:262:9: Warning: Integer Overflow.\n        staker[msg.sender].redeem\nInteger Overflow occurs if:\n    stakeTime = 0\n    staker[msg.sender].time = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    staker[msg.sender].redeem = 0\n    lock = 0"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_33.sol:300:9: Warning: Transaction-Ordering Dependency.\n\tif( ! (msg.sender.send(10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_33.sol:61:17: Warning: Transaction-Ordering Dependency.\n        require(msg.sender.send(_weiToWithdraw)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "87.8"
+}

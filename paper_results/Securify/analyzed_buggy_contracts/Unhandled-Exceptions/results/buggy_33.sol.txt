@@ -1,0 +1,542 @@
+Processing contract: buggy_33.sol:Owned
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_33.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_33.sol:Staking
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_33.sol:Token
+[31mViolation[0m for TODAmount in contract 'Owned':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  address public newOwner;
+  at buggy_33.sol(15)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |contract Owned {
+    |  function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  address public owner;
+    |  bool public payedOut_unchk9 = false;
+  at buggy_33.sol(9)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  address public newOwner;
+  at buggy_33.sol(15)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |contract Owned {
+    |  function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  address public owner;
+    |  bool public payedOut_unchk9 = false;
+  at buggy_33.sol(9)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_33.sol(31)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  address public newOwner;
+  at buggy_33.sol(15)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |  function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_33.sol(21)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_33.sol(49)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |
+    |    function transferOwnership(address _newOwner) public onlyOwner {
+  > |        newOwner = _newOwner;
+    |    }
+    |function bug_unchk7() public{
+  at buggy_33.sol(45)
+
+[31mViolation[0m for DAOConstantGas in contract 'Staking':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_33.sol(128)
+
+[31mViolation[0m for DAOConstantGas in contract 'Staking':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_33.sol(139)
+
+[31mViolation[0m for DAOConstantGas in contract 'Staking':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_33.sol(183)
+
+[31mViolation[0m for DAOConstantGas in contract 'Staking':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_33.sol(228)
+
+[31mViolation[0m for RepeatedCall in contract 'Staking':
+    |    function startStaking(uint256 stakeTokens) public{
+    |        require(stakeTokens >= minstakeTokens);
+  > |        require(token.balanceOf(msg.sender) >= stakeTokens + findOnePercent(stakeTokens));
+    |        require(token.transferFrom(msg.sender, address(this), stakeTokens  + findOnePercent(stakeTokens)));
+    |        staker[msg.sender].time = now;
+  at buggy_33.sol(189)
+
+[31mViolation[0m for TODAmount in contract 'Staking':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  address public newOwner;
+  at buggy_33.sol(15)
+
+[31mViolation[0m for TODAmount in contract 'Staking':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event stakingstarted(address staker, uint256 tokens, uint256 time);
+  at buggy_33.sol(151)
+
+[31mViolation[0m for TODAmount in contract 'Staking':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_33.sol(253)
+
+[33mWarning[0m for TODAmount in contract 'Staking':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_33.sol(128)
+
+[33mWarning[0m for TODAmount in contract 'Staking':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_33.sol(139)
+
+[33mWarning[0m for TODAmount in contract 'Staking':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_33.sol(183)
+
+[33mWarning[0m for TODAmount in contract 'Staking':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |    
+  at buggy_33.sol(209)
+
+[33mWarning[0m for TODAmount in contract 'Staking':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    
+  at buggy_33.sol(216)
+
+[33mWarning[0m for TODAmount in contract 'Staking':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_33.sol(228)
+
+[31mViolation[0m for TODReceiver in contract 'Staking':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_33.sol(128)
+
+[31mViolation[0m for TODReceiver in contract 'Staking':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_33.sol(139)
+
+[31mViolation[0m for TODReceiver in contract 'Staking':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_33.sol(183)
+
+[31mViolation[0m for TODReceiver in contract 'Staking':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_33.sol(228)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |contract Owned {
+    |  function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  address public owner;
+    |  bool public payedOut_unchk9 = false;
+  at buggy_33.sol(9)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  address public newOwner;
+  at buggy_33.sol(15)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |  bool lock;
+    |  function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint256 public minstakeTokens;
+  at buggy_33.sol(119)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_33.sol(128)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_33.sol(139)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |  uint256 public stakeTime = 1814400; // 3 weeks = 3*7*24*60*60  OR 1 week = 604800 secs, 3 weeks = 3*604800 = 1,814,400
+    |  function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint public stakePercentage = 30;
+  at buggy_33.sol(144)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event stakingstarted(address staker, uint256 tokens, uint256 time);
+  at buggy_33.sol(151)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_33.sol(166)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_33.sol(183)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |    
+    |    function redeem() public{
+  at buggy_33.sol(196)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |    
+  at buggy_33.sol(209)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    
+  at buggy_33.sol(216)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_33.sol(228)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_33.sol(253)
+
+[31mViolation[0m for UnhandledException in contract 'Staking':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |}
+  at buggy_33.sol(262)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |contract Owned {
+    |  function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |  address public owner;
+    |  bool public payedOut_unchk9 = false;
+  at buggy_33.sol(9)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  address public newOwner;
+  at buggy_33.sol(15)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_33.sol(21)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_33.sol(31)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_33.sol(49)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  function bug_unchk19() public{
+    |address payable addr_unchk19;
+  > |if (!addr_unchk19.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_33.sol(114)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  bool lock;
+    |  function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint256 public minstakeTokens;
+  at buggy_33.sol(119)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_33.sol(128)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_33.sol(139)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  uint256 public stakeTime = 1814400; // 3 weeks = 3*7*24*60*60  OR 1 week = 604800 secs, 3 weeks = 3*604800 = 1,814,400
+    |  function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint public stakePercentage = 30;
+  at buggy_33.sol(144)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event stakingstarted(address staker, uint256 tokens, uint256 time);
+  at buggy_33.sol(151)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_33.sol(166)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_33.sol(183)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |    
+    |    function redeem() public{
+  at buggy_33.sol(196)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |    
+  at buggy_33.sol(209)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    
+  at buggy_33.sol(216)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_33.sol(228)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_33.sol(238)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |    
+  at buggy_33.sol(253)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Staking':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |}
+  at buggy_33.sol(262)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Staking':
+    |        require(!payedOut_unchk20);
+    |        winner_unchk20.send(winAmount_unchk20);
+  > |        payedOut_unchk20 = true;
+    |    }
+    |  uint256 private basePercent = 200;
+  at buggy_33.sol(129)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Staking':
+    |        require(!payedOut_unchk32);
+    |        winner_unchk32.send(winAmount_unchk32);
+  > |        payedOut_unchk32 = true;
+    |    }
+    |  uint256 public stakeTime = 1814400; // 3 weeks = 3*7*24*60*60  OR 1 week = 604800 secs, 3 weeks = 3*604800 = 1,814,400
+  at buggy_33.sol(140)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Staking':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |    
+  at buggy_33.sol(184)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Staking':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |    
+  at buggy_33.sol(229)
+

@@ -1,0 +1,35 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_37.sol:213:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_37.sol:76:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_37.sol:85:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)", 
+   "/tmp/SCs/buggy_37.sol:139:9: Warning: Callstack Depth Attack Vulnerability.\n        dst.call.value(msg.value)(\"\")", 
+   "/tmp/SCs/buggy_37.sol:273:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk8.send(winAmount_unchk8)", 
+   "/tmp/SCs/buggy_37.sol:54:9: Warning: Callstack Depth Attack Vulnerability.\n        msg.sender.send(address(this).balance)", 
+   "/tmp/SCs/buggy_37.sol:100:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_37.sol:345:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk44.send(winAmount_unchk44)", 
+   "/tmp/SCs/buggy_37.sol:143:9: Warning: Callstack Depth Attack Vulnerability.\n        dst.send(msg.value)", 
+   "/tmp/SCs/buggy_37.sol:95:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_37.sol:202:3: Warning: Integer Underflow.\n  string public  name", 
+   "/tmp/SCs/buggy_37.sol:198:3: Warning: Integer Underflow.\n  string public symbol", 
+   "/tmp/SCs/buggy_37.sol:249:16: Warning: Integer Underflow.\n        return _totalSupply - balances[address(0)]\nInteger Underflow occurs if:\n    _totalSupply = 0\n    balances[address(0)] = 1"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_37.sol:71:6: Warning: Transaction-Ordering Dependency.\nif (!addr_unchk19.send (10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_37.sol:382:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.send(address(this).balance)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "57.5"
+}

@@ -1,0 +1,367 @@
+buggy_24.sol
+jar:file:/usr/local/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 219
+column: 52
+content: 0xe00d13D53Ba180EAD5F4838BD56b15629026A8C9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 220
+column: 48
+content: 0xddf0bB01f81059CCdB3D5bF5b1C7Bd540aDDFEac
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 875
+column: 8
+content: for(uint256i=0;i<totalUserCount;++i){Userstorageuser=userMapping[addressMapping[i]];user.calcDynamicCommissionAmount=0;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 880
+column: 8
+content: for(uint256i=0;i<totalUserCount;++i){Usermemoryuser=userMapping[addressMapping[i]];if(user.currentInvestAmount>0){uint256commissionDays=now.sub(user.currentInvestTime).div(ONE_DAY);if(commissionDays>=1&&commissionDays<=user.currentInvestCycle){uint256depth=1;addressaddressWalker=user.sponsorAddress;while(addressWalker!=GENESIS_USER_ADDRESS){Userstoragesponsor=userMapping[addressWalker];if(sponsor.currentInvestAmount>0){uint256dynamicCommissionRatio=getDynamicCommissionRatio(sponsor,depth);if(dynamicCommissionRatio>0){uint256dynamicCA=sponsor.currentInvestAmount;if(dynamicCA>user.currentInvestAmount){dynamicCA=user.currentInvestAmount;}dynamicCA=dynamicCA.mul(user.currentStaticCommissionRatio);dynamicCA=dynamicCA.mul(dynamicCommissionRatio);if(sponsor.currentlevel==1){dynamicCA=dynamicCA.mul(3).div(1000*100*10);}elseif(sponsor.currentlevel==2){dynamicCA=dynamicCA.mul(6).div(1000*100*10);}else{dynamicCA=dynamicCA.div(1000*100);}sponsor.calcDynamicCommissionAmount=sponsor.calcDynamicCommissionAmount.add(dynamicCA);}}addressWalker=sponsor.sponsorAddress;depth=depth.add(1);}}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 915
+column: 8
+content: for(uint256i=0;i<totalUserCount;++i){addressuserAddress=addressMapping[i];Userstorageuser=userMapping[userAddress];if(user.calcDynamicCommissionAmount>0){user.dynamicCommissionBalance=user.dynamicCommissionBalance.add(user.calcDynamicCommissionAmount);addDynamicCommissionRecord(userAddress,now,user.calcDynamicCommissionAmount);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 629
+column: 12
+content: while(addressWalker!=GENESIS_USER_ADDRESS){sponsor=userMapping[addressWalker];sponsor.totalDownlineInvestAmount=sponsor.totalDownlineInvestAmount.add(investAmount);addressWalker=sponsor.sponsorAddress;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 642
+column: 12
+content: while(addressWalker!=GENESIS_USER_ADDRESS){sponsor=userMapping[addressWalker];sponsor.downlineCount=sponsor.downlineCount.add(1);if(addressWalker==sponsorAddress){sponsor.nodeCount=sponsor.nodeCount.add(1);}sponsor.totalDownlineInvestAmount=sponsor.totalDownlineInvestAmount.add(investAmount);addressWalker=sponsor.sponsorAddress;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 887
+column: 20
+content: while(addressWalker!=GENESIS_USER_ADDRESS){Userstoragesponsor=userMapping[addressWalker];if(sponsor.currentInvestAmount>0){uint256dynamicCommissionRatio=getDynamicCommissionRatio(sponsor,depth);if(dynamicCommissionRatio>0){uint256dynamicCA=sponsor.currentInvestAmount;if(dynamicCA>user.currentInvestAmount){dynamicCA=user.currentInvestAmount;}dynamicCA=dynamicCA.mul(user.currentStaticCommissionRatio);dynamicCA=dynamicCA.mul(dynamicCommissionRatio);if(sponsor.currentlevel==1){dynamicCA=dynamicCA.mul(3).div(1000*100*10);}elseif(sponsor.currentlevel==2){dynamicCA=dynamicCA.mul(6).div(1000*100*10);}else{dynamicCA=dynamicCA.div(1000*100);}sponsor.calcDynamicCommissionAmount=sponsor.calcDynamicCommissionAmount.add(dynamicCA);}}addressWalker=sponsor.sponsorAddress;depth=depth.add(1);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 954
+column: 20
+content: while(addressWalker!=GENESIS_USER_ADDRESS){Userstoragesponsor=userMapping[addressWalker];if(sponsor.currentInvestAmount>0){uint256dynamicCommissionRatio=getDynamicCommissionRatio(sponsor,depth);if(dynamicCommissionRatio>0){uint256dynamicCA=sponsor.currentInvestAmount;if(dynamicCA>user.currentInvestAmount){dynamicCA=user.currentInvestAmount;}dynamicCA=dynamicCA.mul(user.currentStaticCommissionRatio);dynamicCA=dynamicCA.mul(dynamicCommissionRatio);if(sponsor.currentlevel==1){dynamicCA=dynamicCA.mul(3).div(1000*100*10);}elseif(sponsor.currentlevel==2){dynamicCA=dynamicCA.mul(6).div(1000*100*10);}else{dynamicCA=dynamicCA.div(1000*100);}sponsor.calcDynamicCommissionAmount=sponsor.calcDynamicCommissionAmount.add(dynamicCA);}}addressWalker=sponsor.sponsorAddress;depth=depth.add(1);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 629
+column: 19
+content: addressWalker!=GENESIS_USER_ADDRESS
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 642
+column: 19
+content: addressWalker!=GENESIS_USER_ADDRESS
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 887
+column: 27
+content: addressWalker!=GENESIS_USER_ADDRESS
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 954
+column: 27
+content: addressWalker!=GENESIS_USER_ADDRESS
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 169
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 217
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 218
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 219
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 220
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 223
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 299
+column: 28
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 310
+column: 31
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 319
+column: 39
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 328
+column: 43
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 333
+column: 43
+content: private
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 179
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 768
+column: 70
+content: (uint256[16]memory,address)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 790
+column: 74
+content: (uint256[16]memory,address)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 799
+column: 72
+content: (uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 824
+column: 82
+content: (uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 849
+column: 83
+content: (uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory)
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 233
+column: 12
+content: balances_intou18[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 253
+column: 12
+content: balances_intou6[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 294
+column: 12
+content: balances_intou34[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 314
+column: 12
+content: balances_intou10[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 323
+column: 12
+content: balances_intou22[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 403
+column: 12
+content: balances_intou2[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 569
+column: 12
+content: balances_intou26[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 662
+column: 12
+content: balances_intou38[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 744
+column: 12
+content: balances_intou14[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_UINT_CANT_BE_NEGATIVE
+patternId: 733fdd
+severity: 2
+line: 762
+column: 12
+content: balances_intou30[msg.sender]-_value>=0
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 230
+column: 2
+content: mapping(address=>uint)balances_intou18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 250
+column: 2
+content: mapping(address=>uint)balances_intou6;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 291
+column: 2
+content: mapping(address=>uint)balances_intou34;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 311
+column: 2
+content: mapping(address=>uint)balances_intou10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 320
+column: 2
+content: mapping(address=>uint)balances_intou22;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 400
+column: 0
+content: mapping(address=>uint)balances_intou2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 566
+column: 0
+content: mapping(address=>uint)balances_intou26;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 659
+column: 0
+content: mapping(address=>uint)balances_intou38;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 741
+column: 0
+content: mapping(address=>uint)balances_intou14;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 759
+column: 0
+content: mapping(address=>uint)balances_intou30;
+
+SOLIDITY_VISIBILITY :10
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :10
+SOLIDITY_EXTRA_GAS_IN_LOOPS :7
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_UINT_CANT_BE_NEGATIVE :10
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_SHOULD_RETURN_STRUCT :5

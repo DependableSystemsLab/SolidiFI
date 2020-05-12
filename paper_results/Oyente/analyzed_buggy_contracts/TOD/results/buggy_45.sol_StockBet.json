@@ -1,0 +1,24 @@
+{
+ "vulnerabilities": {
+  "callstack": [], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_45.sol:214:3: Warning: Integer Overflow.\n  mapping (uint => Guess) public guesses", 
+   "/tmp/SCs/buggy_45.sol:458:9: Warning: Integer Overflow.\n        guesses[DOWN].guesses_number++\nInteger Overflow occurs if:\n    state = 2923003274661805836407369665432566039311865085952\n    guesses[DOWN].guesses_number = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    oracle = 0\n    bet = 0", 
+   "/tmp/SCs/buggy_45.sol:458:9: Warning: Integer Overflow.\n        guesses[DOWN].guesses_number\nInteger Overflow occurs if:\n    state = 2923003274661805836407369665432566039311865085952\n    oracle = 0\n    bet = 0"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_45.sol:451:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD4)"
+   ], 
+   [
+    "/tmp/SCs/buggy_45.sol:211:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD2)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "58.8"
+}

@@ -1,0 +1,26 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_48.sol:169:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_48.sol:150:22: Warning: Callstack Depth Attack Vulnerability.\n       bool success= msg.sender.call.value(balances_re_ent21[msg.sender ])(\"\")"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [
+   "/tmp/SCs/buggy_48.sol:169:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_48.sol:150:22: Warning: Re-Entrancy Vulnerability.\n       bool success= msg.sender.call.value(balances_re_ent21[msg.sender ])(\"\")"
+  ], 
+  "integer_overflow": [], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_48.sol:215:17: Warning: Transaction-Ordering Dependency.\n        require(msg.sender.send(_weiToWithdraw)"
+   ], 
+   [
+    "/tmp/SCs/buggy_48.sol:159:16: Warning: Transaction-Ordering Dependency.\n        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender])"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "98.4"
+}

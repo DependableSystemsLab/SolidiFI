@@ -1,0 +1,32 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_31.sol:160:23: Warning: Callstack Depth Attack Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_31.sol:289:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_31.sol:273:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_31.sol:319:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [
+   "/tmp/SCs/buggy_31.sol:160:23: Warning: Re-Entrancy Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_31.sol:289:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_31.sol:273:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_31.sol:319:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")"
+  ], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_31.sol:311:35: Warning: Integer Overflow.\n        require(marmo.signer() == ECDSA.recover(hash, _signature)\nInteger Overflow occurs if:\n    relayer = 0"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_31.sol:228:9: Warning: Transaction-Ordering Dependency.\n\tif( ! (msg.sender.send(10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_31.sol:99:17: Warning: Transaction-Ordering Dependency.\n        require(msg.sender.send(_weiToWithdraw)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "79.4"
+}

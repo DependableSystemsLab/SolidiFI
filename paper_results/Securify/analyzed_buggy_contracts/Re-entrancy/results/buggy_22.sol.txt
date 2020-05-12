@@ -1,0 +1,1133 @@
+Processing contract: buggy_22.sol:MindsyncPlatform
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_22.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_22.sol:Token
+Processing contract: buggy_22.sol:owned
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_22.sol:tokenRecipient
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_22.sol(85)
+
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_22.sol(271)
+
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_22.sol(298)
+
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_22.sol(317)
+
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_22.sol(328)
+
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_22.sol(355)
+
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |            p.executed = true;
+    |            
+  > |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+    |            require(success);
+    |
+  at buggy_22.sol(652)
+
+[31mViolation[0m for DAO in contract 'MindsyncPlatform':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_22.sol(666)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(11)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(22)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(39)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(53)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(59)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_22.sol(72)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function callme_re_ent28() public{
+    |        require(counter_re_ent28<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(237)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function bug_re_ent34() public{
+    |        require(not_called_re_ent34);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(246)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function callme_re_ent21() public{
+    |        require(counter_re_ent21<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(255)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |        require(balances_re_ent10[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent10[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_22.sol(265)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(280)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(291)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(307)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(338)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_22.sol(348)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(407)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_22.sol(430)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(463)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(506)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_22.sol(536)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(570)
+
+[31mViolation[0m for DAOConstantGas in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_22.sol(605)
+
+[31mViolation[0m for RepeatedCall in contract 'MindsyncPlatform':
+    |        for (uint i = 0; i <  p.votes.length; ++i) {
+    |            Vote storage v = p.votes[i];
+  > |            uint voteWeight = tokenAddress.actualBalanceOf(v.voter);
+    |            quorum += voteWeight;
+    |            if (v.inSupport) {
+  at buggy_22.sol(635)
+
+[31mViolation[0m for RepeatedCall in contract 'MindsyncPlatform':
+    |
+    |        Token t = Token(tokenAddress);
+  > |        require(quorum >= t.totalSupply().mul(minimumQuorum).div(100)); // Check if a minimum quorum has been reached
+    |
+    |        if (yea > nay ) {
+  at buggy_22.sol(645)
+
+[31mViolation[0m for TODAmount in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_22.sol(72)
+
+[31mViolation[0m for TODAmount in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_22.sol(536)
+
+[31mViolation[0m for TODAmount in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_22.sol(605)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(11)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(53)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(59)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_22.sol(271)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(280)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(291)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_22.sol(298)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_22.sol(317)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_22.sol(328)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(407)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(463)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |            p.executed = true;
+    |            
+  > |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+    |            require(success);
+    |
+  at buggy_22.sol(652)
+
+[33mWarning[0m for TODAmount in contract 'MindsyncPlatform':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_22.sol(666)
+
+[31mViolation[0m for TODReceiver in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_22.sol(72)
+
+[31mViolation[0m for TODReceiver in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_22.sol(536)
+
+[31mViolation[0m for TODReceiver in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_22.sol(605)
+
+[33mWarning[0m for TODReceiver in contract 'MindsyncPlatform':
+    |            p.executed = true;
+    |            
+  > |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+    |            require(success);
+    |
+  at buggy_22.sol(652)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(11)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(22)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(39)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(53)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(59)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_22.sol(72)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_22.sol(85)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function callme_re_ent28() public{
+    |        require(counter_re_ent28<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(237)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function bug_re_ent34() public{
+    |        require(not_called_re_ent34);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(246)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function callme_re_ent21() public{
+    |        require(counter_re_ent21<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(255)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        require(balances_re_ent10[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent10[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_22.sol(265)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent21;
+    |    function withdraw_balances_re_ent21 () public {
+  > |       (bool success,)= msg.sender.call.value(balances_re_ent21[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent21[msg.sender] = 0;
+  at buggy_22.sol(271)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent12[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(280)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent11[msg.sender] > 0);
+    |        uint transferValue_re_ent11 = redeemableEther_re_ent11[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent11);   //bug
+    |        redeemableEther_re_ent11[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(291)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |  mapping(address => uint) balances_re_ent1;
+    |    function withdraw_balances_re_ent1 () public {
+  > |       (bool success,) =msg.sender.call.value(balances_re_ent1[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent1[msg.sender] = 0;
+  at buggy_22.sol(298)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(307)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_22.sol(317)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_22.sol(328)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(338)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_22.sol(348)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_22.sol(355)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(407)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_22.sol(430)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(463)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(506)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_22.sol(536)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(570)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_22.sol(605)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |            p.executed = true;
+    |            
+  > |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+    |            require(success);
+    |
+  at buggy_22.sol(652)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'MindsyncPlatform':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_22.sol(666)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent41 = false;
+    |    }
+    |
+  at buggy_22.sol(25)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent42 += 1;
+    |    }
+    |}
+  at buggy_22.sol(42)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+  > |      lastPlayer_re_ent2 = msg.sender;
+    |      jackpot_re_ent2    = address(this).balance;
+    |    }
+  at buggy_22.sol(74)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  > |      jackpot_re_ent2    = address(this).balance;
+    |    }
+    |
+  at buggy_22.sol(75)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    | * The Mindsync Platform contract
+    | */
+  > |contract MindsyncPlatform is owned, tokenRecipient {
+    |    using SafeMath for uint256;
+    |
+  at buggy_22.sol(231)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent28 += 1;
+    |    }
+    |  uint public minimumQuorum;
+  at buggy_22.sol(240)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent34 = false;
+    |    }
+    |  uint public minimumTokensToVote;
+  at buggy_22.sol(249)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent21 += 1;
+    |    }
+    |  uint public debatingPeriodInMinutes;
+  at buggy_22.sol(258)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent35 += 1;
+    |    }
+    |  event Initialized();
+  at buggy_22.sol(310)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent27 = false;
+    |    }
+    |  event ProposalTallied(uint proposalID, uint result, uint quorum, bool active);
+  at buggy_22.sol(341)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |  event ProposalSignedByChairman(uint proposalNumber,  bool sign, address chairman);
+  at buggy_22.sol(359)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        proposalID = proposals.length++;
+    |        Proposal storage p = proposals[proposalID];
+  > |        p.recipient = destination;
+    |        p.signedByChairman = false;
+    |        p.amount = weiAmount;
+  at buggy_22.sol(489)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        Proposal storage p = proposals[proposalID];
+    |        p.recipient = destination;
+  > |        p.signedByChairman = false;
+    |        p.amount = weiAmount;
+    |        p.description = transactionDescription;
+  at buggy_22.sol(490)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.recipient = destination;
+    |        p.signedByChairman = false;
+  > |        p.amount = weiAmount;
+    |        p.description = transactionDescription;
+    |        p.proposalHash = keccak256(abi.encodePacked(destination, weiAmount, transactionBytecode));
+  at buggy_22.sol(491)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.amount = weiAmount;
+    |        p.description = transactionDescription;
+  > |        p.proposalHash = keccak256(abi.encodePacked(destination, weiAmount, transactionBytecode));
+    |        p.minExecutionDate = now + debatingPeriodInMinutes * 1 minutes;
+    |        p.executed = false;
+  at buggy_22.sol(493)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.description = transactionDescription;
+    |        p.proposalHash = keccak256(abi.encodePacked(destination, weiAmount, transactionBytecode));
+  > |        p.minExecutionDate = now + debatingPeriodInMinutes * 1 minutes;
+    |        p.executed = false;
+    |        p.proposalPassed = false;
+  at buggy_22.sol(494)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.proposalHash = keccak256(abi.encodePacked(destination, weiAmount, transactionBytecode));
+    |        p.minExecutionDate = now + debatingPeriodInMinutes * 1 minutes;
+  > |        p.executed = false;
+    |        p.proposalPassed = false;
+    |        p.numberOfVotes = 0;
+  at buggy_22.sol(495)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.minExecutionDate = now + debatingPeriodInMinutes * 1 minutes;
+    |        p.executed = false;
+  > |        p.proposalPassed = false;
+    |        p.numberOfVotes = 0;
+    |        emit ProposalAdded(proposalID, destination, weiAmount, transactionDescription);
+  at buggy_22.sol(496)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.executed = false;
+    |        p.proposalPassed = false;
+  > |        p.numberOfVotes = 0;
+    |        emit ProposalAdded(proposalID, destination, weiAmount, transactionDescription);
+    |        numProposals = proposalID+1;
+  at buggy_22.sol(497)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.numberOfVotes = 0;
+    |        emit ProposalAdded(proposalID, destination, weiAmount, transactionDescription);
+  > |        numProposals = proposalID+1;
+    |
+    |        return proposalID;
+  at buggy_22.sol(499)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent7 += 1;
+    |    }
+    |
+  at buggy_22.sol(509)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+  > |      lastPlayer_re_ent23 = msg.sender;
+    |      jackpot_re_ent23    = address(this).balance;
+    |    }
+  at buggy_22.sol(538)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  > |      jackpot_re_ent23    = address(this).balance;
+    |    }
+    |
+  at buggy_22.sol(539)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            revert();
+    |        }
+  > |        counter_re_ent14 += 1;
+    |    }
+    |
+  at buggy_22.sol(573)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |
+    |        voteID = p.votes.length++;
+  > |        p.votes[voteID] = Vote({inSupport: supportsProposal, voter: msg.sender});
+    |        p.voted[msg.sender] = true;
+    |        p.numberOfVotes = voteID +1;
+  at buggy_22.sol(596)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        p.votes[voteID] = Vote({inSupport: supportsProposal, voter: msg.sender});
+    |        p.voted[msg.sender] = true;
+  > |        p.numberOfVotes = voteID +1;
+    |        emit Voted(proposalNumber,  supportsProposal, msg.sender);
+    |        return voteID;
+  at buggy_22.sol(598)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+  > |      lastPlayer_re_ent30 = msg.sender;
+    |      jackpot_re_ent30    = address(this).balance;
+    |    }
+  at buggy_22.sol(607)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  > |      jackpot_re_ent30    = address(this).balance;
+    |    }
+    |
+  at buggy_22.sol(608)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            // Proposal passed; execute the transaction
+    |
+  > |            p.executed = true;
+    |            
+    |            (bool success, ) = p.recipient.call.value(p.amount)(transactionBytecode);
+  at buggy_22.sol(650)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |            require(success);
+    |
+  > |            p.proposalPassed = true;
+    |        } else {
+    |            // Proposal failed
+  at buggy_22.sol(655)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'MindsyncPlatform':
+    |        } else {
+    |            // Proposal failed
+  > |            p.proposalPassed = false;
+    |        }
+    |
+  at buggy_22.sol(658)
+
+[31mViolation[0m for DAOConstantGas in contract 'owned':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(11)
+
+[31mViolation[0m for DAOConstantGas in contract 'owned':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(22)
+
+[31mViolation[0m for DAOConstantGas in contract 'owned':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(39)
+
+[31mViolation[0m for MissingInputValidation in contract 'owned':
+    |    }
+    |
+  > |    function transferOwnership(address newOwner) onlyOwner public {
+    |        owner = newOwner;
+    |    }
+  at buggy_22.sol(33)
+
+[33mWarning[0m for TODAmount in contract 'owned':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(11)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'owned':
+    |function bug_re_ent41() public{
+    |        require(not_called_re_ent41);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(22)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'owned':
+    |  mapping(address => uint) balances_re_ent15;
+    |    function withdraw_balances_re_ent15 () public {
+  > |       if (msg.sender.send(balances_re_ent15[msg.sender ]))
+    |          balances_re_ent15[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(11)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'owned':
+    |function callme_re_ent42() public{
+    |        require(counter_re_ent42<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_22.sol(39)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'owned':
+    |            revert();
+    |        }
+  > |        not_called_re_ent41 = false;
+    |    }
+    |
+  at buggy_22.sol(25)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'owned':
+    |            revert();
+    |        }
+  > |        counter_re_ent42 += 1;
+    |    }
+    |}
+  at buggy_22.sol(42)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'owned':
+    |
+    |    function transferOwnership(address newOwner) onlyOwner public {
+  > |        owner = newOwner;
+    |    }
+    |uint256 counter_re_ent42 =0;
+  at buggy_22.sol(34)
+
+[31mViolation[0m for DAO in contract 'tokenRecipient':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_22.sol(85)
+
+[31mViolation[0m for DAOConstantGas in contract 'tokenRecipient':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(53)
+
+[31mViolation[0m for DAOConstantGas in contract 'tokenRecipient':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(59)
+
+[31mViolation[0m for DAOConstantGas in contract 'tokenRecipient':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_22.sol(72)
+
+[31mViolation[0m for MissingInputValidation in contract 'tokenRecipient':
+    |  event receivedTokens(address _from, uint256 _value, address _token, bytes _extraData);
+    |
+  > |    function receiveApproval(address _from, uint256 _value, address _token, bytes memory _extraData) public {
+    |        Token t = Token(_token);
+    |        require(t.transferFrom(_from, address(this), _value));
+  at buggy_22.sol(64)
+
+[31mViolation[0m for TODAmount in contract 'tokenRecipient':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_22.sol(72)
+
+[33mWarning[0m for TODAmount in contract 'tokenRecipient':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(53)
+
+[33mWarning[0m for TODAmount in contract 'tokenRecipient':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(59)
+
+[31mViolation[0m for TODReceiver in contract 'tokenRecipient':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_22.sol(72)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'tokenRecipient':
+    |        require(balances_re_ent17[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        (bool success,)=msg.sender.call.value(_weiToWithdraw)("");
+    |        require(success);  //bug
+    |        balances_re_ent17[msg.sender] -= _weiToWithdraw;
+  at buggy_22.sol(85)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'tokenRecipient':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_22.sol(53)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'tokenRecipient':
+    |  mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_22.sol(59)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'tokenRecipient':
+    |      uint jackpot_re_ent2;
+    |	  function buyTicket_re_ent2() public{
+  > |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  at buggy_22.sol(72)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'tokenRecipient':
+    |	    if (!(lastPlayer_re_ent2.send(jackpot_re_ent2)))
+    |        revert();
+  > |      lastPlayer_re_ent2 = msg.sender;
+    |      jackpot_re_ent2    = address(this).balance;
+    |    }
+  at buggy_22.sol(74)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'tokenRecipient':
+    |        revert();
+    |      lastPlayer_re_ent2 = msg.sender;
+  > |      jackpot_re_ent2    = address(this).balance;
+    |    }
+    |
+  at buggy_22.sol(75)
+

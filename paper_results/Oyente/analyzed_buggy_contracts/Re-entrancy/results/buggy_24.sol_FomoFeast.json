@@ -1,0 +1,49 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_24.sol:444:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_24.sol:594:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent26[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_24.sol:929:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_24.sol:1069:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_24.sol:349:22: Warning: Callstack Depth Attack Vulnerability.\n       bool success =msg.sender.call.value(balances_re_ent1[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_24.sol:323:22: Warning: Callstack Depth Attack Vulnerability.\n       bool success= msg.sender.call.value(balances_re_ent21[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_24.sol:512:21: Warning: Callstack Depth Attack Vulnerability.\n\t    bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)(\"\")", 
+   "/tmp/SCs/buggy_24.sol:477:16: Warning: Callstack Depth Attack Vulnerability.\n\tbool success= msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_24.sol:990:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [
+   "/tmp/SCs/buggy_24.sol:444:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_24.sol:323:22: Warning: Re-Entrancy Vulnerability.\n       bool success= msg.sender.call.value(balances_re_ent21[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_24.sol:594:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent26[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_24.sol:929:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_24.sol:832:23: Warning: Re-Entrancy Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")"
+  ], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_24.sol:1062:62: Warning: Integer Overflow.\n                addDynamicCommissionRecord(userAddress, now, user.calcDynamicCommissionAmount\nInteger Overflow occurs if:\n    index = 0\n    length = 1\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:1013:38: Warning: Integer Overflow.\n        for (uint256 i = index; i < (index + length\nInteger Overflow occurs if:\n    index = 1\n    length = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:945:50: Warning: Integer Overflow.\n                uint256 commissionDays = now.sub(user.currentInvestTime\nInteger Overflow occurs if:\n    totalUserCount = 1\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:369:9: Warning: Integer Overflow.\n        userMapping[GENESIS_USER_ADDRESS] = User(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, address(0))\nInteger Overflow occurs if:\n    initialized = 0", 
+   "/tmp/SCs/buggy_24.sol:1061:17: Warning: Integer Overflow.\n                user.dynamicCommissionBalance\nInteger Overflow occurs if:\n    index = 0\n    length = 1\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:939:13: Warning: Integer Overflow.\n            user.calcDynamicCommissionAmount\nInteger Overflow occurs if:\n    totalUserCount = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:621:50: Warning: Integer Overflow.\n            CommissionRecord memory prevRecord = records[i - 1]\nInteger Overflow occurs if:\n    index = 0\n    length = 1\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:980:17: Warning: Integer Overflow.\n            if (user.calcDynamicCommissionAmount\nInteger Overflow occurs if:\n    totalUserCount = 1\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:732:32: Warning: Integer Overflow.\n        uint256 avaliableDCB = user.dynamicCommissionBalance", 
+   "/tmp/SCs/buggy_24.sol:1000:13: Warning: Integer Overflow.\n            user.calcDynamicCommissionAmount\nInteger Overflow occurs if:\n    index = 0\n    length = 1\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:998:38: Warning: Integer Overflow.\n        for (uint256 i = index; i < (index + length\nInteger Overflow occurs if:\n    index = 1\n    length = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    owner = 0", 
+   "/tmp/SCs/buggy_24.sol:944:17: Warning: Integer Overflow.\n            if (user.currentInvestAmount\nInteger Overflow occurs if:\n    totalUserCount = 1\n    owner = 0"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_24.sol:255:12: Warning: Transaction-Ordering Dependency.\n\t    if (!(lastPlayer_re_ent16.send(jackpot_re_ent16)"
+   ], 
+   [
+    "/tmp/SCs/buggy_24.sol:288:9: Warning: Transaction-Ordering Dependency.\n\tif( ! (msg.sender.send(10 ether)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "32.0"
+}

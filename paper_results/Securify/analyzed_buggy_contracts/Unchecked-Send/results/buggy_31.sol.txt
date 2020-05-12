@@ -1,0 +1,166 @@
+Processing contract: buggy_31.sol:ECDSA
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_31.sol:FeeTransactionManager
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_31.sol:IERC20
+Processing contract: buggy_31.sol:Marmo
+Processing contract: buggy_31.sol:Ownable
+Processing contract: buggy_31.sol:ReentrancyGuard
+[31mViolation[0m for RepeatedCall in contract 'FeeTransactionManager':
+    |        require(marmo.signer() == ECDSA.recover(hash, _signature), "Invalid signature");
+    |        require(token.transferFrom(msg.sender, _to, _value));
+  > |        require(token.transferFrom(msg.sender, relayer, _fee));
+    |    }
+    |function bug_unchk_send8() payable public{
+  at buggy_31.sol(239)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |contract Ownable {
+    |  function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address private _owner;
+    |
+  at buggy_31.sol(96)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    |
+  at buggy_31.sol(100)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_31.sol(111)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_31.sol(120)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_31.sol(137)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_31.sol(147)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_31.sol(158)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    // counter to allow mutex lock with only one SSTORE operation
+    |  function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 private _guardCounter;
+    |
+  at buggy_31.sol(176)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_31.sol(185)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    
+    |  function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  IERC20 public token;
+    |  function bug_unchk_send26() payable public{
+  at buggy_31.sol(205)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |  IERC20 public token;
+    |  function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public relayer;
+    |    
+  at buggy_31.sol(208)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event NewRelayer(address _oldRelayer, address _newRelayer);
+    |    
+  at buggy_31.sol(212)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function execute(
+  at buggy_31.sol(220)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function setRelayer(address _newRelayer) onlyOwner external {
+  at buggy_31.sol(242)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |    }
+    |function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |     
+    |}
+  at buggy_31.sol(250)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |     */
+    |    modifier nonReentrant() {
+  > |        _guardCounter += 1;
+    |        uint256 localCounter = _guardCounter;
+    |        _;
+  at buggy_31.sol(195)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(newOwner != address(0), "Ownable: new owner is the zero address");
+    |        emit OwnershipTransferred(_owner, newOwner);
+  > |        _owner = newOwner;
+    |    }
+    |function bug_unchk_send23() payable public{
+  at buggy_31.sol(155)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(_newRelayer != address(0));
+    |        emit NewRelayer(relayer, _newRelayer);
+  > |        relayer = _newRelayer;
+    |    }
+    |function bug_unchk_send27() payable public{
+  at buggy_31.sol(247)
+

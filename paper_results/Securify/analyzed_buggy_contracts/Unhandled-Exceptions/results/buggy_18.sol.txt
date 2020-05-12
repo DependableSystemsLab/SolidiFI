@@ -1,0 +1,110 @@
+Processing contract: buggy_18.sol:ApproveAndCallFallBack
+Processing contract: buggy_18.sol:ERC20Interface
+Processing contract: buggy_18.sol:ExtendedMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_18.sol:Owned
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_18.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_18.sol:_Yesbuzz
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for TODAmount in contract 'Owned':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event OwnershipTransferred(address indexed _from, address indexed _to);
+  at buggy_18.sol(132)
+
+[31mViolation[0m for TODAmount in contract 'Owned':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_18.sol(164)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event OwnershipTransferred(address indexed _from, address indexed _to);
+  at buggy_18.sol(132)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function acceptOwnership() public {
+  at buggy_18.sol(152)
+
+[31mViolation[0m for UnhandledException in contract 'Owned':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_18.sol(164)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |    }
+    |function bug_unchk3(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function acceptOwnership() public {
+  at buggy_18.sol(152)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event OwnershipTransferred(address indexed _from, address indexed _to);
+  at buggy_18.sol(132)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'Owned':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_18.sol(164)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |
+    |    function transferOwnership(address _newOwner) public onlyOwner {
+  > |        newOwner = _newOwner;
+    |    }
+    |function bug_unchk3(address payable addr) public
+  at buggy_18.sol(149)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |        require(msg.sender == newOwner);
+    |        emit OwnershipTransferred(owner, newOwner);
+  > |        owner = newOwner;
+    |        newOwner = address(0);
+    |    }
+  at buggy_18.sol(157)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Owned':
+    |        emit OwnershipTransferred(owner, newOwner);
+    |        owner = newOwner;
+  > |        newOwner = address(0);
+    |    }
+    |bool public payedOut_unchk9 = false;
+  at buggy_18.sol(158)
+

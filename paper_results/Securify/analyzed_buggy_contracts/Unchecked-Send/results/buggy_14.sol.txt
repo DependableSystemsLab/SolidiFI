@@ -1,0 +1,328 @@
+Processing contract: buggy_14.sol:ERC20
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_14.sol:ERC20Detailed
+Processing contract: buggy_14.sol:IERC20
+Processing contract: buggy_14.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_14.sol:SaveWon
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    using SafeMath for uint256;
+    |  function bug_unchk_send22() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 constant DECIMALS = 18;
+    |  function bug_unchk_send12() payable public{
+  at buggy_14.sol(73)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |  uint8 constant DECIMALS = 18;
+    |  function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 private _totalSupply;
+    |    string private _name;
+  at buggy_14.sol(76)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    
+    |  function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => uint256) private _balances;
+    |  function bug_unchk_send1() payable public{
+  at buggy_14.sol(82)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |  mapping (address => uint256) private _balances;
+    |  function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => mapping (address => uint256)) private _allowed;
+    |
+  at buggy_14.sol(85)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function balanceOf(address owner) public view returns (uint256) {
+  at buggy_14.sol(93)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function transfer(address to, uint256 value) public returns (bool) {
+  at buggy_14.sol(99)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function transferFrom(address from, address to, uint256 value) public returns (bool) {
+  at buggy_14.sol(106)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function approve(address spender, uint256 value) public returns (bool) {
+  at buggy_14.sol(114)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function allowance(address owner, address spender) public view returns (uint256) {
+  at buggy_14.sol(121)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function burn(uint256 value) public {
+  at buggy_14.sol(127)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function _mint(address account, uint256 value) internal {
+  at buggy_14.sol(133)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function _transfer(address from, address to, uint256 value) internal {
+  at buggy_14.sol(142)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _approve(address owner, address spender, uint256 value) internal {
+  at buggy_14.sol(153)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function _burn(address account, uint256 value) internal {
+  at buggy_14.sol(163)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_14.sol(173)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'ERC20':
+    |        require(account != address(0));
+    |    
+  > |        _totalSupply = _totalSupply.sub(value);
+    |        _balances[account] = _balances[account].sub(value);
+    |        emit Transfer(account, address(0), value);
+  at buggy_14.sol(168)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    using SafeMath for uint256;
+    |  function bug_unchk_send22() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 constant DECIMALS = 18;
+    |  function bug_unchk_send12() payable public{
+  at buggy_14.sol(73)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |  uint8 constant DECIMALS = 18;
+    |  function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 private _totalSupply;
+    |    string private _name;
+  at buggy_14.sol(76)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    
+    |  function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => uint256) private _balances;
+    |  function bug_unchk_send1() payable public{
+  at buggy_14.sol(82)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |  mapping (address => uint256) private _balances;
+    |  function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => mapping (address => uint256)) private _allowed;
+    |
+  at buggy_14.sol(85)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function balanceOf(address owner) public view returns (uint256) {
+  at buggy_14.sol(93)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function transfer(address to, uint256 value) public returns (bool) {
+  at buggy_14.sol(99)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function transferFrom(address from, address to, uint256 value) public returns (bool) {
+  at buggy_14.sol(106)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function approve(address spender, uint256 value) public returns (bool) {
+  at buggy_14.sol(114)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function allowance(address owner, address spender) public view returns (uint256) {
+  at buggy_14.sol(121)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function burn(uint256 value) public {
+  at buggy_14.sol(127)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function _mint(address account, uint256 value) internal {
+  at buggy_14.sol(133)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function _transfer(address from, address to, uint256 value) internal {
+  at buggy_14.sol(142)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _approve(address owner, address spender, uint256 value) internal {
+  at buggy_14.sol(153)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    
+    |    function _burn(address account, uint256 value) internal {
+  at buggy_14.sol(163)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_14.sol(173)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    string private _symbol;
+    |  function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 private _decimals;
+    |
+  at buggy_14.sol(180)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_14.sol(189)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_14.sol(198)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_14.sol(207)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_14.sol(216)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |contract SaveWon is ERC20, ERC20Detailed {
+    |  function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 public constant DECIMALS = 18;
+    |    uint256 public constant INITIAL_SUPPLY = 50000000000 * (10 ** uint256(DECIMALS));
+  at buggy_14.sol(221)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SaveWon':
+    |    }
+    |function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+  at buggy_14.sol(232)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'SaveWon':
+    |        require(account != address(0));
+    |    
+  > |        _totalSupply = _totalSupply.sub(value);
+    |        _balances[account] = _balances[account].sub(value);
+    |        emit Transfer(account, address(0), value);
+  at buggy_14.sol(168)
+

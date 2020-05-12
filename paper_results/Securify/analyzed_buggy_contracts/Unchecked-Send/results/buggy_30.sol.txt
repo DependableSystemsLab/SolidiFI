@@ -1,0 +1,368 @@
+Processing contract: buggy_30.sol:Address
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_30.sol:ERC777
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_30.sol:IERC1820Registry
+Processing contract: buggy_30.sol:IERC20
+Processing contract: buggy_30.sol:IERC777
+Processing contract: buggy_30.sol:IERC777Recipient
+Processing contract: buggy_30.sol:IERC777Sender
+Processing contract: buggy_30.sol:MinterRole
+Processing contract: buggy_30.sol:Pausable
+Processing contract: buggy_30.sol:PauserRole
+Processing contract: buggy_30.sol:Roles
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_30.sol:SKYBITToken
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_30.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for RepeatedCall in contract 'ERC777':
+    |        private
+    |    {
+  > |        address implementer = _erc1820.getInterfaceImplementer(to, TOKENS_RECIPIENT_INTERFACE_HASH);
+    |        if (implementer != address(0)) {
+    |            IERC777Recipient(implementer).tokensReceived(operator, from, to, amount, userData, operatorData);
+  at buggy_30.sol(557)
+
+[33mWarning[0m for RepeatedCall in contract 'ERC777':
+    |        address implementer = _erc1820.getInterfaceImplementer(to, TOKENS_RECIPIENT_INTERFACE_HASH);
+    |        if (implementer != address(0)) {
+  > |            IERC777Recipient(implementer).tokensReceived(operator, from, to, amount, userData, operatorData);
+    |        } else if (requireReceptionAck) {
+    |            require(!to.isContract(), "ERC777: token recipient contract has no implementer for ERC777TokensRecipient");
+  at buggy_30.sol(559)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC777':
+    |    }
+    |function bug_unchk_send18() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(421)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC777':
+    |    }
+    |function bug_unchk_send29() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(445)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC777':
+    |    }
+    |function bug_unchk_send6() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(469)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC777':
+    |    }
+    |function bug_unchk_send16() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _move(
+  at buggy_30.sol(493)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC777':
+    |    }
+    |function bug_unchk_send24() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _approve(address holder, address spender, uint256 value) private {
+  at buggy_30.sol(512)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC777':
+    |    }
+    |function bug_unchk_send5() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(524)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC777':
+    |    }
+    |function bug_unchk_send15() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(543)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC777':
+    |    }
+    |function bug_unchk_send28() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_30.sol(565)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send18() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(421)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send29() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(445)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send6() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(469)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send16() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _move(
+  at buggy_30.sol(493)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send24() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _approve(address holder, address spender, uint256 value) private {
+  at buggy_30.sol(512)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send5() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(524)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send15() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(543)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send28() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_30.sol(565)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |
+    |  function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event MinterAdded(address indexed account);
+    |  function bug_unchk_send30() payable public{
+  at buggy_30.sol(596)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |  event MinterAdded(address indexed account);
+    |  function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event MinterRemoved(address indexed account);
+    |
+  at buggy_30.sol(599)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send21() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    modifier onlyMinter() {
+  at buggy_30.sol(608)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send10() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function addMinter(address account) public onlyMinter {
+  at buggy_30.sol(619)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send22() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function renounceMinter() public {
+  at buggy_30.sol(625)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _addMinter(address account) internal {
+  at buggy_30.sol(631)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _removeMinter(address account) internal {
+  at buggy_30.sol(638)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_30.sol(645)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |
+    |  function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event PauserAdded(address indexed account);
+    |  function bug_unchk_send27() payable public{
+  at buggy_30.sol(652)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |  event PauserAdded(address indexed account);
+    |  function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event PauserRemoved(address indexed account);
+    |
+  at buggy_30.sol(655)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    modifier onlyPauser() {
+  at buggy_30.sol(664)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function addPauser(address account) public onlyPauser {
+  at buggy_30.sol(675)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function renouncePauser() public {
+  at buggy_30.sol(681)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _addPauser(address account) internal {
+  at buggy_30.sol(687)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function _removePauser(address account) internal {
+  at buggy_30.sol(694)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_30.sol(701)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Paused(address account);
+    |
+  at buggy_30.sol(707)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Unpaused(address account);
+    |
+  at buggy_30.sol(712)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(722)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(729)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    
+  at buggy_30.sol(749)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_30.sol(757)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function mint(address operator, address account, uint256 amount, bytes memory userData, bytes memory operatorData) public onlyMinter returns (bool) {
+  at buggy_30.sol(771)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SKYBITToken':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+  at buggy_30.sol(778)
+

@@ -1,0 +1,32 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_11.sol:59:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)", 
+   "/tmp/SCs/buggy_11.sol:231:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk8.send(winAmount_unchk8)", 
+   "/tmp/SCs/buggy_11.sol:49:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)", 
+   "/tmp/SCs/buggy_11.sol:181:9: Warning: Callstack Depth Attack Vulnerability.\n        msg.sender.send(address(this).balance)", 
+   "/tmp/SCs/buggy_11.sol:303:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk44.send(winAmount_unchk44)", 
+   "/tmp/SCs/buggy_11.sol:104:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_11.sol:313:5: Warning: Integer Overflow.\n    function approveAndCall(address spender, uint tokens, bytes memory data) public returns (bool success) {\n    ^\nSpanning multiple lines."
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_11.sol:159:3: Warning: Integer Underflow.\n  string public symbol", 
+   "/tmp/SCs/buggy_11.sol:167:3: Warning: Integer Underflow.\n  string public  name"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_11.sol:35:6: Warning: Transaction-Ordering Dependency.\nif (!addr_unchk19.send (10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_11.sol:340:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.send(address(this).balance)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "65.2"
+}

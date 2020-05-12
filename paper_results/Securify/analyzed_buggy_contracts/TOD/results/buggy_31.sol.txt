@@ -1,0 +1,726 @@
+Processing contract: buggy_31.sol:ECDSA
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_31.sol:FeeTransactionManager
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_31.sol:IERC20
+Processing contract: buggy_31.sol:Marmo
+Processing contract: buggy_31.sol:Ownable
+Processing contract: buggy_31.sol:ReentrancyGuard
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD38);
+  > |        owner_TOD38.transfer(reward_TOD38);
+    |        reward_TOD38 = msg.value;
+    |    }
+  at buggy_31.sol(102)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD38);
+    |        claimed_TOD38 = true;
+    |    }
+  at buggy_31.sol(110)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD14);
+  > |        owner_TOD14.transfer(reward_TOD14);
+    |        reward_TOD14 = msg.value;
+    |    }
+  at buggy_31.sol(144)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD14);
+    |        claimed_TOD14 = true;
+    |    }
+  at buggy_31.sol(152)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD30);
+  > |        owner_TOD30.transfer(reward_TOD30);
+    |        reward_TOD30 = msg.value;
+    |    }
+  at buggy_31.sol(169)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD30);
+    |        claimed_TOD30 = true;
+    |    }
+  at buggy_31.sol(177)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD8);
+  > |        owner_TOD8.transfer(reward_TOD8);
+    |        reward_TOD8 = msg.value;
+    |    }
+  at buggy_31.sol(202)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD8);
+    |        claimed_TOD8 = true;
+    |    }
+  at buggy_31.sol(210)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD36);
+  > |        owner_TOD36.transfer(reward_TOD36);
+    |        reward_TOD36 = msg.value;
+    |    }
+  at buggy_31.sol(250)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD36);
+    |        claimed_TOD36 = true;
+    |    }
+  at buggy_31.sol(258)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD4);
+  > |        owner_TOD4.transfer(reward_TOD4);
+    |        reward_TOD4 = msg.value;
+    |    }
+  at buggy_31.sol(284)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD4);
+    |        claimed_TOD4 = true;
+    |    }
+  at buggy_31.sol(292)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD40);
+  > |        owner_TOD40.transfer(reward_TOD40);
+    |        reward_TOD40 = msg.value;
+    |    }
+  at buggy_31.sol(388)
+
+[31mViolation[0m for DAOConstantGas in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD40);
+    |        claimed_TOD40 = true;
+    |    }
+  at buggy_31.sol(396)
+
+[31mViolation[0m for RepeatedCall in contract 'FeeTransactionManager':
+    |        require(marmo.signer() == ECDSA.recover(hash, _signature), "Invalid signature");
+    |        require(token.transferFrom(msg.sender, _to, _value));
+  > |        require(token.transferFrom(msg.sender, relayer, _fee));
+    |    }
+    |address payable winner_TOD33;
+  at buggy_31.sol(417)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD38);
+  > |        owner_TOD38.transfer(reward_TOD38);
+    |        reward_TOD38 = msg.value;
+    |    }
+  at buggy_31.sol(102)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD38);
+    |        claimed_TOD38 = true;
+    |    }
+  at buggy_31.sol(110)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD14);
+  > |        owner_TOD14.transfer(reward_TOD14);
+    |        reward_TOD14 = msg.value;
+    |    }
+  at buggy_31.sol(144)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD14);
+    |        claimed_TOD14 = true;
+    |    }
+  at buggy_31.sol(152)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD30);
+  > |        owner_TOD30.transfer(reward_TOD30);
+    |        reward_TOD30 = msg.value;
+    |    }
+  at buggy_31.sol(169)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD30);
+    |        claimed_TOD30 = true;
+    |    }
+  at buggy_31.sol(177)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD8);
+  > |        owner_TOD8.transfer(reward_TOD8);
+    |        reward_TOD8 = msg.value;
+    |    }
+  at buggy_31.sol(202)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD8);
+    |        claimed_TOD8 = true;
+    |    }
+  at buggy_31.sol(210)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD36);
+  > |        owner_TOD36.transfer(reward_TOD36);
+    |        reward_TOD36 = msg.value;
+    |    }
+  at buggy_31.sol(250)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD36);
+    |        claimed_TOD36 = true;
+    |    }
+  at buggy_31.sol(258)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD4);
+  > |        owner_TOD4.transfer(reward_TOD4);
+    |        reward_TOD4 = msg.value;
+    |    }
+  at buggy_31.sol(284)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD4);
+    |        claimed_TOD4 = true;
+    |    }
+  at buggy_31.sol(292)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD40);
+  > |        owner_TOD40.transfer(reward_TOD40);
+    |        reward_TOD40 = msg.value;
+    |    }
+  at buggy_31.sol(388)
+
+[31mViolation[0m for TODAmount in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD40);
+    |        claimed_TOD40 = true;
+    |    }
+  at buggy_31.sol(396)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |function getReward_TOD31() payable public{
+    |     
+  > |       winner_TOD31.transfer(msg.value);
+    |    }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+  at buggy_31.sol(126)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |function getReward_TOD39() payable public{
+    |     
+  > |       winner_TOD39.transfer(msg.value);
+    |    }
+    |
+  at buggy_31.sol(232)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |function getReward_TOD35() payable public{
+    |     
+  > |       winner_TOD35.transfer(msg.value);
+    |    }
+    |
+  at buggy_31.sol(313)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |function getReward_TOD7() payable public{
+    |     
+  > |       winner_TOD7.transfer(msg.value);
+    |    }
+    |  IERC20 public token;
+  at buggy_31.sol(344)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |function getReward_TOD23() payable public{
+    |     
+  > |       winner_TOD23.transfer(msg.value);
+    |    }
+    |  address public relayer;
+  at buggy_31.sol(358)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |function getReward_TOD13() payable public{
+    |     
+  > |       winner_TOD13.transfer(msg.value);
+    |    }
+    |  event NewRelayer(address _oldRelayer, address _newRelayer);
+  at buggy_31.sol(373)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |function getReward_TOD33() payable public{
+    |     
+  > |       winner_TOD33.transfer(msg.value);
+    |    }
+    |    
+  at buggy_31.sol(430)
+
+[33mWarning[0m for TODAmount in contract 'FeeTransactionManager':
+    |function getReward_TOD27() payable public{
+    |     
+  > |       winner_TOD27.transfer(msg.value);
+    |    }
+    |     
+  at buggy_31.sol(449)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD38);
+  > |        owner_TOD38.transfer(reward_TOD38);
+    |        reward_TOD38 = msg.value;
+    |    }
+  at buggy_31.sol(102)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function getReward_TOD31() payable public{
+    |     
+  > |       winner_TOD31.transfer(msg.value);
+    |    }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+  at buggy_31.sol(126)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD30);
+  > |        owner_TOD30.transfer(reward_TOD30);
+    |        reward_TOD30 = msg.value;
+    |    }
+  at buggy_31.sol(169)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD8);
+  > |        owner_TOD8.transfer(reward_TOD8);
+    |        reward_TOD8 = msg.value;
+    |    }
+  at buggy_31.sol(202)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function getReward_TOD39() payable public{
+    |     
+  > |       winner_TOD39.transfer(msg.value);
+    |    }
+    |
+  at buggy_31.sol(232)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |
+    |        require(msg.sender == owner_TOD4);
+  > |        owner_TOD4.transfer(reward_TOD4);
+    |        reward_TOD4 = msg.value;
+    |    }
+  at buggy_31.sol(284)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function getReward_TOD35() payable public{
+    |     
+  > |       winner_TOD35.transfer(msg.value);
+    |    }
+    |
+  at buggy_31.sol(313)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function getReward_TOD7() payable public{
+    |     
+  > |       winner_TOD7.transfer(msg.value);
+    |    }
+    |  IERC20 public token;
+  at buggy_31.sol(344)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function getReward_TOD23() payable public{
+    |     
+  > |       winner_TOD23.transfer(msg.value);
+    |    }
+    |  address public relayer;
+  at buggy_31.sol(358)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function getReward_TOD13() payable public{
+    |     
+  > |       winner_TOD13.transfer(msg.value);
+    |    }
+    |  event NewRelayer(address _oldRelayer, address _newRelayer);
+  at buggy_31.sol(373)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function getReward_TOD33() payable public{
+    |     
+  > |       winner_TOD33.transfer(msg.value);
+    |    }
+    |    
+  at buggy_31.sol(430)
+
+[31mViolation[0m for TODReceiver in contract 'FeeTransactionManager':
+    |function getReward_TOD27() payable public{
+    |     
+  > |       winner_TOD27.transfer(msg.value);
+    |    }
+    |     
+  at buggy_31.sol(449)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD38);
+    |        claimed_TOD38 = true;
+    |    }
+  at buggy_31.sol(110)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function getReward_TOD31() payable public{
+    |     
+  > |       winner_TOD31.transfer(msg.value);
+    |    }
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+  at buggy_31.sol(126)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD14);
+    |        claimed_TOD14 = true;
+    |    }
+  at buggy_31.sol(152)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD30);
+    |        claimed_TOD30 = true;
+    |    }
+  at buggy_31.sol(177)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD8);
+    |        claimed_TOD8 = true;
+    |    }
+  at buggy_31.sol(210)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function getReward_TOD39() payable public{
+    |     
+  > |       winner_TOD39.transfer(msg.value);
+    |    }
+    |
+  at buggy_31.sol(232)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD36);
+    |        claimed_TOD36 = true;
+    |    }
+  at buggy_31.sol(258)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD4);
+    |        claimed_TOD4 = true;
+    |    }
+  at buggy_31.sol(292)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function getReward_TOD35() payable public{
+    |     
+  > |       winner_TOD35.transfer(msg.value);
+    |    }
+    |
+  at buggy_31.sol(313)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function getReward_TOD7() payable public{
+    |     
+  > |       winner_TOD7.transfer(msg.value);
+    |    }
+    |  IERC20 public token;
+  at buggy_31.sol(344)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function getReward_TOD23() payable public{
+    |     
+  > |       winner_TOD23.transfer(msg.value);
+    |    }
+    |  address public relayer;
+  at buggy_31.sol(358)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function getReward_TOD13() payable public{
+    |     
+  > |       winner_TOD13.transfer(msg.value);
+    |    }
+    |  event NewRelayer(address _oldRelayer, address _newRelayer);
+  at buggy_31.sol(373)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |        require(submission < 10);
+    |
+  > |        msg.sender.transfer(reward_TOD40);
+    |        claimed_TOD40 = true;
+    |    }
+  at buggy_31.sol(396)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function getReward_TOD33() payable public{
+    |     
+  > |       winner_TOD33.transfer(msg.value);
+    |    }
+    |    
+  at buggy_31.sol(430)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'FeeTransactionManager':
+    |function getReward_TOD27() payable public{
+    |     
+  > |       winner_TOD27.transfer(msg.value);
+    |    }
+    |     
+  at buggy_31.sol(449)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |
+    |        msg.sender.transfer(reward_TOD38);
+  > |        claimed_TOD38 = true;
+    |    }
+    |  address private _owner;
+  at buggy_31.sol(111)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+    |
+  > |            winner_TOD31 = msg.sender;
+    |        }
+    |    }
+  at buggy_31.sol(120)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |
+    |        msg.sender.transfer(reward_TOD14);
+  > |        claimed_TOD14 = true;
+    |    }
+    |
+  at buggy_31.sol(153)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |
+    |        msg.sender.transfer(reward_TOD30);
+  > |        claimed_TOD30 = true;
+    |    }
+    |
+  at buggy_31.sol(178)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |
+    |        msg.sender.transfer(reward_TOD8);
+  > |        claimed_TOD8 = true;
+    |    }
+    |
+  at buggy_31.sol(211)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+    |
+  > |            winner_TOD39 = msg.sender;
+    |        }
+    |    }
+  at buggy_31.sol(226)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |
+    |        msg.sender.transfer(reward_TOD36);
+  > |        claimed_TOD36 = true;
+    |    }
+    |}
+  at buggy_31.sol(259)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |
+    |        msg.sender.transfer(reward_TOD4);
+  > |        claimed_TOD4 = true;
+    |    }
+    |  uint256 private _guardCounter;
+  at buggy_31.sol(293)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+    |
+  > |            winner_TOD35 = msg.sender;
+    |        }
+    |    }
+  at buggy_31.sol(307)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |     */
+    |    modifier nonReentrant() {
+  > |        _guardCounter += 1;
+    |        uint256 localCounter = _guardCounter;
+    |        _;
+  at buggy_31.sol(324)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+    |
+  > |            winner_TOD7 = msg.sender;
+    |        }
+    |    }
+  at buggy_31.sol(338)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+    |
+  > |            winner_TOD23 = msg.sender;
+    |        }
+    |    }
+  at buggy_31.sol(352)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+    |
+  > |            winner_TOD13 = msg.sender;
+    |        }
+    |    }
+  at buggy_31.sol(367)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |
+    |        msg.sender.transfer(reward_TOD40);
+  > |        claimed_TOD40 = true;
+    |    }
+    |    
+  at buggy_31.sol(397)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+    |
+  > |            winner_TOD33 = msg.sender;
+    |        }
+    |    }
+  at buggy_31.sol(424)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |       if (keccak256(abi.encode(guess)) == keccak256(abi.encode('hello'))) {
+    |
+  > |            winner_TOD27 = msg.sender;
+    |        }
+    |    }
+  at buggy_31.sol(443)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(msg.sender == owner_TOD38);
+    |        owner_TOD38.transfer(reward_TOD38);
+  > |        reward_TOD38 = msg.value;
+    |    }
+    |
+  at buggy_31.sol(103)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(msg.sender == owner_TOD14);
+    |        owner_TOD14.transfer(reward_TOD14);
+  > |        reward_TOD14 = msg.value;
+    |    }
+    |
+  at buggy_31.sol(145)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(msg.sender == owner_TOD30);
+    |        owner_TOD30.transfer(reward_TOD30);
+  > |        reward_TOD30 = msg.value;
+    |    }
+    |
+  at buggy_31.sol(170)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(msg.sender == owner_TOD8);
+    |        owner_TOD8.transfer(reward_TOD8);
+  > |        reward_TOD8 = msg.value;
+    |    }
+    |
+  at buggy_31.sol(203)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(newOwner != address(0), "Ownable: new owner is the zero address");
+    |        emit OwnershipTransferred(_owner, newOwner);
+  > |        _owner = newOwner;
+    |    }
+    |bool claimed_TOD36 = false;
+  at buggy_31.sol(241)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(msg.sender == owner_TOD36);
+    |        owner_TOD36.transfer(reward_TOD36);
+  > |        reward_TOD36 = msg.value;
+    |    }
+    |
+  at buggy_31.sol(251)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(msg.sender == owner_TOD4);
+    |        owner_TOD4.transfer(reward_TOD4);
+  > |        reward_TOD4 = msg.value;
+    |    }
+    |
+  at buggy_31.sol(285)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(msg.sender == owner_TOD40);
+    |        owner_TOD40.transfer(reward_TOD40);
+  > |        reward_TOD40 = msg.value;
+    |    }
+    |
+  at buggy_31.sol(389)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'FeeTransactionManager':
+    |        require(_newRelayer != address(0));
+    |        emit NewRelayer(relayer, _newRelayer);
+  > |        relayer = _newRelayer;
+    |    }
+    |address payable winner_TOD27;
+  at buggy_31.sol(436)
+

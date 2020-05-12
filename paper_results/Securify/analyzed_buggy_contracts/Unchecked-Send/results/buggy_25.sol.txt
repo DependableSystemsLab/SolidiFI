@@ -1,0 +1,444 @@
+Processing contract: buggy_25.sol:WhiteBetting
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[33mWarning[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        || (selectedTeam == 8 && ( _homeDrawAway == 3 || _homeDrawAway == 2) ) 
+    |        ){ 
+  > |        betList[_fixtureId][i].player.transfer(returnEth);
+    |      }
+    |    }
+  at buggy_25.sol(185)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        || (selectedTeam == 8 && ( _homeDrawAway == 3 || _homeDrawAway == 2) ) 
+    |        ){ 
+  > |        betList[_fixtureId][i].player.transfer(returnEth);
+    |      }
+    |    }
+  at buggy_25.sol(185)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |  // Fallback function
+    |  function () external payable{
+  > |    owner.transfer(msg.value);    
+    |  }
+    |function bug_unchk_send4() payable public{
+  at buggy_25.sol(228)
+
+[31mViolation[0m for TODReceiver in contract 'WhiteBetting':
+    |  // Fallback function
+    |  function () external payable{
+  > |    owner.transfer(msg.value);    
+    |  }
+    |function bug_unchk_send4() payable public{
+  at buggy_25.sol(228)
+
+[31mViolation[0m for TODReceiver in contract 'WhiteBetting':
+    |  function withdraw(uint256 _amount) external payable onlyOwner {
+    |    require(_amount > 0 && _amount <= address(this).balance );
+  > |    owner.transfer(_amount);
+    |    emit Withdraw(owner, _amount);
+    |  }
+  at buggy_25.sol(236)
+
+[33mWarning[0m for TODReceiver in contract 'WhiteBetting':
+    |        || (selectedTeam == 8 && ( _homeDrawAway == 3 || _homeDrawAway == 2) ) 
+    |        ){ 
+  > |        betList[_fixtureId][i].player.transfer(returnEth);
+    |      }
+    |    }
+  at buggy_25.sol(185)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |contract WhiteBetting {
+    |function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address payable public owner;
+    |
+  at buggy_25.sol(14)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping(uint64 => GameInfo) public gameList;
+    |
+  at buggy_25.sol(36)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping(uint64 => BetFixture[]) public betList;
+    |
+  at buggy_25.sol(48)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  // Events that are issued to make statistic recovery easier
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Success(uint256 odd);
+    |function bug_unchk_send14() payable public{
+  at buggy_25.sol(53)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  event Success(uint256 odd);
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Deposit(address sender, uint256 eth);
+    |function bug_unchk_send30() payable public{
+  at buggy_25.sol(56)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  event Deposit(address sender, uint256 eth);
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Withdraw(address receiver, uint256 eth);
+    |function bug_unchk_send8() payable public{
+  at buggy_25.sol(59)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  event Withdraw(address receiver, uint256 eth);
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event NewStake(address player, uint64 fixtureId, uint16 selectedTeam, uint256 stake, uint256 odd );
+    |function bug_unchk_send27() payable public{
+  at buggy_25.sol(62)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  event NewStake(address player, uint64 fixtureId, uint16 selectedTeam, uint256 stake, uint256 odd );
+    |function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event SetGame(uint64 _fixtureId, uint256 _timestamp, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw, uint8 _open_status);
+    |function bug_unchk_send31() payable public{
+  at buggy_25.sol(65)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  event SetGame(uint64 _fixtureId, uint256 _timestamp, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw, uint8 _open_status);
+    |function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event ChangeOdd (uint64 _fixtureId, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw);
+    |function bug_unchk_send13() payable public{
+  at buggy_25.sol(68)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  event ChangeOdd (uint64 _fixtureId, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw);
+    |function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event GivePrizeMoney(uint64 _fixtureId, uint8 _homeDrawAway, uint8 _overUnder);
+    |  
+  at buggy_25.sol(71)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Change the game status
+  at buggy_25.sol(79)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Refresh the game odd
+  at buggy_25.sol(86)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Save the game information
+  at buggy_25.sol(101)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Player make a bet
+  at buggy_25.sol(119)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Give prize money by the game result
+  at buggy_25.sol(161)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Standard modifier on methods invokable only by contract owner.
+  at buggy_25.sol(197)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Deposit from owner to CA
+  at buggy_25.sol(210)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Change Owner
+  at buggy_25.sol(217)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Fallback function
+  at buggy_25.sol(224)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  // Withdraw from CA to owner
+  at buggy_25.sol(231)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_25.sol(240)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        || (selectedTeam == 8 && ( _homeDrawAway == 3 || _homeDrawAway == 2) ) 
+    |        ){ 
+  > |        betList[_fixtureId][i].player.transfer(returnEth);
+    |      }
+    |    }
+  at buggy_25.sol(185)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  // Fallback function
+    |  function () external payable{
+  > |    owner.transfer(msg.value);    
+    |  }
+    |function bug_unchk_send4() payable public{
+  at buggy_25.sol(228)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  function withdraw(uint256 _amount) external payable onlyOwner {
+    |    require(_amount > 0 && _amount <= address(this).balance );
+  > |    owner.transfer(_amount);
+    |    emit Withdraw(owner, _amount);
+    |  }
+  at buggy_25.sol(236)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |/**
+  > | *Submitted for verification at Etherscan.io on 2019-09-24
+    |*/
+    |
+  at buggy_25.sol(2)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |
+    |    // Save the betting information
+  > |    betList[_fixtureId].push(BetFixture( msg.sender, stake,  _odd, _selectedTeam));
+    |    emit NewStake(msg.sender, _fixtureId, _selectedTeam, stake, _odd );
+    |
+  at buggy_25.sol(156)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |
+    |    // Change the game status.
+  > |    gameList[_fixtureId].open_status = 5;
+    |    // It was paid.
+    |    gameList[_fixtureId].isDone = true; // 보상을 마쳤으므로 true로 변경.
+  at buggy_25.sol(190)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].open_status = 5;
+    |    // It was paid.
+  > |    gameList[_fixtureId].isDone = true; // 보상을 마쳤으므로 true로 변경.
+    |
+    |    emit GivePrizeMoney( _fixtureId,  _homeDrawAway,  _overUnder);
+  at buggy_25.sol(192)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  // Change the game status
+    |  function setOpenStatus(uint64 _fixtureId, uint8 _open_status) external onlyOwner {
+  > |    gameList[_fixtureId].open_status = _open_status;
+    |  }
+    |function bug_unchk_send17() payable public{
+  at buggy_25.sol(83)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  // Refresh the game odd
+    |  function changeOdd (uint64 _fixtureId, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw ) external onlyOwner {
+  > |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+  at buggy_25.sol(90)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  function changeOdd (uint64 _fixtureId, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw ) external onlyOwner {
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+  > |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+  at buggy_25.sol(91)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+  > |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+  at buggy_25.sol(92)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+  > |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+  at buggy_25.sol(93)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+  > |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+  at buggy_25.sol(94)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+  > |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+  at buggy_25.sol(95)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+  > |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    emit ChangeOdd (_fixtureId, _odd_homeTeam, _odd_drawTeam, _odd_awayTeam, _odd_over, _odd_under, _odd_homeTeamAndDraw, _odd_homeAndAwayTeam , _odd_awayTeamAndDraw);
+  at buggy_25.sol(96)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+  > |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    emit ChangeOdd (_fixtureId, _odd_homeTeam, _odd_drawTeam, _odd_awayTeam, _odd_over, _odd_under, _odd_homeTeamAndDraw, _odd_homeAndAwayTeam , _odd_awayTeamAndDraw);
+    |  }
+  at buggy_25.sol(97)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  // Save the game information
+    |  function setGameInfo (uint64 _fixtureId, uint256 _timestamp, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw, uint8 _open_status ) external onlyOwner {
+  > |    gameList[_fixtureId].timestamp           = _timestamp;
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+  at buggy_25.sol(105)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  function setGameInfo (uint64 _fixtureId, uint256 _timestamp, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw, uint8 _open_status ) external onlyOwner {
+    |    gameList[_fixtureId].timestamp           = _timestamp;
+  > |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+  at buggy_25.sol(106)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].timestamp           = _timestamp;
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+  > |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+  at buggy_25.sol(107)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+  > |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+  at buggy_25.sol(108)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+  > |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+  at buggy_25.sol(109)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+  > |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+  at buggy_25.sol(110)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+  > |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+  at buggy_25.sol(111)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+  > |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    gameList[_fixtureId].open_status         = _open_status;
+  at buggy_25.sol(112)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+  > |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    gameList[_fixtureId].open_status         = _open_status;
+    |    gameList[_fixtureId].isDone              = false;
+  at buggy_25.sol(113)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+  > |    gameList[_fixtureId].open_status         = _open_status;
+    |    gameList[_fixtureId].isDone              = false;
+    |    emit SetGame(_fixtureId, _timestamp, _odd_homeTeam, _odd_drawTeam, _odd_awayTeam, _odd_over, _odd_under, _odd_homeTeamAndDraw, _odd_homeAndAwayTeam , _odd_awayTeamAndDraw, _open_status);
+  at buggy_25.sol(114)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    gameList[_fixtureId].open_status         = _open_status;
+  > |    gameList[_fixtureId].isDone              = false;
+    |    emit SetGame(_fixtureId, _timestamp, _odd_homeTeam, _odd_drawTeam, _odd_awayTeam, _odd_over, _odd_under, _odd_homeTeamAndDraw, _odd_homeAndAwayTeam , _odd_awayTeamAndDraw, _open_status);
+    |  }
+  at buggy_25.sol(115)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  // Change Owner
+    |  function changeOwner(address payable _newOwner ) external onlyOwner {
+  > |    owner = _newOwner;
+    |  }
+    |function bug_unchk_send32() payable public{
+  at buggy_25.sol(221)
+

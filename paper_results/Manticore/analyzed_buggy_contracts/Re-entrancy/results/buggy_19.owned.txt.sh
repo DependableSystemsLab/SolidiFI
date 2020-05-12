@@ -1,0 +1,1 @@
+/home/asem/.local/bin/manticore --core.timeout 300 --evm.sha3timeout 60 --smt.timeout 60 --core.mprocessing threading --smt.memory 4000 --contract owned buggy_19.sol

@@ -1,0 +1,1000 @@
+buggy_24.sol
+jar:file:/usr/local/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 219
+column: 52
+content: 0xe00d13D53Ba180EAD5F4838BD56b15629026A8C9
+
+ruleId: SOLIDITY_ADDRESS_HARDCODED
+patternId: adc165
+severity: 1
+line: 220
+column: 48
+content: 0xddf0bB01f81059CCdB3D5bF5b1C7Bd540aDDFEac
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 323
+column: 35
+content: call.value(balances_re_ent21[msg.sender])("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 349
+column: 35
+content: call.value(balances_re_ent1[msg.sender])("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 444
+column: 35
+content: call.value(_weiToWithdraw)("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 477
+column: 29
+content: call.value(_weiToWithdraw)("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 512
+column: 42
+content: call.value(jackpot_re_ent9)("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 594
+column: 36
+content: call.value(userBalance_re_ent26[msg.sender])("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 832
+column: 36
+content: call.value(balances_re_ent8[msg.sender])("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 929
+column: 35
+content: call.value(userBalance_re_ent40[msg.sender])("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 990
+column: 36
+content: call.value(userBalance_re_ent33[msg.sender])("")
+
+ruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: 111ppp
+severity: 2
+line: 1069
+column: 35
+content: call.value(1ether)("")
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 937
+column: 8
+content: for(uint256i=0;i<totalUserCount;++i){Userstorageuser=userMapping[addressMapping[i]];user.calcDynamicCommissionAmount=0;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 942
+column: 8
+content: for(uint256i=0;i<totalUserCount;++i){Usermemoryuser=userMapping[addressMapping[i]];if(user.currentInvestAmount>0){uint256commissionDays=now.sub(user.currentInvestTime).div(ONE_DAY);if(commissionDays>=1&&commissionDays<=user.currentInvestCycle){uint256depth=1;addressaddressWalker=user.sponsorAddress;while(addressWalker!=GENESIS_USER_ADDRESS){Userstoragesponsor=userMapping[addressWalker];if(sponsor.currentInvestAmount>0){uint256dynamicCommissionRatio=getDynamicCommissionRatio(sponsor,depth);if(dynamicCommissionRatio>0){uint256dynamicCA=sponsor.currentInvestAmount;if(dynamicCA>user.currentInvestAmount){dynamicCA=user.currentInvestAmount;}dynamicCA=dynamicCA.mul(user.currentStaticCommissionRatio);dynamicCA=dynamicCA.mul(dynamicCommissionRatio);if(sponsor.currentlevel==1){dynamicCA=dynamicCA.mul(3).div(1000*100*10);}elseif(sponsor.currentlevel==2){dynamicCA=dynamicCA.mul(6).div(1000*100*10);}else{dynamicCA=dynamicCA.div(1000*100);}sponsor.calcDynamicCommissionAmount=sponsor.calcDynamicCommissionAmount.add(dynamicCA);}}addressWalker=sponsor.sponsorAddress;depth=depth.add(1);}}}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 977
+column: 8
+content: for(uint256i=0;i<totalUserCount;++i){addressuserAddress=addressMapping[i];Userstorageuser=userMapping[userAddress];if(user.calcDynamicCommissionAmount>0){user.dynamicCommissionBalance=user.dynamicCommissionBalance.add(user.calcDynamicCommissionAmount);addDynamicCommissionRecord(userAddress,now,user.calcDynamicCommissionAmount);}}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 663
+column: 12
+content: while(addressWalker!=GENESIS_USER_ADDRESS){sponsor=userMapping[addressWalker];sponsor.totalDownlineInvestAmount=sponsor.totalDownlineInvestAmount.add(investAmount);addressWalker=sponsor.sponsorAddress;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 676
+column: 12
+content: while(addressWalker!=GENESIS_USER_ADDRESS){sponsor=userMapping[addressWalker];sponsor.downlineCount=sponsor.downlineCount.add(1);if(addressWalker==sponsorAddress){sponsor.nodeCount=sponsor.nodeCount.add(1);}sponsor.totalDownlineInvestAmount=sponsor.totalDownlineInvestAmount.add(investAmount);addressWalker=sponsor.sponsorAddress;}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 949
+column: 20
+content: while(addressWalker!=GENESIS_USER_ADDRESS){Userstoragesponsor=userMapping[addressWalker];if(sponsor.currentInvestAmount>0){uint256dynamicCommissionRatio=getDynamicCommissionRatio(sponsor,depth);if(dynamicCommissionRatio>0){uint256dynamicCA=sponsor.currentInvestAmount;if(dynamicCA>user.currentInvestAmount){dynamicCA=user.currentInvestAmount;}dynamicCA=dynamicCA.mul(user.currentStaticCommissionRatio);dynamicCA=dynamicCA.mul(dynamicCommissionRatio);if(sponsor.currentlevel==1){dynamicCA=dynamicCA.mul(3).div(1000*100*10);}elseif(sponsor.currentlevel==2){dynamicCA=dynamicCA.mul(6).div(1000*100*10);}else{dynamicCA=dynamicCA.div(1000*100);}sponsor.calcDynamicCommissionAmount=sponsor.calcDynamicCommissionAmount.add(dynamicCA);}}addressWalker=sponsor.sponsorAddress;depth=depth.add(1);}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: k4o1l4
+severity: 1
+line: 1020
+column: 20
+content: while(addressWalker!=GENESIS_USER_ADDRESS){Userstoragesponsor=userMapping[addressWalker];if(sponsor.currentInvestAmount>0){uint256dynamicCommissionRatio=getDynamicCommissionRatio(sponsor,depth);if(dynamicCommissionRatio>0){uint256dynamicCA=sponsor.currentInvestAmount;if(dynamicCA>user.currentInvestAmount){dynamicCA=user.currentInvestAmount;}dynamicCA=dynamicCA.mul(user.currentStaticCommissionRatio);dynamicCA=dynamicCA.mul(dynamicCommissionRatio);if(sponsor.currentlevel==1){dynamicCA=dynamicCA.mul(3).div(1000*100*10);}elseif(sponsor.currentlevel==2){dynamicCA=dynamicCA.mul(6).div(1000*100*10);}else{dynamicCA=dynamicCA.div(1000*100);}sponsor.calcDynamicCommissionAmount=sponsor.calcDynamicCommissionAmount.add(dynamicCA);}}addressWalker=sponsor.sponsorAddress;depth=depth.add(1);}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 663
+column: 19
+content: addressWalker!=GENESIS_USER_ADDRESS
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 676
+column: 19
+content: addressWalker!=GENESIS_USER_ADDRESS
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 949
+column: 27
+content: addressWalker!=GENESIS_USER_ADDRESS
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: 17f23a
+severity: 1
+line: 1020
+column: 27
+content: addressWalker!=GENESIS_USER_ADDRESS
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 169
+column: 16
+content: ^
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 217
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 218
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 219
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 220
+column: 12
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 223
+column: 9
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 320
+column: 28
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 327
+column: 31
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 337
+column: 39
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 346
+column: 43
+content: private
+
+ruleId: SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA
+patternId: 5616b2
+severity: 1
+line: 353
+column: 43
+content: private
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 246
+column: 8
+content: if(!(msg.sender.send(1ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 255
+column: 5
+content: if(!(lastPlayer_re_ent16.send(jackpot_re_ent16)))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 273
+column: 8
+content: if(!(msg.sender.send(userBalance_re_ent5[msg.sender]))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 288
+column: 1
+content: if(!(msg.sender.send(10ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 297
+column: 8
+content: if(!(msg.sender.send(1ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 306
+column: 1
+content: if(!(msg.sender.send(10ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 332
+column: 8
+content: if(!(msg.sender.send(userBalance_re_ent12[msg.sender]))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 375
+column: 8
+content: if(!(msg.sender.send(1ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 393
+column: 1
+content: if(!(msg.sender.send(10ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 425
+column: 5
+content: if(!(lastPlayer_re_ent2.send(jackpot_re_ent2)))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 455
+column: 5
+content: if(!(lastPlayer_re_ent37.send(jackpot_re_ent37)))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 513
+column: 5
+content: if(!success)revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 576
+column: 8
+content: if(!(msg.sender.send(userBalance_re_ent19[msg.sender]))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 595
+column: 8
+content: if(!success){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 612
+column: 8
+content: if(!(msg.sender.send(1ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 755
+column: 1
+content: if(!(msg.sender.send(10ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 772
+column: 5
+content: if(!(lastPlayer_re_ent23.send(jackpot_re_ent23)))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 789
+column: 1
+content: if(!(msg.sender.send(10ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 807
+column: 5
+content: if(!(lastPlayer_re_ent30.send(jackpot_re_ent30)))revert();
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 899
+column: 1
+content: if(!(msg.sender.send(10ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 930
+column: 8
+content: if(!success){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 991
+column: 8
+content: if(!success){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 1006
+column: 8
+content: if(!(msg.sender.send(1ether))){revert();}
+
+ruleId: SOLIDITY_REVERT_REQUIRE
+patternId: c56b12
+severity: 1
+line: 1070
+column: 8
+content: if(!success){revert();}
+
+ruleId: SOLIDITY_SAFEMATH
+patternId: 837cac
+severity: 1
+line: 179
+column: 4
+content: usingSafeMathforuint256;
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 246
+column: 26
+content: send(1ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 265
+column: 27
+content: send(_weiToWithdraw)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 273
+column: 26
+content: send(userBalance_re_ent5[msg.sender])
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 288
+column: 19
+content: send(10ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 297
+column: 26
+content: send(1ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 306
+column: 19
+content: send(10ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 317
+column: 27
+content: send(_weiToWithdraw)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 332
+column: 26
+content: send(userBalance_re_ent12[msg.sender])
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 375
+column: 26
+content: send(1ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 393
+column: 19
+content: send(10ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 576
+column: 26
+content: send(userBalance_re_ent19[msg.sender])
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 612
+column: 26
+content: send(1ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 697
+column: 27
+content: send(_weiToWithdraw)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 755
+column: 19
+content: send(10ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 789
+column: 19
+content: send(10ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 899
+column: 19
+content: send(10ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 1006
+column: 26
+content: send(1ether)
+
+ruleId: SOLIDITY_SEND
+patternId: 430636
+severity: 1
+line: 1052
+column: 27
+content: send(_weiToWithdraw)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 813
+column: 70
+content: (uint256[16]memory,address)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 837
+column: 74
+content: (uint256[16]memory,address)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 850
+column: 72
+content: (uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory,uint256[3]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 876
+column: 82
+content: (uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory)
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 905
+column: 83
+content: (uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory,uint256[2]memory)
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 323
+column: 35
+content: call.value(balances_re_ent21[msg.sender])("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 349
+column: 35
+content: call.value(balances_re_ent1[msg.sender])("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 444
+column: 35
+content: call.value(_weiToWithdraw)("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 477
+column: 29
+content: call.value(_weiToWithdraw)("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 512
+column: 42
+content: call.value(jackpot_re_ent9)("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 594
+column: 36
+content: call.value(userBalance_re_ent26[msg.sender])("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 832
+column: 36
+content: call.value(balances_re_ent8[msg.sender])("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 929
+column: 35
+content: call.value(userBalance_re_ent40[msg.sender])("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 990
+column: 36
+content: call.value(userBalance_re_ent33[msg.sender])("")
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 1069
+column: 35
+content: call.value(1ether)("")
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 228
+column: 2
+content: mapping(address=>uint)redeemableEther_re_ent18;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 237
+column: 2
+content: mapping(address=>uint)balances_re_ent29;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 243
+column: 2
+content: boolnot_called_re_ent6=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 252
+column: 2
+content: addresspayablelastPlayer_re_ent16;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 253
+column: 6
+content: uintjackpot_re_ent16;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 261
+column: 2
+content: mapping(address=>uint)balances_re_ent24;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 269
+column: 2
+content: mapping(address=>uint)userBalance_re_ent5;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 279
+column: 2
+content: mapping(address=>uint)balances_re_ent15;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 285
+column: 2
+content: uint256counter_re_ent28=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 294
+column: 2
+content: boolnot_called_re_ent34=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 303
+column: 2
+content: uint256counter_re_ent21=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 313
+column: 2
+content: mapping(address=>uint)balances_re_ent10;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 321
+column: 2
+content: mapping(address=>uint)balances_re_ent21;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 328
+column: 2
+content: mapping(address=>uint)userBalance_re_ent12;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 338
+column: 2
+content: mapping(address=>uint)redeemableEther_re_ent11;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 347
+column: 2
+content: mapping(address=>uint)balances_re_ent1;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 372
+column: 0
+content: boolnot_called_re_ent41=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 390
+column: 0
+content: uint256counter_re_ent42=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 422
+column: 0
+content: addresspayablelastPlayer_re_ent2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 423
+column: 6
+content: uintjackpot_re_ent2;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 440
+column: 0
+content: mapping(address=>uint)balances_re_ent17;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 452
+column: 0
+content: addresspayablelastPlayer_re_ent37;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 453
+column: 6
+content: uintjackpot_re_ent37;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 473
+column: 0
+content: mapping(address=>uint)balances_re_ent3;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 509
+column: 0
+content: addresspayablelastPlayer_re_ent9;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 510
+column: 6
+content: uintjackpot_re_ent9;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 550
+column: 0
+content: mapping(address=>uint)redeemableEther_re_ent25;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 572
+column: 0
+content: mapping(address=>uint)userBalance_re_ent19;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 590
+column: 0
+content: mapping(address=>uint)userBalance_re_ent26;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 609
+column: 0
+content: boolnot_called_re_ent20=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 626
+column: 0
+content: mapping(address=>uint)redeemableEther_re_ent32;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 693
+column: 0
+content: mapping(address=>uint)balances_re_ent38;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 721
+column: 0
+content: mapping(address=>uint)redeemableEther_re_ent4;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 752
+column: 0
+content: uint256counter_re_ent7=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 769
+column: 0
+content: addresspayablelastPlayer_re_ent23;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 770
+column: 6
+content: uintjackpot_re_ent23;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 786
+column: 0
+content: uint256counter_re_ent14=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 804
+column: 0
+content: addresspayablelastPlayer_re_ent30;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 805
+column: 6
+content: uintjackpot_re_ent30;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 830
+column: 0
+content: mapping(address=>uint)balances_re_ent8;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 841
+column: 0
+content: mapping(address=>uint)redeemableEther_re_ent39;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 870
+column: 0
+content: mapping(address=>uint)balances_re_ent36;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 896
+column: 0
+content: uint256counter_re_ent35=0;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 925
+column: 0
+content: mapping(address=>uint)userBalance_re_ent40;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 986
+column: 0
+content: mapping(address=>uint)userBalance_re_ent33;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1003
+column: 0
+content: boolnot_called_re_ent27=true;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1048
+column: 0
+content: mapping(address=>uint)balances_re_ent31;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 1066
+column: 0
+content: boolnot_called_re_ent13=true;
+
+SOLIDITY_VISIBILITY :48
+SOLIDITY_SAFEMATH :1
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_REVERT_REQUIRE :24
+SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA :10
+SOLIDITY_SEND :18
+SOLIDITY_EXTRA_GAS_IN_LOOPS :7
+SOLIDITY_ADDRESS_HARDCODED :2
+SOLIDITY_GAS_LIMIT_IN_LOOPS :4
+SOLIDITY_UNCHECKED_CALL :10
+SOLIDITY_CALL_WITHOUT_DATA :10
+SOLIDITY_SHOULD_RETURN_STRUCT :5

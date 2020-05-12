@@ -1,0 +1,350 @@
+Processing contract: buggy_1.sol:EIP20Interface
+Processing contract: buggy_1.sol:HotDollarsToken
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'HotDollarsToken':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_1.sol(52)
+
+[31mViolation[0m for DAOConstantGas in contract 'HotDollarsToken':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_1.sol(149)
+
+[31mViolation[0m for TODAmount in contract 'HotDollarsToken':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_1.sol(77)
+
+[31mViolation[0m for TODAmount in contract 'HotDollarsToken':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_1.sol(181)
+
+[33mWarning[0m for TODAmount in contract 'HotDollarsToken':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_1.sol(69)
+
+[33mWarning[0m for TODAmount in contract 'HotDollarsToken':
+    |  uint8 public decimals;                //How many decimals to show.
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  string public symbol;                 //An identifier: eg SBX
+  at buggy_1.sol(121)
+
+[33mWarning[0m for TODAmount in contract 'HotDollarsToken':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_1.sol(133)
+
+[31mViolation[0m for TODReceiver in contract 'HotDollarsToken':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_1.sol(52)
+
+[31mViolation[0m for TODReceiver in contract 'HotDollarsToken':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_1.sol(149)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |    function balanceOf(address _owner) public view returns (uint256 balance);
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_1.sol(23)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_1.sol(52)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |    function approve(address _spender, uint256 _value) public returns (bool success);
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /// @param _owner The address of the account owning tokens
+  at buggy_1.sol(62)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_1.sol(69)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_1.sol(77)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |    uint256 constant private MAX_UINT256 = 2**256 - 1;
+    |  function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  mapping (address => uint256) public balances;
+  at buggy_1.sol(89)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_1.sol(94)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |  uint8 public decimals;                //How many decimals to show.
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  string public symbol;                 //An identifier: eg SBX
+  at buggy_1.sol(121)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_1.sol(133)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_1.sol(149)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_1.sol(181)
+
+[31mViolation[0m for UnhandledException in contract 'HotDollarsToken':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
+  at buggy_1.sol(190)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |    function balanceOf(address _owner) public view returns (uint256 balance);
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_1.sol(23)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_1.sol(34)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |    function approve(address _spender, uint256 _value) public returns (bool success);
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /// @param _owner The address of the account owning tokens
+  at buggy_1.sol(62)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |    uint256 constant private MAX_UINT256 = 2**256 - 1;
+    |  function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  mapping (address => uint256) public balances;
+  at buggy_1.sol(89)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_1.sol(94)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |  function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_1.sol(106)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_1.sol(166)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
+  at buggy_1.sol(190)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_1.sol(52)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_1.sol(69)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_1.sol(77)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |  function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_1.sol(116)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |  uint8 public decimals;                //How many decimals to show.
+    |  function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |  string public symbol;                 //An identifier: eg SBX
+  at buggy_1.sol(121)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_1.sol(133)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_1.sol(149)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_1.sol(181)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'HotDollarsToken':
+    |function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_1.sol(197)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HotDollarsToken':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |
+  at buggy_1.sol(53)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HotDollarsToken':
+    |        require(balances[msg.sender] >= _value);
+    |        balances[msg.sender] -= _value;
+  > |        balances[_to] += _value;
+    |        emit Transfer(msg.sender, _to, _value); //solhint-disable-line indent, no-unused-vars
+    |        return true;
+  at buggy_1.sol(139)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HotDollarsToken':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |
+  at buggy_1.sol(150)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HotDollarsToken':
+    |        uint256 allowance = allowed[_from][msg.sender];
+    |        require(balances[_from] >= _value && allowance >= _value);
+  > |        balances[_to] += _value;
+    |        balances[_from] -= _value;
+    |        if (allowance < MAX_UINT256) {
+  at buggy_1.sol(156)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'HotDollarsToken':
+    |        require(balances[_from] >= _value && allowance >= _value);
+    |        balances[_to] += _value;
+  > |        balances[_from] -= _value;
+    |        if (allowance < MAX_UINT256) {
+    |            allowed[_from][msg.sender] -= _value;
+  at buggy_1.sol(157)
+

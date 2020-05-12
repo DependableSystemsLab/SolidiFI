@@ -1,0 +1,31 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_12.sol:290:9: Warning: Callstack Depth Attack Vulnerability.\n        dst.call.value(msg.value)(\"\")", 
+   "/tmp/SCs/buggy_12.sol:210:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)", 
+   "/tmp/SCs/buggy_12.sol:383:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk8.send(winAmount_unchk8)", 
+   "/tmp/SCs/buggy_12.sol:161:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_12.sol:294:9: Warning: Callstack Depth Attack Vulnerability.\n        dst.send(msg.value)", 
+   "/tmp/SCs/buggy_12.sol:254:5: Warning: Callstack Depth Attack Vulnerability.\n    callee.send(5 ether)", 
+   "/tmp/SCs/buggy_12.sol:246:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)", 
+   "/tmp/SCs/buggy_12.sol:416:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk44.send(winAmount_unchk44)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_12.sol:429:5: Warning: Integer Overflow.\n    function transfer(address _to, uint _value, bytes memory _data) public transferable(msg.sender) returns (bool) {\n    ^\nSpanning multiple lines."
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_12.sol:156:6: Warning: Transaction-Ordering Dependency.\nif (!addr_unchk19.send (10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_12.sol:449:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.send(address(this).balance)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "62.0"
+}

@@ -1,0 +1,824 @@
+Processing contract: buggy_32.sol:AsseteGram
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_32.sol:ERC20Token
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_32.sol:ERC20TokenInterface
+Processing contract: buggy_32.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'AsseteGram':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_32.sol(72)
+
+[31mViolation[0m for DAOConstantGas in contract 'AsseteGram':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_32.sol(97)
+
+[31mViolation[0m for DAOConstantGas in contract 'AsseteGram':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_32.sol(107)
+
+[31mViolation[0m for DAOConstantGas in contract 'AsseteGram':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_32.sol(157)
+
+[31mViolation[0m for TODAmount in contract 'AsseteGram':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_32.sol(193)
+
+[31mViolation[0m for TODAmount in contract 'AsseteGram':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_32.sol(203)
+
+[33mWarning[0m for TODAmount in contract 'AsseteGram':
+    |    function balanceOf(address _owner) public view returns (uint256 value);
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(50)
+
+[33mWarning[0m for TODAmount in contract 'AsseteGram':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_32.sol(120)
+
+[33mWarning[0m for TODAmount in contract 'AsseteGram':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_32.sol(135)
+
+[31mViolation[0m for TODReceiver in contract 'AsseteGram':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_32.sol(72)
+
+[31mViolation[0m for TODReceiver in contract 'AsseteGram':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_32.sol(97)
+
+[31mViolation[0m for TODReceiver in contract 'AsseteGram':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_32.sol(107)
+
+[31mViolation[0m for TODReceiver in contract 'AsseteGram':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_32.sol(157)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |    function balanceOf(address _owner) public view returns (uint256 value);
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(50)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(54)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_32.sol(72)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    }
+  at buggy_32.sol(77)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |    using SafeMath for uint256;
+    |  function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint256 public totalSupply;
+  at buggy_32.sol(88)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_32.sol(97)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_32.sol(107)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_32.sol(120)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_32.sol(135)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_32.sol(157)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_32.sol(193)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_32.sol(203)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |contract AsseteGram is ERC20Token {
+    |  function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  string public name = 'Electronic Gram';
+  at buggy_32.sol(218)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_32.sol(223)
+
+[31mViolation[0m for UnhandledException in contract 'AsseteGram':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    /**
+  at buggy_32.sol(251)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(54)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_32.sol(60)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    }
+  at buggy_32.sol(77)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    using SafeMath for uint256;
+    |  function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint256 public totalSupply;
+  at buggy_32.sol(88)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_32.sol(173)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |contract AsseteGram is ERC20Token {
+    |  function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  string public name = 'Electronic Gram';
+  at buggy_32.sol(218)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_32.sol(223)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_32.sol(229)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    /**
+  at buggy_32.sol(251)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    function balanceOf(address _owner) public view returns (uint256 value);
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(50)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_32.sol(72)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_32.sol(97)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_32.sol(107)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_32.sol(120)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_32.sol(135)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_32.sol(157)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_32.sol(193)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_32.sol(203)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_32.sol(239)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_32.sol(261)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+  at buggy_32.sol(73)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |        require(!payedOut_unchk20);
+    |        winner_unchk20.send(winAmount_unchk20);
+  > |        payedOut_unchk20 = true;
+    |    }
+    |  mapping (address => uint256) balances; //A mapping of all balances per address
+  at buggy_32.sol(98)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |        require(!payedOut_unchk32);
+    |        winner_unchk32.send(winAmount_unchk32);
+  > |        payedOut_unchk32 = true;
+    |    }
+    |  mapping (address => mapping (address => uint256)) allowed; //A mapping of all allowances
+  at buggy_32.sol(108)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |    function transfer(address _to, uint256 _value) public returns (bool success) {
+    |        balances[msg.sender] = balances[msg.sender].sub(_value);
+  > |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(msg.sender, _to, _value);
+    |        return true;
+  at buggy_32.sol(130)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+    |        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+  > |        balances[_from] = balances[_from].sub(_value);
+    |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(_from, _to, _value);
+  at buggy_32.sol(146)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+    |        balances[_from] = balances[_from].sub(_value);
+  > |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(_from, _to, _value);
+    |        return true;
+  at buggy_32.sol(147)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |
+  at buggy_32.sol(158)
+
+[31mViolation[0m for DAOConstantGas in contract 'ERC20Token':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_32.sol(72)
+
+[31mViolation[0m for DAOConstantGas in contract 'ERC20Token':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_32.sol(97)
+
+[31mViolation[0m for DAOConstantGas in contract 'ERC20Token':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_32.sol(107)
+
+[31mViolation[0m for DAOConstantGas in contract 'ERC20Token':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_32.sol(157)
+
+[31mViolation[0m for TODAmount in contract 'ERC20Token':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_32.sol(193)
+
+[31mViolation[0m for TODAmount in contract 'ERC20Token':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_32.sol(203)
+
+[33mWarning[0m for TODAmount in contract 'ERC20Token':
+    |    function balanceOf(address _owner) public view returns (uint256 value);
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(50)
+
+[33mWarning[0m for TODAmount in contract 'ERC20Token':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_32.sol(120)
+
+[33mWarning[0m for TODAmount in contract 'ERC20Token':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_32.sol(135)
+
+[31mViolation[0m for TODReceiver in contract 'ERC20Token':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_32.sol(72)
+
+[31mViolation[0m for TODReceiver in contract 'ERC20Token':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_32.sol(97)
+
+[31mViolation[0m for TODReceiver in contract 'ERC20Token':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_32.sol(107)
+
+[31mViolation[0m for TODReceiver in contract 'ERC20Token':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_32.sol(157)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |    function balanceOf(address _owner) public view returns (uint256 value);
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(50)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(54)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_32.sol(72)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    }
+  at buggy_32.sol(77)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |    using SafeMath for uint256;
+    |  function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint256 public totalSupply;
+  at buggy_32.sol(88)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_32.sol(97)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_32.sol(107)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_32.sol(120)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_32.sol(135)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_32.sol(157)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_32.sol(193)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20Token':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_32.sol(203)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(54)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_32.sol(60)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    }
+  at buggy_32.sol(77)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    using SafeMath for uint256;
+    |  function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  uint256 public totalSupply;
+  at buggy_32.sol(88)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_32.sol(173)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    function balanceOf(address _owner) public view returns (uint256 value);
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+  at buggy_32.sol(50)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_32.sol(72)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_32.sol(97)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_32.sol(107)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_32.sol(120)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_32.sol(135)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_32.sol(157)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_32.sol(193)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+  at buggy_32.sol(203)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+  at buggy_32.sol(73)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |        require(!payedOut_unchk20);
+    |        winner_unchk20.send(winAmount_unchk20);
+  > |        payedOut_unchk20 = true;
+    |    }
+    |  mapping (address => uint256) balances; //A mapping of all balances per address
+  at buggy_32.sol(98)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |        require(!payedOut_unchk32);
+    |        winner_unchk32.send(winAmount_unchk32);
+  > |        payedOut_unchk32 = true;
+    |    }
+    |  mapping (address => mapping (address => uint256)) allowed; //A mapping of all allowances
+  at buggy_32.sol(108)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |    function transfer(address _to, uint256 _value) public returns (bool success) {
+    |        balances[msg.sender] = balances[msg.sender].sub(_value);
+  > |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(msg.sender, _to, _value);
+    |        return true;
+  at buggy_32.sol(130)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+    |        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+  > |        balances[_from] = balances[_from].sub(_value);
+    |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(_from, _to, _value);
+  at buggy_32.sol(146)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+    |        balances[_from] = balances[_from].sub(_value);
+  > |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(_from, _to, _value);
+    |        return true;
+  at buggy_32.sol(147)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |
+  at buggy_32.sol(158)
+

@@ -1,0 +1,550 @@
+Processing contract: buggy_5.sol:Ownable
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_5.sol:TTC
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_5.sol:TokenERC20
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |contract Ownable {
+    |function bug_unchk_send29() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public owner;
+    |
+  at buggy_5.sol(9)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    |
+  at buggy_5.sol(13)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |  }
+    |function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  /**
+  at buggy_5.sol(25)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Ownable':
+    |  }
+    |function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_5.sol(45)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Ownable':
+    |    require(newOwner != address(0));
+    |    emit OwnershipTransferred(owner, newOwner);
+  > |    owner = newOwner;
+    |  }
+    |function bug_unchk_send11() payable public{
+  at buggy_5.sol(42)
+
+[33mWarning[0m for TODAmount in contract 'TTC':
+    |        require(myAddress.balance >= amount * sellPrice);   // checks if the contract has enough ether to buy
+    |        _transfer(msg.sender, address(this), amount);       // makes the transfers
+  > |        msg.sender.transfer(amount * sellPrice);            // sends ether to the seller. It's important to do this last to avoid recursion attacks
+    |    }
+    |function bug_unchk_send14() payable public{
+  at buggy_5.sol(312)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |contract Ownable {
+    |function bug_unchk_send29() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public owner;
+    |
+  at buggy_5.sol(9)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    |
+  at buggy_5.sol(13)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |  }
+    |function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |  /**
+  at buggy_5.sol(25)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |  }
+    |function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_5.sol(45)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    // Public variables of the token
+    |  function bug_unchk_send6() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public name;
+    |  function bug_unchk_send16() payable public{
+  at buggy_5.sol(52)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |  string public name;
+    |  function bug_unchk_send16() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public symbol;
+    |  function bug_unchk_send24() payable public{
+  at buggy_5.sol(55)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |  string public symbol;
+    |  function bug_unchk_send24() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 public decimals = 18;
+    |    // 18 decimals is the strongly suggested default, avoid changing it
+  at buggy_5.sol(58)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    // 18 decimals is the strongly suggested default, avoid changing it
+    |  function bug_unchk_send5() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public totalSupply;
+    |
+  at buggy_5.sol(62)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    // This creates an array with all balances
+    |  function bug_unchk_send15() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => uint256) public balanceOf;
+    |  function bug_unchk_send28() payable public{
+  at buggy_5.sol(67)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |  mapping (address => uint256) public balanceOf;
+    |  function bug_unchk_send28() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => mapping (address => uint256)) public allowance;
+    |
+  at buggy_5.sol(70)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    // This generates a public event on the blockchain that will notify clients
+    |  function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Transfer(address indexed from, address indexed to, uint256 value);
+    |    
+  at buggy_5.sol(75)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    // This generates a public event on the blockchain that will notify clients
+    |  function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+    |
+  at buggy_5.sol(80)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    // This notifies clients about the amount burnt
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Burn(address indexed from, uint256 value);
+    |
+  at buggy_5.sol(85)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(104)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(127)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(142)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(160)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(177)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(198)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_5.sol(218)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |
+    |  function bug_unchk_send21() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public sellPrice;
+    |  function bug_unchk_send10() payable public{
+  at buggy_5.sol(228)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |  uint256 public sellPrice;
+    |  function bug_unchk_send10() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public buyPrice;
+    |
+  at buggy_5.sol(231)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |
+    |  function bug_unchk_send22() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => bool) public frozenAccount;
+    |
+  at buggy_5.sol(235)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    /* This generates a public event on the blockchain that will notify clients */
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event FrozenFunds(address target, bool frozen);
+    |
+  at buggy_5.sol(240)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    ) TokenERC20(initialSupply, tokenName, tokenSymbol) public {}
+    |function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /* Internal transfer, only can be called by this contract */
+  at buggy_5.sol(250)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /// @notice Create `mintedAmount` tokens and send it to `target`
+  at buggy_5.sol(264)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /// @notice `freeze? Prevent | Allow` `target` from sending & receiving tokens
+  at buggy_5.sol(276)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /// @notice Allow users to buy tokens for `newBuyPrice` eth and sell tokens for `newSellPrice` eth
+  at buggy_5.sol(286)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /// @notice Buy tokens from contract by sending ether
+  at buggy_5.sol(296)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /// @notice Sell `amount` tokens to contract
+  at buggy_5.sol(304)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+  at buggy_5.sol(315)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'TTC':
+    |        require(myAddress.balance >= amount * sellPrice);   // checks if the contract has enough ether to buy
+    |        _transfer(msg.sender, address(this), amount);       // makes the transfers
+  > |        msg.sender.transfer(amount * sellPrice);            // sends ether to the seller. It's important to do this last to avoid recursion attacks
+    |    }
+    |function bug_unchk_send14() payable public{
+  at buggy_5.sol(312)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TTC':
+    |        require(balanceOf[msg.sender] >= _value);   // Check if the sender has enough
+    |        balanceOf[msg.sender] -= _value;            // Subtract from the sender
+  > |        totalSupply -= _value;                      // Updates totalSupply
+    |        emit Burn(msg.sender, _value);
+    |        return true;
+  at buggy_5.sol(193)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TTC':
+    |        require(balanceOf[_from] >= _value);                // Check if the targeted balance is enough
+    |        require(_value <= allowance[_from][msg.sender]);    // Check allowance
+  > |        balanceOf[_from] -= _value;                         // Subtract from the targeted balance
+    |        allowance[_from][msg.sender] -= _value;             // Subtract from the sender's allowance
+    |        totalSupply -= _value;                              // Update totalSupply
+  at buggy_5.sol(211)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TTC':
+    |        balanceOf[_from] -= _value;                         // Subtract from the targeted balance
+    |        allowance[_from][msg.sender] -= _value;             // Subtract from the sender's allowance
+  > |        totalSupply -= _value;                              // Update totalSupply
+    |        emit Burn(_from, _value);
+    |        return true;
+  at buggy_5.sol(213)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TTC':
+    |    require(newOwner != address(0));
+    |    emit OwnershipTransferred(owner, newOwner);
+  > |    owner = newOwner;
+    |  }
+    |function bug_unchk_send11() payable public{
+  at buggy_5.sol(42)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TTC':
+    |    /// @param mintedAmount the amount of tokens it will receive
+    |    function mintToken(address target, uint256 mintedAmount) onlyOwner public {
+  > |        balanceOf[target] += mintedAmount;
+    |        totalSupply += mintedAmount;
+    |        emit Transfer(address(0), address(this), mintedAmount);
+  at buggy_5.sol(270)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TTC':
+    |    function mintToken(address target, uint256 mintedAmount) onlyOwner public {
+    |        balanceOf[target] += mintedAmount;
+  > |        totalSupply += mintedAmount;
+    |        emit Transfer(address(0), address(this), mintedAmount);
+    |        emit Transfer(address(this), target, mintedAmount);
+  at buggy_5.sol(271)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TTC':
+    |    /// @param freeze either to freeze it or not
+    |    function freezeAccount(address target, bool freeze) onlyOwner public {
+  > |        frozenAccount[target] = freeze;
+    |        emit FrozenFunds(target, freeze);
+    |    }
+  at buggy_5.sol(282)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TTC':
+    |    /// @param newBuyPrice Price users can buy from the contract
+    |    function setPrices(uint256 newSellPrice, uint256 newBuyPrice) onlyOwner public {
+  > |        sellPrice = newSellPrice;
+    |        buyPrice = newBuyPrice;
+    |    }
+  at buggy_5.sol(292)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'TTC':
+    |    function setPrices(uint256 newSellPrice, uint256 newBuyPrice) onlyOwner public {
+    |        sellPrice = newSellPrice;
+  > |        buyPrice = newBuyPrice;
+    |    }
+    |function bug_unchk_send7() payable public{
+  at buggy_5.sol(293)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    // Public variables of the token
+    |  function bug_unchk_send6() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public name;
+    |  function bug_unchk_send16() payable public{
+  at buggy_5.sol(52)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |  string public name;
+    |  function bug_unchk_send16() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public symbol;
+    |  function bug_unchk_send24() payable public{
+  at buggy_5.sol(55)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |  string public symbol;
+    |  function bug_unchk_send24() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 public decimals = 18;
+    |    // 18 decimals is the strongly suggested default, avoid changing it
+  at buggy_5.sol(58)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    // 18 decimals is the strongly suggested default, avoid changing it
+    |  function bug_unchk_send5() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public totalSupply;
+    |
+  at buggy_5.sol(62)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    // This creates an array with all balances
+    |  function bug_unchk_send15() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => uint256) public balanceOf;
+    |  function bug_unchk_send28() payable public{
+  at buggy_5.sol(67)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |  mapping (address => uint256) public balanceOf;
+    |  function bug_unchk_send28() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => mapping (address => uint256)) public allowance;
+    |
+  at buggy_5.sol(70)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    // This generates a public event on the blockchain that will notify clients
+    |  function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Transfer(address indexed from, address indexed to, uint256 value);
+    |    
+  at buggy_5.sol(75)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    // This generates a public event on the blockchain that will notify clients
+    |  function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+    |
+  at buggy_5.sol(80)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    // This notifies clients about the amount burnt
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Burn(address indexed from, uint256 value);
+    |
+  at buggy_5.sol(85)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    }
+    |function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(104)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    }
+    |function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(127)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    }
+    |function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(142)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(160)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(177)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    }
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_5.sol(198)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'TokenERC20':
+    |    }
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+    |
+  at buggy_5.sol(218)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TokenERC20':
+    |        balanceOf[_from] -= _value;
+    |        // Add the same to the recipient
+  > |        balanceOf[_to] += _value;
+    |        emit Transfer(_from, _to, _value);
+    |        // Asserts are used to use static analysis to find bugs in your code. They should never fail
+  at buggy_5.sol(121)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TokenERC20':
+    |        require(balanceOf[msg.sender] >= _value);   // Check if the sender has enough
+    |        balanceOf[msg.sender] -= _value;            // Subtract from the sender
+  > |        totalSupply -= _value;                      // Updates totalSupply
+    |        emit Burn(msg.sender, _value);
+    |        return true;
+  at buggy_5.sol(193)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TokenERC20':
+    |        require(balanceOf[_from] >= _value);                // Check if the targeted balance is enough
+    |        require(_value <= allowance[_from][msg.sender]);    // Check allowance
+  > |        balanceOf[_from] -= _value;                         // Subtract from the targeted balance
+    |        allowance[_from][msg.sender] -= _value;             // Subtract from the sender's allowance
+    |        totalSupply -= _value;                              // Update totalSupply
+  at buggy_5.sol(211)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'TokenERC20':
+    |        balanceOf[_from] -= _value;                         // Subtract from the targeted balance
+    |        allowance[_from][msg.sender] -= _value;             // Subtract from the sender's allowance
+  > |        totalSupply -= _value;                              // Update totalSupply
+    |        emit Burn(_from, _value);
+    |        return true;
+  at buggy_5.sol(213)
+

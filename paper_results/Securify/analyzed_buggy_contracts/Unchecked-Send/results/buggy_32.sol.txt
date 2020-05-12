@@ -1,0 +1,352 @@
+Processing contract: buggy_32.sol:AsseteGram
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_32.sol:ERC20Token
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_32.sol:ERC20TokenInterface
+Processing contract: buggy_32.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    function balanceOf(address _owner) public view returns (uint256 value);
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+    |function bug_unchk_send19() payable public{
+  at buggy_32.sol(50)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+    |function bug_unchk_send26() payable public{
+  at buggy_32.sol(53)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+    |function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    function approve(address _spender, uint256 _value) public returns (bool success);
+    |function bug_unchk_send20() payable public{
+  at buggy_32.sol(56)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    function approve(address _spender, uint256 _value) public returns (bool success);
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function bug_unchk_send32() payable public{
+  at buggy_32.sol(59)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    }
+  at buggy_32.sol(62)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    using SafeMath for uint256;
+    |  function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public totalSupply;
+    |  function bug_unchk_send11() payable public{
+  at buggy_32.sol(73)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  uint256 public totalSupply;
+    |  function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => uint256) balances; //A mapping of all balances per address
+    |  function bug_unchk_send1() payable public{
+  at buggy_32.sol(76)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  mapping (address => uint256) balances; //A mapping of all balances per address
+    |  function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => mapping (address => uint256)) allowed; //A mapping of all allowances
+    |
+  at buggy_32.sol(79)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(90)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(104)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(120)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(133)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(144)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    */
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+    |  function bug_unchk_send13() payable public{
+  at buggy_32.sol(150)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+    |}
+  at buggy_32.sol(153)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |contract AsseteGram is ERC20Token {
+    |  function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public name = 'Electronic Gram';
+    |  function bug_unchk_send17() payable public{
+  at buggy_32.sol(163)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  string public name = 'Electronic Gram';
+    |  function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint8 public decimals = 3;
+    |  function bug_unchk_send3() payable public{
+  at buggy_32.sol(166)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  uint8 public decimals = 3;
+    |  function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public symbol = 'eGram';
+    |  function bug_unchk_send9() payable public{
+  at buggy_32.sol(169)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |  string public symbol = 'eGram';
+    |  function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  string public version = '2';
+    |
+  at buggy_32.sol(172)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(182)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'AsseteGram':
+    |    }
+    |function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_32.sol(191)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |    function transfer(address _to, uint256 _value) public returns (bool success) {
+    |        balances[msg.sender] = balances[msg.sender].sub(_value);
+  > |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(msg.sender, _to, _value);
+    |        return true;
+  at buggy_32.sol(99)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+    |        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+  > |        balances[_from] = balances[_from].sub(_value);
+    |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(_from, _to, _value);
+  at buggy_32.sol(114)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'AsseteGram':
+    |        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+    |        balances[_from] = balances[_from].sub(_value);
+  > |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(_from, _to, _value);
+    |        return true;
+  at buggy_32.sol(115)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    function balanceOf(address _owner) public view returns (uint256 value);
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+    |function bug_unchk_send19() payable public{
+  at buggy_32.sol(50)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    function transfer(address _to, uint256 _value) public returns (bool success);
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+    |function bug_unchk_send26() payable public{
+  at buggy_32.sol(53)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+    |function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    function approve(address _spender, uint256 _value) public returns (bool success);
+    |function bug_unchk_send20() payable public{
+  at buggy_32.sol(56)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    function approve(address _spender, uint256 _value) public returns (bool success);
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function bug_unchk_send32() payable public{
+  at buggy_32.sol(59)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    }
+  at buggy_32.sol(62)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    using SafeMath for uint256;
+    |  function bug_unchk_send12() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public totalSupply;
+    |  function bug_unchk_send11() payable public{
+  at buggy_32.sol(73)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |  uint256 public totalSupply;
+    |  function bug_unchk_send11() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => uint256) balances; //A mapping of all balances per address
+    |  function bug_unchk_send1() payable public{
+  at buggy_32.sol(76)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |  mapping (address => uint256) balances; //A mapping of all balances per address
+    |  function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (address => mapping (address => uint256)) allowed; //A mapping of all allowances
+    |
+  at buggy_32.sol(79)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(90)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(104)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(120)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(133)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_32.sol(144)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |    */
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+    |  function bug_unchk_send13() payable public{
+  at buggy_32.sol(150)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20Token':
+    |  event Transfer(address indexed _from, address indexed _to, uint256 _value);
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Approval(address indexed _owner, address indexed _spender, uint256 _value);
+    |}
+  at buggy_32.sol(153)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |    function transfer(address _to, uint256 _value) public returns (bool success) {
+    |        balances[msg.sender] = balances[msg.sender].sub(_value);
+  > |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(msg.sender, _to, _value);
+    |        return true;
+  at buggy_32.sol(99)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+    |        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+  > |        balances[_from] = balances[_from].sub(_value);
+    |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(_from, _to, _value);
+  at buggy_32.sol(114)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20Token':
+    |        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+    |        balances[_from] = balances[_from].sub(_value);
+  > |        balances[_to] = balances[_to].add(_value);
+    |        emit Transfer(_from, _to, _value);
+    |        return true;
+  at buggy_32.sol(115)
+

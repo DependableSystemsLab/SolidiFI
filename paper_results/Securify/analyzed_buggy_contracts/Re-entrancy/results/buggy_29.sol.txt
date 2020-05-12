@@ -1,0 +1,557 @@
+Processing contract: buggy_29.sol:ERC20Interface
+Processing contract: buggy_29.sol:IERC20Interface
+Processing contract: buggy_29.sol:RaffleToken
+Processing contract: buggy_29.sol:RaffleTokenExchange
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_29.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(184)
+
+[31mViolation[0m for DAO in contract 'RaffleTokenExchange':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(308)
+
+[31mViolation[0m for DAO in contract 'RaffleTokenExchange':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_29.sol(380)
+
+[31mViolation[0m for DAO in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(446)
+
+[31mViolation[0m for DAO in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(463)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(171)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(197)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(211)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_29.sol(222)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(234)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(291)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_29.sol(301)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_29.sol(342)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |            if(listing.amountLeft == 0) { listing.active = false; }
+    |            uint256 amountToPay = listing.pricePerToken * amount;
+  > |            listing.seller.transfer(amountToPay);
+    |            totalAmountPayed = totalAmountPayed.add(amountToPay);
+    |            totalAmount = totalAmount.add(amount);
+  at buggy_29.sol(365)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(404)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_29.sol(419)
+
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(431)
+
+[31mViolation[0m for TODAmount in contract 'RaffleTokenExchange':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_29.sol(342)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(171)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(184)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(211)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(234)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_29.sol(380)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(404)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_29.sol(419)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(446)
+
+[33mWarning[0m for TODAmount in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(463)
+
+[31mViolation[0m for TODReceiver in contract 'RaffleTokenExchange':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_29.sol(342)
+
+[31mViolation[0m for TODReceiver in contract 'RaffleTokenExchange':
+    |    //
+    |    function withdrawFunds(uint256 withdrawAmount) external onlyContractOwner {
+  > |        owner.transfer(withdrawAmount);
+    |    }
+    |mapping(address => uint) userBalance_re_ent40;
+  at buggy_29.sol(440)
+
+[33mWarning[0m for TODReceiver in contract 'RaffleTokenExchange':
+    |            if(listing.amountLeft == 0) { listing.active = false; }
+    |            uint256 amountToPay = listing.pricePerToken * amount;
+  > |            listing.seller.transfer(amountToPay);
+    |            totalAmountPayed = totalAmountPayed.add(amountToPay);
+    |            totalAmount = totalAmount.add(amount);
+  at buggy_29.sol(365)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(197)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_29.sol(222)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(291)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_29.sol(301)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(308)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |            if(listing.amountLeft == 0) { listing.active = false; }
+    |            uint256 amountToPay = listing.pricePerToken * amount;
+  > |            listing.seller.transfer(amountToPay);
+    |            totalAmountPayed = totalAmountPayed.add(amountToPay);
+    |            totalAmount = totalAmount.add(amount);
+  at buggy_29.sol(365)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(171)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(184)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(211)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(234)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_29.sol(342)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_29.sol(380)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_29.sol(404)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_29.sol(419)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_29.sol(431)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(446)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_29.sol(463)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |    function withdrawFunds(uint256 withdrawAmount) external onlyContractOwner {
+  > |        owner.transfer(withdrawAmount);
+    |    }
+    |mapping(address => uint) userBalance_re_ent40;
+  at buggy_29.sol(440)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |            revert();
+    |        }
+  > |        not_called_re_ent20 = false;
+    |    }
+    |  uint256 public nextListingId;
+  at buggy_29.sol(200)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |            revert();
+    |        }
+  > |        not_called_re_ent27 = false;
+    |    }
+    |  event Listed(uint256 id, uint256 pricePerToken, uint256 initialAmount, address seller);
+  at buggy_29.sol(294)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |  event Purchased(uint256 id, uint256 totalAmount, uint256 totalAmountPayed, uint256 timestamp);
+  at buggy_29.sol(312)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+  > |      lastPlayer_re_ent30 = msg.sender;
+    |      jackpot_re_ent30    = address(this).balance;
+    |    }
+  at buggy_29.sol(344)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  > |      jackpot_re_ent30    = address(this).balance;
+    |    }
+    |
+  at buggy_29.sol(345)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |            Listing storage listing = listingsById[id];
+    |            require(listing.active, "Listing is not active anymore!");
+  > |            listing.amountLeft = listing.amountLeft.sub(amount);
+    |            require(listing.amountLeft >= 0, "Amount left needs to be higher than 0.");
+    |            if(listing.amountLeft == 0) { listing.active = false; }
+  at buggy_29.sol(361)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |            listing.amountLeft = listing.amountLeft.sub(amount);
+    |            require(listing.amountLeft >= 0, "Amount left needs to be higher than 0.");
+  > |            if(listing.amountLeft == 0) { listing.active = false; }
+    |            uint256 amountToPay = listing.pricePerToken * amount;
+    |            listing.seller.transfer(amountToPay);
+  at buggy_29.sol(363)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        }
+    |        require(totalAmountPayed <= msg.value, 'Overpayed!');
+  > |        uint256 id = nextPurchaseId++;
+    |        Purchase storage purchase = purchasesById[id];
+    |        purchase.totalAmount = totalAmount;
+  at buggy_29.sol(371)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        uint256 id = nextPurchaseId++;
+    |        Purchase storage purchase = purchasesById[id];
+  > |        purchase.totalAmount = totalAmount;
+    |        purchase.totalAmountPayed = totalAmountPayed;
+    |        purchase.timestamp = now;
+  at buggy_29.sol(373)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        Purchase storage purchase = purchasesById[id];
+    |        purchase.totalAmount = totalAmount;
+  > |        purchase.totalAmountPayed = totalAmountPayed;
+    |        purchase.timestamp = now;
+    |        emit Purchased(id, totalAmount, totalAmountPayed, now);
+  at buggy_29.sol(374)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        purchase.totalAmount = totalAmount;
+    |        purchase.totalAmountPayed = totalAmountPayed;
+  > |        purchase.timestamp = now;
+    |        emit Purchased(id, totalAmount, totalAmountPayed, now);
+    |    }
+  at buggy_29.sol(375)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        require(raffleContract.balanceOf(msg.sender) >= initialAmount, "Amount to sell is higher than balance!");
+    |        require(raffleContract.allowance(msg.sender, address(this)) >= initialAmount, "Allowance is to small (increase allowance)!");
+  > |        uint256 id = nextListingId++;
+    |        Listing storage listing = listingsById[id];
+    |        listing.initialAmount = initialAmount;
+  at buggy_29.sol(390)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        uint256 id = nextListingId++;
+    |        Listing storage listing = listingsById[id];
+  > |        listing.initialAmount = initialAmount;
+    |        listing.amountLeft = initialAmount;
+    |        listing.pricePerToken = pricePerToken;
+  at buggy_29.sol(392)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        Listing storage listing = listingsById[id];
+    |        listing.initialAmount = initialAmount;
+  > |        listing.amountLeft = initialAmount;
+    |        listing.pricePerToken = pricePerToken;
+    |        listing.seller = msg.sender;
+  at buggy_29.sol(393)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        listing.initialAmount = initialAmount;
+    |        listing.amountLeft = initialAmount;
+  > |        listing.pricePerToken = pricePerToken;
+    |        listing.seller = msg.sender;
+    |        listing.active = true;
+  at buggy_29.sol(394)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        listing.amountLeft = initialAmount;
+    |        listing.pricePerToken = pricePerToken;
+  > |        listing.seller = msg.sender;
+    |        listing.active = true;
+    |        emit Listed(id, listing.pricePerToken, listing.initialAmount, listing.seller);
+  at buggy_29.sol(395)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        listing.pricePerToken = pricePerToken;
+    |        listing.seller = msg.sender;
+  > |        listing.active = true;
+    |        emit Listed(id, listing.pricePerToken, listing.initialAmount, listing.seller);
+    |    }
+  at buggy_29.sol(396)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |            revert();
+    |        }
+  > |        counter_re_ent35 += 1;
+    |    }
+    |    //
+  at buggy_29.sol(434)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        require(listing.active, "This listing was turned inactive already!");
+    |        require(listing.seller == msg.sender || owner == msg.sender, "Only the listing owner or the contract owner can cancel the listing!");
+  > |        listing.active = false;
+    |        emit Canceled(id);
+    |    }
+  at buggy_29.sol(414)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |    //
+    |    function setPaused(bool value) external onlyContractOwner {
+  > |        paused = value;
+    |    }
+    |uint256 counter_re_ent35 =0;
+  at buggy_29.sol(426)
+

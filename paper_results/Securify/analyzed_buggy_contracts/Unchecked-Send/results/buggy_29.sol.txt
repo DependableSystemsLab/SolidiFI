@@ -1,0 +1,292 @@
+Processing contract: buggy_29.sol:ERC20Interface
+Processing contract: buggy_29.sol:IERC20Interface
+Processing contract: buggy_29.sol:RaffleToken
+Processing contract: buggy_29.sol:RaffleTokenExchange
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_29.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'RaffleTokenExchange':
+    |            if(listing.amountLeft == 0) { listing.active = false; }
+    |            uint256 amountToPay = listing.pricePerToken * amount;
+  > |            listing.seller.transfer(amountToPay);
+    |            totalAmountPayed = totalAmountPayed.add(amountToPay);
+    |            totalAmount = totalAmount.add(amount);
+  at buggy_29.sol(285)
+
+[31mViolation[0m for TODReceiver in contract 'RaffleTokenExchange':
+    |    //
+    |    function withdrawFunds(uint256 withdrawAmount) external onlyContractOwner {
+  > |        owner.transfer(withdrawAmount);
+    |    }
+    |function bug_unchk_send30() payable public{
+  at buggy_29.sol(341)
+
+[33mWarning[0m for TODReceiver in contract 'RaffleTokenExchange':
+    |            if(listing.amountLeft == 0) { listing.active = false; }
+    |            uint256 amountToPay = listing.pricePerToken * amount;
+  > |            listing.seller.transfer(amountToPay);
+    |            totalAmountPayed = totalAmountPayed.add(amountToPay);
+    |            totalAmount = totalAmount.add(amount);
+  at buggy_29.sol(285)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |  function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  bool public paused;
+    |    //
+  at buggy_29.sol(150)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |  function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address payable public owner;
+    |    //
+  at buggy_29.sol(156)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |  function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public nextListingId;
+    |    //
+  at buggy_29.sol(162)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |  function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (uint256 => Listing) public listingsById;
+    |    //
+  at buggy_29.sol(168)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |  function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  mapping (uint256 => Purchase) public purchasesById;
+    |    //
+  at buggy_29.sol(174)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |  function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public nextPurchaseId;
+    |
+  at buggy_29.sol(180)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |  function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Listed(uint256 id, uint256 pricePerToken, uint256 initialAmount, address seller);
+    |  function bug_unchk_send31() payable public{
+  at buggy_29.sol(233)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |  event Listed(uint256 id, uint256 pricePerToken, uint256 initialAmount, address seller);
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Canceled(uint256 id);
+    |  function bug_unchk_send13() payable public{
+  at buggy_29.sol(236)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |  event Canceled(uint256 id);
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event Purchased(uint256 id, uint256 totalAmount, uint256 totalAmountPayed, uint256 timestamp);
+    |
+  at buggy_29.sol(239)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    }
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    //////// F U N C T I O N S
+  at buggy_29.sol(266)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |            if(listing.amountLeft == 0) { listing.active = false; }
+    |            uint256 amountToPay = listing.pricePerToken * amount;
+  > |            listing.seller.transfer(amountToPay);
+    |            totalAmountPayed = totalAmountPayed.add(amountToPay);
+    |            totalAmount = totalAmount.add(amount);
+  at buggy_29.sol(285)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    //
+    |    // Add listing
+  at buggy_29.sol(299)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    //
+    |    // Cancel listing
+  at buggy_29.sol(316)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    //
+    |    // Set paused
+  at buggy_29.sol(328)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    //
+    |    // Funds withdrawal to cover operational costs
+  at buggy_29.sol(336)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    }
+    |function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |    //
+    |    // Contract may be destroyed only when there is nothing else going on. 
+  at buggy_29.sol(344)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    }
+    |function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |}
+  at buggy_29.sol(353)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RaffleTokenExchange':
+    |    //
+    |    function withdrawFunds(uint256 withdrawAmount) external onlyContractOwner {
+  > |        owner.transfer(withdrawAmount);
+    |    }
+    |function bug_unchk_send30() payable public{
+  at buggy_29.sol(341)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |            Listing storage listing = listingsById[id];
+    |            require(listing.active, "Listing is not active anymore!");
+  > |            listing.amountLeft = listing.amountLeft.sub(amount);
+    |            require(listing.amountLeft >= 0, "Amount left needs to be higher than 0.");
+    |            if(listing.amountLeft == 0) { listing.active = false; }
+  at buggy_29.sol(281)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |            listing.amountLeft = listing.amountLeft.sub(amount);
+    |            require(listing.amountLeft >= 0, "Amount left needs to be higher than 0.");
+  > |            if(listing.amountLeft == 0) { listing.active = false; }
+    |            uint256 amountToPay = listing.pricePerToken * amount;
+    |            listing.seller.transfer(amountToPay);
+  at buggy_29.sol(283)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        }
+    |        require(totalAmountPayed <= msg.value, 'Overpayed!');
+  > |        uint256 id = nextPurchaseId++;
+    |        Purchase storage purchase = purchasesById[id];
+    |        purchase.totalAmount = totalAmount;
+  at buggy_29.sol(291)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        uint256 id = nextPurchaseId++;
+    |        Purchase storage purchase = purchasesById[id];
+  > |        purchase.totalAmount = totalAmount;
+    |        purchase.totalAmountPayed = totalAmountPayed;
+    |        purchase.timestamp = now;
+  at buggy_29.sol(293)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        Purchase storage purchase = purchasesById[id];
+    |        purchase.totalAmount = totalAmount;
+  > |        purchase.totalAmountPayed = totalAmountPayed;
+    |        purchase.timestamp = now;
+    |        emit Purchased(id, totalAmount, totalAmountPayed, now);
+  at buggy_29.sol(294)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        purchase.totalAmount = totalAmount;
+    |        purchase.totalAmountPayed = totalAmountPayed;
+  > |        purchase.timestamp = now;
+    |        emit Purchased(id, totalAmount, totalAmountPayed, now);
+    |    }
+  at buggy_29.sol(295)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        require(raffleContract.balanceOf(msg.sender) >= initialAmount, "Amount to sell is higher than balance!");
+    |        require(raffleContract.allowance(msg.sender, address(this)) >= initialAmount, "Allowance is to small (increase allowance)!");
+  > |        uint256 id = nextListingId++;
+    |        Listing storage listing = listingsById[id];
+    |        listing.initialAmount = initialAmount;
+  at buggy_29.sol(306)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        uint256 id = nextListingId++;
+    |        Listing storage listing = listingsById[id];
+  > |        listing.initialAmount = initialAmount;
+    |        listing.amountLeft = initialAmount;
+    |        listing.pricePerToken = pricePerToken;
+  at buggy_29.sol(308)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        Listing storage listing = listingsById[id];
+    |        listing.initialAmount = initialAmount;
+  > |        listing.amountLeft = initialAmount;
+    |        listing.pricePerToken = pricePerToken;
+    |        listing.seller = msg.sender;
+  at buggy_29.sol(309)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        listing.initialAmount = initialAmount;
+    |        listing.amountLeft = initialAmount;
+  > |        listing.pricePerToken = pricePerToken;
+    |        listing.seller = msg.sender;
+    |        listing.active = true;
+  at buggy_29.sol(310)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        listing.amountLeft = initialAmount;
+    |        listing.pricePerToken = pricePerToken;
+  > |        listing.seller = msg.sender;
+    |        listing.active = true;
+    |        emit Listed(id, listing.pricePerToken, listing.initialAmount, listing.seller);
+  at buggy_29.sol(311)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        listing.pricePerToken = pricePerToken;
+    |        listing.seller = msg.sender;
+  > |        listing.active = true;
+    |        emit Listed(id, listing.pricePerToken, listing.initialAmount, listing.seller);
+    |    }
+  at buggy_29.sol(312)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |        require(listing.active, "This listing was turned inactive already!");
+    |        require(listing.seller == msg.sender || owner == msg.sender, "Only the listing owner or the contract owner can cancel the listing!");
+  > |        listing.active = false;
+    |        emit Canceled(id);
+    |    }
+  at buggy_29.sol(324)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RaffleTokenExchange':
+    |    //
+    |    function setPaused(bool value) external onlyContractOwner {
+  > |        paused = value;
+    |    }
+    |function bug_unchk_send14() payable public{
+  at buggy_29.sol(333)
+

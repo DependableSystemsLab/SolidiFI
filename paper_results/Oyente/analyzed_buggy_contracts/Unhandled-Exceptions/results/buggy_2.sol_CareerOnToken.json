@@ -1,0 +1,32 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_2.sol:138:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk8.send(winAmount_unchk8)", 
+   "/tmp/SCs/buggy_2.sol:42:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)", 
+   "/tmp/SCs/buggy_2.sol:204:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk44.send(winAmount_unchk44)", 
+   "/tmp/SCs/buggy_2.sol:32:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_2.sol:120:17: Warning: Integer Overflow.\n                balances[_to] + _value\nInteger Overflow occurs if:\n    balances[_to] = 85653202831209899131921273706816539903532775246499202405936884825549521553152\n    balances[msg.sender] = 44369063854674067291029404066660873444229566625561754964912869797988903417852\n    isTransPaused = 0", 
+   "/tmp/SCs/buggy_2.sol:224:5: Warning: Integer Overflow.\n    function changeContractName(string memory _newName,string memory _newSymbol) public {\n    ^\nSpanning multiple lines.", 
+   "/tmp/SCs/buggy_2.sol:151:17: Warning: Integer Overflow.\n                balances[_to] + _value\nInteger Overflow occurs if:\n    _value = 44369063854674067291029404066660873444229566625561754964912869797988903417852\n    balances[_to] = 85653202831209899131921273706816539903532775246499202405936884825549521553152\n    balances[msg.sender] = 44369063854674067291029404066660873444229566625561754964912869797988903417852\n    isTransPaused = 0\n    _to = 1461501637330902918203684832716283019655932542975"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_2.sol:45:3: Warning: Integer Underflow.\n  string public name", 
+   "/tmp/SCs/buggy_2.sol:55:3: Warning: Integer Underflow.\n  string public symbol"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_2.sol:233:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.send(address(this).balance)"
+   ], 
+   [
+    "/tmp/SCs/buggy_2.sol:215:10: Warning: Transaction-Ordering Dependency.\n   if (! addr_unchk40.send (2 ether)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "75.1"
+}

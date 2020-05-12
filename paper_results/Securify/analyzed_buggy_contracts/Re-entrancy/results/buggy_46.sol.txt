@@ -1,0 +1,188 @@
+Processing contract: buggy_46.sol:ProofOfExistence
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'ProofOfExistence':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_46.sol(82)
+
+[31mViolation[0m for DAO in contract 'ProofOfExistence':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_46.sol(105)
+
+[31mViolation[0m for DAO in contract 'ProofOfExistence':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_46.sol(178)
+
+[31mViolation[0m for DAOConstantGas in contract 'ProofOfExistence':
+    |}mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_46.sol(21)
+
+[31mViolation[0m for DAOConstantGas in contract 'ProofOfExistence':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_46.sol(51)
+
+[31mViolation[0m for DAOConstantGas in contract 'ProofOfExistence':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_46.sol(124)
+
+[31mViolation[0m for DAOConstantGas in contract 'ProofOfExistence':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_46.sol(153)
+
+[33mWarning[0m for TODAmount in contract 'ProofOfExistence':
+    |}mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_46.sol(21)
+
+[33mWarning[0m for TODAmount in contract 'ProofOfExistence':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_46.sol(82)
+
+[33mWarning[0m for TODAmount in contract 'ProofOfExistence':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_46.sol(105)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ProofOfExistence':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_46.sol(124)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ProofOfExistence':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_46.sol(153)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ProofOfExistence':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_46.sol(178)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ProofOfExistence':
+    |}mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_46.sol(21)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ProofOfExistence':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_46.sol(51)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ProofOfExistence':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_46.sol(82)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ProofOfExistence':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_46.sol(105)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ProofOfExistence':
+    |/**
+  > | *Submitted for verification at Etherscan.io on 2019-09-24
+    |*/
+    |
+  at buggy_46.sol(2)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ProofOfExistence':
+    |pragma solidity >=0.4.21 <0.6.0;
+    |
+  > |contract ProofOfExistence {
+    |
+    |enum BlockchainIdentification {Ixxo,Ethereum,Gochain}
+  at buggy_46.sol(7)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ProofOfExistence':
+    |        newInfo.QRCodeHash = QRCodeHash;
+    |
+  > |        fileExistenceProofs[dappBoxOrigin].push(newInfo);
+    |        return QRCodeHash;
+    |    }
+  at buggy_46.sol(45)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ProofOfExistence':
+    |            revert();
+    |        }
+  > |        counter_re_ent35 += 1;
+    |    }
+    |
+  at buggy_46.sol(54)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ProofOfExistence':
+    |            revert();
+    |        }
+  > |        not_called_re_ent27 = false;
+    |    }
+    |
+  at buggy_46.sol(127)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ProofOfExistence':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |
+  at buggy_46.sol(182)
+

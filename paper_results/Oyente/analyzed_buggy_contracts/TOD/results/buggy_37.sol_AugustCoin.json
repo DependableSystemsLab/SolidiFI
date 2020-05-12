@@ -1,0 +1,23 @@
+{
+ "vulnerabilities": {
+  "callstack": [], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_37.sol:526:16: Warning: Integer Underflow.\n        return _totalSupply - balances[address(0)]\nInteger Underflow occurs if:\n    _totalSupply = 0\n    balances[address(0)] = 1", 
+   "/tmp/SCs/buggy_37.sol:421:3: Warning: Integer Underflow.\n  string public  name"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_37.sol:373:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD4)"
+   ], 
+   [
+    "/tmp/SCs/buggy_37.sol:451:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD10)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "47.9"
+}

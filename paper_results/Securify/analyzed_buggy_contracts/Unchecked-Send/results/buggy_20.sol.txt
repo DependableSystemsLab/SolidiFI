@@ -1,0 +1,390 @@
+Processing contract: buggy_20.sol:Ownable
+Processing contract: buggy_20.sol:RampInstantEscrowsPoolInterface
+Processing contract: buggy_20.sol:RampInstantEthPool
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_20.sol:RampInstantPool
+Processing contract: buggy_20.sol:RampInstantPoolInterface
+Processing contract: buggy_20.sol:Stoppable
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[33mWarning[0m for TODAmount in contract 'RampInstantEthPool':
+    |        uint256 _amount
+    |    ) public onlyOwner returns (bool success) {
+  > |        _to.transfer(_amount);  // always throws on failure
+    |        return true;
+    |    }
+  at buggy_20.sol(347)
+
+[31mViolation[0m for TODReceiver in contract 'RampInstantEthPool':
+    |        uint256 _amount
+    |    ) public onlyActive onlySwapsContract isWithinLimits(_amount) returns(bool success) {
+  > |        swapsContract.transfer(_amount);  // always throws on failure
+    |        return true;
+    |    }
+  at buggy_20.sol(356)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |
+    |  function bug_unchk_send29() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public owner;
+    |
+  at buggy_20.sol(33)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |
+    |  function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnerChanged(address oldOwner, address newOwner);
+    |
+  at buggy_20.sol(37)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send21() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    modifier onlyOwner() {
+  at buggy_20.sol(44)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send10() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_20.sol(56)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |
+    |  function bug_unchk_send6() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  bool public isActive = true;
+    |
+  at buggy_20.sol(67)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |
+    |  function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event IsActiveChanged(bool _isActive);
+    |
+  at buggy_20.sol(71)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send22() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_20.sol(85)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |
+    |  function bug_unchk_send16() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address payable public swapsContract;
+    |  function bug_unchk_send24() payable public{
+  at buggy_20.sol(155)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |  address payable public swapsContract;
+    |  function bug_unchk_send24() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public minSwapAmount;
+    |  function bug_unchk_send5() payable public{
+  at buggy_20.sol(158)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |  uint256 public minSwapAmount;
+    |  function bug_unchk_send5() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint256 public maxSwapAmount;
+    |  function bug_unchk_send15() payable public{
+  at buggy_20.sol(161)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |  uint256 public maxSwapAmount;
+    |  function bug_unchk_send15() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  bytes32 public paymentDetailsHash;
+    |
+  at buggy_20.sol(164)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |     */
+    |  function bug_unchk_send27() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event ReceivedFunds(address _from, uint256 _amount);
+    |  function bug_unchk_send31() payable public{
+  at buggy_20.sol(173)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |  event ReceivedFunds(address _from, uint256 _amount);
+    |  function bug_unchk_send31() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event LimitsChanged(uint256 _minAmount, uint256 _maxAmount);
+    |  function bug_unchk_send13() payable public{
+  at buggy_20.sol(176)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |  event LimitsChanged(uint256 _minAmount, uint256 _maxAmount);
+    |  function bug_unchk_send13() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event SwapsContractChanged(address _oldAddress, address _newAddress);
+    |
+  at buggy_20.sol(179)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send1() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function availableFunds() public view returns (uint256);
+  at buggy_20.sol(200)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    function availableFunds() public view returns (uint256);
+    |function bug_unchk_send2() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function withdrawFunds(address payable _to, uint256 _amount)
+  at buggy_20.sol(204)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |        public /*onlyOwner*/ returns (bool success);
+    |function bug_unchk_send17() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function withdrawAllFunds(address payable _to) public onlyOwner returns (bool success) {
+  at buggy_20.sol(209)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send3() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function setLimits(
+  at buggy_20.sol(215)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send9() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function setSwapsContract(
+  at buggy_20.sol(226)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send25() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function sendFundsToSwap(uint256 _amount)
+  at buggy_20.sol(236)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send19() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function returnSwap(
+  at buggy_20.sol(256)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send26() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_20.sol(273)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send20() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    modifier onlySwapsContract() {
+  at buggy_20.sol(283)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |
+    |  function bug_unchk_send28() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  uint16 internal constant ETH_TYPE_ID = 1;
+    |
+  at buggy_20.sol(320)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    {}
+    |function bug_unchk_send32() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function availableFunds() public view returns(uint256) {
+  at buggy_20.sol(335)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send4() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function withdrawFunds(
+  at buggy_20.sol(341)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send7() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    function sendFundsToSwap(
+  at buggy_20.sol(351)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send23() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    /**
+  at buggy_20.sol(360)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |    }
+    |function bug_unchk_send14() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_20.sol(372)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |        uint256 _amount
+    |    ) public onlyOwner returns (bool success) {
+  > |        _to.transfer(_amount);  // always throws on failure
+    |        return true;
+    |    }
+  at buggy_20.sol(347)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'RampInstantEthPool':
+    |        uint256 _amount
+    |    ) public onlyActive onlySwapsContract isWithinLimits(_amount) returns(bool success) {
+  > |        swapsContract.transfer(_amount);  // always throws on failure
+    |        return true;
+    |    }
+  at buggy_20.sol(356)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RampInstantEthPool':
+    |
+    |    function changeOwner(address _newOwner) external onlyOwner {
+  > |        owner = _newOwner;
+    |        emit OwnerChanged(msg.sender, _newOwner);
+    |    }
+  at buggy_20.sol(52)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RampInstantEthPool':
+    |    function setIsActive(bool _isActive) external onlyOwner {
+    |        if (_isActive == isActive) return;
+  > |        isActive = _isActive;
+    |        emit IsActiveChanged(_isActive);
+    |    }
+  at buggy_20.sol(81)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RampInstantEthPool':
+    |        uint256 _maxAmount
+    |    ) public onlyOwner validateLimits(_minAmount, _maxAmount) {
+  > |        minSwapAmount = _minAmount;
+    |        maxSwapAmount = _maxAmount;
+    |        emit LimitsChanged(_minAmount, _maxAmount);
+  at buggy_20.sol(221)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RampInstantEthPool':
+    |    ) public onlyOwner validateLimits(_minAmount, _maxAmount) {
+    |        minSwapAmount = _minAmount;
+  > |        maxSwapAmount = _maxAmount;
+    |        emit LimitsChanged(_minAmount, _maxAmount);
+    |    }
+  at buggy_20.sol(222)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'RampInstantEthPool':
+    |    ) public onlyOwner validateSwapsContract(_swapsContract, ASSET_TYPE) {
+    |        address oldSwapsContract = swapsContract;
+  > |        swapsContract = _swapsContract;
+    |        emit SwapsContractChanged(oldSwapsContract, _swapsContract);
+    |    }
+  at buggy_20.sol(232)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Stoppable':
+    |
+    |  function bug_unchk_send29() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  address public owner;
+    |
+  at buggy_20.sol(33)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Stoppable':
+    |
+    |  function bug_unchk_send30() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event OwnerChanged(address oldOwner, address newOwner);
+    |
+  at buggy_20.sol(37)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Stoppable':
+    |    }
+    |function bug_unchk_send21() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |    modifier onlyOwner() {
+  at buggy_20.sol(44)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Stoppable':
+    |    }
+    |function bug_unchk_send10() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_20.sol(56)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Stoppable':
+    |
+    |  function bug_unchk_send6() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  bool public isActive = true;
+    |
+  at buggy_20.sol(67)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Stoppable':
+    |
+    |  function bug_unchk_send8() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |  event IsActiveChanged(bool _isActive);
+    |
+  at buggy_20.sol(71)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'Stoppable':
+    |    }
+    |function bug_unchk_send22() payable public{
+  > |      msg.sender.transfer(1 ether);}
+    |
+    |}
+  at buggy_20.sol(85)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Stoppable':
+    |
+    |    function changeOwner(address _newOwner) external onlyOwner {
+  > |        owner = _newOwner;
+    |        emit OwnerChanged(msg.sender, _newOwner);
+    |    }
+  at buggy_20.sol(52)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'Stoppable':
+    |    function setIsActive(bool _isActive) external onlyOwner {
+    |        if (_isActive == isActive) return;
+  > |        isActive = _isActive;
+    |        emit IsActiveChanged(_isActive);
+    |    }
+  at buggy_20.sol(81)
+

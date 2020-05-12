@@ -1,0 +1,29 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_47.sol:52:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk32.send(winAmount_unchk32)", 
+   "/tmp/SCs/buggy_47.sol:42:9: Warning: Callstack Depth Attack Vulnerability.\n        winner_unchk20.send(winAmount_unchk20)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_47.sol:154:9: Warning: Integer Overflow.\n        balances[to] += tokens\nInteger Overflow occurs if:\n    tokens = 37717208912933073374861050775867160511051478474789766132129094234564326678807\n    balances[to] = 95515132405035013240498949941729301185179799140209929091396633094036584928231", 
+   "/tmp/SCs/buggy_47.sol:185:10: Warning: Integer Overflow.\n         balances[to] += tokens\nInteger Overflow occurs if:\n    balances[to] = 111771850588589477980448691424064340015804983699214872171395667984683992420155\n    tokens = 67419346655525027280071070946112097648534143608088887667851415925010121249705\n    balances[msg.sender] = 67419346655525027280071070946112097648534143608088887667851415925010121249705"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_47.sol:66:3: Warning: Integer Underflow.\n  string public name = \"Acunar\"", 
+   "/tmp/SCs/buggy_47.sol:73:3: Warning: Integer Underflow.\n  string public symbol = \"ACN\""
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_47.sol:26:6: Warning: Transaction-Ordering Dependency.\nif (!addr_unchk19.send (10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_47.sol:178:5: Warning: Transaction-Ordering Dependency.\n    callee.send(5 ether)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "87.2"
+}

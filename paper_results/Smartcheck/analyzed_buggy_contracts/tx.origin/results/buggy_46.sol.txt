@@ -1,0 +1,127 @@
+buggy_46.sol
+jar:file:/usr/local/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 57
+column: 8
+content: for(uinti=0;i<fileExistenceProofs[dappBoxOrigin].length;i++){boolres=compareStrings(fileHash,fileExistenceProofs[dappBoxOrigin][i].fileHash)&&compareStrings(filePathHash,fileExistenceProofs[dappBoxOrigin][i].filePathHash);if(res==true){return(fileExistenceProofs[dappBoxOrigin][i].date,fileExistenceProofs[dappBoxOrigin][i].filesender,fileExistenceProofs[dappBoxOrigin][i].contractAddress,fileExistenceProofs[dappBoxOrigin][i].identifier,fileExistenceProofs[dappBoxOrigin][i].QRCodeHash);}}
+
+ruleId: SOLIDITY_GAS_LIMIT_IN_LOOPS
+patternId: f6f853
+severity: 2
+line: 57
+column: 8
+content: for(uinti=0;i<fileExistenceProofs[dappBoxOrigin].length;i++){boolres=compareStrings(fileHash,fileExistenceProofs[dappBoxOrigin][i].fileHash)&&compareStrings(filePathHash,fileExistenceProofs[dappBoxOrigin][i].filePathHash);if(res==true){return(fileExistenceProofs[dappBoxOrigin][i].date,fileExistenceProofs[dappBoxOrigin][i].filesender,fileExistenceProofs[dappBoxOrigin][i].contractAddress,fileExistenceProofs[dappBoxOrigin][i].identifier,fileExistenceProofs[dappBoxOrigin][i].QRCodeHash);}}
+
+ruleId: SOLIDITY_LOCKED_MONEY
+patternId: 30281d
+severity: 3
+line: 7
+column: 0
+content: contractProofOfExistence{enumBlockchainIdentification{Ixxo,Ethereum,Gochain}structFileExistenceStruct{uint256date;addressfilesender;stringfileHash;stringfilePathHash;addresscontractAddress;bytes32QRCodeHash;BlockchainIdentificationidentifier;}functionbug_txorigin36(addressowner_txorigin36)public{require(tx.origin==owner_txorigin36);}mapping(address=>FileExistenceStruct[])fileExistenceProofs;functionSetFileExistenceProof(addressdappBoxOrigin,stringmemory_fileHash,stringmemory_filePathHash,address_contractAddress,BlockchainIdentification_identifier)publicreturns(bytes32){FileExistenceStructmemorynewInfo;uint256_date=now;bytes32QRCodeHash=generateQRCodeForFile(dappBoxOrigin,_fileHash,_filePathHash,_contractAddress,_identifier);newInfo.date=_date;newInfo.filesender=dappBoxOrigin;newInfo.fileHash=_fileHash;newInfo.filePathHash=_filePathHash;newInfo.contractAddress=_contractAddress;newInfo.identifier=_identifier;newInfo.QRCodeHash=QRCodeHash;fileExistenceProofs[dappBoxOrigin].push(newInfo);returnQRCodeHash;}functiontransferTo_txorigin35(addressto,uintamount,addressowner_txorigin35)public{require(tx.origin==owner_txorigin35);to.call.value(amount);}functionGetFileExistenceProof(addressdappBoxOrigin,stringmemoryfileHash,stringmemoryfilePathHash)publicviewreturns(uint256,address,address,BlockchainIdentification,bytes32){for(uinti=0;i<fileExistenceProofs[dappBoxOrigin].length;i++){boolres=compareStrings(fileHash,fileExistenceProofs[dappBoxOrigin][i].fileHash)&&compareStrings(filePathHash,fileExistenceProofs[dappBoxOrigin][i].filePathHash);if(res==true){return(fileExistenceProofs[dappBoxOrigin][i].date,fileExistenceProofs[dappBoxOrigin][i].filesender,fileExistenceProofs[dappBoxOrigin][i].contractAddress,fileExistenceProofs[dappBoxOrigin][i].identifier,fileExistenceProofs[dappBoxOrigin][i].QRCodeHash);}}}functionbug_txorigin40(addressowner_txorigin40)public{require(tx.origin==owner_txorigin40);}functioncompareStrings(stringmemorya,stringmemoryb)internalpurereturns(bool){if(bytes(a).length!=bytes(b).length){returnfalse;}else{returnkeccak256(abi.encode(a))==keccak256(abi.encode(b));}}functionsendto_txorigin33(addresspayablereceiver,uintamount,addressowner_txorigin33)public{require(tx.origin==owner_txorigin33);receiver.transfer(amount);}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 16
+content: >=
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 5
+column: 25
+content: <
+
+ruleId: SOLIDITY_SHOULD_RETURN_STRUCT
+patternId: 83hf3l
+severity: 1
+line: 55
+column: 128
+content: (uint256,address,address,BlockchainIdentification,bytes32)
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 20
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 47
+column: 10
+content: tx.origin
+
+ruleId: SOLIDITY_TX_ORIGIN
+patternId: 12e802
+severity: 2
+line: 73
+column: 16
+content: tx.origin
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 88
+column: 0
+content: functionsendto_txorigin33(addresspayable
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 24
+column: 0
+content: mapping(address=>FileExistenceStruct[])fileExistenceProofs;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 43
+content: receiver,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 53
+content: uintamount,
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 88
+column: 65
+content: addressowner_txorigin33)public{
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 1
+content: require(tx.
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 89
+column: 13
+content: origin==owner_txorigin33);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 90
+column: 1
+content: receiver.transfer(amount);
+
+SOLIDITY_VISIBILITY :8
+SOLIDITY_PRAGMAS_VERSION :2
+SOLIDITY_LOCKED_MONEY :1
+SOLIDITY_EXTRA_GAS_IN_LOOPS :1
+SOLIDITY_GAS_LIMIT_IN_LOOPS :1
+SOLIDITY_SHOULD_RETURN_STRUCT :1
+SOLIDITY_TX_ORIGIN :3

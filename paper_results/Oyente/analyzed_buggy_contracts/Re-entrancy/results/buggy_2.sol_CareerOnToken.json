@@ -1,0 +1,39 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_2.sol:28:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_2.sol:286:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_2.sol:212:23: Warning: Callstack Depth Attack Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_2.sol:59:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent26[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_2.sol:271:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [
+   "/tmp/SCs/buggy_2.sol:28:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_2.sol:286:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_2.sol:212:23: Warning: Re-Entrancy Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_2.sol:59:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent26[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_2.sol:271:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")"
+  ], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_2.sol:180:17: Warning: Integer Overflow.\n                balances[_to] + _value\nInteger Overflow occurs if:\n    balances[_to] = 85653202831209899131921273706816539903532775246499202405936884825549521553152\n    balances[msg.sender] = 44369063854674067291029404066660873444229566625561754964912869797988903417852\n    isTransPaused = 0", 
+   "/tmp/SCs/buggy_2.sol:262:5: Warning: Integer Overflow.\n    function changeContractName(string memory _newName,string memory _newSymbol) public {\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    _newName = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_2.sol:150:17: Warning: Integer Overflow.\n                balances[_to] + _value\nInteger Overflow occurs if:\n    balances[_to] = 85653202831209899131921273706816539903532775246499202405936884825549521553152\n    balances[msg.sender] = 44369063854674067291029404066660873444229566625561754964912869797988903417852\n    isTransPaused = 0"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_2.sol:74:3: Warning: Integer Underflow.\n  string public symbol", 
+   "/tmp/SCs/buggy_2.sol:54:3: Warning: Integer Underflow.\n  string public name"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_2.sol:255:9: Warning: Transaction-Ordering Dependency.\n\tif( ! (msg.sender.send(10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_2.sol:88:17: Warning: Transaction-Ordering Dependency.\n        require(msg.sender.send(_weiToWithdraw)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "76.9"
+}

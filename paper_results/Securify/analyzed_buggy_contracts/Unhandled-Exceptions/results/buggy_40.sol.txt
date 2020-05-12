@@ -1,0 +1,745 @@
+Processing contract: buggy_40.sol:ERC20
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_40.sol:ERC20Detailed
+Processing contract: buggy_40.sol:IERC20
+Processing contract: buggy_40.sol:SafeMath
+  Attempt to decompile the contract with methods...
+  Success. Inlining methods...
+  Propagating constants...
+  Verifying patterns...
+Processing contract: buggy_40.sol:SimpleSwapCoin
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAOConstantGas in contract 'ERC20':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_40.sol(377)
+
+[31mViolation[0m for DAOConstantGas in contract 'ERC20':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_40.sol(474)
+
+[31mViolation[0m for TODAmount in contract 'ERC20':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  mapping (address => uint256) private _balances;
+  at buggy_40.sol(220)
+
+[33mWarning[0m for TODAmount in contract 'ERC20':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(304)
+
+[33mWarning[0m for TODAmount in contract 'ERC20':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_40.sol(423)
+
+[33mWarning[0m for TODAmount in contract 'ERC20':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(445)
+
+[31mViolation[0m for TODReceiver in contract 'ERC20':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_40.sol(377)
+
+[31mViolation[0m for TODReceiver in contract 'ERC20':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_40.sol(474)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  mapping (address => uint256) private _balances;
+  at buggy_40.sol(220)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |    }
+    |function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_40.sol(243)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_40.sol(254)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(304)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_40.sol(325)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_40.sol(377)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /** @dev Creates `amount` tokens and assigns them to `account`, increasing
+  at buggy_40.sol(404)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_40.sol(423)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(445)
+
+[31mViolation[0m for UnhandledException in contract 'ERC20':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_40.sol(474)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_40.sol(243)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_40.sol(254)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_40.sol(272)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_40.sol(325)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_40.sol(347)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /** @dev Creates `amount` tokens and assigns them to `account`, increasing
+  at buggy_40.sol(404)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_40.sol(490)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  mapping (address => uint256) private _balances;
+  at buggy_40.sol(220)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |  function bug_unchk19() public{
+    |address payable addr_unchk19;
+  > |if (!addr_unchk19.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_40.sol(231)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_40.sol(288)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(304)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_40.sol(377)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_40.sol(423)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(445)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'ERC20':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_40.sol(474)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |
+  at buggy_40.sol(378)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'ERC20':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |
+  at buggy_40.sol(475)
+
+[31mViolation[0m for DAOConstantGas in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_40.sol(377)
+
+[31mViolation[0m for DAOConstantGas in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_40.sol(474)
+
+[31mViolation[0m for DAOConstantGas in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_40.sol(513)
+
+[31mViolation[0m for DAOConstantGas in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_40.sol(523)
+
+[31mViolation[0m for TODAmount in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  mapping (address => uint256) private _balances;
+  at buggy_40.sol(220)
+
+[31mViolation[0m for TODAmount in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_40.sol(542)
+
+[31mViolation[0m for TODAmount in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_40.sol(586)
+
+[33mWarning[0m for TODAmount in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(304)
+
+[33mWarning[0m for TODAmount in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_40.sol(423)
+
+[33mWarning[0m for TODAmount in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(445)
+
+[31mViolation[0m for TODReceiver in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_40.sol(377)
+
+[31mViolation[0m for TODReceiver in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_40.sol(474)
+
+[31mViolation[0m for TODReceiver in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_40.sol(513)
+
+[31mViolation[0m for TODReceiver in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_40.sol(523)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  mapping (address => uint256) private _balances;
+  at buggy_40.sol(220)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |    }
+    |function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_40.sol(243)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_40.sol(254)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(304)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_40.sol(325)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_40.sol(377)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /** @dev Creates `amount` tokens and assigns them to `account`, increasing
+  at buggy_40.sol(404)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_40.sol(423)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(445)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_40.sol(474)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |contract ERC20Detailed is IERC20 {
+    |  function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  string private _name;
+  at buggy_40.sol(504)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_40.sol(513)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_40.sol(523)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_40.sol(542)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    /**
+  at buggy_40.sol(552)
+
+[31mViolation[0m for UnhandledException in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_40.sol(586)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |    }
+    |function unhandledsend_unchk38(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_40.sol(243)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function cash_unchk46(uint roundIndex, uint subpotIndex, address payable winner_unchk46) public{
+    |        uint64 subpot_unchk46 = 3 ether;
+  > |        winner_unchk46.send(subpot_unchk46);  //bug
+    |        subpot_unchk46= 0;
+    |}
+  at buggy_40.sol(254)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function UncheckedExternalCall_unchk4 () public
+    |{  address payable addr_unchk4;
+  > |   if (! addr_unchk4.send (42 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_40.sol(272)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |    }
+    |function unhandledsend_unchk14(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |
+  at buggy_40.sol(325)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |uint receivers_unchk30;
+    |address payable addr_unchk30;
+  > |if (!addr_unchk30.send(42 ether))
+    |	{receivers_unchk30 +=1;}
+    |else
+  at buggy_40.sol(347)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |    }
+    |function bug_unchk39(address payable addr) public
+  > |      {addr.send (4 ether); }
+    |
+    |    /** @dev Creates `amount` tokens and assigns them to `account`, increasing
+  at buggy_40.sol(404)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function UncheckedExternalCall_unchk40 () public
+    |{  address payable addr_unchk40;
+  > |   if (! addr_unchk40.send (2 ether))  
+    |      {// comment1;
+    |      }
+  at buggy_40.sol(490)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |contract ERC20Detailed is IERC20 {
+    |  function unhandledsend_unchk26(address payable callee) public {
+  > |    callee.send(5 ether);
+    |  }
+    |  string private _name;
+  at buggy_40.sol(504)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |    }
+    |function bug_unchk27(address payable addr) public
+  > |      {addr.send (42 ether); }
+    |
+    |    /**
+  at buggy_40.sol(552)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk9() public {
+    |        require(payedOut_unchk9);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |  mapping (address => uint256) private _balances;
+  at buggy_40.sol(220)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |  function bug_unchk19() public{
+    |address payable addr_unchk19;
+  > |if (!addr_unchk19.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_40.sol(231)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function bug_unchk7() public{
+    |address payable addr_unchk7;
+  > |if (!addr_unchk7.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_40.sol(288)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_unchk23(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(304)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk8() public {
+    |        require(!payedOut_unchk8);
+  > |        winner_unchk8.send(winAmount_unchk8);
+    |        payedOut_unchk8 = true;
+    |    }
+  at buggy_40.sol(377)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_uncheck36(address payable dst) public payable{
+  > |        dst.call.value(msg.value)("");
+    |    }
+    |
+  at buggy_40.sol(423)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |    }
+    |function my_func_unchk35(address payable dst) public payable{
+  > |        dst.send(msg.value);
+    |    }
+    |
+  at buggy_40.sol(445)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk44() public {
+    |        require(!payedOut_unchk44);
+  > |        winner_unchk44.send(winAmount_unchk44);
+    |        payedOut_unchk44 = true;
+    |    }
+  at buggy_40.sol(474)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk20() public {
+    |        require(!payedOut_unchk20);
+  > |        winner_unchk20.send(winAmount_unchk20);
+    |        payedOut_unchk20 = true;
+    |    }
+  at buggy_40.sol(513)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function sendToWinner_unchk32() public {
+    |        require(!payedOut_unchk32);
+  > |        winner_unchk32.send(winAmount_unchk32);
+    |        payedOut_unchk32 = true;
+    |    }
+  at buggy_40.sol(523)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk33() public {
+    |        require(payedOut_unchk33);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |
+  at buggy_40.sol(542)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function bug_unchk31() public{
+    |address payable addr_unchk31;
+  > |if (!addr_unchk31.send (10 ether) || 1==1)
+    |	{revert();}
+    |}
+  at buggy_40.sol(563)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'SimpleSwapCoin':
+    |function withdrawLeftOver_unchk45() public {
+    |        require(payedOut_unchk45);
+  > |        msg.sender.send(address(this).balance);
+    |    }
+    |}
+  at buggy_40.sol(586)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SimpleSwapCoin':
+    |        require(!payedOut_unchk8);
+    |        winner_unchk8.send(winAmount_unchk8);
+  > |        payedOut_unchk8 = true;
+    |    }
+    |
+  at buggy_40.sol(378)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SimpleSwapCoin':
+    |        require(!payedOut_unchk44);
+    |        winner_unchk44.send(winAmount_unchk44);
+  > |        payedOut_unchk44 = true;
+    |    }
+    |
+  at buggy_40.sol(475)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SimpleSwapCoin':
+    |        require(!payedOut_unchk20);
+    |        winner_unchk20.send(winAmount_unchk20);
+  > |        payedOut_unchk20 = true;
+    |    }
+    |  string private _symbol;
+  at buggy_40.sol(514)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'SimpleSwapCoin':
+    |        require(!payedOut_unchk32);
+    |        winner_unchk32.send(winAmount_unchk32);
+  > |        payedOut_unchk32 = true;
+    |    }
+    |  uint8 private _decimals;
+  at buggy_40.sol(524)
+

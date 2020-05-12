@@ -1,0 +1,25 @@
+{
+ "vulnerabilities": {
+  "callstack": [], 
+  "time_dependency": [], 
+  "reentrancy": [], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_9.sol:567:5: Warning: Integer Overflow.\n    function transferBatch(address[] memory _tos, uint256[] memory _values) public returns (bool) {\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    _tos = 115792089237316195423570985008687907853269984665640564039457584007913129639935"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_9.sol:115:3: Warning: Integer Underflow.\n  string public name", 
+   "/tmp/SCs/buggy_9.sol:129:3: Warning: Integer Underflow.\n  string public symbol"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_9.sol:333:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD4)"
+   ], 
+   [
+    "/tmp/SCs/buggy_9.sol:308:9: Warning: Transaction-Ordering Dependency.\n        msg.sender.transfer(reward_TOD38)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "68.7"
+}

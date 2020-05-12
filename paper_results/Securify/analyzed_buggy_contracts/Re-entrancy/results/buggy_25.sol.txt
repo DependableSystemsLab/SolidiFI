@@ -1,0 +1,836 @@
+Processing contract: buggy_25.sol:WhiteBetting
+  Attempt to decompile the contract with methods...
+  Failed to decompile methods. Attempt to decompile the contract without identifying methods...
+  Propagating constants...
+  Verifying patterns...
+[31mViolation[0m for DAO in contract 'WhiteBetting':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_25.sol(16)
+
+[31mViolation[0m for DAO in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(91)
+
+[31mViolation[0m for DAO in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(102)
+
+[31mViolation[0m for DAO in contract 'WhiteBetting':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(129)
+
+[31mViolation[0m for DAO in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(145)
+
+[31mViolation[0m for DAO in contract 'WhiteBetting':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_25.sol(350)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(47)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(64)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_25.sol(74)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(81)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(112)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_25.sol(122)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(159)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(182)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_25.sol(205)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(253)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(293)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_25.sol(312)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(325)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_25.sol(338)
+
+[31mViolation[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(366)
+
+[33mWarning[0m for DAOConstantGas in contract 'WhiteBetting':
+    |        || (selectedTeam == 8 && ( _homeDrawAway == 3 || _homeDrawAway == 2) ) 
+    |        ){ 
+  > |        betList[_fixtureId][i].player.transfer(returnEth);
+    |      }
+    |    }
+  at buggy_25.sol(279)
+
+[31mViolation[0m for TODAmount in contract 'WhiteBetting':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_25.sol(16)
+
+[31mViolation[0m for TODAmount in contract 'WhiteBetting':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_25.sol(312)
+
+[31mViolation[0m for TODAmount in contract 'WhiteBetting':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_25.sol(338)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(47)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(64)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_25.sol(74)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(91)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(102)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(145)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(182)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(253)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        || (selectedTeam == 8 && ( _homeDrawAway == 3 || _homeDrawAway == 2) ) 
+    |        ){ 
+  > |        betList[_fixtureId][i].player.transfer(returnEth);
+    |      }
+    |    }
+  at buggy_25.sol(279)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |  // Fallback function
+    |  function () external payable{
+  > |    owner.transfer(msg.value);    
+    |  }
+    |mapping(address => uint) balances_re_ent8;
+  at buggy_25.sol(346)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_25.sol(350)
+
+[33mWarning[0m for TODAmount in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(366)
+
+[31mViolation[0m for TODReceiver in contract 'WhiteBetting':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_25.sol(16)
+
+[31mViolation[0m for TODReceiver in contract 'WhiteBetting':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_25.sol(312)
+
+[31mViolation[0m for TODReceiver in contract 'WhiteBetting':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_25.sol(338)
+
+[31mViolation[0m for TODReceiver in contract 'WhiteBetting':
+    |  // Fallback function
+    |  function () external payable{
+  > |    owner.transfer(msg.value);    
+    |  }
+    |mapping(address => uint) balances_re_ent8;
+  at buggy_25.sol(346)
+
+[31mViolation[0m for TODReceiver in contract 'WhiteBetting':
+    |  function withdraw(uint256 _amount) external payable onlyOwner {
+    |    require(_amount > 0 && _amount <= address(this).balance );
+  > |    owner.transfer(_amount);
+    |    emit Withdraw(owner, _amount);
+    |  }
+  at buggy_25.sol(358)
+
+[33mWarning[0m for TODReceiver in contract 'WhiteBetting':
+    |        || (selectedTeam == 8 && ( _homeDrawAway == 3 || _homeDrawAway == 2) ) 
+    |        ){ 
+  > |        betList[_fixtureId][i].player.transfer(returnEth);
+    |      }
+    |    }
+  at buggy_25.sol(279)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |function bug_re_ent27() public{
+    |        require(not_called_re_ent27);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(112)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        require(balances_re_ent31[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent31[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_25.sol(122)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |function bug_re_ent13() public{
+    |        require(not_called_re_ent13);
+  > |        (bool success,)=msg.sender.call.value(1 ether)("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(129)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |function bug_re_ent20() public{
+    |        require(not_called_re_ent20);
+  > |        if( ! (msg.sender.send(1 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(159)
+
+[31mViolation[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        require(balances_re_ent38[msg.sender] >= _weiToWithdraw);
+    |        // limit the withdrawal
+  > |        require(msg.sender.send(_weiToWithdraw));  //bug
+    |        balances_re_ent38[msg.sender] -= _weiToWithdraw;
+    |    }
+  at buggy_25.sol(205)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |      uint jackpot_re_ent9;
+    |	  function buyTicket_re_ent9() public{
+  > |	    (bool success,) = lastPlayer_re_ent9.call.value(jackpot_re_ent9)("");
+    |	    if (!success)
+    |	        revert();
+  at buggy_25.sol(16)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent25[msg.sender] > 0);
+    |        uint transferValue_re_ent25 = redeemableEther_re_ent25[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent25);   //bug
+    |        redeemableEther_re_ent25[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(47)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        if( ! (msg.sender.send(userBalance_re_ent19[msg.sender]) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(64)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |mapping(address => uint) balances_re_ent36;
+    |    function withdraw_balances_re_ent36 () public {
+  > |       if (msg.sender.send(balances_re_ent36[msg.sender ]))
+    |          balances_re_ent36[msg.sender] = 0;
+    |      }
+  at buggy_25.sol(74)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |function callme_re_ent35() public{
+    |        require(counter_re_ent35<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(81)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)=msg.sender.call.value(userBalance_re_ent40[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(91)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent33[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(102)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        // send userBalance[msg.sender] ethers to msg.sender
+    |        // if mgs.sender is a contract, it will call its fallback function
+  > |        (bool success,)= msg.sender.call.value(userBalance_re_ent26[msg.sender])("");
+    |        if( ! success ){
+    |            revert();
+  at buggy_25.sol(145)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent32[msg.sender] > 0);
+    |        uint transferValue_re_ent32 = redeemableEther_re_ent32[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent32);   //bug
+    |        redeemableEther_re_ent32[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(182)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent4[msg.sender] > 0);
+    |        uint transferValue_re_ent4 = redeemableEther_re_ent4[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent4);   //bug
+    |        redeemableEther_re_ent4[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(253)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        || (selectedTeam == 8 && ( _homeDrawAway == 3 || _homeDrawAway == 2) ) 
+    |        ){ 
+  > |        betList[_fixtureId][i].player.transfer(returnEth);
+    |      }
+    |    }
+  at buggy_25.sol(279)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |function callme_re_ent7() public{
+    |        require(counter_re_ent7<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(293)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |      uint jackpot_re_ent23;
+    |	  function buyTicket_re_ent23() public{
+  > |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  at buggy_25.sol(312)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |function callme_re_ent14() public{
+    |        require(counter_re_ent14<=5);
+  > |	if( ! (msg.sender.send(10 ether) ) ){
+    |            revert();
+    |        }
+  at buggy_25.sol(325)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |      uint jackpot_re_ent30;
+    |	  function buyTicket_re_ent30() public{
+  > |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  at buggy_25.sol(338)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  // Fallback function
+    |  function () external payable{
+  > |    owner.transfer(msg.value);    
+    |  }
+    |mapping(address => uint) balances_re_ent8;
+  at buggy_25.sol(346)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |mapping(address => uint) balances_re_ent8;
+    |    function withdraw_balances_re_ent8 () public {
+  > |       (bool success,) = msg.sender.call.value(balances_re_ent8[msg.sender ])("");
+    |       if (success)
+    |          balances_re_ent8[msg.sender] = 0;
+  at buggy_25.sol(350)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |        require(redeemableEther_re_ent39[msg.sender] > 0);
+    |        uint transferValue_re_ent39 = redeemableEther_re_ent39[msg.sender];
+  > |        msg.sender.transfer(transferValue_re_ent39);   //bug
+    |        redeemableEther_re_ent39[msg.sender] = 0;
+    |    }
+  at buggy_25.sol(366)
+
+[33mWarning[0m for UnrestrictedEtherFlow in contract 'WhiteBetting':
+    |  function withdraw(uint256 _amount) external payable onlyOwner {
+    |    require(_amount > 0 && _amount <= address(this).balance );
+  > |    owner.transfer(_amount);
+    |    emit Withdraw(owner, _amount);
+    |  }
+  at buggy_25.sol(358)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |/**
+  > | *Submitted for verification at Etherscan.io on 2019-09-24
+    |*/
+    |
+  at buggy_25.sol(2)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |	    if (!success)
+    |	        revert();
+  > |      lastPlayer_re_ent9 = msg.sender;
+    |      jackpot_re_ent9    = address(this).balance;
+    |    }
+  at buggy_25.sol(19)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |	        revert();
+    |      lastPlayer_re_ent9 = msg.sender;
+  > |      jackpot_re_ent9    = address(this).balance;
+    |    }
+    |  address payable public owner;
+  at buggy_25.sol(20)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |            revert();
+    |        }
+  > |        counter_re_ent35 += 1;
+    |    }
+    |  event Deposit(address sender, uint256 eth);
+  at buggy_25.sol(84)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |            revert();
+    |        }
+  > |        not_called_re_ent27 = false;
+    |    }
+    |  event SetGame(uint64 _fixtureId, uint256 _timestamp, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw, uint8 _open_status);
+  at buggy_25.sol(115)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |            revert();
+    |        }
+  > |        not_called_re_ent13 = false;
+    |    }
+    |  event GivePrizeMoney(uint64 _fixtureId, uint8 _homeDrawAway, uint8 _overUnder);
+  at buggy_25.sol(133)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |            revert();
+    |        }
+  > |        not_called_re_ent20 = false;
+    |    }
+    |
+  at buggy_25.sol(162)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |
+    |    // Save the betting information
+  > |    betList[_fixtureId].push(BetFixture( msg.sender, stake,  _odd, _selectedTeam));
+    |    emit NewStake(msg.sender, _fixtureId, _selectedTeam, stake, _odd );
+    |
+  at buggy_25.sol(244)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |
+    |    // Change the game status.
+  > |    gameList[_fixtureId].open_status = 5;
+    |    // It was paid.
+    |    gameList[_fixtureId].isDone = true; // 보상을 마쳤으므로 true로 변경.
+  at buggy_25.sol(284)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].open_status = 5;
+    |    // It was paid.
+  > |    gameList[_fixtureId].isDone = true; // 보상을 마쳤으므로 true로 변경.
+    |
+    |    emit GivePrizeMoney( _fixtureId,  _homeDrawAway,  _overUnder);
+  at buggy_25.sol(286)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |            revert();
+    |        }
+  > |        counter_re_ent7 += 1;
+    |    }
+    |
+  at buggy_25.sol(296)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |	    if (!(lastPlayer_re_ent23.send(jackpot_re_ent23)))
+    |        revert();
+  > |      lastPlayer_re_ent23 = msg.sender;
+    |      jackpot_re_ent23    = address(this).balance;
+    |    }
+  at buggy_25.sol(314)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |        revert();
+    |      lastPlayer_re_ent23 = msg.sender;
+  > |      jackpot_re_ent23    = address(this).balance;
+    |    }
+    |
+  at buggy_25.sol(315)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |            revert();
+    |        }
+  > |        counter_re_ent14 += 1;
+    |    }
+    |
+  at buggy_25.sol(328)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |	    if (!(lastPlayer_re_ent30.send(jackpot_re_ent30)))
+    |        revert();
+  > |      lastPlayer_re_ent30 = msg.sender;
+    |      jackpot_re_ent30    = address(this).balance;
+    |    }
+  at buggy_25.sol(340)
+
+[31mViolation[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |        revert();
+    |      lastPlayer_re_ent30 = msg.sender;
+  > |      jackpot_re_ent30    = address(this).balance;
+    |    }
+    |
+  at buggy_25.sol(341)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  // Change the game status
+    |  function setOpenStatus(uint64 _fixtureId, uint8 _open_status) external onlyOwner {
+  > |    gameList[_fixtureId].open_status = _open_status;
+    |  }
+    |bool not_called_re_ent20 = true;
+  at buggy_25.sol(154)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  // Refresh the game odd
+    |  function changeOdd (uint64 _fixtureId, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw ) external onlyOwner {
+  > |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+  at buggy_25.sol(167)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  function changeOdd (uint64 _fixtureId, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw ) external onlyOwner {
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+  > |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+  at buggy_25.sol(168)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+  > |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+  at buggy_25.sol(169)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+  > |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+  at buggy_25.sol(170)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+  > |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+  at buggy_25.sol(171)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+  > |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+  at buggy_25.sol(172)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+  > |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    emit ChangeOdd (_fixtureId, _odd_homeTeam, _odd_drawTeam, _odd_awayTeam, _odd_over, _odd_under, _odd_homeTeamAndDraw, _odd_homeAndAwayTeam , _odd_awayTeamAndDraw);
+  at buggy_25.sol(173)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+  > |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    emit ChangeOdd (_fixtureId, _odd_homeTeam, _odd_drawTeam, _odd_awayTeam, _odd_over, _odd_under, _odd_homeTeamAndDraw, _odd_homeAndAwayTeam , _odd_awayTeamAndDraw);
+    |  }
+  at buggy_25.sol(174)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  // Save the game information
+    |  function setGameInfo (uint64 _fixtureId, uint256 _timestamp, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw, uint8 _open_status ) external onlyOwner {
+  > |    gameList[_fixtureId].timestamp           = _timestamp;
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+  at buggy_25.sol(188)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  function setGameInfo (uint64 _fixtureId, uint256 _timestamp, uint32 _odd_homeTeam, uint32 _odd_drawTeam, uint32 _odd_awayTeam, uint32 _odd_over, uint32 _odd_under, uint32 _odd_homeTeamAndDraw, uint32 _odd_homeAndAwayTeam , uint32 _odd_awayTeamAndDraw, uint8 _open_status ) external onlyOwner {
+    |    gameList[_fixtureId].timestamp           = _timestamp;
+  > |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+  at buggy_25.sol(189)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].timestamp           = _timestamp;
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+  > |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+  at buggy_25.sol(190)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeTeam        = _odd_homeTeam;
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+  > |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+  at buggy_25.sol(191)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_drawTeam        = _odd_drawTeam;
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+  > |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+  at buggy_25.sol(192)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_awayTeam        = _odd_awayTeam;
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+  > |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+  at buggy_25.sol(193)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_over            = _odd_over;
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+  > |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+  at buggy_25.sol(194)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_under           = _odd_under;
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+  > |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    gameList[_fixtureId].open_status         = _open_status;
+  at buggy_25.sol(195)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeTeamAndDraw = _odd_homeTeamAndDraw;
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+  > |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    gameList[_fixtureId].open_status         = _open_status;
+    |    gameList[_fixtureId].isDone              = false;
+  at buggy_25.sol(196)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_homeAndAwayTeam = _odd_homeAndAwayTeam;
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+  > |    gameList[_fixtureId].open_status         = _open_status;
+    |    gameList[_fixtureId].isDone              = false;
+    |    emit SetGame(_fixtureId, _timestamp, _odd_homeTeam, _odd_drawTeam, _odd_awayTeam, _odd_over, _odd_under, _odd_homeTeamAndDraw, _odd_homeAndAwayTeam , _odd_awayTeamAndDraw, _open_status);
+  at buggy_25.sol(197)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |    gameList[_fixtureId].odd_awayTeamAndDraw = _odd_awayTeamAndDraw;
+    |    gameList[_fixtureId].open_status         = _open_status;
+  > |    gameList[_fixtureId].isDone              = false;
+    |    emit SetGame(_fixtureId, _timestamp, _odd_homeTeam, _odd_drawTeam, _odd_awayTeam, _odd_over, _odd_under, _odd_homeTeamAndDraw, _odd_homeAndAwayTeam , _odd_awayTeamAndDraw, _open_status);
+    |  }
+  at buggy_25.sol(198)
+
+[33mWarning[0m for UnrestrictedWrite in contract 'WhiteBetting':
+    |  // Change Owner
+    |  function changeOwner(address payable _newOwner ) external onlyOwner {
+  > |    owner = _newOwner;
+    |  }
+    |address payable lastPlayer_re_ent30;
+  at buggy_25.sol(333)
+

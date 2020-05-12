@@ -1,0 +1,49 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_22.sol:355:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_22.sol:328:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:666:23: Warning: Callstack Depth Attack Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:85:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_22.sol:317:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:298:22: Warning: Callstack Depth Attack Vulnerability.\n       bool success =msg.sender.call.value(balances_re_ent1[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:271:22: Warning: Callstack Depth Attack Vulnerability.\n       bool success= msg.sender.call.value(balances_re_ent21[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:652:28: Warning: Callstack Depth Attack Vulnerability.\n            bool success = p.recipient.call.value(p.amount)(transactionBytecode)"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [
+   "/tmp/SCs/buggy_22.sol:355:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_22.sol:328:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:666:23: Warning: Re-Entrancy Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:85:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_22.sol:317:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:298:22: Warning: Re-Entrancy Vulnerability.\n       bool success =msg.sender.call.value(balances_re_ent1[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_22.sol:271:22: Warning: Re-Entrancy Vulnerability.\n       bool success= msg.sender.call.value(balances_re_ent21[msg.sender ])(\"\")"
+  ], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_22.sol:478:5: Warning: Integer Overflow.\n    function newProposal(\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    transactionDescription = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_22.sol:619:5: Warning: Integer Overflow.\n    function executeProposal(uint proposalNumber, bytes memory transactionBytecode) public {\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    transactionBytecode = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_22.sol:231:1: Warning: Integer Overflow.\ncontract MindsyncPlatform is owned, tokenRecipient {\n^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    proposalNumber = 0\n    proposals[proposalNumber] = 1\n    minimumTokensToVote = 10702349448181243879299072425195434579779741917682238337245448512988264792063", 
+   "/tmp/SCs/buggy_22.sol:64:5: Warning: Integer Overflow.\n    function receiveApproval(address _from, uint256 _value, address _token, bytes memory _extraData) public {\n    ^\nSpanning multiple lines.", 
+   "/tmp/SCs/buggy_22.sol:595:18: Warning: Integer Overflow.\n        voteID = p.votes\nInteger Overflow occurs if:\n    proposalNumber = 0\n    proposals[proposalNumber] = 1\n    minimumTokensToVote = 10702349448181243879299072425195434579779741917682238337245448512988264792063", 
+   "/tmp/SCs/buggy_22.sol:595:18: Warning: Integer Overflow.\n        voteID = p.votes.length++\nInteger Overflow occurs if:\n    proposalNumber = 0\n    proposals[proposalNumber] = 1\n    minimumTokensToVote = 10702349448181243879299072425195434579779741917682238337245448512988264792063", 
+   "/tmp/SCs/buggy_22.sol:268:3: Warning: Integer Overflow.\n  Proposal[] public proposals", 
+   "/tmp/SCs/buggy_22.sol:521:5: Warning: Integer Overflow.\n    function checkProposalCode(\n    ^\nSpanning multiple lines.\nInteger Overflow occurs if:\n    transactionBytecode = 115792089237316195423570985008687907853269984665640564039457584007913129639935", 
+   "/tmp/SCs/buggy_22.sol:563:9: Warning: Integer Overflow.\n        p.signedByChairman\nInteger Overflow occurs if:\n    proposalNumber = 0\n    signProposal = 115792089237316195423570985008687907853269984665640564039457584007913129639935\n    chairmanAddress = 0\n    proposals[proposalNumber] = 1\n    initialized = 255\n    minimumTokensToVote = 10702349448181243879299072425195434579779741917682238337245448512988264792063"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_22.sol:268:3: Warning: Integer Underflow.\n  Proposal[] public proposals"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_22.sol:237:9: Warning: Transaction-Ordering Dependency.\n\tif( ! (msg.sender.send(10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_22.sol:430:17: Warning: Transaction-Ordering Dependency.\n        require(msg.sender.send(_weiToWithdraw)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "59.8"
+}

@@ -1,0 +1,47 @@
+{
+ "vulnerabilities": {
+  "callstack": [
+   "/tmp/SCs/buggy_17.sol:291:16: Warning: Callstack Depth Attack Vulnerability.\n\tbool success= msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_17.sol:173:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_17.sol:430:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:108:22: Warning: Callstack Depth Attack Vulnerability.\n       bool success =msg.sender.call.value(balances_re_ent1[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:444:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:367:23: Warning: Callstack Depth Attack Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:339:23: Warning: Callstack Depth Attack Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent26[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:145:22: Warning: Callstack Depth Attack Vulnerability.\n        bool success=msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_17.sol:300:21: Warning: Callstack Depth Attack Vulnerability.\n\t    bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)(\"\")"
+  ], 
+  "time_dependency": [], 
+  "reentrancy": [
+   "/tmp/SCs/buggy_17.sol:291:16: Warning: Re-Entrancy Vulnerability.\n\tbool success= msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_17.sol:173:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(1 ether)(\"\")", 
+   "/tmp/SCs/buggy_17.sol:430:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(userBalance_re_ent40[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:108:22: Warning: Re-Entrancy Vulnerability.\n       bool success =msg.sender.call.value(balances_re_ent1[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:444:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent33[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:367:23: Warning: Re-Entrancy Vulnerability.\n       bool success = msg.sender.call.value(balances_re_ent8[msg.sender ])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:339:23: Warning: Re-Entrancy Vulnerability.\n        bool success= msg.sender.call.value(userBalance_re_ent26[msg.sender])(\"\")", 
+   "/tmp/SCs/buggy_17.sol:145:22: Warning: Re-Entrancy Vulnerability.\n        bool success=msg.sender.call.value(_weiToWithdraw)(\"\")", 
+   "/tmp/SCs/buggy_17.sol:300:21: Warning: Re-Entrancy Vulnerability.\n\t    bool success = lastPlayer_re_ent9.call.value(jackpot_re_ent9)(\"\")"
+  ], 
+  "integer_overflow": [
+   "/tmp/SCs/buggy_17.sol:254:3: Warning: Integer Overflow.\n  function approveAndCall(address _spender, uint256 _value, bytes memory _extraData) public returns (bool success) {\n  ^\nSpanning multiple lines.", 
+   "/tmp/SCs/buggy_17.sol:345:3: Warning: Integer Overflow.\n  mapping (address => frozenWallet) public frozenWallets", 
+   "/tmp/SCs/buggy_17.sol:316:3: Warning: Integer Overflow.\n  address[] public frozenAddresses"
+  ], 
+  "parity_multisig_bug_2": [], 
+  "integer_underflow": [
+   "/tmp/SCs/buggy_17.sol:105:3: Warning: Integer Underflow.\n  string public name", 
+   "/tmp/SCs/buggy_17.sol:112:3: Warning: Integer Underflow.\n  string public symbol"
+  ], 
+  "money_concurrency": [
+   [
+    "/tmp/SCs/buggy_17.sol:125:9: Warning: Transaction-Ordering Dependency.\n\tif( ! (msg.sender.send(10 ether)"
+   ], 
+   [
+    "/tmp/SCs/buggy_17.sol:191:17: Warning: Transaction-Ordering Dependency.\n        require(msg.sender.send(_weiToWithdraw)"
+   ]
+  ], 
+  "assertion_failure": []
+ }, 
+ "evm_code_coverage": "81.6"
+}
