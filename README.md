@@ -1,6 +1,8 @@
 # SolidiFI
 SolidiFI is an automated and systematic framework for evaluating smart contracts' static analysis tools
 
+For more details about SolidiFi, please refrence the paper  [How Effective are Smart Contract Analysis Tools? Evaluating Smart Contract Static Analysis Tools Using Bug Injection](https://github.com/DependableSystemsLab/SolidiFI)
+
 ## Quick Start
  A docker container with required dependencies is available for easy use of SolidiFI. 
  
