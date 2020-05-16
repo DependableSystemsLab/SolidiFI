@@ -26,10 +26,11 @@ SolidiFI is an automated and systematic framework for evaluating smart contracts
   python3 solidifi.py -i /solidifi/SCs/1.sol Timestamp-Dependency
   ```
     
-	The generated buggy contract along with the injection log will be stored under the "buggy/Timestamp-Dependency" folder.
+  The generated buggy contract along with the injection log will be stored under the "buggy/Timestamp-Dependency" folder.
   
   ## Tools Evaluation Using SolidiFI 
-     In case you want to to evaluate the analysis tools mentioned in the paper from scratch. You can run  evaluator.py.
+   
+   In case you want to to evaluate the analysis tools mentioned in the paper from scratch. You can run  evaluator.py.
    
    This script will inject bugs of the different 7 bug types in the 50 contracts dataset. Then it will scan 
    the generated buggy contracts using the six analysis tools being evaluated, and finally, inspect the generated reports
