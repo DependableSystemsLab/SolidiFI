@@ -19,7 +19,7 @@ for cs in x:
     for bug_type in bug_types:
         iter_avg=0
         for iter in rounds:
-            time = solidifi.interior_main("-i" ,"SCs/"+str(cs)+".sol" ,bug_type)
+            time = solidifi.interior_main("-i" ,"contracts/"+str(cs)+".sol" ,bug_type)
             iter_avg=iter_avg+float(time)
         time_avg=time_avg+round(np.average(iter_avg),3)
     time_v.append(round(time_avg,3))

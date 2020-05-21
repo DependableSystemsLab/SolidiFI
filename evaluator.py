@@ -67,7 +67,7 @@ def evaluate_tools():
         for cs in x:
             tool_bugs = [bugs['bugs'] for bugs in bug_types if  bugs['tool'] == tool]
             for bug_type in tool_bugs[0]:
-                time = solidifi.interior_main("-i" ,"SCs/"+str(cs)+".sol" ,bug_type)
+                time = solidifi.interior_main("-i" ,"contracts/"+str(cs)+".sol" ,bug_type)
 
         tool_main_dir = os.path.join("tool_results",tool)
         tool_buggy_sc = os.path.join(tool_main_dir,"analyzed_buggy_contracts")
@@ -97,7 +97,7 @@ def evaluate_tools():
 
                 if tool =='Oyente':
                     #Oyente command 
-                    tool_cmd ="docker run -i -t -v {0} luongnguyen/oyente bash -c \" cd oyente ; python oyente.py -ce -j -s ../SCs/{1} \" >{2} ".format(os.path.join(os.getcwd(), injected_scs)+":/oyente/SCs",tail,result_file) 
+                    tool_cmd ="docker run -i -t -v {0} luongnguyen/oyente bash -c \" cd oyente ; python oyente.py -ce -j -s ../contracts/{1} \" >{2} ".format(os.path.join(os.getcwd(), injected_scs)+":/oyente/contracts",tail,result_file) 
                     os.system(tool_cmd)
     
                 elif tool == 'Securify':
