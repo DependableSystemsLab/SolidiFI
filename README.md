@@ -36,8 +36,9 @@ If you use SolidiFI, please cite this paper
  2. Clone source coode
    
    ```
-   git clone --recursive 
+   git clone --recursive https://github.com/DependableSystemsLab/SolidiFI.git
    ```
+   
 ## Using SolidiFI to Inject Bugs into a Smart Contract
  SolidiFI can be used to inject bugs into a contract as follows 
    
