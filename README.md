@@ -23,7 +23,7 @@ If you use SolidiFI, please cite this paper
  
  SolidiFI requires Python 3.6+. 
  
- 1. Install dependencies
+ ### 1. Install dependencies
 
  To use SolidiFI from your machine, please run the following command to install depedencies required for SolidiFI to work properly.
  
@@ -33,7 +33,7 @@ If you use SolidiFI, please cite this paper
     pip install -e .
    ```
    
- 2. Clone source coode
+ ### 2. Clone source coode
    
    ```
    git clone --recursive https://github.com/DependableSystemsLab/SolidiFI.git
