@@ -19,10 +19,12 @@ If you use SolidiFI, please cite this paper
    sudo docker run -i -t asemg/solidifi
   ```
   
- ## Installing Dependencies
+ ## Usage From Source
  
- SolidiFI requires Python 3.6+.
+ SolidiFI requires Python 3.6+. 
  
+ 1. Install dependencies
+
  To use SolidiFI from your machine, please run the following command to install depedencies required for SolidiFI to work properly.
  
    ```
@@ -30,7 +32,12 @@ If you use SolidiFI, please cite this paper
     pip install -r requirements.txt
     pip install -e .
    ```
- 
+   
+ 2. Clone source coode
+   
+   ```
+   git clone --recursive 
+   ```
 ## Using SolidiFI to Inject Bugs into a Smart Contract
  SolidiFI can be used to inject bugs into a contract as follows 
    
