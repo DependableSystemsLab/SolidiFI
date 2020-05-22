@@ -19,6 +19,18 @@ If you use SolidiFI, please cite this paper
    sudo docker run -i -t asemg/solidifi
   ```
   
+ ## Installing Dependencies
+ 
+ SolidiFI requires Python 3.6+.
+ 
+ To use SolidiFI from your machine, please run the following command to install depedencies required for SolidiFI to work properly.
+ 
+   ```
+    pip install --upgrade pip
+    pip install -r requirements.txt
+    pip install -e .
+   ```
+ 
 ## Using SolidiFI to Inject Bugs into a Smart Contract
  SolidiFI can be used to inject bugs into a contract as follows 
    
@@ -28,10 +40,10 @@ If you use SolidiFI, please cite this paper
   For the Bug-type parameter, it can be one of the following
 	[Re-entrancy, Timestamp-Dependency, Unchecked-Send, Unhandled-Exceptions, TOD, Overflow-Underflow, tx.origin]
   
-   For example to inject Timestamp Dependency bugs into /solidifi/SCs/1.sol smart contract 
+   For example to inject Timestamp Dependency bugs into /solidifi/contracts/1.sol smart contract 
   
   ```
-  python3 solidifi.py -i /solidifi/SCs/1.sol Timestamp-Dependency
+  python3 solidifi.py -i /solidifi/contracts/1.sol Timestamp-Dependency
   ```
     
   The generated buggy contract along with the injection log will be stored under the "buggy/Timestamp-Dependency" folder.
