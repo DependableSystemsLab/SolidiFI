@@ -26,7 +26,7 @@ If you use SolidiFI, please cite this paper
  To use SolidiFI from your machine, please run the following command to install depedencies required for SolidiFI to work properly.
  
    ```
-    python3 requirements.py
+    pip install -r requirements.txt
    ```
  
 ## Using SolidiFI to Inject Bugs into a Smart Contract
