@@ -12,13 +12,15 @@ If you use SolidiFI, please cite this paper
 ## Quick Start
  A docker container with required dependencies is available for easy use of SolidiFI. 
  
-  To download and open the container, run the following two commands (WARNING: This can take some time.)
-    
+  Download the docker image (WARNING: This can take some time.):
   ```
    sudo docker pull asemg/solidifi
-   sudo docker run -i -t asemg/solidifi
   ```
   
+   Run the container:
+  ```
+   sudo docker run -i -t asemg/solidifi
+  ```
  ## Usage From Source
  
  SolidiFI requires Python 3.6+. 
