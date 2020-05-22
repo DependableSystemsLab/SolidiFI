@@ -71,7 +71,7 @@ If you use SolidiFI, please cite this paper
    python3 evaluator.py Oyente,Securify,Mythril,Smartcheck,Manticore,Slither
    ``` 
   
-   ## Extending The Set Of The Bug Types
+   ## Extending the Set of Tte Bug Types
    
    SolidiFI is already configured to inject the bug types mentioned above. However, SolidiFI can be extended to inject other bugs.
    
