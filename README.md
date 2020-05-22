@@ -52,11 +52,21 @@ If you use SolidiFI, please cite this paper
    
    In case you want to to evaluate the analysis tools mentioned in the paper from scratch. You can run  evaluator.py.
    
-   This script will inject bugs of the different 7 bug types in the 50 contracts dataset. Then it will scan 
-   the generated buggy contracts using the six analysis tools being evaluated, and finally, inspect the generated reports
-   by the tools for false negatives and false positives.
+   This script will inject bugs of the different 7 bug types in the contracts dataset (stored in the folder "contracts"). Then it will scan the generated buggy contracts using the six analysis tools being evaluated, and finally, it will inspect the analysis reports of the tools for false negatives, false positives, and misidentified bugs.
    
    ```
    python3 evaluator.py Oyente,Securify,Mythril,Smartcheck,Manticore,Slither
    ``` 
   
+   ## Extending The Set Of The Bug Types
+   
+   SolidiFI is already configured to inject the bug types mentioned above. However, SolidiFI can be extended to inject other bugs.
+   
+   To configure SolidiFI to inject other bugs, update the configuration file named "bug_types.conf" by adding the following pattern for  each bug.
+   
+        [<id>]
+	bug_type_id = <id>
+	bug_type = <type>
+	bug_type_dir = <folder-containing-bug-snippets>
+
+   After updating the bugs configuration file, create a folder under "bugs" directory and name it by the name specified in "bug_type_dir" specifed in th configuration file. Inside this folder, create two subfolders, namely, "ts" and "tf" and put all non-block bug snippets under the "ts" folder" and the block bug snippets, written as functions or other blocks, under the folder "tf"
