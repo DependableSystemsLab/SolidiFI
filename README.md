@@ -8,10 +8,10 @@ The dataset and the results of the paper are available [here](https://github.com
 If you use SolidiFI, please cite this paper
 
  ```
- @article{ghaleb2020effective,
-  title={How Effective are Smart Contract Analysis Tools? Evaluating Smart Contract Static Analysis Tools Using Bug Injection},
+@inproceedings{ghaleb2020effective,
+  title={How Effective Are Smart Contract Analysis Tools? Evaluating Smart Contract Static Analysis Tools Using Bug Injection},
   author={Ghaleb, Asem and Pattabiraman, Karthik},
-  journal={arXiv preprint arXiv:2005.11613},
+  booktitle={Proceedings of the 29th ACM SIGSOFT International Symposium on Software Testing and Analysis},
   year={2020}
 }
   ```
