@@ -30,8 +30,14 @@ If you use SolidiFI, please cite this paper
  ## Usage From Source
  
  SolidiFI requires Python 3.6+. 
+   
+ ### 1. Clone source coode
+   
+   ```
+   git clone --recursive https://github.com/DependableSystemsLab/SolidiFI.git
+   ```
  
- ### 1. Install dependencies
+  ### 2. Install dependencies
 
  To use SolidiFI from your machine, please run the following command to install depedencies required for SolidiFI to work properly.
  
@@ -42,12 +48,6 @@ If you use SolidiFI, please cite this paper
     curl -L https://github.com/ethereum/solidity/releases/download/v0.5.12/solc-static-linux > /usr/bin/solc-0.5.12 && \
         chmod +x /usr/bin/solc-0.5.12 && \
         ln -s /usr/bin/solc-0.5.12 /usr/local/bin/solc
-   ```
-   
- ### 2. Clone source coode
-   
-   ```
-   git clone --recursive https://github.com/DependableSystemsLab/SolidiFI.git
    ```
    
 ## Using SolidiFI to Inject Bugs into a Smart Contract
