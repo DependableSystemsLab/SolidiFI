@@ -42,7 +42,7 @@ def inject_bug(bug_type):
         cur_bug_dir = os.path.join(cur_bug_dir , cur_bug)
 
         if os.path.exists(cur_bug_dir):
-            bugfiles = [f for f in os.listdir(cur_bug_dir) if os.path.isfile(os.path.join(cur_bug_dir, f))]
+            bugfiles = [f for f in os.listdir(cur_bug_dir) if os.path.isfile(os.path.join(cur_bug_dir, f)) and not f.startswith('.')]
             bug_seq = 0
         else:
             continue
@@ -50,13 +50,15 @@ def inject_bug(bug_type):
         """Scan the fource code and identify the potential locations for injecting bugs"""
         
         BIP = get_potential_locs(cur_contr_ast_data, bug_forms)
-        
         for loc in reversed(BIP):
             if  not bug_seq < len(bugfiles):
                 print("Running out of bug snippets")
                 break
             bug_f = open(os.path.join(cur_bug_dir,bugfiles[bug_seq]), "rb")
             bug_snip = bug_f.read()
+            #print(os.path.join(cur_bug_dir,bugfiles[bug_seq]))
+            #print(bug_snip)
+            #print("************")
             bug_f.close()
             bug_snip_len = len(bug_snip.splitlines())
             soffset = int(get_src(loc['src'])['soffset'])
