@@ -20,12 +20,12 @@ If you use SolidiFI, please cite this paper
  
   Download the docker image (WARNING: This can take some time.):
   ```
-   sudo docker pull asemg/solidifi
+   docker pull asemg/solidifi
   ```
   
    Run the container:
   ```
-   sudo docker run -i -t asemg/solidifi
+   docker run -i -t asemg/solidifi
   ```
  ## Usage From Source
  
